@@ -1,16 +1,27 @@
-import React from 'react'
+import React, { useState, useCallback } from 'react'
 import { useParams, Link, Navigate } from 'react-router-dom'
 import SEOHead from '@components/ui/SEOHead'
-import { PageTransition, FadeUp, StaggerContainer, StaggerItem } from '@components/animations'
+import Lightbox from '@components/ui/Lightbox'
+import { PageTransition, FadeUp } from '@components/animations'
 import { getProjectBySlug, getRelatedProjects } from '@data/projects'
 
 export default function ProjectDetail() {
   const { slug } = useParams()
   const project  = getProjectBySlug(slug)
 
+  const [lightboxIndex, setLightboxIndex] = useState(null)
+
   if (!project) return <Navigate to="/portfolio" replace />
 
   const related = getRelatedProjects(slug, 2)
+
+  const allImages = [
+    ...(project.image  ? [project.image]  : []),
+    ...(project.images ? project.images   : []),
+  ]
+
+  const openLightbox  = useCallback((index) => setLightboxIndex(index), [])
+  const closeLightbox = useCallback(() => setLightboxIndex(null), [])
 
   return (
     <PageTransition>
@@ -21,6 +32,8 @@ export default function ProjectDetail() {
         type="article"
       />
 
+      <Lightbox images={allImages} index={lightboxIndex} onClose={closeLightbox} />
+
       {/* Hero */}
       <section
         className="pt-32 pb-16"
@@ -29,10 +42,7 @@ export default function ProjectDetail() {
       >
         <div className="container-custom">
           <FadeUp>
-            <Link
-              to="/portfolio"
-              className="inline-flex items-center gap-2 text-sm text-text-muted hover:text-text-primary transition-colors mb-8 group"
-            >
+            <Link to="/portfolio" className="inline-flex items-center gap-2 text-sm text-text-muted hover:text-text-primary transition-colors mb-8 group">
               <span className="transition-transform duration-200 group-hover:-translate-x-1" aria-hidden="true">←</span>
               Volver al portfolio
             </Link>
@@ -48,13 +58,9 @@ export default function ProjectDetail() {
                   </span>
                   <StatusBadge status={project.status} />
                 </div>
-
-                <h1 className="text-display-lg font-black text-text-primary mb-2" id="project-title">
-                  {project.title}
-                </h1>
+                <h1 className="text-display-lg font-black text-text-primary mb-2" id="project-title">{project.title}</h1>
                 <p className="text-lg font-medium text-text-secondary mb-6">{project.tagline}</p>
                 <p className="text-text-secondary leading-relaxed mb-8">{project.description}</p>
-
                 <div className="flex flex-wrap gap-3">
                   {project.url && (
                     <a href={project.url} target="_blank" rel="noopener noreferrer"
@@ -77,7 +83,6 @@ export default function ProjectDetail() {
 
             <FadeUp delay={0.2}>
               <div className="space-y-4">
-                {/* Metrics */}
                 {project.metrics?.length > 0 && (
                   <div className="grid grid-cols-3 gap-3">
                     {project.metrics.map((m) => (
@@ -88,22 +93,17 @@ export default function ProjectDetail() {
                     ))}
                   </div>
                 )}
-
-                {/* Tags */}
                 <div className="glass-card p-4">
                   <p className="text-xs font-semibold text-text-muted uppercase tracking-widest mb-3">Stack</p>
                   <div className="flex flex-wrap gap-2">
                     {project.tags.map((tag) => (
-                      <span key={tag}
-                            className="text-xs px-2.5 py-1 rounded-pill text-text-secondary"
+                      <span key={tag} className="text-xs px-2.5 py-1 rounded-pill text-text-secondary"
                             style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.10)' }}>
                         {tag}
                       </span>
                     ))}
                   </div>
                 </div>
-
-                {/* Services */}
                 {project.services?.length > 0 && (
                   <div className="glass-card p-4">
                     <p className="text-xs font-semibold text-text-muted uppercase tracking-widest mb-3">Qué hicimos</p>
@@ -127,10 +127,11 @@ export default function ProjectDetail() {
         <section className="py-8">
           <div className="container-custom">
             <FadeUp>
-              <div className="rounded-panel overflow-hidden aspect-video bg-bg-elevated border border-subtle">
-                <img src={project.image} alt={`Vista general de ${project.title}`}
-                     className="w-full h-full object-cover" loading="lazy" />
-              </div>
+              <GalleryImage
+                src={project.image}
+                alt={`Vista general de ${project.title}`}
+                onClick={() => openLightbox(0)}
+              />
             </FadeUp>
           </div>
         </section>
@@ -159,17 +160,27 @@ export default function ProjectDetail() {
         <section className="py-8 pb-16">
           <div className="container-custom">
             <FadeUp>
-              <h2 className="text-display-sm font-bold text-text-primary mb-8">Capturas</h2>
+              <div className="flex items-center justify-between mb-6">
+                <h2 className="text-display-sm font-bold text-text-primary">Capturas</h2>
+                <span className="text-xs text-text-muted">
+                  Click para ampliar<span className="ml-1 hidden md:inline"> · ← → para navegar</span>
+                </span>
+              </div>
             </FadeUp>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {project.images.map((img, i) => (
-                <FadeUp key={i} delay={i * 0.1}>
-                  <div className="rounded-card overflow-hidden aspect-video bg-bg-elevated border border-subtle">
-                    <img src={img} alt={`Captura ${i + 1} de ${project.title}`}
-                         className="w-full h-full object-cover" loading="lazy" />
-                  </div>
-                </FadeUp>
-              ))}
+            <div className={`grid gap-4 ${project.images.length === 1 ? 'grid-cols-1' : 'grid-cols-1 md:grid-cols-2'}`}>
+              {project.images.map((img, i) => {
+                const lightboxIdx = project.image ? i + 1 : i
+                return (
+                  <FadeUp key={i} delay={i * 0.08}>
+                    <GalleryImage
+                      src={img}
+                      alt={`Captura ${i + 1} de ${project.title}`}
+                      onClick={() => openLightbox(lightboxIdx)}
+                      wide={project.images.length % 2 !== 0 && i === 0}
+                    />
+                  </FadeUp>
+                )
+              })}
             </div>
           </div>
         </section>
@@ -200,6 +211,38 @@ export default function ProjectDetail() {
         </section>
       )}
     </PageTransition>
+  )
+}
+
+function GalleryImage({ src, alt, onClick, wide = false }) {
+  return (
+    <button
+      onClick={onClick}
+      className={`group relative block w-full aspect-video overflow-hidden rounded-panel
+                  bg-bg-elevated border border-subtle hover:border-violet-500/30
+                  transition-all duration-300 cursor-pointer
+                  focus-visible:ring-2 focus-visible:ring-violet-400
+                  ${wide ? 'md:col-span-2' : ''}`}
+      aria-label={`Ampliar: ${alt}`}
+      style={{ padding: 0 }}
+    >
+      <img src={src} alt={alt}
+           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+           loading="lazy" />
+      <div className="absolute inset-0 flex items-center justify-center
+                      bg-black/0 group-hover:bg-black/40 transition-all duration-300">
+        <div className="opacity-0 group-hover:opacity-100 transition-all duration-300
+                        scale-75 group-hover:scale-100
+                        w-10 h-10 rounded-full flex items-center justify-center
+                        bg-white/10 backdrop-blur-sm border border-white/20">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <circle cx="7" cy="7" r="4.5" stroke="white" strokeWidth="1.5"/>
+            <path d="M10.5 10.5L14 14" stroke="white" strokeWidth="1.5" strokeLinecap="round"/>
+            <path d="M7 5v4M5 7h4" stroke="white" strokeWidth="1.5" strokeLinecap="round"/>
+          </svg>
+        </div>
+      </div>
+    </button>
   )
 }
 

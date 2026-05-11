@@ -18,9 +18,9 @@ export default function PortfolioPreview() {
           />
         </FadeUp>
 
-        <StaggerContainer className="mt-16 grid grid-cols-1 lg:grid-cols-2 gap-6" stagger={0.12}>
+        <StaggerContainer className="mt-16 grid grid-cols-1 lg:grid-cols-2 gap-6 items-stretch" stagger={0.12}>
           {featuredProjects.map((project) => (
-            <StaggerItem key={project.id}>
+            <StaggerItem key={project.id} className="h-full">
               <ProjectCard project={project} />
             </StaggerItem>
           ))}
@@ -49,7 +49,7 @@ function ProjectCard({ project }) {
   return (
     <Link
       to={`/portfolio/${project.slug}`}
-      className="group block glass-card overflow-hidden hover:border-default transition-all duration-300 hover:shadow-card-hover"
+      className="group flex flex-col h-full glass-card overflow-hidden hover:border-default transition-all duration-300 hover:shadow-card-hover"
       aria-label={`Ver proyecto: ${project.title}`}
     >
       {/* Image area */}

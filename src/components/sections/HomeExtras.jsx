@@ -127,7 +127,7 @@ export function BenefitsSection() {
 
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <SlideIn direction="left">
-            <div>
+            <div className="flex flex-col items-center md:items-start text-center md:text-left">
               <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-pill text-xs font-medium mb-4"
                    style={{ background: 'rgba(139,92,246,0.10)', border: '1px solid rgba(139,92,246,0.25)', color: '#A78BFA' }}>
                 Por qué MT Studio
@@ -135,7 +135,7 @@ export function BenefitsSection() {
               <h2 className="text-display-md font-bold text-text-primary mb-4 text-balance" id="benefits-heading">
                 Un estudio que se involucra de verdad
               </h2>
-              <p className="text-text-secondary leading-relaxed mb-8">
+              <p className="text-text-secondary leading-relaxed mb-8 text-left">
                 No somos una agencia que fabrica proyectos en serie. Somos un estudio independiente
                 que trabaja con pocos clientes a la vez para dedicarle a cada proyecto la atención que merece.
               </p>
@@ -197,29 +197,31 @@ export function CTASection() {
               <h2 className="text-display-lg font-black text-text-primary mb-4 text-balance" id="cta-heading">
                 Hagamos algo <span className="gradient-text">que valga la pena</span>
               </h2>
-              <p className="text-text-secondary text-lg mb-8 max-w-xl mx-auto">
+              <p className="text-text-secondary text-lg mb-8 max-w-xl mx-auto text-left md:text-center">
                 Contanos tu idea. Sin compromiso, sin tecnicismos. Una conversación para ver
                 si somos el equipo indicado para tu proyecto.
               </p>
 
-              <div className="flex flex-wrap gap-4 justify-center">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <Link
                   to="/contacto"
-                  className="inline-flex items-center gap-2 px-8 py-4 rounded-pill font-semibold text-white
+                  className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-pill font-semibold text-white
                              bg-gradient-violet-cyan hover:opacity-90 active:scale-95
                              transition-all duration-200 shadow-glow-violet
-                             focus-visible:ring-2 focus-visible:ring-violet-400"
+                             focus-visible:ring-2 focus-visible:ring-violet-400
+                             w-full sm:w-auto"
                 >
                   Empezar conversación
                   <span aria-hidden="true">→</span>
                 </Link>
                 <Link
                   to="/portfolio"
-                  className="inline-flex items-center gap-2 px-8 py-4 rounded-pill font-semibold
+                  className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-pill font-semibold
                              text-text-primary bg-white/8 border border-default
                              hover:bg-white/12 hover:border-strong active:scale-95
                              transition-all duration-200
-                             focus-visible:ring-2 focus-visible:ring-violet-400"
+                             focus-visible:ring-2 focus-visible:ring-violet-400
+                             w-full sm:w-auto"
                 >
                   Ver nuestros proyectos
                 </Link>

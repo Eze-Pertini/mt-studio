@@ -100,7 +100,7 @@ export function SectionHeading({ label, title, subtitle, center = true, classNam
         {title}
       </h2>
       {subtitle && (
-        <p className="text-text-secondary text-lg leading-relaxed max-w-2xl mx-auto">
+        <p className="text-text-secondary text-lg leading-relaxed max-w-2xl mx-auto text-left md:text-center">
           {subtitle}
         </p>
       )}

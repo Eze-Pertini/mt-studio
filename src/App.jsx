@@ -6,15 +6,16 @@ import PageLoader from '@components/ui/PageLoader'
 import ScrollRestoration from '@components/ui/ScrollRestoration'
 
 // ─── Lazy-loaded pages ────────────────────────────────────────────
-const Home        = lazy(() => import('@pages/Home'))
-const Services    = lazy(() => import('@pages/Services'))
-const Portfolio   = lazy(() => import('@pages/Portfolio'))
+const Home          = lazy(() => import('@pages/Home'))
+const Services      = lazy(() => import('@pages/Services'))
+const ServiceDetail = lazy(() => import('@pages/ServiceDetail'))
+const Portfolio     = lazy(() => import('@pages/Portfolio'))
 const ProjectDetail = lazy(() => import('@pages/ProjectDetail'))
-const About       = lazy(() => import('@pages/About'))
-const Blog        = lazy(() => import('@pages/Blog'))
-const BlogDetail  = lazy(() => import('@pages/BlogDetail'))
-const Contact     = lazy(() => import('@pages/Contact'))
-const NotFound    = lazy(() => import('@pages/NotFound'))
+const About         = lazy(() => import('@pages/About'))
+const Blog          = lazy(() => import('@pages/Blog'))
+const BlogDetail    = lazy(() => import('@pages/BlogDetail'))
+const Contact       = lazy(() => import('@pages/Contact'))
+const NotFound      = lazy(() => import('@pages/NotFound'))
 
 // ─── Animated Routes wrapper ──────────────────────────────────────
 function AnimatedRoutes() {
@@ -26,6 +27,7 @@ function AnimatedRoutes() {
         <Route path="/" element={<MainLayout />}>
           <Route index              element={<Home />} />
           <Route path="servicios"   element={<Services />} />
+          <Route path="servicios/:slug" element={<ServiceDetail />} />
           <Route path="portfolio"   element={<Portfolio />} />
           <Route path="portfolio/:slug" element={<ProjectDetail />} />
           <Route path="nosotros"    element={<About />} />

@@ -27,7 +27,7 @@ export default function HeroSection() {
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
           {/* Left column — text */}
-          <div className="flex flex-col gap-5 md:gap-6">
+          <div className="flex flex-col items-center md:items-start gap-5 md:gap-6 text-center md:text-left">
             {/* Badge */}
             <FadeUp delay={0.1}>
               <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-pill text-sm font-medium w-fit"
@@ -47,7 +47,7 @@ export default function HeroSection() {
 
             {/* Subtitle */}
             <FadeUp delay={0.3}>
-              <p className="text-base md:text-lg text-text-secondary leading-relaxed max-w-lg">
+              <p className="text-base md:text-lg text-text-secondary leading-relaxed max-w-lg text-left">
                 Creamos sitios web, aplicaciones y sistemas digitales que combinan
                 diseño premium con tecnología sólida. Para negocios que saben
                 que la presencia digital importa.
@@ -55,25 +55,27 @@ export default function HeroSection() {
             </FadeUp>
 
             {/* CTAs */}
-            <FadeUp delay={0.4}>
-              <div className="flex flex-wrap gap-3 mt-1">
+            <FadeUp delay={0.4} className="w-full md:w-auto">
+              <div className="flex flex-col sm:flex-row gap-3 mt-1 w-full md:w-auto">
                 <Link
                   to="/contacto"
-                  className="inline-flex items-center gap-2 px-6 md:px-7 py-3 md:py-3.5 rounded-pill font-semibold text-white text-sm
+                  className="inline-flex items-center justify-center gap-2 px-6 md:px-7 py-3 md:py-3.5 rounded-pill font-semibold text-white text-sm
                              bg-gradient-violet-cyan hover:opacity-90 active:scale-95
                              transition-all duration-200 shadow-glow-violet
-                             focus-visible:ring-2 focus-visible:ring-violet-400"
+                             focus-visible:ring-2 focus-visible:ring-violet-400
+                             w-full sm:w-auto"
                 >
                   Empezar un proyecto
                   <ArrowIcon />
                 </Link>
                 <Link
                   to="/portfolio"
-                  className="inline-flex items-center gap-2 px-6 md:px-7 py-3 md:py-3.5 rounded-pill font-semibold text-sm
+                  className="inline-flex items-center justify-center gap-2 px-6 md:px-7 py-3 md:py-3.5 rounded-pill font-semibold text-sm
                              text-text-primary bg-white/8 border border-default
                              hover:bg-white/12 hover:border-strong active:scale-95
                              transition-all duration-200
-                             focus-visible:ring-2 focus-visible:ring-violet-400"
+                             focus-visible:ring-2 focus-visible:ring-violet-400
+                             w-full sm:w-auto"
                 >
                   Ver nuestro trabajo
                 </Link>
@@ -81,14 +83,14 @@ export default function HeroSection() {
             </FadeUp>
 
             {/* Social proof */}
-            <FadeUp delay={0.5}>
-              <div className="flex items-center gap-5 md:gap-6 pt-4 border-t border-subtle mt-1">
+            <FadeUp delay={0.5} className="w-full">
+              <div className="flex items-center justify-center md:justify-start gap-5 md:gap-6 pt-4 border-t border-subtle mt-1">
                 {[
                   { value: '20+',  label: 'Proyectos' },
                   { value: '100%', label: 'Satisfacción' },
                   { value: '5★',   label: 'Valoración' },
                 ].map((stat) => (
-                  <div key={stat.label}>
+                  <div key={stat.label} className="text-center md:text-left">
                     <div className="text-lg md:text-xl font-bold text-text-primary">{stat.value}</div>
                     <div className="text-xs text-text-muted">{stat.label}</div>
                   </div>

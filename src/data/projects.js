@@ -1,105 +1,81 @@
 /**
  * MT Studio — Projects Data
- * Para agregar un proyecto, añadir un objeto a este array.
- * Las páginas de detalle y el grid se generan automáticamente.
- *
- * TODO: Reemplazar con CMS headless (Sanity/Contentful) cuando esté listo.
+ * Para agregar un proyecto: copiar la estructura y completar los campos.
+ * Las imágenes van en /public/projects/{slug}/
  */
 
 export const projects = [
   {
     id: 1,
     slug: 'cargadirecta',
-    title: 'CargaDirecta',
-    tagline: 'Plataforma de logística inteligente',
+    title: 'Carga Directa',
+    tagline: 'Ecommerce de recargas y gift cards para gamers',
     description:
-      'Plataforma ecommerce de productos digitales con automatización de ventas y entregas instantáneas.',
+      'Tienda online de venta de gift cards y recargas de saldo para juegos como Free Fire, Roblox, Fortnite y Brawl Stars. Entregas instantáneas, múltiples medios de pago y alrededor de 300 ventas mensuales.',
     longDescription: `
-      CargaDirecta es una plataforma ecommerce especializada en la venta de productos y recargas digitales, desarrollada para ofrecer compras rápidas, seguras y completamente automatizadas.
+Carga Directa surgió de una necesidad concreta: darle a los gamers argentinos una forma rápida, confiable y sin fricciones de recargar sus juegos favoritos.
 
-      El sistema integra procesamiento de pagos online, gestión dinámica de productos y entrega automática de contenido digital en tiempo real. Además, cuenta con un panel administrativo personalizado para control de ventas, usuarios, stock virtual y métricas operativas.
+El desafío era construir una tienda que manejara una gran cantidad de variantes de producto, descuentos por medio de pago, entregas digitales instantáneas y un flujo de compra lo más simple posible para un público joven que no tolera la fricción.
 
-      Durante el desarrollo se priorizó una experiencia de usuario moderna, optimización para dispositivos móviles y una estructura escalable preparada para soportar crecimiento, nuevas integraciones y expansión a distintos mercados digitales.
-
+Desarrollamos el sitio sobre WordPress + WooCommerce con el tema Astra y customizaciones propias. Integramos Mercado Pago para el procesamiento de pagos y configuramos la lógica de descuentos automáticos por transferencia bancaria. El resultado es una tienda que opera de forma prácticamente autónoma con mínima intervención manual.
     `,
-    category: 'Sistema Web',
-    tags: ['React', 'Node.js', 'PostgreSQL', 'Maps API'],
+    category: 'Ecommerce',
+    tags: ['WordPress', 'WooCommerce', 'Mercado Pago', 'Astra', 'PHP'],
     year: 2024,
     status: 'live',
     featured: true,
     image: '/projects/cargadirecta/cover.webp',
-    images: [
+    images: [      
       '/projects/cargadirecta/screen-1.webp',
       '/projects/cargadirecta/screen-2.webp',
       '/projects/cargadirecta/screen-3.webp',
     ],
-    color: '#8B5CF6',
-    accentColor: '#06B6D4',
-    url: 'https://cargadirecta.com',
+    color: '#06B6D4',
+    accentColor: '#8B5CF6',
+    url: 'https://www.cargadirecta.com',
     metrics: [
-      { label: 'Cargas gestionadas', value: '+10k' },
-      { label: 'Reducción tiempo admin', value: '60%' },
-      { label: 'Usuarios activos', value: '+200' },
+      { label: 'Ventas mensuales', value: '~300' },
+      { label: 'Categorías', value: '6' },
+      { label: 'Productos activos', value: '50+' },
     ],
-    services: ['Diseño UI/UX', 'Desarrollo Full Stack', 'Integración APIs', 'Deploy & DevOps'],
+    services: ['Diseño y desarrollo ecommerce', 'Integración Mercado Pago', 'Configuración WooCommerce', 'SEO técnico'],
   },
+
   {
     id: 2,
-    slug: 'mini-facturante',
-    title: 'Mini Facturante',
-    tagline: 'Facturación electrónica simplificada',
+    slug: 'factu',
+    title: 'Factu',
+    tagline: 'Facturación electrónica AFIP en tres clicks',
     description:
-      'Aplicación web para facturación electrónica AFIP dirigida a profesionales independientes y pequeñas empresas. Interfaz minimalista que elimina la complejidad del sistema tributario argentino.',
+      'Aplicación web para facturación electrónica ante AFIP/ARCA, orientada a profesionales independientes y pequeñas empresas. Automatiza un proceso que antes llevaba horas, reduciéndolo a segundos.',
     longDescription: `
-      Mini Facturante resuelve un problema que afecta a miles de monotributistas en Argentina:
-      el sistema de facturación electrónica de AFIP es complejo, lento y poco intuitivo.
+Factu nació de una frustración real: el sistema de facturación electrónica de AFIP es lento, confuso y está pensado para contadores, no para el profesional independiente que solo quiere cobrar por su trabajo sin perder media hora en el proceso.
 
-      Construimos una capa de experiencia sobre la API de AFIP que permite emitir comprobantes
-      en segundos, gestionar clientes, ver reportes mensuales y exportar para la contadora —
-      todo desde una interfaz limpia y moderna.
+El sistema permite importar cobros de Mercado Pago directamente, cargar clientes y servicios, y emitir facturas electrónicas validadas ante ARCA en tres pasos. Todo sin conocimientos contables previos.
+
+Desarrollado en PHP con MySQL, el sistema maneja autenticación, gestión de clientes, historial de comprobantes con exportación a Excel, y conexión directa con la API de AFIP para la emisión de facturas C. Actualmente en uso por el propio estudio y en proceso de ampliarse a más usuarios.
     `,
-    category: 'Aplicación Web',
-    tags: ['React', 'API AFIP', 'Node.js', 'MongoDB'],
-    year: 2024,
-    status: 'development',
+    category: 'Sistema Web',
+    tags: ['PHP', 'MySQL', 'API AFIP', 'Mercado Pago API'],
+    year: 2025,
+    status: 'live',
     featured: true,
-    image: '/projects/mini-facturante/cover.webp',
+    image: '/projects/factu/cover.webp',
     images: [
-      '/projects/mini-facturante/screen-1.webp',
-      '/projects/mini-facturante/screen-2.webp',
-      '/projects/mini-facturante/screen-3.webp',
+      '/projects/factu/screen-1.webp',
+      '/projects/factu/screen-2.webp',
+      '/projects/factu/screen-3.webp',
     ],
-    color: '#22D3EE',
-    accentColor: '#8B5CF6',
+    color: '#8B5CF6',
+    accentColor: '#06B6D4',
     url: null,
     metrics: [
-      { label: 'Tiempo por factura', value: '-80%' },
-      { label: 'Errores de carga', value: '~0' },
-      { label: 'Beta testers', value: '50+' },
+      { label: 'Tiempo por factura', value: '-90%' },
+      { label: 'Facturas emitidas', value: '14+' },
+      { label: 'Errores de carga', value: '0' },
     ],
-    services: ['Diseño UI/UX', 'Desarrollo Frontend', 'Integración AFIP', 'Testing'],
+    services: ['Diseño UI/UX', 'Desarrollo Full Stack', 'Integración API AFIP', 'Integración Mercado Pago'],
   },
-  // ─── Agregar nuevos proyectos aquí ───────────────────────────────
-  // {
-  //   id: 3,
-  //   slug: 'nombre-proyecto',
-  //   title: 'Nombre del Proyecto',
-  //   tagline: 'Tagline breve',
-  //   description: 'Descripción corta...',
-  //   longDescription: `...`,
-  //   category: 'Diseño Web',
-  //   tags: ['React', 'Tailwind'],
-  //   year: 2025,
-  //   status: 'live', // 'live' | 'development' | 'concept'
-  //   featured: false,
-  //   image: '/projects/nombre/cover.jpg',
-  //   images: [],
-  //   color: '#8B5CF6',
-  //   accentColor: '#06B6D4',
-  //   url: 'https://...',
-  //   metrics: [],
-  //   services: [],
-  // },
 ]
 
 export const featuredProjects = projects.filter((p) => p.featured)

@@ -1,10 +1,10 @@
 import React from 'react'
 import { Helmet } from 'react-helmet-async'
+import { SITE_URL, EMAIL } from '@data/config'
 
 const SITE_NAME = 'MT Studio'
-const SITE_URL  = 'https://mtstudio.dev'
 const OG_IMAGE  = `${SITE_URL}/og-image.jpg`
-const DEFAULT_DESCRIPTION = 'Estudio digital independiente especializado en diseño web, ecommerce, sistemas y automatización. Soluciones premium para proyectos que importan.'
+const DEFAULT_DESCRIPTION = 'Estudio digital independiente especializado en diseño web, ecommerce, sistemas y automatización. Soluciones a medida para negocios que quieren resultados concretos.'
 
 export default function SEOHead({
   title,

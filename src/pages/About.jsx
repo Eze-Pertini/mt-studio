@@ -5,10 +5,26 @@ import { PageTransition, FadeUp, SlideIn, StaggerContainer, StaggerItem } from '
 import { CTASection } from '@components/sections/HomeExtras'
 
 const values = [
-  { icon: '✦', title: 'Calidad sin atajos', desc: 'Preferimos entregar menos proyectos y hacerlos bien. Cada entrega tiene que representar lo mejor de lo que podemos hacer.' },
-  { icon: '◎', title: 'Transparencia total', desc: 'Sin sorpresas. Sabés cuánto cuesta, cuánto tarda y qué incluye. La confianza se construye con claridad.' },
-  { icon: '⬡', title: 'Tecnología con criterio', desc: 'Usamos la tecnología correcta para cada proyecto, no la más popular o la que mejor nos queda.' },
-  { icon: '◈', title: 'Diseño con propósito', desc: 'El diseño no es decoración. Cada decisión visual tiene un impacto en la experiencia y en los resultados.' },
+  {
+    icon: '✦',
+    title: 'Calidad sin atajos',
+    desc: 'Preferimos entregar menos proyectos y hacerlos bien. Cada entrega tiene que representar lo mejor de lo que podemos hacer.',
+  },
+  {
+    icon: '◎',
+    title: 'Transparencia total',
+    desc: 'Sin sorpresas. Sabés cuánto cuesta, cuánto tarda y qué incluye. La confianza se construye con claridad.',
+  },
+  {
+    icon: '⬡',
+    title: 'Tecnología con criterio',
+    desc: 'Usamos la tecnología correcta para cada proyecto, no la más popular o la que mejor nos queda.',
+  },
+  {
+    icon: '◈',
+    title: 'Diseño con propósito',
+    desc: 'El diseño no es decoración. Cada decisión visual tiene un impacto en la experiencia y en los resultados.',
+  },
 ]
 
 export default function About() {
@@ -16,14 +32,16 @@ export default function About() {
     <PageTransition>
       <SEOHead
         title="Nosotros"
-        description="MT Studio es un estudio digital independiente fundado con la convicción de que el diseño y la tecnología premium no son exclusivos de las grandes empresas."
+        description="MT Studio es un estudio digital independiente. Diseño web, sistemas y automatización con foco en resultados concretos para negocios que quieren destacar."
         url="/nosotros"
       />
 
-      {/* Header */}
+      {/* ── Hero ──────────────────────────────────────────────── */}
       <section className="pt-32 pb-20 hero-bg" aria-labelledby="about-heading">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
+
+            {/* Texto */}
             <div>
               <FadeUp>
                 <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-pill text-xs font-medium mb-6"
@@ -37,7 +55,7 @@ export default function About() {
                 </h1>
               </FadeUp>
               <FadeUp delay={0.2}>
-                <p className="text-text-secondary text-lg leading-relaxed">
+                <p className="text-text-secondary text-lg leading-relaxed text-left">
                   MT Studio nació de la convicción de que el diseño premium y la tecnología sólida
                   no son exclusivos de las grandes empresas. Los negocios que recién arrancan,
                   los profesionales independientes y las PYMEs merecen exactamente lo mismo.
@@ -45,21 +63,41 @@ export default function About() {
               </FadeUp>
             </div>
 
+            {/* Foto del fundador */}
             <SlideIn direction="right" delay={0.2}>
-              <div
-                className="rounded-panel p-10 text-center"
-                style={{ background: 'linear-gradient(135deg, rgba(139,92,246,0.08), rgba(6,182,212,0.05))', border: '1px solid rgba(139,92,246,0.15)' }}
-              >
-                <div className="text-6xl font-black gradient-text mb-2">MT</div>
-                <div className="text-2xl font-light text-text-secondary tracking-widest mb-6">Studio</div>
-                <div className="text-sm text-text-muted">Argentina 🇦🇷 · Diseño & Desarrollo Digital</div>
+              <div className="flex flex-col items-center gap-4">
+                <div
+                  className="relative w-56 h-56 md:w-64 md:h-64 rounded-full overflow-hidden"
+                  style={{
+                    border: '2px solid rgba(139,92,246,0.30)',
+                    boxShadow: '0 0 40px rgba(139,92,246,0.12)',
+                  }}
+                >
+                  <img
+                    src="/img/founder.webp"
+                    alt="Ezequiel Pertini — Fundador de MT Studio"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div
+                  className="px-5 py-2.5 rounded-pill text-center"
+                  style={{
+                    background: 'rgba(10,14,20,0.85)',
+                    backdropFilter: 'blur(16px)',
+                    border: '1px solid rgba(255,255,255,0.10)',
+                  }}
+                >
+                  <p className="text-sm font-semibold text-text-primary">Ezequiel Pertini</p>
+                  <p className="text-xs text-text-muted">Fundador & Desarrollador</p>
+                </div>
               </div>
             </SlideIn>
+
           </div>
         </div>
       </section>
 
-      {/* Story */}
+      {/* ── Historia ──────────────────────────────────────────── */}
       <section className="section-padding" aria-labelledby="story-heading">
         <div className="container-custom">
           <div className="max-w-3xl mx-auto">
@@ -69,7 +107,7 @@ export default function About() {
               </h2>
             </FadeUp>
             <FadeUp delay={0.1}>
-              <div className="space-y-4 text-text-secondary leading-relaxed">
+              <div className="space-y-4 text-text-secondary leading-relaxed text-left">
                 <p>
                   Empezamos como muchos estudios: con proyectos pequeños, muchas ganas y la certeza
                   de que podíamos hacer algo distinto. Lo que nos diferenciaba no era la tecnología
@@ -91,7 +129,7 @@ export default function About() {
         </div>
       </section>
 
-      {/* Values */}
+      {/* ── Valores ───────────────────────────────────────────── */}
       <section className="section-padding bg-bg-secondary/50" aria-labelledby="values-heading">
         <div className="container-custom">
           <FadeUp>

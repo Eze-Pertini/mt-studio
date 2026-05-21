@@ -1,9 +1,6 @@
 import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-
-const WHATSAPP_NUMBER = '5491141578045' // TODO: Reemplazar con número real
-const WHATSAPP_MSG    = 'Hola! Vi tu web y me gustaría consultar sobre un proyecto.'
-const WHATSAPP_URL    = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MSG)}`
+import { WHATSAPP_URL } from '@data/config'
 
 export default function WhatsAppButton() {
   const [hovered, setHovered] = useState(false)

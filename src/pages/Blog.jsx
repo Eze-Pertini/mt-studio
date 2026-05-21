@@ -64,17 +64,13 @@ export function BlogCard({ post }) {
       aria-label={`Leer artículo: ${post.title}`}
     >
       {/* Cover */}
-      <div className="aspect-[16/9] overflow-hidden bg-bg-elevated">
+      <div className="aspect-[16/9] overflow-hidden">
         {post.image ? (
           <img src={post.image} alt={`Portada del artículo: ${post.title}`}
                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                loading="lazy" />
         ) : (
-          <div className="w-full h-full flex items-center justify-center"
-               style={{ background: 'linear-gradient(135deg, rgba(139,92,246,0.10), rgba(6,182,212,0.06))' }}
-               aria-hidden="true">
-            <span className="text-4xl opacity-30 gradient-text font-black">{post.category.charAt(0)}</span>
-          </div>
+          <BlogCover post={post} />
         )}
       </div>
 
@@ -103,5 +99,129 @@ export function BlogCard({ post }) {
         </div>
       </div>
     </Link>
+  )
+}
+
+// ─── BlogCover — cover generado por categoría ─────────────────────
+const categoryConfig = {
+  'Diseño Web': {
+    gradient: 'linear-gradient(135deg, #1a0533 0%, #0d1117 50%, #001a2e 100%)',
+    accent1: 'rgba(139,92,246,0.50)',
+    accent2: 'rgba(99,58,210,0.25)',
+    label: 'Diseño Web',
+    icon: (
+      <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+        <rect x="2" y="6" width="28" height="20" rx="3" stroke="rgba(167,139,250,0.6)" strokeWidth="1.5"/>
+        <path d="M2 11h28" stroke="rgba(167,139,250,0.4)" strokeWidth="1.5"/>
+        <circle cx="6" cy="8.5" r="1" fill="rgba(167,139,250,0.5)"/>
+        <circle cx="9.5" cy="8.5" r="1" fill="rgba(167,139,250,0.5)"/>
+        <circle cx="13" cy="8.5" r="1" fill="rgba(167,139,250,0.5)"/>
+        <rect x="7" y="15" width="8" height="1.5" rx="0.75" fill="rgba(167,139,250,0.4)"/>
+        <rect x="7" y="18.5" width="14" height="1.5" rx="0.75" fill="rgba(167,139,250,0.25)"/>
+        <rect x="7" y="22" width="11" height="1.5" rx="0.75" fill="rgba(167,139,250,0.25)"/>
+      </svg>
+    ),
+  },
+  'Desarrollo': {
+    gradient: 'linear-gradient(135deg, #001a2e 0%, #0d1117 50%, #1a0533 100%)',
+    accent1: 'rgba(6,182,212,0.45)',
+    accent2: 'rgba(8,145,178,0.22)',
+    label: 'Desarrollo',
+    icon: (
+      <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+        <path d="M10 10l-6 6 6 6" stroke="rgba(34,211,238,0.6)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M22 10l6 6-6 6" stroke="rgba(34,211,238,0.6)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M18 7l-4 18" stroke="rgba(34,211,238,0.4)" strokeWidth="1.8" strokeLinecap="round"/>
+      </svg>
+    ),
+  },
+  'Automatización': {
+    gradient: 'linear-gradient(135deg, #001f1a 0%, #0d1117 50%, #1a1500 100%)',
+    accent1: 'rgba(16,185,129,0.40)',
+    accent2: 'rgba(5,150,105,0.20)',
+    label: 'Automatización',
+    icon: (
+      <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+        <path d="M16 4v4M16 24v4M4 16h4M24 16h4" stroke="rgba(52,211,153,0.5)" strokeWidth="1.8" strokeLinecap="round"/>
+        <circle cx="16" cy="16" r="5" stroke="rgba(52,211,153,0.6)" strokeWidth="1.5"/>
+        <circle cx="16" cy="16" r="2" fill="rgba(52,211,153,0.4)"/>
+        <path d="M7.5 7.5l2.8 2.8M21.7 21.7l2.8 2.8M7.5 24.5l2.8-2.8M21.7 10.3l2.8-2.8" stroke="rgba(52,211,153,0.35)" strokeWidth="1.5" strokeLinecap="round"/>
+      </svg>
+    ),
+  },
+  'Ecommerce': {
+    gradient: 'linear-gradient(135deg, #1a1000 0%, #0d1117 50%, #001a33 100%)',
+    accent1: 'rgba(245,158,11,0.40)',
+    accent2: 'rgba(217,119,6,0.20)',
+    label: 'Ecommerce',
+    icon: (
+      <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+        <path d="M4 4h3l2.5 13h14l2.5-9H9" stroke="rgba(251,191,36,0.6)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        <circle cx="13" cy="25" r="2" stroke="rgba(251,191,36,0.5)" strokeWidth="1.5"/>
+        <circle cx="22" cy="25" r="2" stroke="rgba(251,191,36,0.5)" strokeWidth="1.5"/>
+      </svg>
+    ),
+  },
+}
+
+const defaultConfig = {
+  gradient: 'linear-gradient(135deg, #0d1117 0%, #161d2a 100%)',
+  accent1: 'rgba(139,92,246,0.35)',
+  accent2: 'rgba(6,182,212,0.18)',
+  label: 'MT Studio',
+  icon: (
+    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+      <rect x="4" y="4" width="24" height="24" rx="4" stroke="rgba(167,139,250,0.5)" strokeWidth="1.5"/>
+      <path d="M10 16h12M16 10v12" stroke="rgba(167,139,250,0.5)" strokeWidth="1.8" strokeLinecap="round"/>
+    </svg>
+  ),
+}
+
+function BlogCover({ post }) {
+  const config = categoryConfig[post.category] ?? defaultConfig
+
+  // Palabras clave del título para mostrar en el cover (máx 6 palabras)
+  const titleWords = post.title.split(' ').slice(0, 6).join(' ')
+  const hasMore    = post.title.split(' ').length > 6
+
+  return (
+    <div
+      className="relative w-full h-full flex flex-col items-start justify-end p-5 overflow-hidden
+                 transition-transform duration-500 group-hover:scale-[1.03]"
+      style={{ background: config.gradient }}
+      aria-hidden="true"
+    >
+      {/* Glow orbs */}
+      <div className="absolute top-0 right-0 w-40 h-40 rounded-full pointer-events-none"
+           style={{ background: `radial-gradient(circle, ${config.accent1} 0%, transparent 70%)`, filter: 'blur(30px)', transform: 'translate(20%, -20%)' }} />
+      <div className="absolute bottom-0 left-0 w-32 h-32 rounded-full pointer-events-none"
+           style={{ background: `radial-gradient(circle, ${config.accent2} 0%, transparent 70%)`, filter: 'blur(24px)', transform: 'translate(-20%, 20%)' }} />
+
+      {/* Grid lines decorativas */}
+      <div className="absolute inset-0 opacity-[0.04] pointer-events-none"
+           style={{
+             backgroundImage: 'linear-gradient(rgba(255,255,255,0.8) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.8) 1px, transparent 1px)',
+             backgroundSize: '32px 32px',
+           }} />
+
+      {/* Ícono categoria */}
+      <div className="absolute top-4 right-4 opacity-70">
+        {config.icon}
+      </div>
+
+      {/* Texto del título */}
+      <div className="relative z-10">
+        <p className="text-[10px] font-semibold uppercase tracking-widest mb-2 opacity-50 text-white">
+          {post.category}
+        </p>
+        <p className="text-sm font-bold text-white leading-snug opacity-80" style={{ maxWidth: '85%' }}>
+          {titleWords}{hasMore ? '…' : ''}
+        </p>
+      </div>
+
+      {/* Bottom fade */}
+      <div className="absolute inset-x-0 bottom-0 h-16 pointer-events-none"
+           style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.35), transparent)' }} />
+    </div>
   )
 }

@@ -7,13 +7,13 @@
 
 // ─── Contacto ─────────────────────────────────────────────────────
 export const WHATSAPP_NUMBER = '541141578045'
-export const EMAIL           = 'epertini00@gmail.com'
+export const EMAIL           = 'mtstudio.dev@gmail.com'
 export const SITE_URL        = 'https://mtstudio.dev' // TODO: actualizar con dominio real
 
 // ─── Redes sociales ───────────────────────────────────────────────
 // TODO: actualizar con URLs definitivas cuando estén disponibles
 export const SOCIAL = {
-  instagram: 'https://instagram.com/mtstudio',
+  instagram: 'https://instagram.com/mtstudio.dev',
   linkedin:  'https://linkedin.com/in/ezequiel-pertini',
   github:    'https://github.com/mtstudio',
   whatsapp:  `https://wa.me/${WHATSAPP_NUMBER}`,

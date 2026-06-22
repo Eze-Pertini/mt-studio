@@ -3,17 +3,22 @@ import { Link } from 'react-router-dom'
 import { StaggerContainer, StaggerItem, FadeUp } from '@components/animations'
 import { SectionHeading } from '@components/ui/Button'
 import { featuredProjects } from '@data/projects'
+import { useLanguage } from '@i18n/LanguageContext'
+import { t } from '@i18n/uiText'
 
 export default function PortfolioPreview() {
+  const { lang } = useLanguage()
+  const h = (key) => t(lang, `home.${key}`)
+
   return (
     <section className="section-padding bg-bg-secondary/50" aria-labelledby="portfolio-preview-heading">
       <div className="container-custom">
 
         <FadeUp>
           <SectionHeading
-            label="Portfolio"
-            title={<>Proyectos que <span className="gradient-text">hablan por sí solos</span></>}
-            subtitle="Cada proyecto es un problema resuelto. Acá mostramos algunos de los que más nos enorgullecen."
+            label={h('portfolioBadge')}
+            title={<>{h('portfolioTitleA')} <span className="gradient-text">{h('portfolioTitleB')}</span></>}
+            subtitle={h('portfolioSubtitle')}
             id="portfolio-preview-heading"
           />
         </FadeUp>
@@ -21,7 +26,7 @@ export default function PortfolioPreview() {
         <StaggerContainer className="mt-16 grid grid-cols-1 lg:grid-cols-2 gap-6 items-stretch" stagger={0.12}>
           {featuredProjects.map((project) => (
             <StaggerItem key={project.id} className="h-full">
-              <ProjectCard project={project} />
+              <ProjectCard project={project} lang={lang} />
             </StaggerItem>
           ))}
         </StaggerContainer>
@@ -34,7 +39,7 @@ export default function PortfolioPreview() {
                          text-text-primary bg-white/8 border border-default
                          hover:bg-white/12 hover:border-strong transition-all duration-200"
             >
-              Ver portfolio completo
+              {h('portfolioSeeAll')}
               <span aria-hidden="true">→</span>
             </Link>
           </div>
@@ -45,7 +50,7 @@ export default function PortfolioPreview() {
   )
 }
 
-function ProjectCard({ project }) {
+function ProjectCard({ project, lang }) {
   return (
     <Link
       to={`/portfolio/${project.slug}`}
@@ -70,7 +75,7 @@ function ProjectCard({ project }) {
 
         {/* Status badge */}
         <div className="absolute top-4 right-4">
-          <StatusBadge status={project.status} />
+          <StatusBadge status={project.status} lang={lang} />
         </div>
       </div>
 
@@ -127,20 +132,26 @@ function ProjectPlaceholder({ project }) {
   )
 }
 
-function StatusBadge({ status }) {
+function StatusBadge({ status, lang }) {
+  const labels = {
+    live:        t(lang, 'home.statusLive'),
+    development: t(lang, 'home.statusDevelopment'),
+    concept:     t(lang, 'home.statusConcept'),
+  }
   const config = {
-    live:        { label: 'En vivo',       color: '#10B981', bg: 'rgba(16,185,129,0.12)', border: 'rgba(16,185,129,0.25)' },
-    development: { label: 'En desarrollo', color: '#F59E0B', bg: 'rgba(245,158,11,0.12)', border: 'rgba(245,158,11,0.25)' },
-    concept:     { label: 'Concepto',      color: '#94A3B8', bg: 'rgba(148,163,184,0.12)', border: 'rgba(148,163,184,0.25)' },
+    live:        { color: '#10B981', bg: 'rgba(16,185,129,0.12)', border: 'rgba(16,185,129,0.25)' },
+    development: { color: '#F59E0B', bg: 'rgba(245,158,11,0.12)', border: 'rgba(245,158,11,0.25)' },
+    concept:     { color: '#94A3B8', bg: 'rgba(148,163,184,0.12)', border: 'rgba(148,163,184,0.25)' },
   }
   const c = config[status] ?? config.concept
+  const label = labels[status] ?? labels.concept
 
   return (
     <span
       className="text-xs px-2.5 py-1 rounded-pill font-medium"
       style={{ background: c.bg, border: `1px solid ${c.border}`, color: c.color }}
     >
-      {c.label}
+      {label}
     </span>
   )
 }

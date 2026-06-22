@@ -14,6 +14,7 @@ export default defineConfig({
       '@styles': path.resolve(__dirname, './src/styles'),
       '@services': path.resolve(__dirname, './src/services'),
       '@animations': path.resolve(__dirname, './src/animations'),
+      '@i18n': path.resolve(__dirname, './src/i18n'),
     }
   },
   build: {

@@ -3,14 +3,20 @@ import { useParams, Link, Navigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import SEOHead from '@components/ui/SEOHead'
 import { PageTransition, FadeUp, SlideIn, StaggerContainer, StaggerItem } from '@components/animations'
-import { getServiceBySlug, getRelatedProjects, services } from '@data/services'
+import { getServiceBySlug, getRelatedProjects, services, localizeService, localizeServices } from '@data/services'
 import { projects } from '@data/projects'
+import { useLanguage } from '@i18n/LanguageContext'
+import { t } from '@i18n/uiText'
 
 export default function ServiceDetail() {
   const { slug }  = useParams()
-  const service   = getServiceBySlug(slug)
+  const { lang }  = useLanguage()
+  const rawService = getServiceBySlug(slug)
 
-  if (!service) return <Navigate to="/servicios" replace />
+  if (!rawService) return <Navigate to="/servicios" replace />
+
+  const service = localizeService(rawService, lang)
+  const sd = (key) => t(lang, `serviceDetail.${key}`)
 
   const isViolet    = service.color === 'violet'
   const accentColor = isViolet ? '#A78BFA' : '#22D3EE'
@@ -19,8 +25,8 @@ export default function ServiceDetail() {
 
   const relatedProjects = getRelatedProjects(service, projects)
 
-  // Servicios relacionados (los otros, para el footer de navegación)
-  const otherServices = services.filter((s) => s.slug !== slug).slice(0, 3)
+  // Servicios relacionados (los otros, para el footer de navegación) — ya localizados
+  const otherServices = localizeServices(lang).filter((s) => s.slug !== slug).slice(0, 3)
 
   return (
     <PageTransition>
@@ -40,9 +46,9 @@ export default function ServiceDetail() {
           {/* Breadcrumb */}
           <FadeUp>
             <nav className="flex items-center gap-2 text-xs text-text-muted mb-10" aria-label="Navegación breadcrumb">
-              <Link to="/" className="hover:text-text-secondary transition-colors">Inicio</Link>
+              <Link to="/" className="hover:text-text-secondary transition-colors">{sd('breadcrumbHome')}</Link>
               <span aria-hidden="true">/</span>
-              <Link to="/servicios" className="hover:text-text-secondary transition-colors">Servicios</Link>
+              <Link to="/servicios" className="hover:text-text-secondary transition-colors">{sd('breadcrumbServices')}</Link>
               <span aria-hidden="true">/</span>
               <span className="text-text-secondary">{service.title}</span>
             </nav>
@@ -94,7 +100,7 @@ export default function ServiceDetail() {
                                    text-text-primary bg-white/8 border border-default
                                    hover:bg-white/12 hover:border-strong active:scale-95 transition-all duration-200
                                    focus-visible:ring-2 focus-visible:ring-violet-400">
-                    Ver todos los servicios
+                    {sd('seeAllServices')}
                   </Link>
                 </div>
               </FadeUp>
@@ -147,7 +153,7 @@ export default function ServiceDetail() {
         <div className="container-custom">
           <FadeUp>
             <h2 className="text-display-md font-bold text-text-primary mb-12 text-center" id="benefits-heading">
-              Por qué importa hacerlo bien
+              {sd('problemHeading')}
             </h2>
           </FadeUp>
 
@@ -174,11 +180,10 @@ export default function ServiceDetail() {
             <FadeUp>
               <div>
                 <h2 className="text-display-md font-bold text-text-primary mb-4" id="features-heading">
-                  Qué incluye
+                  {sd('featuresHeading')}
                 </h2>
                 <p className="text-text-secondary leading-relaxed">
-                  Todo lo que necesitás para que {service.title.toLowerCase()} funcione bien desde el día uno.
-                  Sin sorpresas, sin extras que debería estar incluidos.
+                  {sd('featuresBody')(service.title)}
                 </p>
               </div>
             </FadeUp>
@@ -216,7 +221,7 @@ export default function ServiceDetail() {
         <div className="container-custom">
           <FadeUp>
             <h2 className="text-center text-display-sm font-bold text-text-primary mb-10" id="tech-heading">
-              Stack que usamos
+              {sd('techHeading')}
             </h2>
           </FadeUp>
           <FadeUp delay={0.1}>
@@ -240,12 +245,12 @@ export default function ServiceDetail() {
             <FadeUp>
               <div className="flex items-end justify-between mb-10">
                 <h2 className="text-display-sm font-bold text-text-primary" id="related-heading">
-                  Proyectos relacionados
+                  {sd('relatedHeading')}
                 </h2>
                 <Link to="/portfolio"
                       className="text-sm font-medium transition-colors group hidden sm:flex items-center gap-1"
                       style={{ color: accentColor }}>
-                  Ver portfolio
+                  {sd('seePortfolio')}
                   <span className="transition-transform duration-200 group-hover:translate-x-1" aria-hidden="true">→</span>
                 </Link>
               </div>
@@ -320,7 +325,7 @@ export default function ServiceDetail() {
           <FadeUp>
             <h2 className="text-sm font-semibold text-text-muted uppercase tracking-widest mb-6"
                 id="other-services-heading">
-              Otros servicios
+              {sd('otherServicesHeading')}
             </h2>
           </FadeUp>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">

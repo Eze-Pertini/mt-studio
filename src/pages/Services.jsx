@@ -4,14 +4,22 @@ import { motion } from 'framer-motion'
 import SEOHead from '@components/ui/SEOHead'
 import { PageTransition, FadeUp, StaggerContainer, StaggerItem } from '@components/animations'
 import { CTASection } from '@components/sections/HomeExtras'
-import { services } from '@data/services'
+import { localizeServices } from '@data/services'
+import { useLanguage } from '@i18n/LanguageContext'
+import { t } from '@i18n/uiText'
 
 export default function Services() {
+  const { lang } = useLanguage()
+  const so = (key) => t(lang, `servicesOverview.${key}`)
+  const localizedServices = localizeServices(lang)
+
   return (
     <PageTransition>
       <SEOHead
-        title="Servicios"
-        description="Diseño web, ecommerce, sistemas, automatización y mantenimiento. Soluciones digitales a medida para negocios que necesitan resultados concretos."
+        title={lang === 'en' ? 'Services' : 'Servicios'}
+        description={lang === 'en'
+          ? 'Web design, ecommerce, systems, automation, and maintenance. Custom digital solutions for businesses that need real results.'
+          : 'Diseño web, ecommerce, sistemas, automatización y mantenimiento. Soluciones digitales a medida para negocios que necesitan resultados concretos.'}
         url="/servicios"
       />
 
@@ -21,18 +29,17 @@ export default function Services() {
           <FadeUp>
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-pill text-xs font-medium mb-6"
                  style={{ background: 'rgba(139,92,246,0.10)', border: '1px solid rgba(139,92,246,0.25)', color: '#A78BFA' }}>
-              Lo que hacemos
+              {so('badge')}
             </div>
           </FadeUp>
           <FadeUp delay={0.1}>
             <h1 className="text-display-xl font-black text-text-primary mb-4 text-balance" id="services-heading">
-              Servicios <span className="gradient-text">a medida</span>
+              {so('titleA')} <span className="gradient-text">{so('titleB')}</span>
             </h1>
           </FadeUp>
           <FadeUp delay={0.2}>
             <p className="text-text-secondary text-lg max-w-2xl mx-auto leading-relaxed">
-              Cada servicio resuelve un problema concreto. Sin paquetes genéricos,
-              sin promesas vacías. Solo lo que tu proyecto necesita para funcionar bien.
+              {so('subtitle')}
             </p>
           </FadeUp>
         </div>
@@ -45,9 +52,9 @@ export default function Services() {
             className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5"
             stagger={0.08}
           >
-            {services.map((service) => (
+            {localizedServices.map((service) => (
               <StaggerItem key={service.id} className="h-full">
-                <ServiceCard service={service} />
+                <ServiceCard service={service} viewFullLabel={so('viewFull')} moreLabel={so('moreLabel')} />
               </StaggerItem>
             ))}
           </StaggerContainer>
@@ -60,7 +67,7 @@ export default function Services() {
 }
 
 // ─── ServiceCard ──────────────────────────────────────────────────
-function ServiceCard({ service }) {
+function ServiceCard({ service, viewFullLabel, moreLabel }) {
   const isViolet    = service.color === 'violet'
   const accentColor = isViolet ? '#A78BFA' : '#22D3EE'
   const accentBg    = isViolet ? 'rgba(139,92,246,0.08)' : 'rgba(6,182,212,0.06)'
@@ -109,7 +116,7 @@ function ServiceCard({ service }) {
         ))}
         {service.features.length > 3 && (
           <li className="text-xs text-text-disabled pl-4">
-            +{service.features.length - 3} más
+            +{service.features.length - 3} {moreLabel}
           </li>
         )}
       </ul>
@@ -117,7 +124,7 @@ function ServiceCard({ service }) {
       {/* CTA link */}
       <div className="flex items-center gap-1.5 text-xs font-semibold mt-auto transition-all duration-200"
            style={{ color: accentColor }}>
-        Ver servicio completo
+        {viewFullLabel}
         <motion.span
           aria-hidden="true"
           className="inline-block"

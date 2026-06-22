@@ -1,15 +1,9 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
-import { services } from '@data/services'
-
-const navLinks = [
-  { label: 'Inicio',    to: '/',          exact: true },
-  { label: 'Portfolio', to: '/portfolio'              },
-  { label: 'Nosotros',  to: '/nosotros'               },
-  { label: 'Blog',      to: '/blog'                   },
-  { label: 'Contacto',  to: '/contacto'               },
-]
+import { services, localizeServices } from '@data/services'
+import { useLanguage } from '@i18n/LanguageContext'
+import { t } from '@i18n/uiText'
 
 export default function Navbar() {
   const [scrolled,        setScrolled]        = useState(false)
@@ -18,6 +12,17 @@ export default function Navbar() {
   const [mobileServices,  setMobileServices]   = useState(false) // mobile accordion
   const location    = useLocation()
   const dropdownRef = useRef(null)
+  const { lang, toggleLanguage } = useLanguage()
+
+  const localizedServices = localizeServices(lang)
+
+  const navLinks = [
+    { key: 'home',      to: '/',          exact: true },
+    { key: 'portfolio', to: '/portfolio'              },
+    { key: 'about',     to: '/nosotros'               },
+    { key: 'blog',      to: '/blog'                   },
+    { key: 'contact',   to: '/contacto'               },
+  ]
 
   // Cerrar todo al cambiar de ruta
   useEffect(() => {
@@ -96,7 +101,7 @@ export default function Navbar() {
                 }>
                 {({ isActive }) => (
                   <>
-                    Inicio
+                    {t(lang, 'nav.home')}
                     {isActive && <ActiveIndicator />}
                   </>
                 )}
@@ -115,7 +120,7 @@ export default function Navbar() {
                             ${isServicesActive ? 'text-text-primary' : 'text-text-secondary hover:text-text-primary'}`}
               >
                 {isServicesActive && <ActiveIndicator />}
-                Servicios
+                {t(lang, 'nav.services')}
                 <motion.svg
                   width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"
                   animate={{ rotate: servicesOpen ? 180 : 0 }}
@@ -150,13 +155,13 @@ export default function Navbar() {
                                  hover:text-text-primary hover:bg-white/5 transition-colors duration-150"
                       role="menuitem"
                     >
-                      Ver todos los servicios
+                      {t(lang, 'nav.seeAll')}
                       <span aria-hidden="true" className="text-base">→</span>
                     </Link>
 
                     <div className="h-px mx-4" style={{ background: 'rgba(255,255,255,0.07)' }} />
 
-                    {services.map((s) => (
+                    {localizedServices.map((s) => (
                       <DropdownItem key={s.slug} service={s} onClose={() => setServicesOpen(false)} />
                     ))}
                   </motion.div>
@@ -175,7 +180,7 @@ export default function Navbar() {
                   }>
                   {({ isActive }) => (
                     <>
-                      {link.label}
+                      {t(lang, `nav.${link.key}`)}
                       {isActive && <ActiveIndicator />}
                     </>
                   )}
@@ -184,29 +189,33 @@ export default function Navbar() {
             ))}
           </ul>
 
-          {/* Desktop CTA */}
-          <div className="hidden md:flex">
+          {/* Desktop CTA + language switcher */}
+          <div className="hidden md:flex items-center gap-3">
+            <LanguageSwitcher lang={lang} onToggle={toggleLanguage} />
             <Link to="/contacto"
                   className="px-5 py-2 text-sm font-semibold rounded-pill bg-gradient-violet-cyan text-white
                              hover:opacity-90 active:scale-95 transition-all duration-200
                              focus-visible:ring-2 focus-visible:ring-violet-400">
-              Hablemos
+              {t(lang, 'nav.talk')}
             </Link>
           </div>
 
           {/* Botón mobile */}
-          <button
-            className="md:hidden w-10 h-10 flex items-center justify-center rounded-xl
-                       text-text-secondary hover:text-text-primary hover:bg-white/8
-                       border border-transparent hover:border-white/10
-                       transition-all duration-200 focus-visible:ring-2 focus-visible:ring-violet-400"
-            onClick={() => setMobileOpen((v) => !v)}
-            aria-expanded={mobileOpen}
-            aria-controls="mobile-menu"
-            aria-label={mobileOpen ? 'Cerrar menú' : 'Abrir menú'}
-          >
-            <MenuIcon open={mobileOpen} />
-          </button>
+          <div className="md:hidden flex items-center gap-2">
+            <LanguageSwitcher lang={lang} onToggle={toggleLanguage} compact />
+            <button
+              className="w-10 h-10 flex items-center justify-center rounded-xl
+                         text-text-secondary hover:text-text-primary hover:bg-white/8
+                         border border-transparent hover:border-white/10
+                         transition-all duration-200 focus-visible:ring-2 focus-visible:ring-violet-400"
+              onClick={() => setMobileOpen((v) => !v)}
+              aria-expanded={mobileOpen}
+              aria-controls="mobile-menu"
+              aria-label={mobileOpen ? 'Cerrar menú' : 'Abrir menú'}
+            >
+              <MenuIcon open={mobileOpen} />
+            </button>
+          </div>
         </nav>
       </header>
 
@@ -269,7 +278,7 @@ export default function Navbar() {
                         `flex items-center px-4 py-3 rounded-xl text-[15px] font-medium transition-all duration-200
                          ${isActive ? 'text-text-primary bg-white/8 border border-white/10' : 'text-text-secondary hover:text-text-primary hover:bg-white/5'}`
                       }>
-                      Inicio
+                      {t(lang, 'nav.home')}
                     </NavLink>
                   </motion.li>
 
@@ -285,7 +294,7 @@ export default function Navbar() {
                                   }`}
                       aria-expanded={mobileServices}
                     >
-                      Servicios
+                      {t(lang, 'nav.services')}
                       <motion.svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"
                                   animate={{ rotate: mobileServices ? 180 : 0 }} transition={{ duration: 0.2 }}>
                         <path d="M2 5l5 5 5-5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
@@ -308,9 +317,9 @@ export default function Navbar() {
                             <Link to="/servicios" onClick={() => setMobileOpen(false)}
                                   className="px-3 py-2 rounded-lg text-xs font-semibold text-text-muted
                                              hover:text-violet-400 transition-colors duration-150 uppercase tracking-widest">
-                              Ver todos →
+                              {t(lang, 'nav.seeAllShort')}
                             </Link>
-                            {services.map((s, i) => (
+                            {localizedServices.map((s, i) => (
                               <motion.div key={s.slug}
                                 initial={{ opacity: 0, x: 8 }}
                                 animate={{ opacity: 1, x: 0 }}
@@ -345,7 +354,7 @@ export default function Navbar() {
                           `flex items-center px-4 py-3 rounded-xl text-[15px] font-medium transition-all duration-200
                            ${isActive ? 'text-text-primary bg-white/8 border border-white/10' : 'text-text-secondary hover:text-text-primary hover:bg-white/5'}`
                         }>
-                        {link.label}
+                        {t(lang, `nav.${link.key}`)}
                       </NavLink>
                     </motion.li>
                   ))}
@@ -361,7 +370,7 @@ export default function Navbar() {
                       className="block w-full text-center py-3.5 px-6 rounded-pill font-semibold text-sm text-white
                                  bg-gradient-violet-cyan hover:opacity-90 active:scale-[0.98]
                                  transition-all duration-200 shadow-glow-violet">
-                  Hablemos →
+                  {t(lang, 'nav.talkArrow')}
                 </Link>
               </motion.div>
             </motion.div>
@@ -369,6 +378,27 @@ export default function Navbar() {
         )}
       </AnimatePresence>
     </>
+  )
+}
+
+// ─── Language switcher ────────────────────────────────────────────
+function LanguageSwitcher({ lang, onToggle, compact = false }) {
+  return (
+    <button
+      onClick={onToggle}
+      aria-label={lang === 'es' ? 'Switch to English' : 'Cambiar a Español'}
+      title={lang === 'es' ? 'Switch to English' : 'Cambiar a Español'}
+      className={`relative flex items-center gap-1.5 rounded-pill text-xs font-semibold
+                 text-text-secondary hover:text-text-primary
+                 bg-white/5 hover:bg-white/10 border border-subtle hover:border-default
+                 transition-all duration-200 focus-visible:ring-2 focus-visible:ring-violet-400
+                 ${compact ? 'px-2.5 py-2' : 'px-3 py-1.5'}`}
+    >
+      <span aria-hidden="true">🌐</span>
+      <span className={lang === 'es' ? 'text-text-primary' : ''}>ES</span>
+      <span className="text-text-disabled" aria-hidden="true">/</span>
+      <span className={lang === 'en' ? 'text-text-primary' : ''}>EN</span>
+    </button>
   )
 }
 

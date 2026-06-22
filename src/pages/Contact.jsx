@@ -4,6 +4,8 @@ import SEOHead from '@components/ui/SEOHead'
 import { PageTransition, FadeUp, SlideIn } from '@components/animations'
 import { WHATSAPP_NUMBER, EMAIL, SOCIAL, EMAILJS } from '@data/config'
 import { motion, AnimatePresence } from 'framer-motion'
+import { useLanguage } from '@i18n/LanguageContext'
+import { t } from '@i18n/uiText'
 
 // ─── Helpers ──────────────────────────────────────────────────────
 
@@ -43,6 +45,9 @@ async function sendEmail(templateParams) {
 
 // ─── Página de contacto ───────────────────────────────────────────
 export default function Contact() {
+  const { lang } = useLanguage()
+  const c = (key) => t(lang, `contact.${key}`)
+
   const [form, setForm]     = useState({ name: '', email: '', company: '', service: '', message: '' })
   const [status, setStatus] = useState('idle') // idle | sending | sent | error
   const [touched, setTouched] = useState({})
@@ -56,16 +61,15 @@ export default function Contact() {
 
   // Validación básica
   const errors = {
-    name:    !form.name.trim()    ? 'El nombre es requerido'       : '',
-    email:   !form.email.trim()   ? 'El email es requerido'
-           : !/\S+@\S+\.\S+/.test(form.email) ? 'Email inválido' : '',
-    message: !form.message.trim() ? 'Contanos sobre tu proyecto'   : '',
+    name:    !form.name.trim()    ? c('errName')        : '',
+    email:   !form.email.trim()   ? c('errEmail')
+           : !/\S+@\S+\.\S+/.test(form.email) ? c('errEmailInvalid') : '',
+    message: !form.message.trim() ? c('errMessage')      : '',
   }
   const isValid = !errors.name && !errors.email && !errors.message
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    // Marcar todos como touched para mostrar errores
     setTouched({ name: true, email: true, message: true })
     if (!isValid) return
 
@@ -85,15 +89,19 @@ export default function Contact() {
     }
   }
 
-  // WhatsApp con datos del formulario precargados
-  const whatsappMsg = `Hola! Soy ${form.name || '...'}${form.company ? ` de ${form.company}` : ''}. Me interesa consultar sobre ${form.service || 'un proyecto'}. ${form.message ? `\n\n${form.message}` : ''}`
+  // WhatsApp con datos del formulario precargados (mensaje según idioma)
+  const whatsappMsg = t(lang, 'contact.whatsappPrefill')(form.name, form.company, form.service, form.message)
   const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(whatsappMsg.trim())}`
+
+  const serviceOptions = c('serviceOptions')
 
   return (
     <PageTransition>
       <SEOHead
-        title="Contacto"
-        description="¿Tenés un proyecto en mente? Hablemos. Contactanos por formulario, WhatsApp o email."
+        title={lang === 'en' ? 'Contact' : 'Contacto'}
+        description={lang === 'en'
+          ? "Have a project in mind? Let's talk. Reach us via form, WhatsApp or email."
+          : '¿Tenés un proyecto en mente? Hablemos. Contactanos por formulario, WhatsApp o email.'}
         url="/contacto"
       />
 
@@ -103,17 +111,17 @@ export default function Contact() {
           <FadeUp>
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-pill text-xs font-medium mb-6"
                  style={{ background: 'rgba(139,92,246,0.10)', border: '1px solid rgba(139,92,246,0.25)', color: '#A78BFA' }}>
-              Contacto
+              {c('badge')}
             </div>
           </FadeUp>
           <FadeUp delay={0.1}>
             <h1 className="text-display-xl font-black text-text-primary mb-4 text-balance" id="contact-heading">
-              Contanos tu <span className="gradient-text">proyecto</span>
+              {c('titleA')} <span className="gradient-text">{c('titleB')}</span>
             </h1>
           </FadeUp>
           <FadeUp delay={0.2}>
             <p className="text-text-secondary text-lg max-w-xl mx-auto text-left md:text-center">
-              Sin formularios interminables ni esperas eternas. Te respondemos en menos de 24 horas.
+              {c('subtitle')}
             </p>
           </FadeUp>
         </div>
@@ -145,11 +153,11 @@ export default function Contact() {
                             <path d="M5 13l4 4L19 7" stroke="#10B981" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                           </svg>
                         </div>
-                        <h2 className="text-xl font-bold text-text-primary mb-2">¡Mensaje recibido!</h2>
-                        <p className="text-text-secondary mb-6">Te contactamos en menos de 24 horas.</p>
+                        <h2 className="text-xl font-bold text-text-primary mb-2">{c('successTitle')}</h2>
+                        <p className="text-text-secondary mb-6">{c('successBody')}</p>
 
                         {/* WhatsApp CTA post-envío */}
-                        <p className="text-xs text-text-muted mb-3">¿Querés respuesta más rápida?</p>
+                        <p className="text-xs text-text-muted mb-3">{c('fasterReply')}</p>
                         <a
                           href={whatsappUrl}
                           target="_blank"
@@ -159,42 +167,42 @@ export default function Contact() {
                           style={{ background: '#25D366' }}
                         >
                           <WhatsAppIcon />
-                          Seguir por WhatsApp
+                          {c('continueWhatsapp')}
                         </a>
                       </motion.div>
                     ) : (
 
                     /* Estado: formulario */
                     <motion.div key="form" initial={{ opacity: 1 }}>
-                      <h2 className="text-lg font-bold text-text-primary mb-6">Envianos un mensaje</h2>
+                      <h2 className="text-lg font-bold text-text-primary mb-6">{c('formTitle')}</h2>
 
                       <form onSubmit={handleSubmit} noValidate aria-label="Formulario de contacto">
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
                           <FormField
-                            label="Nombre *" name="name" type="text"
+                            label={c('fieldName')} name="name" type="text"
                             value={form.name} onChange={handleChange} onBlur={handleBlur}
-                            placeholder="Tu nombre"
+                            placeholder={c('fieldNamePh')}
                             error={touched.name ? errors.name : ''}
                           />
                           <FormField
-                            label="Email *" name="email" type="email"
+                            label={c('fieldEmail')} name="email" type="email"
                             value={form.email} onChange={handleChange} onBlur={handleBlur}
-                            placeholder="tu@email.com"
+                            placeholder={c('fieldEmailPh')}
                             error={touched.email ? errors.email : ''}
                           />
                         </div>
 
                         <div className="mb-4">
                           <FormField
-                            label="Empresa / Proyecto" name="company" type="text"
+                            label={c('fieldCompany')} name="company" type="text"
                             value={form.company} onChange={handleChange} onBlur={handleBlur}
-                            placeholder="Nombre de tu empresa o proyecto"
+                            placeholder={c('fieldCompanyPh')}
                           />
                         </div>
 
                         <div className="mb-4">
                           <label className="block text-xs font-medium text-text-secondary mb-2" htmlFor="service">
-                            ¿Qué necesitás?
+                            {c('fieldService')}
                           </label>
                           <select
                             id="service" name="service"
@@ -203,25 +211,22 @@ export default function Contact() {
                                        focus:border-violet-500/50 focus:outline-none focus:ring-1 focus:ring-violet-500/30
                                        transition-colors duration-200"
                           >
-                            <option value="">Seleccioná un servicio</option>
-                            <option value="Diseño Web">Diseño Web</option>
-                            <option value="Ecommerce">Ecommerce</option>
-                            <option value="Sistema Web">Sistema Web</option>
-                            <option value="Automatización">Automatización</option>
-                            <option value="Mantenimiento Web">Mantenimiento Web</option>
-                            <option value="Otro">Otro</option>
+                            <option value="">{c('serviceSelect')}</option>
+                            {serviceOptions.map((opt) => (
+                              <option key={opt} value={opt}>{opt}</option>
+                            ))}
                           </select>
                         </div>
 
                         <div className="mb-6">
                           <label className="block text-xs font-medium text-text-secondary mb-2" htmlFor="message">
-                            Contanos sobre tu proyecto *
+                            {c('fieldMessage')}
                           </label>
                           <textarea
                             id="message" name="message"
                             value={form.message} onChange={handleChange} onBlur={handleBlur}
                             rows={5}
-                            placeholder="Qué querés hacer, en qué etapa estás, qué resultado esperás..."
+                            placeholder={c('fieldMessagePh')}
                             className={`w-full px-4 py-3 rounded-lg text-sm text-text-primary bg-bg-elevated border
                                        focus:outline-none focus:ring-1 transition-colors duration-200 resize-y min-h-[120px]
                                        ${touched.message && errors.message
@@ -238,7 +243,7 @@ export default function Contact() {
                         {status === 'error' && (
                           <div className="mb-4 px-4 py-3 rounded-lg text-sm text-red-400"
                                style={{ background: 'rgba(239,68,68,0.08)', border: '1px solid rgba(239,68,68,0.20)' }}>
-                            No pudimos enviar el mensaje. Intentá por WhatsApp o escribinos directo al email.
+                            {c('errorBanner')}
                           </div>
                         )}
 
@@ -255,9 +260,9 @@ export default function Contact() {
                           >
                             {status === 'sending' ? (
                               <span className="flex items-center justify-center gap-2">
-                                <Spinner /> Enviando...
+                                <Spinner /> {c('sending')}
                               </span>
-                            ) : 'Enviar mensaje'}
+                            ) : c('sendBtn')}
                           </button>
 
                           {/* WhatsApp directo */}
@@ -272,12 +277,12 @@ export default function Contact() {
                             aria-label="Contactar por WhatsApp"
                           >
                             <WhatsAppIcon />
-                            WhatsApp
+                            {c('whatsappBtn')}
                           </a>
                         </div>
 
                         <p className="text-xs text-text-muted mt-4 text-center">
-                          El botón de WhatsApp abre un chat con tus datos precargados.
+                          {c('whatsappHint')}
                         </p>
                       </form>
                     </motion.div>
@@ -300,9 +305,9 @@ export default function Contact() {
                     <WhatsAppIcon size={20} />
                   </div>
                   <div>
-                    <p className="text-xs text-text-muted mb-0.5">WhatsApp</p>
-                    <p className="text-sm font-semibold text-text-primary group-hover:text-white transition-colors">Chatear ahora</p>
-                    <p className="text-xs text-text-muted">Respuesta en minutos</p>
+                    <p className="text-xs text-text-muted mb-0.5">{c('sidebarWhatsappLabel')}</p>
+                    <p className="text-sm font-semibold text-text-primary group-hover:text-white transition-colors">{c('sidebarWhatsappTitle')}</p>
+                    <p className="text-xs text-text-muted">{c('sidebarWhatsappSub')}</p>
                   </div>
                 </a>
               </SlideIn>
@@ -320,9 +325,9 @@ export default function Contact() {
                     </svg>
                   </div>
                   <div className="min-w-0">
-                    <p className="text-xs text-text-muted mb-0.5">Email</p>
+                    <p className="text-xs text-text-muted mb-0.5">{c('sidebarEmailLabel')}</p>
                     <p className="text-sm font-semibold text-text-primary group-hover:text-white transition-colors truncate">{EMAIL}</p>
-                    <p className="text-xs text-text-muted">Respuesta &lt; 24hs</p>
+                    <p className="text-xs text-text-muted">{c('sidebarEmailSub')}</p>
                   </div>
                 </a>
               </SlideIn>
@@ -330,7 +335,7 @@ export default function Contact() {
               <SlideIn direction="right" delay={0.2}>
                 {/* Redes */}
                 <div className="glass-card p-5">
-                  <p className="text-xs font-semibold text-text-muted uppercase tracking-widest mb-4">Redes</p>
+                  <p className="text-xs font-semibold text-text-muted uppercase tracking-widest mb-4">{c('sidebarSocialHeading')}</p>
                   <div className="flex flex-col gap-3">
                     {socialLinks.map((s) => (
                       <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer"
@@ -347,9 +352,9 @@ export default function Contact() {
 
               <SlideIn direction="right" delay={0.25}>
                 <div className="glass-card p-5">
-                  <p className="text-xs font-semibold text-text-muted uppercase tracking-widest mb-3">Ubicación</p>
-                  <p className="text-sm text-text-secondary">Buenos Aires, Argentina 🇦🇷</p>
-                  <p className="text-xs text-text-muted mt-1">Trabajamos con clientes de todo el mundo.</p>
+                  <p className="text-xs font-semibold text-text-muted uppercase tracking-widest mb-3">{c('sidebarLocationHeading')}</p>
+                  <p className="text-sm text-text-secondary">{c('sidebarLocation')}</p>
+                  <p className="text-xs text-text-muted mt-1">{c('sidebarLocationSub')}</p>
                 </div>
               </SlideIn>
 

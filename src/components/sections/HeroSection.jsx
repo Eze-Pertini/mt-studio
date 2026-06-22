@@ -2,8 +2,13 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { FadeUp, Float } from '@components/animations'
+import { useLanguage } from '@i18n/LanguageContext'
+import { t } from '@i18n/uiText'
 
 export default function HeroSection() {
+  const { lang } = useLanguage()
+  const h = (key) => t(lang, `home.${key}`)
+
   return (
     <section
       className="relative hero-bg pt-28 pb-32 md:pt-36 md:pb-40"
@@ -33,24 +38,22 @@ export default function HeroSection() {
               <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-pill text-sm font-medium w-fit"
                    style={{ background: 'rgba(139,92,246,0.10)', border: '1px solid rgba(139,92,246,0.25)', color: '#A78BFA' }}>
                 <span className="w-1.5 h-1.5 rounded-full bg-violet-400 animate-pulse-glow" aria-hidden="true" />
-                Estudio Digital Independiente
+                {h('heroBadge')}
               </div>
             </FadeUp>
 
             {/* Headline */}
             <FadeUp delay={0.2}>
               <h1 className="text-4xl sm:text-5xl lg:text-display-xl font-black text-text-primary leading-[1.08] tracking-tight text-balance">
-                Diseño y tecnología{' '}
-                <span className="gradient-text">sin compromisos</span>
+                {h('heroTitleA')}{' '}
+                <span className="gradient-text">{h('heroTitleB')}</span>
               </h1>
             </FadeUp>
 
             {/* Subtitle */}
             <FadeUp delay={0.3}>
               <p className="text-base md:text-lg text-text-secondary leading-relaxed max-w-lg text-left">
-                Creamos sitios web, aplicaciones y sistemas digitales que combinan
-                diseño premium con tecnología sólida. Para negocios que saben
-                que la presencia digital importa.
+                {h('heroSubtitle')}
               </p>
             </FadeUp>
 
@@ -65,7 +68,7 @@ export default function HeroSection() {
                              focus-visible:ring-2 focus-visible:ring-violet-400
                              w-full sm:w-auto"
                 >
-                  Empezar un proyecto
+                  {h('ctaStart')}
                   <ArrowIcon />
                 </Link>
                 <Link
@@ -77,7 +80,7 @@ export default function HeroSection() {
                              focus-visible:ring-2 focus-visible:ring-violet-400
                              w-full sm:w-auto"
                 >
-                  Ver nuestro trabajo
+                  {h('ctaWork')}
                 </Link>
               </div>
             </FadeUp>
@@ -86,9 +89,9 @@ export default function HeroSection() {
             <FadeUp delay={0.5} className="w-full">
               <div className="flex items-center justify-center md:justify-start gap-5 md:gap-6 pt-4 border-t border-subtle mt-1">
                 {[
-                  { value: '20+',  label: 'Proyectos' },
-                  { value: '100%', label: 'Satisfacción' },
-                  { value: '5★',   label: 'Valoración' },
+                  { value: '20+',  label: h('statProjects') },
+                  { value: '100%', label: h('statSatisfaction') },
+                  { value: '5★',   label: h('statRating') },
                 ].map((stat) => (
                   <div key={stat.label} className="text-center md:text-left">
                     <div className="text-lg md:text-xl font-bold text-text-primary">{stat.value}</div>
@@ -120,8 +123,8 @@ export default function HeroSection() {
                     ✦
                   </div>
                   <div>
-                    <div className="text-xs font-semibold text-text-primary whitespace-nowrap">Diseño premium</div>
-                    <div className="text-[10px] text-text-muted">UI/UX a medida</div>
+                    <div className="text-xs font-semibold text-text-primary whitespace-nowrap">{h('heroBadge1Title')}</div>
+                    <div className="text-[10px] text-text-muted">{h('heroBadge1Sub')}</div>
                   </div>
                 </motion.div>
 
@@ -136,8 +139,8 @@ export default function HeroSection() {
                     ⚡
                   </div>
                   <div>
-                    <div className="text-xs font-semibold text-text-primary whitespace-nowrap">Rápido & escalable</div>
-                    <div className="text-[10px] text-text-muted">Tecnología moderna</div>
+                    <div className="text-xs font-semibold text-text-primary whitespace-nowrap">{h('heroBadge2Title')}</div>
+                    <div className="text-[10px] text-text-muted">{h('heroBadge2Sub')}</div>
                   </div>
                 </motion.div>
               </div>
@@ -155,7 +158,7 @@ export default function HeroSection() {
         transition={{ delay: 1.5 }}
         aria-hidden="true"
       >
-        <span className="text-xs text-text-muted tracking-widest uppercase">Scroll</span>
+        <span className="text-xs text-text-muted tracking-widest uppercase">{h('scroll')}</span>
         <motion.div
           className="w-px h-8 bg-gradient-to-b from-text-muted to-transparent"
           animate={{ scaleY: [1, 0.4, 1] }}

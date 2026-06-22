@@ -1,37 +1,30 @@
 /**
  * MT Studio — Services Data
- * Archivo central de servicios. Para agregar uno nuevo, copiar la estructura
- * de cualquier servicio existente y completar los campos.
- *
- * Relación con portfolio: usar relatedCategories con los valores
- * exactos del campo `category` en projects.js.
+ * Cada servicio tiene su contenido en español como base, y un sub-objeto `en`
+ * con los mismos campos traducidos. Usar localizeService(service, lang) para
+ * obtener la versión correcta según el idioma activo.
  */
 
 export const services = [
   {
-    // ── Identificación ──────────────────────────────────────────
-    id:   'diseno-web',
+    id: 'diseno-web',
     slug: 'diseno-web',
     icon: '✦',
     color: 'violet',
     accentHex: '#8B5CF6',
 
-    // ── Textos cortos (navbar, cards, overview) ──────────────────
     title:       'Diseño Web',
     tagline:     'Interfaces que no pasan desapercibidas',
     description: 'Diseñamos sitios web que combinan estética premium con usabilidad real. Cada proyecto parte de entender tu negocio, tu audiencia y lo que necesitás comunicar.',
 
-    // ── Hero de la página individual ─────────────────────────────
     heroTitle:    'Sitios web que trabajan\npor tu negocio',
     heroSubtitle: 'Un sitio bien diseñado no es solo una cuestión estética. Es la diferencia entre alguien que se queda y alguien que se va en tres segundos.',
 
-    // ── Problema que resuelve ────────────────────────────────────
     problem: {
       title: 'La mayoría de los sitios no convierten',
       body:  'Tener presencia online no alcanza si el sitio carga lento, se ve genérico o no guía al usuario hacia ninguna acción concreta. El diseño mal ejecutado genera desconfianza antes de que hayas podido decir una sola palabra.',
     },
 
-    // ── Beneficios ───────────────────────────────────────────────
     benefits: [
       { icon: '◎', title: 'Primera impresión que retiene',  desc: 'Los usuarios deciden en segundos. Un diseño coherente y profesional genera confianza antes de que lean una palabra.' },
       { icon: '✦', title: 'Diseñado para convertir',        desc: 'Cada sección tiene un propósito. Nada decorativo sin función. El flujo visual guía al usuario hacia la acción.' },
@@ -39,7 +32,6 @@ export const services = [
       { icon: '⚡', title: 'Fácil de escalar',              desc: 'Sistemas de diseño bien documentados. Agregar páginas, secciones o contenido futuro no implica rehacer todo.' },
     ],
 
-    // ── Qué incluye ──────────────────────────────────────────────
     features: [
       'Diseño UI/UX personalizado desde cero',
       'Responsive design completo (mobile-first)',
@@ -50,29 +42,67 @@ export const services = [
       'Entrega con documentación básica',
     ],
 
-    // ── Stack tecnológico ────────────────────────────────────────
     technologies: ['React', 'Next.js', 'Tailwind CSS', 'Framer Motion', 'Figma', 'Vite'],
 
-    // ── CTA ──────────────────────────────────────────────────────
     cta: {
       title:    '¿Tenés un proyecto en mente?',
       subtitle: 'Contanos qué necesitás. Sin formularios kilométricos ni esperas eternas.',
       label:    'Hablar sobre mi sitio',
     },
 
-    // ── SEO ──────────────────────────────────────────────────────
     seo: {
       title:       'Diseño Web Premium | MT Studio',
       description: 'Diseñamos sitios web modernos, rápidos y orientados a resultados. UI/UX personalizado, responsive y con foco en conversión.',
     },
 
-    // ── Relación con portfolio ───────────────────────────────────
     relatedCategories: ['Diseño Web'],
+
+    en: {
+      title:       'Web Design',
+      tagline:     'Interfaces that don\u2019t go unnoticed',
+      description: 'We design websites that combine premium aesthetics with real usability. Every project starts with understanding your business, your audience, and what you need to communicate.',
+
+      heroTitle:    'Websites that work\nfor your business',
+      heroSubtitle: 'A well-designed site isn\u2019t just about looks. It\u2019s the difference between someone staying and someone leaving in three seconds.',
+
+      problem: {
+        title: 'Most websites don\u2019t convert',
+        body:  'Having an online presence isn\u2019t enough if the site loads slowly, looks generic, or doesn\u2019t guide the user toward any clear action. Poorly executed design builds distrust before you\u2019ve said a single word.',
+      },
+
+      benefits: [
+        { icon: '◎', title: 'A first impression that sticks',  desc: 'Users decide in seconds. Coherent, professional design builds trust before they read a word.' },
+        { icon: '✦', title: 'Built to convert',                desc: 'Every section has a purpose. Nothing decorative without function. The visual flow guides users toward action.' },
+        { icon: '⬡', title: 'Genuinely responsive',            desc: 'Not adapted as an afterthought. Designed mobile-first, with the same quality on every device.' },
+        { icon: '⚡', title: 'Easy to scale',                  desc: 'Well-documented design systems. Adding pages, sections, or future content doesn\u2019t mean starting over.' },
+      ],
+
+      features: [
+        'Custom UI/UX design from scratch',
+        'Fully responsive design (mobile-first)',
+        'Interactive prototyping before development',
+        'Reusable component system',
+        'Speed and performance optimization',
+        'CMS integration if needed',
+        'Delivered with basic documentation',
+      ],
+
+      cta: {
+        title:    'Have a project in mind?',
+        subtitle: 'Tell us what you need. No endless forms, no long waits.',
+        label:    'Talk about my site',
+      },
+
+      seo: {
+        title:       'Premium Web Design | MT Studio',
+        description: 'We design modern, fast, results-driven websites. Custom UI/UX, responsive, and built to convert.',
+      },
+    },
   },
 
   // ─────────────────────────────────────────────────────────────────
   {
-    id:   'ecommerce',
+    id: 'ecommerce',
     slug: 'ecommerce',
     icon: '◈',
     color: 'cyan',
@@ -122,11 +152,54 @@ export const services = [
     },
 
     relatedCategories: ['Ecommerce', 'Aplicación Web'],
+
+    en: {
+      title:       'Ecommerce',
+      tagline:     'Online stores that actually sell',
+      description: 'We build complete online stores focused on shopping experience, performance, and conversion. From catalog to checkout, with no friction.',
+
+      heroTitle:    'A store that doesn\u2019t\nget in the way',
+      heroSubtitle: 'An ecommerce that doesn\u2019t convert isn\u2019t a traffic problem. It\u2019s an experience problem. Every step of the buying process has to be obvious, fast, and trustworthy.',
+
+      problem: {
+        title: 'Losing sales at checkout is avoidable',
+        body:  'Most abandoned carts aren\u2019t about lack of purchase intent. They\u2019re about friction: confusing flows, missing payment methods, slow-loading pages, or a design that fails to build trust at the decisive moment.',
+      },
+
+      benefits: [
+        { icon: '◈', title: 'Frictionless checkout',          desc: 'A direct, clear, optimized buying flow. Fewer steps, less abandonment, more conversions.' },
+        { icon: '◎', title: 'Payment methods people trust',   desc: 'Mercado Pago, bank transfer, cards \u2014 whatever your customers already use and trust.' },
+        { icon: '⬡', title: 'Management from day one',        desc: 'A clear admin panel to manage products, stock, and orders without depending on anyone.' },
+        { icon: '✦', title: 'Built to scale',                 desc: 'Architecture that handles growth. Add categories, variants, or integrations without rebuilding everything.' },
+      ],
+
+      features: [
+        'Conversion-focused design',
+        'Mercado Pago / other payment integrations',
+        'Product, variant, and stock management',
+        'Optimized cart and checkout',
+        'Custom admin panel',
+        'Automatic order notifications',
+        'Sales analytics and reports',
+        'Technical SEO for products',
+      ],
+
+      cta: {
+        title:    'Ready to start selling online?',
+        subtitle: 'Tell us about your business. We\u2019ll walk you through the approach and what you need to get started.',
+        label:    'Talk about my store',
+      },
+
+      seo: {
+        title:       'Ecommerce Development | MT Studio',
+        description: 'Online stores with premium design, optimized checkout, and payment integrations. Ecommerce that turns visits into sales.',
+      },
+    },
   },
 
   // ─────────────────────────────────────────────────────────────────
   {
-    id:   'sistemas-web',
+    id: 'sistemas-web',
     slug: 'sistemas-web',
     icon: '⬡',
     color: 'violet',
@@ -176,11 +249,54 @@ export const services = [
     },
 
     relatedCategories: ['Sistema Web'],
+
+    en: {
+      title:       'Web Systems',
+      tagline:     'Custom software for your operation',
+      description: 'We build custom web systems to digitize and streamline internal processes. From CRMs and ERPs to tools built specifically for your industry.',
+
+      heroTitle:    'Your operation, in a\nsystem that gets it',
+      heroSubtitle: 'Spreadsheets and manual processes have a ceiling. As your business grows, it needs tools that grow with it \u2014 not generic software bent into shape, but something built for what you actually do.',
+
+      problem: {
+        title: 'Generic software has a hidden cost',
+        body:  'Paying for features you don\u2019t use, adapting to workflows that aren\u2019t yours, exporting data to spreadsheets to do what the system can\u2019t. The real cost of a system that doesn\u2019t fit isn\u2019t the monthly fee \u2014 it\u2019s the time your team loses every single day.',
+      },
+
+      benefits: [
+        { icon: '⬡', title: 'Built around your workflow',     desc: 'You won\u2019t adapt your operation to the system. The system adapts to how your team works.' },
+        { icon: '◎', title: 'One single source of truth',     desc: 'All your data in one place. No parallel spreadsheets, no outdated versions, no scattered information.' },
+        { icon: '⚡', title: 'Real integrations',              desc: 'Connects with what you already use: billing, logistics, external APIs. No duplicated processes.' },
+        { icon: '✦', title: 'Scales with you',                 desc: 'Architecture built to grow. Adding modules, users, or features doesn\u2019t mean starting from scratch.' },
+      ],
+
+      features: [
+        'Detailed functional discovery and analysis',
+        'Scalable backend architecture',
+        'REST API or GraphQL as needed',
+        'Custom admin panel',
+        'User roles and permissions',
+        'Integration with external systems and APIs',
+        'Dashboard with relevant metrics',
+        'Technical documentation included',
+      ],
+
+      cta: {
+        title:    'Need a custom system?',
+        subtitle: 'Tell us which process you want to digitize. We start with a no-commitment discovery call.',
+        label:    'Talk about my system',
+      },
+
+      seo: {
+        title:       'Custom Web Systems | MT Studio',
+        description: 'We build custom web systems: CRMs, ERPs, management dashboards, and internal tools. Software that adapts to your operation.',
+      },
+    },
   },
 
   // ─────────────────────────────────────────────────────────────────
   {
-    id:   'automatizacion',
+    id: 'automatizacion',
     slug: 'automatizacion',
     icon: '⚡',
     color: 'cyan',
@@ -229,11 +345,53 @@ export const services = [
     },
 
     relatedCategories: ['Automatización', 'Sistema Web'],
+
+    en: {
+      title:       'Automation',
+      tagline:     'Let repetitive tasks run themselves',
+      description: 'We identify the manual processes eating up your team\u2019s time and automate them. Workflows, integrations, and bots that work for you 24/7.',
+
+      heroTitle:    'The hours you lose\nto repetitive tasks',
+      heroSubtitle: 'Answering the same messages, moving data between systems, building reports by hand, remembering follow-ups. These have a solution \u2014 and it\u2019s not hiring more people.',
+
+      problem: {
+        title: 'Your team is worth more than copy-paste',
+        body:  'Every hour someone on your team spends on mechanical tasks is an hour they\u2019re not solving real problems, helping customers, or growing the business. Automation doesn\u2019t replace people \u2014 it frees their time for what matters.',
+      },
+
+      benefits: [
+        { icon: '⚡', title: 'Works while you don\u2019t',     desc: 'Workflows that run on their own, any time, with no supervision. The business doesn\u2019t stop when your day ends.' },
+        { icon: '◎', title: 'Fewer human errors',              desc: 'Mechanical processes have mechanical errors. Automating them removes the variability and the slip-ups.' },
+        { icon: '◈', title: 'Everything connected',            desc: 'CRM, billing, WhatsApp, email, spreadsheets \u2014 the tools you already use, talking to each other.' },
+        { icon: '✦', title: 'Measurable ROI',                  desc: 'Hours saved per week is a concrete number. Automation is an investment with a clear return.' },
+      ],
+
+      features: [
+        'Discovery of automatable processes',
+        'Internal workflow automation',
+        'Cross-platform integrations (CRM, email, WhatsApp)',
+        'Automated response and follow-up bots',
+        'Automatic report generation',
+        'Configurable alerts and notifications',
+        'Scheduled scripts and tasks',
+      ],
+
+      cta: {
+        title:    'Which process eats up most of your time?',
+        subtitle: 'Tell us about the task that repeats the most on your team. It probably has a solution.',
+        label:    'Talk about automation',
+      },
+
+      seo: {
+        title:       'Process Automation | MT Studio',
+        description: 'We automate workflows, integrations, and repetitive tasks. More time for your team, fewer errors, processes that run on their own.',
+      },
+    },
   },
 
   // ─────────────────────────────────────────────────────────────────
   {
-    id:   'mantenimiento-web',
+    id: 'mantenimiento-web',
     slug: 'mantenimiento-web',
     icon: '◎',
     color: 'violet',
@@ -283,6 +441,49 @@ export const services = [
     },
 
     relatedCategories: ['Diseño Web', 'Ecommerce', 'Sistema Web'],
+
+    en: {
+      title:       'Web Maintenance',
+      tagline:     'Your site, always current, always secure',
+      description: 'We keep your site or system running at 100%. Updates, backups, monitoring, and technical support so you can focus on your business.',
+
+      heroTitle:    'Your website shouldn\u2019t\nbe your problem',
+      heroSubtitle: 'A site nobody maintains builds up technical debt, gets slower, becomes exposed to vulnerabilities, and eventually fails at the worst moment. Maintenance isn\u2019t an extra cost \u2014 it\u2019s what protects the investment you already made.',
+
+      problem: {
+        title: 'Unmaintained sites have an expiration date',
+        body:  'Outdated plugins, expired SSL certificates, backups that were never made, bugs nobody caught until a client reported them. Preventive maintenance is always cheaper than emergency maintenance.',
+      },
+
+      benefits: [
+        { icon: '◎', title: 'Continuous monitoring',           desc: 'We know if something breaks before a customer notices. Automatic alerts, fast response.' },
+        { icon: '⬡', title: 'Backups that actually work',      desc: 'Automatic, verified backups. If something goes wrong, we restore with zero data loss.' },
+        { icon: '✦', title: 'Updates without surprises',       desc: 'Updates are tested in a staging environment before going live. Nothing breaks without warning.' },
+        { icon: '⚡', title: 'Direct support',                 desc: 'Direct communication, no tickets nobody reads. When you need something, we respond.' },
+      ],
+
+      features: [
+        '24/7 uptime monitoring',
+        'Automatic, verified backups',
+        'Security and dependency updates',
+        'Monthly performance review',
+        'Bug fixes and error corrections',
+        'Priority technical support',
+        'Monthly status report',
+        'Minor improvements and tweaks included',
+      ],
+
+      cta: {
+        title:    'Is your site in good hands?',
+        subtitle: 'If you\u2019re not sure, it probably isn\u2019t. Let\u2019s talk before it becomes a problem.',
+        label:    'Talk about maintenance',
+      },
+
+      seo: {
+        title:       'Professional Web Maintenance | MT Studio',
+        description: 'Maintenance, monitoring, and technical support for websites and systems. Your digital presence, always secure and up to date.',
+      },
+    },
   },
 ]
 
@@ -296,7 +497,6 @@ export function getServiceBySlug(slug) {
   return services.find((s) => s.slug === slug) ?? null
 }
 
-// Normaliza categorías para comparación case-insensitive
 function normalizeCategory(str) {
   return str.toLowerCase().trim()
 }
@@ -307,4 +507,20 @@ export function getRelatedProjects(service, allProjects) {
   return allProjects.filter((p) =>
     normalized.includes(normalizeCategory(p.category))
   )
+}
+
+/**
+ * Devuelve el servicio con los campos traducidos según el idioma activo.
+ * En inglés, sobreescribe los campos base con los del sub-objeto `en`
+ * (technologies, icon, color, slug, relatedCategories quedan iguales).
+ */
+export function localizeService(service, lang) {
+  if (!service) return service
+  if (lang !== 'en' || !service.en) return service
+  const { en, ...base } = service
+  return { ...base, ...en }
+}
+
+export function localizeServices(lang) {
+  return services.map((s) => localizeService(s, lang))
 }

@@ -2,6 +2,8 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { StaggerContainer, StaggerItem, FadeUp, SlideIn } from '@components/animations'
 import { SectionHeading } from '@components/ui/Button'
+import { useLanguage } from '@i18n/LanguageContext'
+import { t } from '@i18n/uiText'
 
 // ─── Technologies ─────────────────────────────────────────────────
 const techs = [
@@ -20,12 +22,14 @@ const techs = [
 ]
 
 export function TechSection() {
+  const { lang } = useLanguage()
+
   return (
     <section className="py-20 border-y border-subtle overflow-hidden" aria-label="Tecnologías que usamos">
       <div className="container-custom">
         <FadeUp>
           <p className="text-center text-sm font-medium text-text-muted uppercase tracking-widest mb-10">
-            Tecnologías con las que trabajamos
+            {t(lang, 'home.techHeading')}
           </p>
         </FadeUp>
 
@@ -49,46 +53,27 @@ export function TechSection() {
 }
 
 // ─── Process ──────────────────────────────────────────────────────
-const steps = [
-  {
-    number: '01',
-    title: 'Escuchamos y entendemos',
-    description: 'Antes de diseñar una sola pantalla o escribir una línea de código, entendemos tu negocio, tu audiencia y qué querés lograr.',
-  },
-  {
-    number: '02',
-    title: 'Diseñamos con intención',
-    description: 'Cada decisión de diseño tiene un porqué. Prototipamos, iteramos y validamos antes de entrar en desarrollo.',
-  },
-  {
-    number: '03',
-    title: 'Desarrollamos con precisión',
-    description: 'Código limpio, escalable y con buenas prácticas. Sin atajos que generen deuda técnica futura.',
-  },
-  {
-    number: '04',
-    title: 'Entregamos y acompañamos',
-    description: 'No desaparecemos al entregar. Te acompañamos en el lanzamiento y el seguimiento post-entrega.',
-  },
-]
-
 export function ProcessSection() {
+  const { lang } = useLanguage()
+  const h = (key) => t(lang, `home.${key}`)
+  const steps = h('processSteps')
+
   return (
     <section className="section-padding" aria-labelledby="process-heading">
       <div className="container-custom">
 
         <FadeUp>
           <SectionHeading
-            label="Proceso"
-            title={<>Cómo <span className="gradient-text">trabajamos</span></>}
-            subtitle="Un proceso claro y transparente. Sabés en todo momento en qué estamos y qué viene después."
+            label={h('processBadge')}
+            title={<>{h('processTitleA')} <span className="gradient-text">{h('processTitleB')}</span></>}
+            subtitle={h('processSubtitle')}
             id="process-heading"
           />
         </FadeUp>
 
         <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {steps.map((step, i) => (
-            <FadeUp key={step.number} delay={i * 0.1}>
+            <FadeUp key={step.title} delay={i * 0.1}>
               <div className="relative glass-card p-6 h-full">
                 {/* Connector line (desktop) */}
                 {i < steps.length - 1 && (
@@ -98,7 +83,7 @@ export function ProcessSection() {
                 )}
 
                 <div className="text-3xl font-black gradient-text mb-4 select-none" aria-hidden="true">
-                  {step.number}
+                  {String(i + 1).padStart(2, '0')}
                 </div>
                 <h3 className="text-sm font-bold text-text-primary mb-2">{step.title}</h3>
                 <p className="text-sm text-text-secondary leading-relaxed">{step.description}</p>
@@ -113,14 +98,13 @@ export function ProcessSection() {
 }
 
 // ─── Benefits ─────────────────────────────────────────────────────
-const benefits = [
-  { icon: '✦', title: 'Diseño a medida',       desc: 'Sin templates. Cada proyecto parte de cero pensado para tu negocio.' },
-  { icon: '⚡', title: 'Rápido y optimizado',  desc: 'Performance como prioridad. Sitios que cargan rápido y convierten mejor.' },
-  { icon: '◎', title: 'Escalable',             desc: 'Código limpio pensado para crecer. Fácil de mantener y extender.' },
-  { icon: '◈', title: 'Soporte real',          desc: 'Comunicación directa, sin intermediarios. Respondemos rápido.' },
-]
+const benefitIcons = ['✦', '⚡', '◎', '◈']
 
 export function BenefitsSection() {
+  const { lang } = useLanguage()
+  const h = (key) => t(lang, `home.${key}`)
+  const benefits = h('benefitsItems')
+
   return (
     <section className="section-padding bg-bg-secondary/50" aria-labelledby="benefits-heading">
       <div className="container-custom">
@@ -130,20 +114,19 @@ export function BenefitsSection() {
             <div className="flex flex-col items-center md:items-start text-center md:text-left">
               <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-pill text-xs font-medium mb-4"
                    style={{ background: 'rgba(139,92,246,0.10)', border: '1px solid rgba(139,92,246,0.25)', color: '#A78BFA' }}>
-                Por qué MT Studio
+                {h('benefitsBadge')}
               </div>
               <h2 className="text-display-md font-bold text-text-primary mb-4 text-balance" id="benefits-heading">
-                Un estudio que se involucra de verdad
+                {h('benefitsTitle')}
               </h2>
               <p className="text-text-secondary leading-relaxed mb-8 text-left">
-                No somos una agencia que fabrica proyectos en serie. Somos un estudio independiente
-                que trabaja con pocos clientes a la vez para dedicarle a cada proyecto la atención que merece.
+                {h('benefitsBody')}
               </p>
               <Link
                 to="/nosotros"
                 className="inline-flex items-center gap-2 text-sm font-medium text-violet-400 hover:text-violet-300 transition-colors group"
               >
-                Conocé más sobre nosotros
+                {h('benefitsLink')}
                 <span className="transition-transform duration-200 group-hover:translate-x-1" aria-hidden="true">→</span>
               </Link>
             </div>
@@ -154,7 +137,7 @@ export function BenefitsSection() {
               {benefits.map((b, i) => (
                 <FadeUp key={b.title} delay={i * 0.08}>
                   <div className="glass-card p-5">
-                    <div className="text-2xl mb-3 gradient-text" aria-hidden="true">{b.icon}</div>
+                    <div className="text-2xl mb-3 gradient-text" aria-hidden="true">{benefitIcons[i]}</div>
                     <h3 className="text-sm font-bold text-text-primary mb-1">{b.title}</h3>
                     <p className="text-xs text-text-secondary leading-relaxed">{b.desc}</p>
                   </div>
@@ -171,6 +154,9 @@ export function BenefitsSection() {
 
 // ─── CTA Final ────────────────────────────────────────────────────
 export function CTASection() {
+  const { lang } = useLanguage()
+  const h = (key) => t(lang, `home.${key}`)
+
   return (
     <section className="section-padding" aria-labelledby="cta-heading">
       <div className="container-custom">
@@ -191,15 +177,14 @@ export function CTASection() {
             <div className="relative z-10">
               <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-pill text-xs font-medium mb-6"
                    style={{ background: 'rgba(139,92,246,0.12)', border: '1px solid rgba(139,92,246,0.25)', color: '#A78BFA' }}>
-                ¿Tenés un proyecto en mente?
+                {h('ctaFinalBadge')}
               </div>
 
               <h2 className="text-display-lg font-black text-text-primary mb-4 text-balance" id="cta-heading">
-                Hagamos algo <span className="gradient-text">que valga la pena</span>
+                {h('ctaFinalTitleA')} <span className="gradient-text">{h('ctaFinalTitleB')}</span>
               </h2>
               <p className="text-text-secondary text-lg mb-8 max-w-xl mx-auto text-left md:text-center">
-                Contanos tu idea. Sin compromiso, sin tecnicismos. Una conversación para ver
-                si somos el equipo indicado para tu proyecto.
+                {h('ctaFinalBody')}
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -211,7 +196,7 @@ export function CTASection() {
                              focus-visible:ring-2 focus-visible:ring-violet-400
                              w-full sm:w-auto"
                 >
-                  Empezar conversación
+                  {h('ctaFinalStart')}
                   <span aria-hidden="true">→</span>
                 </Link>
                 <Link
@@ -223,7 +208,7 @@ export function CTASection() {
                              focus-visible:ring-2 focus-visible:ring-violet-400
                              w-full sm:w-auto"
                 >
-                  Ver nuestros proyectos
+                  {h('ctaFinalProjects')}
                 </Link>
               </div>
             </div>

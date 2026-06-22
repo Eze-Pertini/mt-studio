@@ -1,22 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { SOCIAL, STUDIO } from '@data/config'
-
-const footerLinks = {
-  servicios: [
-    { label: 'Diseño Web',       to: '/servicios/diseno-web' },
-    { label: 'Ecommerce',        to: '/servicios/ecommerce' },
-    { label: 'Sistemas Web',     to: '/servicios/sistemas-web' },
-    { label: 'Automatización',   to: '/servicios/automatizacion' },
-    { label: 'Mantenimiento Web',to: '/servicios/mantenimiento-web' },
-  ],
-  studio: [
-    { label: 'Nosotros',  to: '/nosotros' },
-    { label: 'Portfolio', to: '/portfolio' },
-    { label: 'Blog',      to: '/blog' },
-    { label: 'Contacto',  to: '/contacto' },
-  ],
-}
+import { SOCIAL } from '@data/config'
+import { localizeServices } from '@data/services'
+import { useLanguage } from '@i18n/LanguageContext'
+import { t } from '@i18n/uiText'
 
 const socialLinks = [
   {
@@ -53,6 +40,15 @@ const socialLinks = [
 
 export default function Footer() {
   const year = new Date().getFullYear()
+  const { lang } = useLanguage()
+  const localizedServices = localizeServices(lang)
+
+  const studioLinks = [
+    { key: 'about',     to: '/nosotros' },
+    { key: 'portfolio', to: '/portfolio' },
+    { key: 'blog',      to: '/blog' },
+    { key: 'contact',   to: '/contacto' },
+  ]
 
   return (
     <footer
@@ -71,8 +67,7 @@ export default function Footer() {
               <span className="text-2xl font-light text-text-secondary tracking-widest">Studio</span>
             </Link>
             <p className="text-text-secondary text-sm leading-relaxed max-w-xs">
-              Estudio digital independiente. Creamos experiencias web con diseño premium
-              y tecnología moderna para proyectos que merecen destacar.
+              {t(lang, 'footer.tagline')}
             </p>
 
             {/* Socials */}
@@ -98,16 +93,16 @@ export default function Footer() {
           {/* Servicios — centrado en mobile */}
           <nav aria-label="Servicios" className="flex flex-col items-center md:items-start">
             <h3 className="text-xs font-semibold uppercase tracking-widest text-text-muted mb-4">
-              Servicios
+              {t(lang, 'footer.servicesHeading')}
             </h3>
             <ul className="flex flex-col items-center md:items-start gap-2.5" role="list">
-              {footerLinks.servicios.map((l) => (
-                <li key={l.to}>
+              {localizedServices.map((s) => (
+                <li key={s.slug}>
                   <Link
-                    to={l.to}
+                    to={`/servicios/${s.slug}`}
                     className="text-sm text-text-secondary hover:text-text-primary transition-colors duration-200"
                   >
-                    {l.label}
+                    {s.title}
                   </Link>
                 </li>
               ))}
@@ -117,16 +112,16 @@ export default function Footer() {
           {/* Studio — centrado en mobile */}
           <nav aria-label="Studio" className="flex flex-col items-center md:items-start">
             <h3 className="text-xs font-semibold uppercase tracking-widest text-text-muted mb-4">
-              Studio
+              {t(lang, 'footer.studioHeading')}
             </h3>
             <ul className="flex flex-col items-center md:items-start gap-2.5" role="list">
-              {footerLinks.studio.map((l) => (
+              {studioLinks.map((l) => (
                 <li key={l.to}>
                   <Link
                     to={l.to}
                     className="text-sm text-text-secondary hover:text-text-primary transition-colors duration-200"
                   >
-                    {l.label}
+                    {t(lang, `nav.${l.key}`)}
                   </Link>
                 </li>
               ))}
@@ -139,10 +134,10 @@ export default function Footer() {
       <div className="border-t border-subtle">
         <div className="container-custom py-5 flex flex-col sm:flex-row justify-between items-center gap-3">
           <p className="text-xs text-text-muted">
-            © {year} MT Studio. Todos los derechos reservados.
+            © {year} MT Studio. {t(lang, 'footer.rights')}
           </p>
           <p className="text-xs text-text-muted">
-            Diseñado y desarrollado en Argentina 🇦🇷
+            {t(lang, 'footer.madeIn')}
           </p>
         </div>
       </div>

@@ -3,17 +3,24 @@ import { useParams, Link, Navigate } from 'react-router-dom'
 import SEOHead from '@components/ui/SEOHead'
 import Lightbox from '@components/ui/Lightbox'
 import { PageTransition, FadeUp } from '@components/animations'
-import { getProjectBySlug, getRelatedProjects } from '@data/projects'
+import { getProjectBySlug, getRelatedProjects, localizeProject } from '@data/projects'
+import { useLanguage } from '@i18n/LanguageContext'
+import { t } from '@i18n/uiText'
 
 export default function ProjectDetail() {
   const { slug } = useParams()
-  const project  = getProjectBySlug(slug)
+  const { lang } = useLanguage()
+  const rawProject = getProjectBySlug(slug)
 
   const [lightboxIndex, setLightboxIndex] = useState(null)
 
-  if (!project) return <Navigate to="/portfolio" replace />
+  if (!rawProject) return <Navigate to="/portfolio" replace />
 
-  const related = getRelatedProjects(slug, 2)
+  const project = localizeProject(rawProject, lang)
+  const pd = (key) => t(lang, `projectDetail.${key}`)
+
+  const relatedRaw = getRelatedProjects(slug, 2)
+  const related = relatedRaw.map((p) => localizeProject(p, lang))
 
   const allImages = [
     ...(project.image  ? [project.image]  : []),
@@ -44,7 +51,7 @@ export default function ProjectDetail() {
           <FadeUp>
             <Link to="/portfolio" className="inline-flex items-center gap-2 text-sm text-text-muted hover:text-text-primary transition-colors mb-8 group">
               <span className="transition-transform duration-200 group-hover:-translate-x-1" aria-hidden="true">←</span>
-              Volver al portfolio
+              {pd('backToPortfolio')}
             </Link>
           </FadeUp>
 
@@ -56,7 +63,7 @@ export default function ProjectDetail() {
                         style={{ background: `${project.color}15`, border: `1px solid ${project.color}30`, color: project.color }}>
                     {project.category}
                   </span>
-                  <StatusBadge status={project.status} />
+                  <StatusBadge status={project.status} lang={lang} />
                 </div>
                 <h1 className="text-display-lg font-black text-text-primary mb-2" id="project-title">{project.title}</h1>
                 <p className="text-lg font-medium text-text-secondary mb-6">{project.tagline}</p>
@@ -67,7 +74,7 @@ export default function ProjectDetail() {
                        className="inline-flex items-center gap-2 px-6 py-2.5 rounded-pill text-sm font-semibold text-white
                                   bg-gradient-violet-cyan hover:opacity-90 transition-all active:scale-95
                                   focus-visible:ring-2 focus-visible:ring-violet-400">
-                      Ver en vivo <span aria-hidden="true">↗</span>
+                      {pd('liveLink')} <span aria-hidden="true">↗</span>
                     </a>
                   )}
                   <Link to="/contacto"
@@ -75,7 +82,7 @@ export default function ProjectDetail() {
                                    text-text-primary bg-white/8 border border-default
                                    hover:bg-white/12 hover:border-strong transition-all active:scale-95
                                    focus-visible:ring-2 focus-visible:ring-violet-400">
-                    Proyecto similar
+                    {pd('similarProject')}
                   </Link>
                 </div>
               </div>
@@ -94,7 +101,7 @@ export default function ProjectDetail() {
                   </div>
                 )}
                 <div className="glass-card p-4">
-                  <p className="text-xs font-semibold text-text-muted uppercase tracking-widest mb-3">Stack</p>
+                  <p className="text-xs font-semibold text-text-muted uppercase tracking-widest mb-3">{pd('stackHeading')}</p>
                   <div className="flex flex-wrap gap-2">
                     {project.tags.map((tag) => (
                       <span key={tag} className="text-xs px-2.5 py-1 rounded-pill text-text-secondary"
@@ -106,7 +113,7 @@ export default function ProjectDetail() {
                 </div>
                 {project.services?.length > 0 && (
                   <div className="glass-card p-4">
-                    <p className="text-xs font-semibold text-text-muted uppercase tracking-widest mb-3">Qué hicimos</p>
+                    <p className="text-xs font-semibold text-text-muted uppercase tracking-widest mb-3">{pd('whatWeDidHeading')}</p>
                     <ul className="flex flex-col gap-1.5" role="list">
                       {project.services.map((s) => (
                         <li key={s} className="text-sm text-text-secondary flex items-center gap-2">
@@ -143,7 +150,7 @@ export default function ProjectDetail() {
           <div className="container-custom">
             <FadeUp>
               <div className="max-w-3xl mx-auto">
-                <h2 className="text-display-sm font-bold text-text-primary mb-6">El proyecto</h2>
+                <h2 className="text-display-sm font-bold text-text-primary mb-6">{pd('projectHeading')}</h2>
                 <div className="text-text-secondary leading-relaxed space-y-4">
                   {project.longDescription.trim().split('\n\n').map((para, i) => (
                     <p key={i}>{para.trim()}</p>
@@ -161,9 +168,9 @@ export default function ProjectDetail() {
           <div className="container-custom">
             <FadeUp>
               <div className="flex items-center justify-between mb-6">
-                <h2 className="text-display-sm font-bold text-text-primary">Capturas</h2>
+                <h2 className="text-display-sm font-bold text-text-primary">{pd('screenshotsHeading')}</h2>
                 <span className="text-xs text-text-muted">
-                  Click para ampliar<span className="ml-1 hidden md:inline"> · ← → para navegar</span>
+                  {pd('clickToExpand')}<span className="ml-1 hidden md:inline">{pd('navigateHint')}</span>
                 </span>
               </div>
             </FadeUp>
@@ -191,7 +198,7 @@ export default function ProjectDetail() {
         <section className="py-16 border-t border-subtle">
           <div className="container-custom">
             <FadeUp>
-              <h2 className="text-display-sm font-bold text-text-primary mb-8">Otros proyectos</h2>
+              <h2 className="text-display-sm font-bold text-text-primary mb-8">{pd('otherProjectsHeading')}</h2>
             </FadeUp>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {related.map((p) => (
@@ -202,7 +209,7 @@ export default function ProjectDetail() {
                     <p className="text-xs text-text-muted mb-1">{p.category}</p>
                     <h3 className="text-base font-bold text-text-primary mb-2 group-hover:text-white transition-colors">{p.title}</h3>
                     <p className="text-sm text-text-secondary line-clamp-2">{p.description}</p>
-                    <p className="text-xs text-violet-400 mt-3 font-medium group-hover:underline">Ver proyecto →</p>
+                    <p className="text-xs text-violet-400 mt-3 font-medium group-hover:underline">{pd('viewProject')} →</p>
                   </Link>
                 </FadeUp>
               ))}
@@ -246,17 +253,23 @@ function GalleryImage({ src, alt, onClick, wide = false }) {
   )
 }
 
-function StatusBadge({ status }) {
+function StatusBadge({ status, lang }) {
+  const labels = {
+    live:        t(lang, 'home.statusLive'),
+    development: t(lang, 'home.statusDevelopment'),
+    concept:     t(lang, 'home.statusConcept'),
+  }
   const config = {
-    live:        { label: 'En vivo',       color: '#10B981', bg: 'rgba(16,185,129,0.12)', border: 'rgba(16,185,129,0.25)' },
-    development: { label: 'En desarrollo', color: '#F59E0B', bg: 'rgba(245,158,11,0.12)', border: 'rgba(245,158,11,0.25)' },
-    concept:     { label: 'Concepto',      color: '#94A3B8', bg: 'rgba(148,163,184,0.12)', border: 'rgba(148,163,184,0.25)' },
+    live:        { color: '#10B981', bg: 'rgba(16,185,129,0.12)', border: 'rgba(16,185,129,0.25)' },
+    development: { color: '#F59E0B', bg: 'rgba(245,158,11,0.12)', border: 'rgba(245,158,11,0.25)' },
+    concept:     { color: '#94A3B8', bg: 'rgba(148,163,184,0.12)', border: 'rgba(148,163,184,0.25)' },
   }
   const c = config[status] ?? config.concept
+  const label = labels[status] ?? labels.concept
   return (
     <span className="text-xs px-3 py-1 rounded-pill font-medium"
           style={{ background: c.bg, border: `1px solid ${c.border}`, color: c.color }}>
-      {c.label}
+      {label}
     </span>
   )
 }

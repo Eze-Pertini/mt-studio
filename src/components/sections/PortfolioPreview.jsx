@@ -2,13 +2,14 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { StaggerContainer, StaggerItem, FadeUp } from '@components/animations'
 import { SectionHeading } from '@components/ui/Button'
-import { featuredProjects } from '@data/projects'
+import { getFeaturedProjects } from '@data/projects'
 import { useLanguage } from '@i18n/LanguageContext'
 import { t } from '@i18n/uiText'
 
 export default function PortfolioPreview() {
   const { lang } = useLanguage()
   const h = (key) => t(lang, `home.${key}`)
+  const featuredProjects = getFeaturedProjects(lang)
 
   return (
     <section className="section-padding bg-bg-secondary/50" aria-labelledby="portfolio-preview-heading">

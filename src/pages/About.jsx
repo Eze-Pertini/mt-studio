@@ -3,36 +3,23 @@ import { Link } from 'react-router-dom'
 import SEOHead from '@components/ui/SEOHead'
 import { PageTransition, FadeUp, SlideIn, StaggerContainer, StaggerItem } from '@components/animations'
 import { CTASection } from '@components/sections/HomeExtras'
-
-const values = [
-  {
-    icon: '✦',
-    title: 'Calidad sin atajos',
-    desc: 'Preferimos entregar menos proyectos y hacerlos bien. Cada entrega tiene que representar lo mejor de lo que podemos hacer.',
-  },
-  {
-    icon: '◎',
-    title: 'Transparencia total',
-    desc: 'Sin sorpresas. Sabés cuánto cuesta, cuánto tarda y qué incluye. La confianza se construye con claridad.',
-  },
-  {
-    icon: '⬡',
-    title: 'Tecnología con criterio',
-    desc: 'Usamos la tecnología correcta para cada proyecto, no la más popular o la que mejor nos queda.',
-  },
-  {
-    icon: '◈',
-    title: 'Diseño con propósito',
-    desc: 'El diseño no es decoración. Cada decisión visual tiene un impacto en la experiencia y en los resultados.',
-  },
-]
+import { useLanguage } from '@i18n/LanguageContext'
+import { t } from '@i18n/uiText'
 
 export default function About() {
+  const { lang } = useLanguage()
+  const a = (key) => t(lang, `aboutPage.${key}`)
+  const values = a('values')
+  const valueIcons = ['✦', '◎', '⬡', '◈']
+  const storyParagraphs = a('storyParagraphs')
+
   return (
     <PageTransition>
       <SEOHead
-        title="Nosotros"
-        description="MT Studio es un estudio digital independiente. Diseño web, sistemas y automatización con foco en resultados concretos para negocios que quieren destacar."
+        title={lang === 'en' ? 'About' : 'Nosotros'}
+        description={lang === 'en'
+          ? 'MT Studio is an independent digital studio. Web design, systems, and automation focused on real results for businesses that want to stand out.'
+          : 'MT Studio es un estudio digital independiente. Diseño web, sistemas y automatización con foco en resultados concretos para negocios que quieren destacar.'}
         url="/nosotros"
       />
 
@@ -46,19 +33,17 @@ export default function About() {
               <FadeUp>
                 <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-pill text-xs font-medium mb-6"
                      style={{ background: 'rgba(139,92,246,0.10)', border: '1px solid rgba(139,92,246,0.25)', color: '#A78BFA' }}>
-                  Sobre nosotros
+                  {a('badge')}
                 </div>
               </FadeUp>
               <FadeUp delay={0.1}>
                 <h1 className="text-display-xl font-black text-text-primary mb-4 text-balance" id="about-heading">
-                  Un estudio que se <span className="gradient-text">involucra de verdad</span>
+                  {a('titleA')} <span className="gradient-text">{a('titleB')}</span>
                 </h1>
               </FadeUp>
               <FadeUp delay={0.2}>
                 <p className="text-text-secondary text-lg leading-relaxed text-left">
-                  MT Studio nació de la convicción de que el diseño premium y la tecnología sólida
-                  no son exclusivos de las grandes empresas. Los negocios que recién arrancan,
-                  los profesionales independientes y las PYMEs merecen exactamente lo mismo.
+                  {a('subtitle')}
                 </p>
               </FadeUp>
             </div>
@@ -74,7 +59,7 @@ export default function About() {
                   }}
                 >
                   <img
-                    src="/img/founder.webp"
+                    src="/team/ezequiel.png"
                     alt="Ezequiel Pertini — Fundador de MT Studio"
                     className="w-full h-full object-cover"
                   />
@@ -88,7 +73,7 @@ export default function About() {
                   }}
                 >
                   <p className="text-sm font-semibold text-text-primary">Ezequiel Pertini</p>
-                  <p className="text-xs text-text-muted">Fundador & Desarrollador</p>
+                  <p className="text-xs text-text-muted">{a('founderRole')}</p>
                 </div>
               </div>
             </SlideIn>
@@ -103,26 +88,14 @@ export default function About() {
           <div className="max-w-3xl mx-auto">
             <FadeUp>
               <h2 className="text-display-sm font-bold text-text-primary mb-6" id="story-heading">
-                La historia
+                {a('storyHeading')}
               </h2>
             </FadeUp>
             <FadeUp delay={0.1}>
               <div className="space-y-4 text-text-secondary leading-relaxed text-left">
-                <p>
-                  Empezamos como muchos estudios: con proyectos pequeños, muchas ganas y la certeza
-                  de que podíamos hacer algo distinto. Lo que nos diferenciaba no era la tecnología
-                  que usábamos ni el precio que cobrábamos, sino la forma en que encarábamos cada proyecto.
-                </p>
-                <p>
-                  Con el tiempo aprendimos que los mejores proyectos no nacen de briefings perfectos
-                  ni de clientes con todo claro. Nacen de conversaciones honestas, de entender el
-                  negocio detrás del pedido, y de tener el coraje de decir cuándo algo no va a funcionar.
-                </p>
-                <p>
-                  Hoy MT Studio es un estudio pequeño por elección. Trabajamos con pocos proyectos
-                  a la vez para garantizar que cada cliente reciba la atención que merece.
-                  No somos para todos. Somos para los que entienden que la calidad digital importa.
-                </p>
+                {storyParagraphs.map((p, i) => (
+                  <p key={i}>{p}</p>
+                ))}
               </div>
             </FadeUp>
           </div>
@@ -135,16 +108,16 @@ export default function About() {
           <FadeUp>
             <div className="text-center mb-12">
               <h2 className="text-display-md font-bold text-text-primary" id="values-heading">
-                Lo que nos guía
+                {a('valuesHeading')}
               </h2>
             </div>
           </FadeUp>
 
           <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-6" stagger={0.1}>
-            {values.map((v) => (
+            {values.map((v, i) => (
               <StaggerItem key={v.title}>
                 <div className="glass-card p-6 h-full">
-                  <div className="text-2xl gradient-text mb-4" aria-hidden="true">{v.icon}</div>
+                  <div className="text-2xl gradient-text mb-4" aria-hidden="true">{valueIcons[i]}</div>
                   <h3 className="text-base font-bold text-text-primary mb-2">{v.title}</h3>
                   <p className="text-sm text-text-secondary leading-relaxed">{v.desc}</p>
                 </div>

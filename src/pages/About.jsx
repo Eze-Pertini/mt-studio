@@ -59,7 +59,7 @@ export default function About() {
                   }}
                 >
                   <img
-                    src="/team/ezequiel.png"
+                    src="img/founder.webp"
                     alt="Ezequiel Pertini — Fundador de MT Studio"
                     className="w-full h-full object-cover"
                   />

@@ -9,7 +9,7 @@ export const projects = [
   {
     id: 1,
     slug: 'cargadirecta',
-    title: 'CargaDirecta',
+    title: 'Carga Directa',
     tagline: 'Ecommerce de recargas y gift cards para gamers',
     description:
       'Tienda online de venta de gift cards y recargas de saldo para juegos como Free Fire, Roblox, Fortnite y Brawl Stars. Entregas instantáneas, múltiples medios de pago y alrededor de 300 ventas mensuales.',
@@ -25,8 +25,12 @@ Desarrollamos el sitio sobre WordPress + WooCommerce con el tema Astra y customi
     year: 2024,
     status: 'live',
     featured: true,
-    image: '/projects/cargadirecta/cover.png',
-    images: [],
+    image: '/projects/cargadirecta/cover.webp',
+    images: [
+      '/projects/cargadirecta/screen-1.webp',
+      '/projects/cargadirecta/screen-2.webp',
+      '/projects/cargadirecta/screen-3.webp',
+    ],
     color: '#06B6D4',
     accentColor: '#8B5CF6',
     url: 'https://www.cargadirecta.com',

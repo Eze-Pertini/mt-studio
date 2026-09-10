@@ -21,7 +21,7 @@
       ]
     },
     {
-      "source": "/(.*)\\.([0-9a-f]{8})\\.webp",
+      "source": "/media/(.*)",
       "headers": [
         {
           "key": "Cache-Control",

@@ -4,15 +4,15 @@
     "variants": [
       {
         "width": 480,
-        "src": "/projects/cargadirecta/cover-480.c432c6d0.webp"
+        "src": "/media/projects/cargadirecta/cover-480.c432c6d0.webp"
       },
       {
         "width": 768,
-        "src": "/projects/cargadirecta/cover-768.3633c56b.webp"
+        "src": "/media/projects/cargadirecta/cover-768.3633c56b.webp"
       },
       {
         "width": 1200,
-        "src": "/projects/cargadirecta/cover-1200.9996ef43.webp"
+        "src": "/media/projects/cargadirecta/cover-1200.9996ef43.webp"
       }
     ]
   },
@@ -21,15 +21,15 @@
     "variants": [
       {
         "width": 480,
-        "src": "/projects/cargadirecta/screen-1-480.74411ed6.webp"
+        "src": "/media/projects/cargadirecta/screen-1-480.74411ed6.webp"
       },
       {
         "width": 768,
-        "src": "/projects/cargadirecta/screen-1-768.1756dfa6.webp"
+        "src": "/media/projects/cargadirecta/screen-1-768.1756dfa6.webp"
       },
       {
         "width": 1200,
-        "src": "/projects/cargadirecta/screen-1-1200.48f6ac72.webp"
+        "src": "/media/projects/cargadirecta/screen-1-1200.48f6ac72.webp"
       }
     ]
   },
@@ -38,15 +38,15 @@
     "variants": [
       {
         "width": 480,
-        "src": "/projects/cargadirecta/screen-2-480.747389fa.webp"
+        "src": "/media/projects/cargadirecta/screen-2-480.747389fa.webp"
       },
       {
         "width": 768,
-        "src": "/projects/cargadirecta/screen-2-768.86f24391.webp"
+        "src": "/media/projects/cargadirecta/screen-2-768.86f24391.webp"
       },
       {
         "width": 1200,
-        "src": "/projects/cargadirecta/screen-2-1200.3e5978f2.webp"
+        "src": "/media/projects/cargadirecta/screen-2-1200.3e5978f2.webp"
       }
     ]
   },
@@ -55,15 +55,15 @@
     "variants": [
       {
         "width": 480,
-        "src": "/projects/cargadirecta/screen-3-480.6b03183f.webp"
+        "src": "/media/projects/cargadirecta/screen-3-480.6b03183f.webp"
       },
       {
         "width": 768,
-        "src": "/projects/cargadirecta/screen-3-768.d0b5e6a2.webp"
+        "src": "/media/projects/cargadirecta/screen-3-768.d0b5e6a2.webp"
       },
       {
         "width": 1200,
-        "src": "/projects/cargadirecta/screen-3-1200.48e966e5.webp"
+        "src": "/media/projects/cargadirecta/screen-3-1200.48e966e5.webp"
       }
     ]
   },
@@ -72,15 +72,15 @@
     "variants": [
       {
         "width": 480,
-        "src": "/projects/factu/cover-480.2859445a.webp"
+        "src": "/media/projects/factu/cover-480.2859445a.webp"
       },
       {
         "width": 768,
-        "src": "/projects/factu/cover-768.35d21975.webp"
+        "src": "/media/projects/factu/cover-768.35d21975.webp"
       },
       {
         "width": 1200,
-        "src": "/projects/factu/cover-1200.7cda1060.webp"
+        "src": "/media/projects/factu/cover-1200.7cda1060.webp"
       }
     ]
   },
@@ -89,15 +89,15 @@
     "variants": [
       {
         "width": 480,
-        "src": "/projects/factu/screen-1-480.3eaf7c15.webp"
+        "src": "/media/projects/factu/screen-1-480.3eaf7c15.webp"
       },
       {
         "width": 768,
-        "src": "/projects/factu/screen-1-768.5e4e35ee.webp"
+        "src": "/media/projects/factu/screen-1-768.5e4e35ee.webp"
       },
       {
         "width": 1200,
-        "src": "/projects/factu/screen-1-1200.a3eb1bd2.webp"
+        "src": "/media/projects/factu/screen-1-1200.a3eb1bd2.webp"
       }
     ]
   },
@@ -106,15 +106,15 @@
     "variants": [
       {
         "width": 480,
-        "src": "/projects/factu/screen-2-480.9731f49f.webp"
+        "src": "/media/projects/factu/screen-2-480.9731f49f.webp"
       },
       {
         "width": 768,
-        "src": "/projects/factu/screen-2-768.2c3379d1.webp"
+        "src": "/media/projects/factu/screen-2-768.2c3379d1.webp"
       },
       {
         "width": 1200,
-        "src": "/projects/factu/screen-2-1200.2cfe1ee2.webp"
+        "src": "/media/projects/factu/screen-2-1200.2cfe1ee2.webp"
       }
     ]
   },
@@ -123,15 +123,15 @@
     "variants": [
       {
         "width": 480,
-        "src": "/projects/factu/screen-3-480.5b77b255.webp"
+        "src": "/media/projects/factu/screen-3-480.5b77b255.webp"
       },
       {
         "width": 768,
-        "src": "/projects/factu/screen-3-768.59320187.webp"
+        "src": "/media/projects/factu/screen-3-768.59320187.webp"
       },
       {
         "width": 1200,
-        "src": "/projects/factu/screen-3-1200.faa99619.webp"
+        "src": "/media/projects/factu/screen-3-1200.faa99619.webp"
       }
     ]
   },
@@ -140,15 +140,15 @@
     "variants": [
       {
         "width": 480,
-        "src": "/img/founder-480.f943bbab.webp"
+        "src": "/media/img/founder-480.f943bbab.webp"
       },
       {
         "width": 768,
-        "src": "/img/founder-768.e1cfa3e4.webp"
+        "src": "/media/img/founder-768.e1cfa3e4.webp"
       },
       {
         "width": 1200,
-        "src": "/img/founder-1200.b5d1be6a.webp"
+        "src": "/media/img/founder-1200.b5d1be6a.webp"
       }
     ]
   }

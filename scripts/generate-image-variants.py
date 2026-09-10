@@ -32,6 +32,11 @@ from PIL import Image
 ROOT = Path(__file__).resolve().parent.parent
 PUBLIC = ROOT / 'public'
 MANIFEST = ROOT / 'src' / 'data' / 'image-manifest.json'
+# Las variantes van a una carpeta propia. No es cosmetico: permite darles
+# Cache-Control immutable con una regla de una linea en vercel.json, sin
+# depender de que el patron de Vercel sepa distinguir por el nombre del
+# archivo. Los originales siguen donde estaban.
+DERIVED = 'media'
 
 # Carpetas con imagenes de contenido. Los favicons quedan afuera: son
 # chicos y tienen tamaños fijos por especificacion.
@@ -61,7 +66,9 @@ def variants_for(path: Path):
             resized.save(buf, 'WEBP', quality=QUALITY, method=6)
             data = buf.getvalue()
             name = f'{path.stem}-{width}.{content_hash(data)}.webp'
-            (path.parent / name).write_bytes(data)
+            dest = PUBLIC / DERIVED / path.parent.relative_to(PUBLIC) / name
+            dest.parent.mkdir(parents=True, exist_ok=True)
+            dest.write_bytes(data)
             out.append({'width': width, 'file': name})
         return out, original_width
 
@@ -92,7 +99,7 @@ def main():
             manifest[key] = {
                 'width': original_width,
                 'variants': [
-                    {'width': e['width'], 'src': f"{url_dir}/{e['file']}"} for e in entries
+                    {'width': e['width'], 'src': f"/{DERIVED}{url_dir}/{e['file']}"} for e in entries
                 ],
             }
             generados += len(entries)

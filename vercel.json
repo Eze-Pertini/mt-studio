@@ -1,10 +1,6 @@
 {
-  "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "/index.html"
-    }
-  ],
+  "cleanUrls": true,
+  "trailingSlash": false,
   "headers": [
     {
       "source": "/assets/(.*)",
@@ -16,7 +12,7 @@
       ]
     },
     {
-      "source": "/(projects|img|blog|my-favicon)/(.*)",
+      "source": "/(projects|img|my-favicon)/(.*)",
       "headers": [
         {
           "key": "Cache-Control",

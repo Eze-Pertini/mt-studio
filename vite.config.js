@@ -2,7 +2,7 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import path from 'path'
 
-export default defineConfig({
+export default defineConfig(({ isSsrBuild }) => ({
   plugins: [react()],
   resolve: {
     alias: {
@@ -20,11 +20,17 @@ export default defineConfig({
   build: {
     rollupOptions: {
       output: {
-        manualChunks: {
-          vendor: ['react', 'react-dom', 'react-router-dom'],
-          animations: ['framer-motion'],
-        }
+        // En el build de servidor que hace vite-react-ssg, react y react-dom
+        // quedan como modulos externos, y rollup no permite externos dentro
+        // de manualChunks. La separacion en chunks solo aplica al bundle que
+        // descarga el navegador.
+        manualChunks: isSsrBuild
+          ? undefined
+          : {
+              vendor: ['react', 'react-dom', 'react-router-dom'],
+              animations: ['framer-motion'],
+            },
       }
     }
   }
-})
+}))

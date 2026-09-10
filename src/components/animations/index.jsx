@@ -1,6 +1,6 @@
 import React from 'react'
 import { motion, useInView } from 'framer-motion'
-import { useRef } from 'react'
+import { useRef, useEffect } from 'react'
 import { motionVariants } from '@styles/tokens'
 
 // ─── FadeUp — scroll reveal with fade + slide up ──────────────────
@@ -155,10 +155,23 @@ export function ScaleIn({
 }
 
 // ─── PageTransition — wraps full pages ───────────────────────────
+// El primer render (el HTML generado en build y su hidratación) sale sin
+// animación de entrada: si arrancara en opacity 0, la página quedaría en
+// blanco hasta que el JS termine de cargar, y ese es justamente el estado
+// que ve un visitante con conexión lenta. A partir de la primera navegación
+// del cliente, la bandera ya está en true y las transiciones vuelven.
+let clientNavigationStarted = false
+
 export function PageTransition({ children, className = '' }) {
+  const animateOnEnter = clientNavigationStarted
+
+  useEffect(() => {
+    clientNavigationStarted = true
+  }, [])
+
   return (
     <motion.div
-      initial={{ opacity: 0, y: 12 }}
+      initial={animateOnEnter ? { opacity: 0, y: 12 } : false}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -8 }}
       transition={{ duration: 0.35, ease: [0.4, 0, 0.2, 1] }}

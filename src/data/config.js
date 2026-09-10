@@ -8,7 +8,9 @@
 // ─── Contacto ─────────────────────────────────────────────────────
 export const WHATSAPP_NUMBER = '541141578045'
 export const EMAIL           = 'mtstudio.dev@gmail.com'
-export const SITE_URL        = 'https://mtstudio.dev' // TODO: actualizar con dominio real
+// Host canonico del sitio: apex, sin www y sin barra final.
+// Vercel debe redirigir www -> apex con 308 (ver docs/SEO.md).
+export const SITE_URL        = 'https://mtstudio.dev'
 
 // ─── Redes sociales ───────────────────────────────────────────────
 // TODO: actualizar con URLs definitivas cuando estén disponibles

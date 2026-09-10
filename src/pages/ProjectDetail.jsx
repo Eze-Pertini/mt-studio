@@ -37,6 +37,7 @@ export default function ProjectDetail() {
         description={project.description}
         url={`/portfolio/${project.slug}`}
         type="article"
+        image={project.image}
       />
 
       <Lightbox images={allImages} index={lightboxIndex} onClose={closeLightbox} />

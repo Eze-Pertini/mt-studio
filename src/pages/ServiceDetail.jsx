@@ -265,6 +265,7 @@ export default function ServiceDetail() {
                     {p.image && (
                       <div className="aspect-video overflow-hidden bg-bg-elevated">
                         <img src={p.image} alt={`Captura de ${p.title}`}
+                             width="1600" height="900"
                              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                              loading="lazy" />
                       </div>

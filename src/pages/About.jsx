@@ -59,9 +59,11 @@ export default function About() {
                   }}
                 >
                   <img
-                    src="img/founder.webp"
+                    src="/img/founder.webp"
                     alt="Ezequiel Pertini — Fundador de MT Studio"
+                    width="1254" height="1254"
                     className="w-full h-full object-cover"
+                    fetchpriority="high"
                   />
                 </div>
                 <div

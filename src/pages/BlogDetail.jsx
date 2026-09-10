@@ -84,7 +84,9 @@ export default function BlogDetail() {
               <FadeUp>
                 <div className="rounded-panel overflow-hidden aspect-video bg-bg-elevated border border-subtle">
                   <img src={post.image} alt={`Portada: ${post.title}`}
-                       className="w-full h-full object-cover" loading="lazy" />
+                       width="1600" height="900"
+                       className="w-full h-full object-cover"
+                       fetchpriority="high" />
                 </div>
               </FadeUp>
             </div>

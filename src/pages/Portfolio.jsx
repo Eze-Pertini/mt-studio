@@ -116,6 +116,7 @@ function PortfolioCard({ project, lang, pf }) {
         {project.image ? (
           <img
             src={project.image}
+            width="1600" height="900"
             alt={`Captura de ${project.title}`}
             className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
             loading="lazy"

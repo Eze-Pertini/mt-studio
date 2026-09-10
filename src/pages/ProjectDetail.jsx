@@ -139,6 +139,7 @@ export default function ProjectDetail() {
                 src={project.image}
                 alt={`Vista general de ${project.title}`}
                 onClick={() => openLightbox(0)}
+                priority
               />
             </FadeUp>
           </div>
@@ -222,7 +223,7 @@ export default function ProjectDetail() {
   )
 }
 
-function GalleryImage({ src, alt, onClick, wide = false }) {
+function GalleryImage({ src, alt, onClick, wide = false, priority = false }) {
   return (
     <button
       onClick={onClick}
@@ -235,8 +236,10 @@ function GalleryImage({ src, alt, onClick, wide = false }) {
       style={{ padding: 0 }}
     >
       <img src={src} alt={alt}
+           width="1600" height="900"
            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-           loading="lazy" />
+           loading={priority ? 'eager' : 'lazy'}
+           fetchpriority={priority ? 'high' : 'auto'} />
       <div className="absolute inset-0 flex items-center justify-center
                       bg-black/0 group-hover:bg-black/40 transition-all duration-300">
         <div className="opacity-0 group-hover:opacity-100 transition-all duration-300

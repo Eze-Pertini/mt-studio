@@ -67,6 +67,7 @@ export function BlogCard({ post }) {
       <div className="aspect-[16/9] overflow-hidden">
         {post.image ? (
           <img src={post.image} alt={`Portada del artículo: ${post.title}`}
+               width="1600" height="900"
                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                loading="lazy" />
         ) : (

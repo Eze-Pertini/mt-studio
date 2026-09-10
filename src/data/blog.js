@@ -54,8 +54,13 @@ Si alguna respuesta es no, ahí está el problema.
     `,
     category: 'Diseño Web',
     tags: ['Conversión', 'UX', 'Diseño Web', 'Estrategia Digital'],
+    // Relaciones declaradas: ver src/data/related.js
+    relatedServices: ['diseno-web'],
     author: { name: 'Ezequiel Pertini — MT Studio', avatar: '/team/ezequiel.png' },
     publishedAt: '2026-04-10',
+    // TODO(SEO): fecha real de publicación. Se muestra en el post y va en
+    // datePublished del schema BlogPosting.
+    date: '2026-09-10',
     readTime: 5,
     // TODO(SEO): poner la fecha real del ultimo cambio de contenido de esta ficha.
     updatedAt: '2026-09-10',
@@ -118,8 +123,14 @@ La herramienta correcta para el problema correcto.
     `,
     category: 'Desarrollo',
     tags: ['WordPress', 'Desarrollo Web', 'Tecnología', 'Arquitectura'],
+    // Relaciones declaradas: ver src/data/related.js
+    relatedServices: ['sistemas-web'],
+    relatedProjects: ['cargadirecta', 'factu'],
     author: { name: 'Ezequiel Pertini — MT Studio', avatar: '/team/ezequiel.png' },
     publishedAt: '2026-03-18',
+    // TODO(SEO): fecha real de publicación. Se muestra en el post y va en
+    // datePublished del schema BlogPosting.
+    date: '2026-09-10',
     readTime: 6,
     // TODO(SEO): poner la fecha real del ultimo cambio de contenido de esta ficha.
     updatedAt: '2026-09-10',
@@ -175,8 +186,13 @@ Si manejás un volumen importante de facturas o querés dejar de depender del po
     `,
     category: 'Automatización',
     tags: ['AFIP', 'Facturación Electrónica', 'Freelancers', 'Monotributo', 'Argentina'],
+    // Relaciones declaradas: ver src/data/related.js
+    relatedProjects: ['factu'],
     author: { name: 'Ezequiel Pertini — MT Studio', avatar: '/team/ezequiel.png' },
     publishedAt: '2026-02-25',
+    // TODO(SEO): fecha real de publicación. Se muestra en el post y va en
+    // datePublished del schema BlogPosting.
+    date: '2026-09-10',
     readTime: 7,
     // TODO(SEO): poner la fecha real del ultimo cambio de contenido de esta ficha.
     updatedAt: '2026-09-10',

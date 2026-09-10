@@ -48,6 +48,10 @@ Desarrollamos el sitio sobre WordPress + WooCommerce con el tema Astra y customi
     ],
     services: ['Diseño y desarrollo ecommerce', 'Integración Mercado Pago', 'Configuración WooCommerce', 'SEO técnico'],
 
+    // Relaciones declaradas: ver src/data/related.js
+    relatedServices: ['ecommerce'],
+    relatedPosts: ['wordpress-vs-desarrollo-a-medida'],
+
     en: {
       tagline: 'Ecommerce for gift cards and game top-ups',
       description:
@@ -109,6 +113,10 @@ Lo construimos sobre Laravel 12 y PHP 8.4, con PostgreSQL, Redis e Inertia + Rea
       { label: 'Tests automatizados', value: '833' },
     ],
     services: ['Producto y diseño UI/UX', 'Desarrollo Full Stack', 'Integración ARCA (WSFEv1)', 'Integración Mercado Pago (OAuth)', 'Infraestructura y deploy'],
+
+    // Relaciones declaradas: ver src/data/related.js
+    relatedServices: ['sistemas-web'],
+    relatedPosts: ['facturacion-electronica-afip-para-independientes'],
 
     en: {
       tagline: 'Connects Mercado Pago to ARCA and invoices on its own',

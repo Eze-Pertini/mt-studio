@@ -11,10 +11,15 @@
  *   1. que #root tenga contenido renderizado (no el shell vacio del SPA)
  *   2. que haya exactamente un <title> y un canonical
  *   3. que title y description no se repitan entre paginas
+ *   4. que cada relacion declarada en los datos apunte a una pagina que
+ *      existe: un slug mal escrito, o uno que apunta a un borrador sin
+ *      pagina generada, rompe el build en vez de publicar un enlace roto
  */
 import { readFileSync, readdirSync } from 'node:fs'
 import { join, dirname, relative } from 'node:path'
 import { fileURLToPath } from 'node:url'
+
+import { allDeclaredRelations } from '../src/data/related.js'
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..')
 const DIST = join(ROOT, 'dist')
@@ -91,6 +96,17 @@ for (const file of files) {
     } else {
       descriptions.set(description, where)
     }
+  }
+}
+
+// 4. las relaciones declaradas apuntan a paginas que existen
+const PATH_BY_KIND = { servicio: 'servicios', proyecto: 'portfolio', articulo: 'blog' }
+const generated = new Set(files)
+
+for (const { origin, kind, slug } of allDeclaredRelations()) {
+  const target = `${PATH_BY_KIND[kind]}/${slug}.html`
+  if (!generated.has(target)) {
+    errors.push(`${origin}: enlaza a ${kind} "${slug}" y no existe ${target}`)
   }
 }
 

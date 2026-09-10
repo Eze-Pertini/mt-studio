@@ -4,6 +4,8 @@ import SEOHead from '@components/ui/SEOHead'
 import Lightbox from '@components/ui/Lightbox'
 import { PageTransition, FadeUp } from '@components/animations'
 import { getProjectBySlug, getRelatedProjects, localizeProject } from '@data/projects'
+import { resolveRelated } from '@data/related'
+import RelatedLinks from '@components/ui/RelatedLinks'
 import { useLanguage } from '@i18n/LanguageContext'
 import { t } from '@i18n/uiText'
 
@@ -19,6 +21,7 @@ export default function ProjectDetail() {
   const project = localizeProject(rawProject, lang)
   const pd = (key) => t(lang, `projectDetail.${key}`)
 
+  const declaredRelated = resolveRelated(project)
   const relatedRaw = getRelatedProjects(slug, 2)
   const related = relatedRaw.map((p) => localizeProject(p, lang))
 
@@ -194,6 +197,8 @@ export default function ProjectDetail() {
           </div>
         </section>
       )}
+
+      <RelatedLinks items={declaredRelated} heading="El servicio y el contexto de este proyecto" />
 
       {/* Related */}
       {related.length > 0 && (

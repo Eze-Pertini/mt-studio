@@ -57,6 +57,8 @@ export const services = [
       description: 'Sitios web rápidos, responsive y pensados para convertir. Diseño UI/UX propio, sin plantillas, enfocado en lo que tu negocio necesita comunicar.',
     },
 
+    // Relaciones declaradas: ver src/data/related.js
+    relatedPosts: ['por-que-tu-sitio-web-no-convierte'],
     relatedCategories: ['Diseño Web'],
 
     en: {
@@ -155,6 +157,9 @@ export const services = [
       description: 'Tiendas online con checkout optimizado, medios de pago integrados y panel propio para administrar productos. Ecommerce que convierte visitas en ventas.',
     },
 
+    // Relaciones declaradas: ver src/data/related.js
+    relatedProjects: ['cargadirecta'],
+    relatedPosts: ['wordpress-vs-desarrollo-a-medida'],
     relatedCategories: ['Ecommerce', 'Aplicación Web'],
 
     en: {
@@ -254,6 +259,9 @@ export const services = [
       description: 'Software a medida para un proceso concreto de tu negocio: CRMs, paneles de gestión, herramientas internas e integraciones con las APIs que ya usás.',
     },
 
+    // Relaciones declaradas: ver src/data/related.js
+    relatedProjects: ['factu'],
+    relatedPosts: ['facturacion-electronica-afip-para-independientes'],
     relatedCategories: ['Sistema Web'],
 
     en: {

@@ -3,6 +3,8 @@ import { useParams, Link, Navigate } from 'react-router-dom'
 import SEOHead from '@components/ui/SEOHead'
 import { PageTransition, FadeUp } from '@components/animations'
 import { getPostBySlug, getRelatedPosts } from '@data/blog'
+import { resolveRelated } from '@data/related'
+import RelatedLinks from '@components/ui/RelatedLinks'
 import { BlogCard } from './Blog'
 
 export default function BlogDetail() {
@@ -12,6 +14,7 @@ export default function BlogDetail() {
   if (!post) return <Navigate to="/blog" replace />
 
   const related = getRelatedPosts(slug, 3)
+  const declaredRelated = resolveRelated(post)
   const date    = new Date(post.publishedAt).toLocaleDateString('es-AR', {
     year: 'numeric', month: 'long', day: 'numeric',
   })
@@ -49,6 +52,13 @@ export default function BlogDetail() {
                         style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.10)', color: '#64748B' }}>
                     {post.readTime} min lectura
                   </span>
+                  {post.date && (
+                    <time dateTime={post.date}
+                          className="text-xs font-medium px-3 py-1 rounded-pill"
+                          style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.10)', color: '#64748B' }}>
+                      {formatDate(post.date)}
+                    </time>
+                  )}
                 </div>
               </FadeUp>
 
@@ -121,6 +131,8 @@ export default function BlogDetail() {
         </div>
       </article>
 
+      <RelatedLinks items={declaredRelated} heading="De lo que habla este artículo" />
+
       {/* Related posts */}
       {related.length > 0 && (
         <section className="py-16 border-t border-subtle" aria-label="Artículos relacionados">
@@ -185,4 +197,12 @@ function renderContent(content) {
   }
 
   return <>{elements}</>
+}
+
+/** Fecha de publicación en formato legible, sin depender del huso del navegador. */
+function formatDate(iso) {
+  const [year, month, day] = iso.split('-').map(Number)
+  return new Date(Date.UTC(year, month - 1, day)).toLocaleDateString('es-AR', {
+    day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC',
+  })
 }

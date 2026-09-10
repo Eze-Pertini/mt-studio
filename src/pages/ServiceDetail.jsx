@@ -4,6 +4,8 @@ import { motion } from 'framer-motion'
 import SEOHead from '@components/ui/SEOHead'
 import { PageTransition, FadeUp, SlideIn, StaggerContainer, StaggerItem } from '@components/animations'
 import { getServiceBySlug, getRelatedProjects, services, localizeService, localizeServices } from '@data/services'
+import { resolveRelated } from '@data/related'
+import RelatedLinks from '@components/ui/RelatedLinks'
 import { projects } from '@data/projects'
 import { useLanguage } from '@i18n/LanguageContext'
 import { t } from '@i18n/uiText'
@@ -27,6 +29,7 @@ export default function ServiceDetail() {
 
   // Servicios relacionados (los otros, para el footer de navegación) — ya localizados
   const otherServices = localizeServices(lang).filter((s) => s.slug !== slug).slice(0, 3)
+  const declaredRelated = resolveRelated(service)
 
   return (
     <PageTransition>
@@ -320,6 +323,8 @@ export default function ServiceDetail() {
           </FadeUp>
         </div>
       </section>
+
+      <RelatedLinks items={declaredRelated} heading="Casos y artículos relacionados" />
 
       {/* ── Otros servicios ───────────────────────────────────── */}
       <section className="py-16 border-t border-subtle" aria-labelledby="other-services-heading">

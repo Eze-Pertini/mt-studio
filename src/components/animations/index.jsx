@@ -4,22 +4,39 @@ import { useRef, useEffect } from 'react'
 import { motionVariants } from '@styles/tokens'
 
 // ─── FadeUp — scroll reveal with fade + slide up ──────────────────
+
+/**
+ * `immediate` — para contenido que se ve sin hacer scroll.
+ *
+ * Estos componentes arrancan en opacity 0 y se revelan cuando el elemento
+ * entra en viewport. Con el sitio prerenderizado eso tiene un costo que no
+ * es obvio: el HTML se sirve con el contenido invisible, y el visitante no
+ * lo ve hasta que bajan los 116 KB de framer-motion, React hidrata y el
+ * observer dispara. En un telefono con 4G eso son segundos, y si el
+ * elemento escondido es el mas grande de la pantalla, es el LCP.
+ *
+ * Con immediate el elemento se renderiza en su estado final, visible desde
+ * el HTML. Se usa solo arriba del pliegue; mas abajo la animacion de
+ * aparicion no cuesta nada porque ya hubo tiempo de cargar todo.
+ */
 export function FadeUp({
   children,
   delay = 0,
   duration = 0.6,
   className = '',
   once = true,
+  immediate = false,
   ...props
 }) {
   const ref = useRef(null)
   const inView = useInView(ref, { once, margin: '-60px' })
+  const visible = immediate || inView
 
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, y: 28 }}
-      animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 28 }}
+      initial={immediate ? false : { opacity: 0, y: 28 }}
+      animate={visible ? { opacity: 1, y: 0 } : { opacity: 0, y: 28 }}
       transition={{ duration, delay, ease: [0.4, 0, 0.2, 1] }}
       className={`will-change-transform ${className}`}
       {...props}
@@ -36,16 +53,18 @@ export function FadeIn({
   duration = 0.5,
   className = '',
   once = true,
+  immediate = false,
   ...props
 }) {
   const ref = useRef(null)
   const inView = useInView(ref, { once, margin: '-40px' })
+  const visible = immediate || inView
 
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0 }}
-      animate={inView ? { opacity: 1 } : { opacity: 0 }}
+      initial={immediate ? false : { opacity: 0 }}
+      animate={visible ? { opacity: 1 } : { opacity: 0 }}
       transition={{ duration, delay, ease: 'easeOut' }}
       className={`will-change-opacity ${className}`}
       {...props}
@@ -106,10 +125,12 @@ export function SlideIn({
   delay = 0,
   className = '',
   once = true,
+  immediate = false,
   ...props
 }) {
   const ref = useRef(null)
   const inView = useInView(ref, { once, margin: '-60px' })
+  const visible = immediate || inView
   const x = direction === 'left' ? -32 : 32
 
   return (
@@ -117,8 +138,8 @@ export function SlideIn({
     <div style={{ overflow: 'clip' }}>
       <motion.div
         ref={ref}
-        initial={{ opacity: 0, x }}
-        animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x }}
+        initial={immediate ? false : { opacity: 0, x }}
+        animate={visible ? { opacity: 1, x: 0 } : { opacity: 0, x }}
         transition={{ duration: 0.65, delay, ease: [0.4, 0, 0.2, 1] }}
         className={`will-change-transform ${className}`}
         {...props}
@@ -135,16 +156,18 @@ export function ScaleIn({
   delay = 0,
   className = '',
   once = true,
+  immediate = false,
   ...props
 }) {
   const ref = useRef(null)
   const inView = useInView(ref, { once, margin: '-40px' })
+  const visible = immediate || inView
 
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, scale: 0.92 }}
-      animate={inView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.92 }}
+      initial={immediate ? false : { opacity: 0, scale: 0.92 }}
+      animate={visible ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.92 }}
       transition={{ duration: 0.5, delay, ease: [0.4, 0, 0.2, 1] }}
       className={`will-change-transform ${className}`}
       {...props}

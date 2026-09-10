@@ -59,7 +59,7 @@ export default function ProjectDetail() {
         aria-labelledby="project-title"
       >
         <div className="container-custom">
-          <FadeUp>
+          <FadeUp immediate>
             <nav className="flex items-center gap-2 text-xs text-text-muted mb-8" aria-label="Navegación breadcrumb">
               <Link to="/" className="hover:text-text-secondary transition-colors">Inicio</Link>
               <span aria-hidden="true">/</span>
@@ -70,7 +70,7 @@ export default function ProjectDetail() {
           </FadeUp>
 
           <div className="grid lg:grid-cols-2 gap-12 items-start">
-            <FadeUp delay={0.1}>
+            <FadeUp immediate delay={0.1}>
               <div>
                 <div className="flex flex-wrap gap-2 mb-4">
                   <span className="text-xs px-3 py-1 rounded-pill font-medium"
@@ -102,7 +102,7 @@ export default function ProjectDetail() {
               </div>
             </FadeUp>
 
-            <FadeUp delay={0.2}>
+            <FadeUp immediate delay={0.2}>
               <div className="space-y-4">
                 {project.metrics?.length > 0 && (
                   <div className="grid grid-cols-3 gap-3">

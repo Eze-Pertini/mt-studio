@@ -39,7 +39,7 @@ export default function BlogDetail() {
         {/* Header */}
         <header className="pt-32 pb-16 hero-bg">
           <div className="container-custom">
-            <FadeUp>
+            <FadeUp immediate>
               <nav className="flex items-center gap-2 text-xs text-text-muted mb-8" aria-label="Navegación breadcrumb">
                 <Link to="/" className="hover:text-text-secondary transition-colors">Inicio</Link>
                 <span aria-hidden="true">/</span>
@@ -50,7 +50,7 @@ export default function BlogDetail() {
             </FadeUp>
 
             <div className="max-w-3xl">
-              <FadeUp delay={0.1}>
+              <FadeUp immediate delay={0.1}>
                 <div className="flex flex-wrap gap-2 mb-6">
                   <span className="text-xs font-medium px-3 py-1 rounded-pill"
                         style={{ background: 'rgba(139,92,246,0.10)', border: '1px solid rgba(139,92,246,0.25)', color: '#A78BFA' }}>
@@ -70,17 +70,17 @@ export default function BlogDetail() {
                 </div>
               </FadeUp>
 
-              <FadeUp delay={0.15}>
+              <FadeUp immediate delay={0.15}>
                 <h1 className="text-display-lg font-black text-text-primary mb-4 text-balance">
                   {post.title}
                 </h1>
               </FadeUp>
 
-              <FadeUp delay={0.2}>
+              <FadeUp immediate delay={0.2}>
                 <p className="text-text-secondary text-lg leading-relaxed mb-6">{post.excerpt}</p>
               </FadeUp>
 
-              <FadeUp delay={0.25}>
+              <FadeUp immediate delay={0.25}>
                 <div className="flex items-center gap-3">
                   <div className="w-8 h-8 rounded-full bg-gradient-violet-cyan flex items-center justify-center text-xs font-bold text-white" aria-hidden="true">
                     MT

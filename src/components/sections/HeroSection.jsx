@@ -34,7 +34,7 @@ export default function HeroSection() {
           {/* Left column — text */}
           <div className="flex flex-col items-center md:items-start gap-5 md:gap-6 text-center md:text-left">
             {/* Badge */}
-            <FadeUp delay={0.1}>
+            <FadeUp immediate delay={0.1}>
               <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-pill text-sm font-medium w-fit"
                    style={{ background: 'rgba(139,92,246,0.10)', border: '1px solid rgba(139,92,246,0.25)', color: '#A78BFA' }}>
                 <span className="w-1.5 h-1.5 rounded-full bg-violet-400 animate-pulse-glow" aria-hidden="true" />
@@ -43,7 +43,7 @@ export default function HeroSection() {
             </FadeUp>
 
             {/* Headline */}
-            <FadeUp delay={0.2}>
+            <FadeUp immediate delay={0.2}>
               <h1 className="text-4xl sm:text-5xl lg:text-display-xl font-black text-text-primary leading-[1.08] tracking-tight text-balance">
                 {h('heroTitleA')}{' '}
                 <span className="gradient-text">{h('heroTitleB')}</span>
@@ -51,14 +51,14 @@ export default function HeroSection() {
             </FadeUp>
 
             {/* Subtitle */}
-            <FadeUp delay={0.3}>
+            <FadeUp immediate delay={0.3}>
               <p className="text-base md:text-lg text-text-secondary leading-relaxed max-w-lg text-left">
                 {h('heroSubtitle')}
               </p>
             </FadeUp>
 
             {/* CTAs */}
-            <FadeUp delay={0.4} className="w-full md:w-auto">
+            <FadeUp immediate delay={0.4} className="w-full md:w-auto">
               <div className="flex flex-col sm:flex-row gap-3 mt-1 w-full md:w-auto">
                 <Link
                   to="/contacto"
@@ -86,7 +86,7 @@ export default function HeroSection() {
             </FadeUp>
 
             {/* Social proof */}
-            <FadeUp delay={0.5} className="w-full">
+            <FadeUp immediate delay={0.5} className="w-full">
               <div className="flex items-center justify-center md:justify-start gap-5 md:gap-6 pt-4 border-t border-subtle mt-1">
                 {[
                   { value: '20+',  label: h('statProjects') },
@@ -104,7 +104,7 @@ export default function HeroSection() {
 
           {/* Right column — mockup, solo visible en lg+ */}
           <div className="hidden lg:block">
-            <FadeUp delay={0.3}>
+            <FadeUp immediate delay={0.3}>
               {/* Wrapper contenedor: el overflow hidden evita que los badges negativos salgan */}
               <div className="relative px-10 py-6">
                 <Float amplitude={12} duration={6}>

@@ -54,7 +54,7 @@ export default function ServiceDetail() {
       >
         <div className="container-custom">
           {/* Breadcrumb */}
-          <FadeUp>
+          <FadeUp immediate>
             <nav className="flex items-center gap-2 text-xs text-text-muted mb-10" aria-label="Navegación breadcrumb">
               <Link to="/" className="hover:text-text-secondary transition-colors">{sd('breadcrumbHome')}</Link>
               <span aria-hidden="true">/</span>
@@ -66,7 +66,7 @@ export default function ServiceDetail() {
 
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div>
-              <FadeUp delay={0.05}>
+              <FadeUp immediate delay={0.05}>
                 <div className="w-14 h-14 rounded-card flex items-center justify-center text-2xl mb-6"
                      style={{ background: accentBg, border: `1px solid ${accentBorder}`, color: accentColor }}
                      aria-hidden="true">
@@ -74,14 +74,14 @@ export default function ServiceDetail() {
                 </div>
               </FadeUp>
 
-              <FadeUp delay={0.1}>
+              <FadeUp immediate delay={0.1}>
                 <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-pill text-xs font-medium mb-4"
                      style={{ background: accentBg, border: `1px solid ${accentBorder}`, color: accentColor }}>
                   {service.title}
                 </div>
               </FadeUp>
 
-              <FadeUp delay={0.15}>
+              <FadeUp immediate delay={0.15}>
                 <h1 className="text-display-lg font-black text-text-primary mb-4 text-balance"
                     id="service-title"
                     style={{ whiteSpace: 'pre-line' }}>
@@ -89,13 +89,13 @@ export default function ServiceDetail() {
                 </h1>
               </FadeUp>
 
-              <FadeUp delay={0.2}>
+              <FadeUp immediate delay={0.2}>
                 <p className="text-text-secondary text-lg leading-relaxed mb-8">
                   {service.heroSubtitle}
                 </p>
               </FadeUp>
 
-              <FadeUp delay={0.25}>
+              <FadeUp immediate delay={0.25}>
                 <div className="flex flex-wrap gap-3">
                   <Link to="/contacto"
                         className="inline-flex items-center gap-2 px-7 py-3.5 rounded-pill font-semibold text-white text-sm
@@ -117,7 +117,7 @@ export default function ServiceDetail() {
             </div>
 
             {/* Hero visual — tech stack pills */}
-            <SlideIn direction="right" delay={0.2}>
+            <SlideIn immediate direction="right" delay={0.2}>
               <div className="hidden lg:flex flex-wrap gap-3 justify-center">
                 {service.technologies.map((tech, i) => (
                   <motion.div

@@ -240,7 +240,7 @@ function DashboardMockup() {
         <div className="space-y-2">
           {[
             { name: 'CargaDirecta',    status: 'En vivo',       color: '#10B981' },
-            { name: 'Mini Facturante', status: 'En desarrollo', color: '#F59E0B' },
+            { name: 'Factu',           status: 'En vivo',       color: '#10B981' },
           ].map((p) => (
             <div key={p.name}
                  className="flex items-center justify-between px-3 py-2 rounded-lg"

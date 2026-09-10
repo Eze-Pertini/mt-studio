@@ -101,7 +101,7 @@ Lo mismo aplica al revés: construir a medida algo que WordPress resuelve perfec
 
 ## Nuestra postura en MT Studio
 
-Usamos ambos, según el proyecto. No tenemos preferencia dogmática. CargaDirecta es WordPress + WooCommerce porque es exactamente el caso de uso para el que WooCommerce fue diseñado. Factu es PHP a medida porque ningún plugin iba a manejar la integración con AFIP de la forma que necesitábamos.
+Usamos ambos, según el proyecto. No tenemos preferencia dogmática. CargaDirecta es WordPress + WooCommerce porque es exactamente el caso de uso para el que WooCommerce fue diseñado. Factu es Laravel a medida porque ningún plugin iba a manejar la integración con el web service de ARCA de la forma que necesitábamos.
 
 La herramienta correcta para el problema correcto.
     `,
@@ -153,9 +153,9 @@ La mayoría de los freelancers en monotributo emite solo facturas C.
 
 ## La alternativa: automatizarlo
 
-Nosotros desarrollamos Factu específicamente para resolver este problema. Permite importar cobros de Mercado Pago directamente, seleccionar el cliente y generar la factura en tres pasos, con la validación ante ARCA integrada. Lo que normalmente tarda 15 minutos se hace en segundos.
+Nosotros desarrollamos Factu específicamente para resolver este problema. Conecta tu cuenta de Mercado Pago y emite la Factura C contra el web service de ARCA por vos: obtiene el CAE, genera el PDF con el QR reglamentario y se lo manda al cliente por mail. Se puede dejar en automático, así cada cobro nuevo se factura solo sin que entres a la aplicación.
 
-Si manejás un volumen importante de facturas o querés dejar de depender del portal de AFIP, es una opción que vale considerar.
+Si manejás un volumen importante de facturas o querés dejar de depender del portal de ARCA, es una opción que vale considerar.
     `,
     category: 'Automatización',
     tags: ['AFIP', 'Facturación Electrónica', 'Freelancers', 'Monotributo', 'Argentina'],

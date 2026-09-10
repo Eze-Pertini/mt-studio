@@ -66,19 +66,21 @@ We built the site on WordPress + WooCommerce with the Astra theme and custom dev
     id: 2,
     slug: 'factu',
     title: 'Factu',
-    tagline: 'Facturación electrónica AFIP en tres clicks',
+    tagline: 'Conecta Mercado Pago con ARCA y factura solo',
     description:
-      'Aplicación web para facturación electrónica ante AFIP/ARCA, orientada a profesionales independientes y pequeñas empresas. Automatiza un proceso que antes llevaba horas, reduciéndolo a segundos.',
+      'Aplicación web que factura las ventas de los monotributistas sin intervención: conecta Mercado Pago con ARCA, emite la Factura C y le manda el PDF al cliente por mail. En producción, emitiendo comprobantes fiscales reales.',
     longDescription: `
-Factu nació de una frustración real: el sistema de facturación electrónica de AFIP es lento, confuso y está pensado para contadores, no para el profesional independiente que solo quiere cobrar por su trabajo sin perder media hora en el proceso.
+Un monotributista que cobra por Mercado Pago tiene que entrar al sitio de ARCA y cargar cada venta a mano, una por una. Las alternativas del mercado resuelven eso con un abono mensual que se paga se use o no; Factu cobra por comprobante emitido, con créditos que no vencen.
 
-El sistema permite importar cobros de Mercado Pago directamente, cargar clientes y servicios, y emitir facturas electrónicas validadas ante ARCA en tres pasos. Todo sin conocimientos contables previos.
+Factu conecta la cuenta de Mercado Pago del usuario vía OAuth, importa cada cobro y emite la Factura C contra el web service de ARCA (WSFEv1, SOAP): obtiene el CAE, genera el PDF con el QR de la RG 4892 y se lo manda al receptor por mail. Opcionalmente en automático, sin que el usuario entre a la aplicación. Es multi-local: soporta varios puntos de venta y varias cuentas de Mercado Pago, cada una con su numeración.
 
-Desarrollado en PHP con MySQL, el sistema maneja autenticación, gestión de clientes, historial de comprobantes con exportación a Excel, y conexión directa con la API de AFIP para la emisión de facturas C. Actualmente en uso por el propio estudio y en proceso de ampliarse a más usuarios.
+Lo particular de construirlo es que emitir un comprobante fiscal no admite deshacer. Un error no devuelve un mensaje de error: devuelve una factura real con CAE que solo se anula con una nota de crédito. Eso definió la arquitectura entera. La facturación automática resuelve toda decisión dudosa del lado de no emitir, porque una venta sin facturar se arregla en treinta segundos y una factura de más no. Los importes son enteros en centavos y nunca pasan por un float. Y un comprobante emitido congela los datos del emisor en la fila: editar el domicilio fiscal rige de ahí en adelante, nunca hacia atrás.
+
+Lo construimos sobre Laravel 12 y PHP 8.4, con PostgreSQL, Redis e Inertia + React 19 en TypeScript. Desplegado en Vultr con Laravel Forge: worker de colas, scheduler, SSL y backups cifrados fuera del servidor. 833 tests automatizados y análisis estático en nivel 6.
     `,
     category: 'Sistema Web',
-    tags: ['PHP', 'MySQL', 'API AFIP', 'Mercado Pago API'],
-    year: 2025,
+    tags: ['Laravel 12', 'React 19', 'ARCA WSFEv1', 'Mercado Pago OAuth', 'PHP 8.4', 'PostgreSQL', 'Redis', 'TypeScript', 'Inertia', 'Tailwind 4'],
+    year: 2026,
     status: 'live',
     featured: true,
     image: '/projects/factu/cover.webp',
@@ -89,32 +91,34 @@ Desarrollado en PHP con MySQL, el sistema maneja autenticación, gestión de cli
     ],
     color: '#8B5CF6',
     accentColor: '#06B6D4',
-    url: null,
+    url: 'https://tufactu.app/?utm_source=mtstudio&utm_medium=portfolio',
     metrics: [
-      { label: 'Tiempo por factura', value: '-90%' },
-      { label: 'Facturas emitidas', value: '14+' },
-      { label: 'Errores de carga', value: '0' },
+      { label: 'Clicks por factura', value: '0' },
+      { label: 'Puntos de venta', value: 'Multi-local' },
+      { label: 'Tests automatizados', value: '833' },
     ],
-    services: ['Diseño UI/UX', 'Desarrollo Full Stack', 'Integración API AFIP', 'Integración Mercado Pago'],
+    services: ['Producto y diseño UI/UX', 'Desarrollo Full Stack', 'Integración ARCA (WSFEv1)', 'Integración Mercado Pago (OAuth)', 'Infraestructura y deploy'],
 
     en: {
-      tagline: 'AFIP electronic invoicing in three clicks',
+      tagline: 'Connects Mercado Pago to ARCA and invoices on its own',
       description:
-        'Web application for electronic invoicing with AFIP/ARCA (Argentina\u2019s tax authority), built for freelancers and small businesses. Automates a process that used to take hours, reducing it to seconds.',
+        'Web app that invoices sales for Argentine self-employed taxpayers with no manual work: it connects Mercado Pago to ARCA, issues the Type C invoice, and emails the PDF to the customer. In production, issuing real fiscal documents.',
       longDescription: `
-Factu came out of a real frustration: AFIP\u2019s electronic invoicing system is slow, confusing, and built for accountants \u2014 not for the independent professional who just wants to get paid without losing half an hour to the process.
+A self-employed taxpayer in Argentina who gets paid through Mercado Pago has to log into the ARCA site and enter every sale by hand, one at a time. The alternatives on the market solve that with a monthly subscription you pay whether you use it or not; Factu charges per issued document, with credits that never expire.
 
-The system lets you import Mercado Pago payments directly, add clients and services, and issue electronic invoices validated with ARCA in three steps. No accounting knowledge required.
+Factu connects the user\u2019s Mercado Pago account over OAuth, imports each payment, and issues the Type C invoice against the ARCA web service (WSFEv1, SOAP): it gets the CAE authorization code, renders the PDF with the RG 4892 QR code, and emails it to the recipient. Optionally on autopilot, without the user ever opening the app. It is multi-store: several points of sale and several Mercado Pago accounts, each with its own numbering.
 
-Built in PHP with MySQL, the system handles authentication, client management, invoice history with Excel export, and a direct connection to AFIP\u2019s API for issuing Type C invoices. Currently in use by the studio itself and being expanded to more users.
+What makes it interesting to build is that issuing a fiscal document has no undo. A bug does not return an error message: it returns a real, government-authorized invoice that can only be cancelled with a credit note. That shaped the entire architecture. Automatic invoicing resolves every uncertain decision on the side of not issuing, because an unbilled sale takes thirty seconds to fix and an extra invoice does not. Amounts are integers in cents and never touch a float. And an issued document freezes the issuer data in the row: editing the tax address applies from that point forward, never backwards.
+
+We built it on Laravel 12 and PHP 8.4, with PostgreSQL, Redis, and Inertia + React 19 in TypeScript. Deployed on Vultr with Laravel Forge: queue worker, scheduler, SSL, and encrypted off-server backups. 833 automated tests and static analysis at level 6.
       `,
       category: 'Web System',
       metrics: [
-        { label: 'Time per invoice', value: '-90%' },
-        { label: 'Invoices issued', value: '14+' },
-        { label: 'Data entry errors', value: '0' },
+        { label: 'Clicks per invoice', value: '0' },
+        { label: 'Points of sale', value: 'Multi-store' },
+        { label: 'Automated tests', value: '833' },
       ],
-      services: ['UI/UX design', 'Full Stack development', 'AFIP API integration', 'Mercado Pago integration'],
+      services: ['Product & UI/UX design', 'Full Stack development', 'ARCA integration (WSFEv1)', 'Mercado Pago integration (OAuth)', 'Infrastructure & deployment'],
     },
   },
 ]

@@ -2,16 +2,17 @@
   "name": "c",
   "version": "1.0.0",
   "private": true,
-  "description": "Sitio web profesional de MT Studio. Landing page, portfolio y blog con diseño dark premium.",
+  "description": "Sitio web profesional de MT Studio. Landing page, portfolio y blog con dise\u00f1o dark premium.",
   "license": "ISC",
   "author": "",
   "type": "module",
   "main": "postcss.config.js",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && node scripts/generate-seo-files.mjs",
     "preview": "vite preview",
-    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0"
+    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+    "seo:files": "node scripts/generate-seo-files.mjs"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",

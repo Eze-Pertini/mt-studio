@@ -2,6 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ─── Inter, autohospedada ────────────────────────────────────────
+   Un unico archivo variable cubre los pesos 100 a 900. Antes eran seis
+   pesos estaticos desde fonts.googleapis.com, lo que ademas obligaba a
+   resolver DNS, negociar TLS y descargar un CSS de un tercero antes de
+   poder pintar texto: 450 a 750 ms de bloqueo de renderizado en movil.
+
+   Solo el subconjunto latino basico. Todos los caracteres del español
+   entran ahi, acentos, ñ y signos de apertura incluidos.
+
+   Origen: @fontsource-variable/inter 5.3.0, archivo
+   inter-latin-wght-normal.woff2. Para actualizarla, instalar el paquete,
+   copiar el archivo y borrar el paquete. */
+@font-face {
+  font-family: 'Inter Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url('/fonts/inter-latin-variable.woff2') format('woff2-variations');
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+
 /* ─── CSS Design Tokens ───────────────────────────────────────── */
 :root {
   /* Colors */

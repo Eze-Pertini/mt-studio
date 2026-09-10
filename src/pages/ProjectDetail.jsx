@@ -6,6 +6,7 @@ import { PageTransition, FadeUp } from '@components/animations'
 import { getProjectBySlug, getRelatedProjects, localizeProject } from '@data/projects'
 import { resolveRelated } from '@data/related'
 import { projectSchema } from '@data/schema'
+import { responsiveImage, SIZES } from '@data/responsive-image'
 import RelatedLinks from '@components/ui/RelatedLinks'
 import { useLanguage } from '@i18n/LanguageContext'
 import { t } from '@i18n/uiText'
@@ -238,6 +239,7 @@ export default function ProjectDetail() {
 }
 
 function GalleryImage({ src, alt, onClick, wide = false, priority = false }) {
+  const img = responsiveImage(src, SIZES.full)
   return (
     <button
       onClick={onClick}
@@ -249,7 +251,7 @@ function GalleryImage({ src, alt, onClick, wide = false, priority = false }) {
       aria-label={`Ampliar: ${alt}`}
       style={{ padding: 0 }}
     >
-      <img src={src} alt={alt}
+      <img src={img.src} srcSet={img.srcSet} sizes={img.sizes} alt={alt}
            width="1600" height="900"
            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
            loading={priority ? 'eager' : 'lazy'}

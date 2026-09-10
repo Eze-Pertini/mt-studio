@@ -5,6 +5,7 @@ import SEOHead from '@components/ui/SEOHead'
 import { PageTransition, FadeUp, SlideIn, StaggerContainer, StaggerItem } from '@components/animations'
 import { getServiceBySlug, getRelatedProjects, services, localizeService, localizeServices } from '@data/services'
 import { resolveRelated } from '@data/related'
+import { serviceSchema } from '@data/schema'
 import RelatedLinks from '@components/ui/RelatedLinks'
 import { projects } from '@data/projects'
 import { useLanguage } from '@i18n/LanguageContext'
@@ -38,6 +39,11 @@ export default function ServiceDetail() {
         description={service.seo.description}
         url={`/servicios/${service.slug}`}
         noindex={service.draft === true}
+        jsonLd={serviceSchema(service, [
+          { name: 'Inicio', path: '/' },
+          { name: 'Servicios', path: '/servicios' },
+          { name: service.title, path: `/servicios/${service.slug}` },
+        ])}
       />
 
       {/* ── Hero ──────────────────────────────────────────────── */}

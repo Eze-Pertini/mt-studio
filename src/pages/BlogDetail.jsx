@@ -4,6 +4,7 @@ import SEOHead from '@components/ui/SEOHead'
 import { PageTransition, FadeUp } from '@components/animations'
 import { getPostBySlug, getRelatedPosts } from '@data/blog'
 import { resolveRelated } from '@data/related'
+import { postSchema } from '@data/schema'
 import RelatedLinks from '@components/ui/RelatedLinks'
 import { BlogCard } from './Blog'
 
@@ -27,6 +28,11 @@ export default function BlogDetail() {
         url={`/blog/${post.slug}`}
         type="article"
         image={post.image}
+        jsonLd={postSchema(post, [
+          { name: 'Inicio', path: '/' },
+          { name: 'Blog', path: '/blog' },
+          { name: post.title, path: `/blog/${post.slug}` },
+        ])}
       />
 
       <article>
@@ -34,11 +40,13 @@ export default function BlogDetail() {
         <header className="pt-32 pb-16 hero-bg">
           <div className="container-custom">
             <FadeUp>
-              <Link to="/blog"
-                    className="inline-flex items-center gap-2 text-sm text-text-muted hover:text-text-primary transition-colors mb-8 group">
-                <span className="transition-transform duration-200 group-hover:-translate-x-1" aria-hidden="true">←</span>
-                Volver al blog
-              </Link>
+              <nav className="flex items-center gap-2 text-xs text-text-muted mb-8" aria-label="Navegación breadcrumb">
+                <Link to="/" className="hover:text-text-secondary transition-colors">Inicio</Link>
+                <span aria-hidden="true">/</span>
+                <Link to="/blog" className="hover:text-text-secondary transition-colors">Blog</Link>
+                <span aria-hidden="true">/</span>
+                <span className="text-text-secondary line-clamp-1">{post.title}</span>
+              </nav>
             </FadeUp>
 
             <div className="max-w-3xl">

@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import SEOHead from '@components/ui/SEOHead'
+import { pageSchema } from '@data/schema'
 import { PageTransition, FadeUp, StaggerContainer, StaggerItem } from '@components/animations'
 import { posts, categories } from '@data/blog'
 
@@ -11,6 +12,7 @@ export default function Blog() {
         title="Blog de desarrollo web y negocios digitales"
         description="Artículos sobre diseño web, ecommerce, facturación electrónica y decisiones técnicas, explicados sin jerga y desde proyectos reales."
         url="/blog"
+        jsonLd={pageSchema([{ name: 'Inicio', path: '/' }, { name: 'Blog', path: '/blog' }])}
       />
 
       {/* Header */}

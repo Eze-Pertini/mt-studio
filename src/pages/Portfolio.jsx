@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import SEOHead from '@components/ui/SEOHead'
+import { pageSchema } from '@data/schema'
 import { PageTransition, FadeUp, StaggerContainer, StaggerItem } from '@components/animations'
 import { localizeProjects } from '@data/projects'
 import { useLanguage } from '@i18n/LanguageContext'
@@ -30,6 +31,7 @@ export default function Portfolio() {
           ? 'Web design, development, and systems projects. See what we built for real clients.'
           : 'Casos de estudio con el problema, la solución y las decisiones técnicas detrás de cada proyecto. Trabajo real, en producción, para clientes reales.'}
         url="/portfolio"
+        jsonLd={pageSchema([{ name: 'Inicio', path: '/' }, { name: 'Portfolio', path: '/portfolio' }])}
       />
 
       {/* Header */}

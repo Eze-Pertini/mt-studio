@@ -21,6 +21,7 @@ export default function SEOHead({
   url,
   type = 'website',
   noindex = false,
+  jsonLd = null,
 }) {
   const brandedTitle = title ? `${title} — ${SITE_NAME}` : DEFAULT_TITLE
 
@@ -62,6 +63,12 @@ export default function SEOHead({
       <meta name="twitter:title"       content={socialTitle} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image"       content={ogImage} />
+
+      {/* Datos estructurados. Un solo bloque por pagina, con las entidades
+          base y el nodo propio del tipo de contenido. */}
+      {jsonLd && (
+        <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
+      )}
     </Head>
   )
 }

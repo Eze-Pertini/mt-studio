@@ -5,6 +5,7 @@ import Lightbox from '@components/ui/Lightbox'
 import { PageTransition, FadeUp } from '@components/animations'
 import { getProjectBySlug, getRelatedProjects, localizeProject } from '@data/projects'
 import { resolveRelated } from '@data/related'
+import { projectSchema } from '@data/schema'
 import RelatedLinks from '@components/ui/RelatedLinks'
 import { useLanguage } from '@i18n/LanguageContext'
 import { t } from '@i18n/uiText'
@@ -41,6 +42,11 @@ export default function ProjectDetail() {
         url={`/portfolio/${project.slug}`}
         type="article"
         image={project.image}
+        jsonLd={projectSchema(project, [
+          { name: 'Inicio', path: '/' },
+          { name: 'Portfolio', path: '/portfolio' },
+          { name: project.title, path: `/portfolio/${project.slug}` },
+        ])}
       />
 
       <Lightbox images={allImages} index={lightboxIndex} onClose={closeLightbox} />
@@ -53,10 +59,13 @@ export default function ProjectDetail() {
       >
         <div className="container-custom">
           <FadeUp>
-            <Link to="/portfolio" className="inline-flex items-center gap-2 text-sm text-text-muted hover:text-text-primary transition-colors mb-8 group">
-              <span className="transition-transform duration-200 group-hover:-translate-x-1" aria-hidden="true">←</span>
-              {pd('backToPortfolio')}
-            </Link>
+            <nav className="flex items-center gap-2 text-xs text-text-muted mb-8" aria-label="Navegación breadcrumb">
+              <Link to="/" className="hover:text-text-secondary transition-colors">Inicio</Link>
+              <span aria-hidden="true">/</span>
+              <Link to="/portfolio" className="hover:text-text-secondary transition-colors">{pd('backToPortfolio')}</Link>
+              <span aria-hidden="true">/</span>
+              <span className="text-text-secondary">{project.title}</span>
+            </nav>
           </FadeUp>
 
           <div className="grid lg:grid-cols-2 gap-12 items-start">

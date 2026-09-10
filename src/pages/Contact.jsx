@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import emailjs from '@emailjs/browser'
 import SEOHead from '@components/ui/SEOHead'
+import { pageSchema } from '@data/schema'
 import { PageTransition, FadeUp, SlideIn } from '@components/animations'
 import { WHATSAPP_NUMBER, EMAIL, SOCIAL, EMAILJS } from '@data/config'
 import { motion, AnimatePresence } from 'framer-motion'
@@ -103,6 +104,7 @@ export default function Contact() {
           ? "Have a project in mind? Let's talk. Reach us via form, WhatsApp or email."
           : 'Contá qué necesita tu proyecto y recibí una propuesta concreta. Por formulario, WhatsApp o email, sin compromiso.'}
         url="/contacto"
+        jsonLd={pageSchema([{ name: 'Inicio', path: '/' }, { name: 'Contacto', path: '/contacto' }])}
       />
 
       {/* Header */}

@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import SEOHead from '@components/ui/SEOHead'
+import { aboutSchema } from '@data/schema'
 import { PageTransition, FadeUp, SlideIn, StaggerContainer, StaggerItem } from '@components/animations'
 import { CTASection } from '@components/sections/HomeExtras'
 import { useLanguage } from '@i18n/LanguageContext'
@@ -25,6 +26,7 @@ export default function About() {
           ? 'MT Studio is an independent digital studio. Web design, systems, and automation focused on real results for businesses that want to stand out.'
           : 'MT Studio es un estudio digital independiente fundado por Ezequiel Pertini. Diseño, desarrollo y sistemas a medida para clientes locales y remotos.'}
         url="/nosotros"
+        jsonLd={aboutSchema([{ name: 'Inicio', path: '/' }, { name: 'Nosotros', path: '/nosotros' }])}
       />
 
       {/* ── Hero ──────────────────────────────────────────────── */}

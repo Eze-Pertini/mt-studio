@@ -5,6 +5,7 @@ import SEOHead from '@components/ui/SEOHead'
 import { PageTransition, FadeUp, StaggerContainer, StaggerItem } from '@components/animations'
 import { CTASection } from '@components/sections/HomeExtras'
 import { localizeServices } from '@data/services'
+import { pageSchema } from '@data/schema'
 import { useLanguage } from '@i18n/LanguageContext'
 import { t } from '@i18n/uiText'
 
@@ -21,6 +22,7 @@ export default function Services() {
           ? 'Web design, ecommerce, systems, automation, and maintenance. Custom digital solutions for businesses that need real results.'
           : 'Diseño web, ecommerce, sistemas a medida, automatización y mantenimiento. Elegí el servicio que necesita tu negocio y pedí un presupuesto.'}
         url="/servicios"
+        jsonLd={pageSchema([{ name: 'Inicio', path: '/' }, { name: 'Servicios', path: '/servicios' }])}
       />
 
       {/* ── Hero ──────────────────────────────────────────────── */}

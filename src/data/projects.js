@@ -12,6 +12,7 @@ export const projects = [
     title: 'Carga Directa',
     // seoTitle y seoDescription son opcionales: sobrescriben lo que sale en el
     // <title> y en la meta description sin tocar lo que se ve en la pagina.
+    schemaType: 'CreativeWork',
     seoTitle: 'Carga Directa: ecommerce de gift cards',
     seoDescription:
       'Caso de estudio: tienda de recargas para Free Fire, Roblox y Fortnite con entrega instantánea y Mercado Pago. WordPress, WooCommerce y PHP.',
@@ -77,6 +78,7 @@ We built the site on WordPress + WooCommerce with the Astra theme and custom dev
     id: 2,
     slug: 'factu',
     title: 'Factu',
+    schemaType: 'SoftwareApplication',
     seoTitle: 'Factu: facturación electrónica ARCA (ex AFIP)',
     seoDescription:
       'Caso de estudio: una app que conecta Mercado Pago con ARCA (ex AFIP) y emite la Factura C automáticamente. Laravel, PostgreSQL y el web service WSFEv1.',

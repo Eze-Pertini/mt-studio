@@ -13,11 +13,10 @@ export const EMAIL           = 'mtstudio.dev@gmail.com'
 export const SITE_URL        = 'https://mtstudio.dev'
 
 // ─── Redes sociales ───────────────────────────────────────────────
-// TODO: actualizar con URLs definitivas cuando estén disponibles
 export const SOCIAL = {
   instagram: 'https://instagram.com/mtstudio.dev',
   linkedin:  'https://linkedin.com/in/ezequiel-pertini',
-  github:    'https://github.com/mtstudio',
+  github:    'https://github.com/Eze-Pertini',
   whatsapp:  `https://wa.me/${WHATSAPP_NUMBER}`,
 }
 

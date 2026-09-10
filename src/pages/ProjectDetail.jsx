@@ -148,11 +148,16 @@ export default function ProjectDetail() {
         <section className="py-8">
           <div className="container-custom">
             <FadeUp>
+              {/* Sin priority: el desglose de LCP de PageSpeed mostro que el
+                  elemento mas grande de esta pagina es el parrafo de
+                  descripcion, no la portada. En movil la grilla se apila y la
+                  imagen queda debajo del pliegue, asi que pedirla con
+                  fetchpriority alto solo le robaba ancho de banda al CSS y a
+                  la fuente, que son lo que el texto necesita para pintarse. */}
               <GalleryImage
                 src={project.image}
                 alt={`Vista general de ${project.title}`}
                 onClick={() => openLightbox(0)}
-                priority
               />
             </FadeUp>
           </div>

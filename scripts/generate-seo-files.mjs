@@ -16,7 +16,7 @@ import { fileURLToPath } from 'node:url'
 import { SITE_URL } from '../src/data/config.js'
 import { projects } from '../src/data/projects.js'
 import { posts } from '../src/data/blog.js'
-import { services } from '../src/data/services.js'
+import { publishedServices } from '../src/data/services.js'
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..')
 const OUT  = join(ROOT, 'dist')
@@ -45,7 +45,7 @@ add('/blog',      { changefreq: 'weekly',  priority: '0.7' })
 add('/contacto',  { changefreq: 'yearly',  priority: '0.6' })
 
 // ─── Contenido ────────────────────────────────────────────────────
-for (const s of services) add(`/servicios/${s.slug}`, { lastmod: s.updatedAt, priority: '0.8' })
+for (const s of publishedServices) add(`/servicios/${s.slug}`, { lastmod: s.updatedAt, priority: '0.8' })
 for (const p of projects) add(`/portfolio/${p.slug}`, { lastmod: p.updatedAt, priority: '0.8' })
 for (const p of posts)    add(`/blog/${p.slug}`,      { lastmod: p.updatedAt, priority: '0.6' })
 

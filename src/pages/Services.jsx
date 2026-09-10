@@ -16,10 +16,10 @@ export default function Services() {
   return (
     <PageTransition>
       <SEOHead
-        title={lang === 'en' ? 'Services' : 'Servicios'}
+        title={lang === 'en' ? 'Services' : 'Servicios de diseño y desarrollo web'}
         description={lang === 'en'
           ? 'Web design, ecommerce, systems, automation, and maintenance. Custom digital solutions for businesses that need real results.'
-          : 'Diseño web, ecommerce, sistemas, automatización y mantenimiento. Soluciones digitales a medida para negocios que necesitan resultados concretos.'}
+          : 'Diseño web, ecommerce, sistemas a medida, automatización y mantenimiento. Elegí el servicio que necesita tu negocio y pedí un presupuesto.'}
         url="/servicios"
       />
 

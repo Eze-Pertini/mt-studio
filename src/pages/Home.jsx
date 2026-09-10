@@ -16,7 +16,6 @@ export default function Home() {
     <PageTransition>
       <SEOHead
         title={null}
-        description="MT Studio — Estudio digital independiente. Diseño web, ecommerce, sistemas y automatización con tecnología moderna y diseño premium."
         url="/"
       />
 

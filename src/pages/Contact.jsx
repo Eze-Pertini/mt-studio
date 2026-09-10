@@ -98,10 +98,10 @@ export default function Contact() {
   return (
     <PageTransition>
       <SEOHead
-        title={lang === 'en' ? 'Contact' : 'Contacto'}
+        title={lang === 'en' ? 'Contact' : 'Contacto y presupuestos'}
         description={lang === 'en'
           ? "Have a project in mind? Let's talk. Reach us via form, WhatsApp or email."
-          : '¿Tenés un proyecto en mente? Hablemos. Contactanos por formulario, WhatsApp o email.'}
+          : 'Contá qué necesita tu proyecto y recibí una propuesta concreta. Por formulario, WhatsApp o email, sin compromiso.'}
         url="/contacto"
       />
 

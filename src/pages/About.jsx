@@ -16,10 +16,14 @@ export default function About() {
   return (
     <PageTransition>
       <SEOHead
-        title={lang === 'en' ? 'About' : 'Nosotros'}
+        // TODO(SEO): cuando la pagina mencione la ciudad en el texto visible,
+        // cambiar el titulo a 'Estudio de desarrollo web en Buenos Aires' (539px,
+        // entra con la marca). Hoy solo dice Argentina, y en el pie, asi que el
+        // titulo no puede prometer una ubicacion que la pagina no declara.
+        title={lang === 'en' ? 'About' : 'Estudio de desarrollo web en Argentina'}
         description={lang === 'en'
           ? 'MT Studio is an independent digital studio. Web design, systems, and automation focused on real results for businesses that want to stand out.'
-          : 'MT Studio es un estudio digital independiente. Diseño web, sistemas y automatización con foco en resultados concretos para negocios que quieren destacar.'}
+          : 'MT Studio es un estudio digital independiente fundado por Ezequiel Pertini. Diseño, desarrollo y sistemas a medida para clientes locales y remotos.'}
         url="/nosotros"
       />
 

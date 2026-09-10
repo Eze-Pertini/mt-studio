@@ -33,8 +33,8 @@ export default function ProjectDetail() {
   return (
     <PageTransition>
       <SEOHead
-        title={project.title}
-        description={project.description}
+        title={project.seoTitle ?? project.title}
+        description={project.seoDescription ?? project.description}
         url={`/portfolio/${project.slug}`}
         type="article"
         image={project.image}

@@ -34,6 +34,7 @@ export default function ServiceDetail() {
         title={service.seo.title}
         description={service.seo.description}
         url={`/servicios/${service.slug}`}
+        noindex={service.draft === true}
       />
 
       {/* ── Hero ──────────────────────────────────────────────── */}

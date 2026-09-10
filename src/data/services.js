@@ -53,8 +53,8 @@ export const services = [
     },
 
     seo: {
-      title:       'Diseño Web Premium',
-      description: 'Diseñamos sitios web modernos, rápidos y orientados a resultados. UI/UX personalizado, responsive y con foco en conversión.',
+      title:       'Diseño web profesional para negocios',
+      description: 'Sitios web rápidos, responsive y pensados para convertir. Diseño UI/UX propio, sin plantillas, enfocado en lo que tu negocio necesita comunicar.',
     },
 
     relatedCategories: ['Diseño Web'],
@@ -151,8 +151,8 @@ export const services = [
     },
 
     seo: {
-      title:       'Desarrollo Ecommerce',
-      description: 'Tiendas online con diseño premium, checkout optimizado e integración de medios de pago. Ecommerce que convierte visitas en ventas.',
+      title:       'Desarrollo de tiendas online',
+      description: 'Tiendas online con checkout optimizado, medios de pago integrados y panel propio para administrar productos. Ecommerce que convierte visitas en ventas.',
     },
 
     relatedCategories: ['Ecommerce', 'Aplicación Web'],
@@ -250,8 +250,8 @@ export const services = [
     },
 
     seo: {
-      title:       'Sistemas Web a Medida',
-      description: 'Desarrollamos sistemas web personalizados: CRMs, ERPs, paneles de gestión y herramientas internas. Software que se adapta a tu operación.',
+      title:       'Sistemas web a medida para empresas',
+      description: 'Software a medida para un proceso concreto de tu negocio: CRMs, paneles de gestión, herramientas internas e integraciones con las APIs que ya usás.',
     },
 
     relatedCategories: ['Sistema Web'],
@@ -348,8 +348,8 @@ export const services = [
     },
 
     seo: {
-      title:       'Automatización de Procesos',
-      description: 'Automatizamos workflows, integraciones y tareas repetitivas. Más tiempo para tu equipo, menos errores, procesos que funcionan solos.',
+      title:       'Automatización de procesos',
+      description: 'Las herramientas que ya usás, conectadas entre sí, y las tareas repetitivas resueltas solas. Menos carga manual, menos errores, procesos que no se olvidan.',
     },
 
     relatedCategories: ['Automatización', 'Sistema Web'],
@@ -446,8 +446,8 @@ export const services = [
     },
 
     seo: {
-      title:       'Mantenimiento Web Profesional',
-      description: 'Mantenimiento, monitoreo y soporte técnico para sitios y sistemas web. Tu presencia digital siempre segura y actualizada.',
+      title:       'Mantenimiento web y soporte técnico',
+      description: 'Actualizaciones, backups, monitoreo continuo y soporte directo para que tu sitio no se caiga, no quede desactualizado ni expuesto a vulnerabilidades.',
     },
 
     relatedCategories: ['Diseño Web', 'Ecommerce', 'Sistema Web'],
@@ -495,6 +495,79 @@ export const services = [
       },
     },
   },
+  // ── Integración con ARCA (ex AFIP) ──────────────────────────────────
+  // Esqueleto sin redactar. Existe para capturar "integración facturación
+  // electrónica ARCA", que hoy no tiene página propia y solo aparece de
+  // costado en el caso de Factu.
+  //
+  // draft: true lo mantiene fuera del listado publico, del sitemap y del
+  // prerender, y hace que la ficha responda noindex si alguien entra
+  // directo. Sacar la bandera recien cuando el contenido este escrito:
+  // publicar una pagina con placeholders es peor que no tenerla.
+  {
+    id: 'integracion-arca',
+    slug: 'integracion-arca',
+    // TODO(SEO): poner la fecha real cuando se publique.
+    updatedAt: '2026-09-10',
+    draft: true,
+
+    icon: '⬡',
+    color: 'cyan',
+    accentHex: '#06B6D4',
+
+    title:       'Integración con ARCA (ex AFIP)',
+    // TODO(SEO): redactar. Una linea: que resuelve para el cliente.
+    tagline:     'TODO(SEO): tagline',
+    // TODO(SEO): redactar, 2 o 3 oraciones. Es lo que se ve en la tarjeta
+    // del listado de servicios.
+    description: 'TODO(SEO): descripción del servicio.',
+
+    // TODO(SEO): redactar hero.
+    heroTitle:    'TODO(SEO): título del hero',
+    heroSubtitle: 'TODO(SEO): subtítulo del hero.',
+
+    // TODO(SEO): el problema concreto del cliente. Materia prima disponible:
+    // el caso de Factu y el post de facturación electrónica ya explican por
+    // qué cargar cada venta a mano en el sitio de ARCA no escala.
+    problem: {
+      title: 'TODO(SEO): el problema',
+      body:  'TODO(SEO): desarrollar el problema.',
+    },
+
+    // TODO(SEO): completar, mínimo tres.
+    benefits: [
+      { icon: '⬡', title: 'TODO(SEO)', desc: 'TODO(SEO)' },
+    ],
+
+    // TODO(SEO): completar.
+    features: [
+      { icon: '⬡', title: 'TODO(SEO)', desc: 'TODO(SEO)' },
+    ],
+
+    technologies: ['ARCA WSFEv1', 'SOAP', 'Laravel', 'PHP', 'Mercado Pago'],
+
+    // TODO(SEO): redactar.
+    cta: {
+      title:    'TODO(SEO): título del CTA',
+      subtitle: 'TODO(SEO): subtítulo del CTA',
+    },
+
+    seo: {
+      title:       'Integración con ARCA (ex AFIP)',
+      // TODO(SEO): redactar, entre 140 y 155 caracteres.
+      description: 'TODO(SEO): meta description del servicio.',
+    },
+
+    relatedCategories: ['Sistema Web'],
+    // Relaciones declaradas: la ficha de Factu es la prueba de que el
+    // servicio existe, y la guía del blog es la puerta de entrada por
+    // búsqueda informativa.
+    relatedProjects: ['factu'],
+    relatedPosts: ['facturacion-electronica-afip-para-independientes'],
+
+    // TODO(SEO): traducir cuando se publique el inglés. Por ahora no se indexa.
+    en: null,
+  },
 ]
 
 // ─── Helpers ──────────────────────────────────────────────────────
@@ -531,6 +604,9 @@ export function localizeService(service, lang) {
   return { ...base, ...en }
 }
 
+/** Servicios publicados: excluye los borradores sin contenido redactado. */
+export const publishedServices = services.filter((s) => !s.draft)
+
 export function localizeServices(lang) {
-  return services.map((s) => localizeService(s, lang))
+  return publishedServices.map((s) => localizeService(s, lang))
 }

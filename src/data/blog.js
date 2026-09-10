@@ -8,6 +8,11 @@ export const posts = [
   {
     id: 1,
     slug: 'por-que-tu-sitio-web-no-convierte',
+    // seoTitle y seoDescription son opcionales: sobrescriben lo que sale en el
+    // <title> y en la meta description sin tocar lo que se ve en la pagina.
+    seoTitle: 'Por qué tu sitio web no convierte',
+    seoDescription:
+      'No siempre es falta de tráfico. Las razones por las que las visitas que ya tenés no se transforman en clientes, y qué revisar en tu sitio primero.',
     title: 'Por qué tu sitio web no convierte (y no es un problema de tráfico)',
     excerpt:
       'La mayoría de los negocios creen que necesitan más visitas. Lo que en realidad necesitan es entender por qué las visitas que ya tienen no se convierten en clientes.',
@@ -61,6 +66,10 @@ Si alguna respuesta es no, ahí está el problema.
   {
     id: 2,
     slug: 'wordpress-vs-desarrollo-a-medida',
+    // Sin seoTitle: el titulo original entra en 516px una vez que SEOHead
+    // detecta que el sufijo de marca no entra y lo omite.
+    seoDescription:
+      'Cuándo conviene cada uno, con criterios concretos: costo real, tiempos, mantenimiento y qué pasa cuando el proyecto crece. Sin postura dogmática.',
     title: 'WordPress vs desarrollo a medida: cuándo usar cada uno',
     excerpt:
       'No hay una respuesta universal. Hay proyectos donde WordPress es la decisión correcta y proyectos donde usar WordPress sería un error. La diferencia está en entender qué necesita cada negocio.',
@@ -121,6 +130,9 @@ La herramienta correcta para el problema correcto.
   {
     id: 3,
     slug: 'facturacion-electronica-afip-para-independientes',
+    seoTitle: 'Facturación electrónica ARCA (ex AFIP) para monotributistas',
+    seoDescription:
+      'Cómo emitir facturas electrónicas ante ARCA (ex AFIP) sin perderte: qué necesitás, qué tipo de factura te corresponde y cómo automatizar el proceso.',
     title: 'Facturación electrónica AFIP: la guía práctica para freelancers y monotributistas',
     excerpt:
       'Todo lo que necesitás saber para emitir facturas electrónicas ante AFIP sin perderte en el proceso. Sin jerga contable, con pasos concretos.',

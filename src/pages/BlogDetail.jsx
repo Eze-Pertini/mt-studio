@@ -19,8 +19,8 @@ export default function BlogDetail() {
   return (
     <PageTransition>
       <SEOHead
-        title={post.title}
-        description={post.excerpt}
+        title={post.seoTitle ?? post.title}
+        description={post.seoDescription ?? post.excerpt}
         url={`/blog/${post.slug}`}
         type="article"
         image={post.image}

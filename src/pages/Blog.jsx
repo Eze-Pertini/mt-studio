@@ -8,8 +8,8 @@ export default function Blog() {
   return (
     <PageTransition>
       <SEOHead
-        title="Blog"
-        description="Artículos sobre diseño web, desarrollo frontend, ecommerce y tecnología desde la perspectiva de un estudio digital independiente."
+        title="Blog de desarrollo web y negocios digitales"
+        description="Artículos sobre diseño web, ecommerce, facturación electrónica y decisiones técnicas, explicados sin jerga y desde proyectos reales."
         url="/blog"
       />
 

@@ -3,7 +3,7 @@ import MainLayout from '@components/layout/MainLayout'
 import { LanguageProvider } from '@i18n/LanguageContext'
 import { projects } from '@data/projects'
 import { posts } from '@data/blog'
-import { services } from '@data/services'
+import { publishedServices } from '@data/services'
 
 /**
  * MT Studio — Definición de rutas
@@ -41,7 +41,7 @@ export const routes = [
         path: 'servicios/:slug',
         lazy: page(() => import('@pages/ServiceDetail')),
         entry: 'src/pages/ServiceDetail.jsx',
-        getStaticPaths: () => services.map((s) => `/servicios/${s.slug}`),
+        getStaticPaths: () => publishedServices.map((s) => `/servicios/${s.slug}`),
       },
       {
         path: 'portfolio',

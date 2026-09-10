@@ -25,10 +25,10 @@ export default function Portfolio() {
   return (
     <PageTransition>
       <SEOHead
-        title={lang === 'en' ? 'Portfolio' : 'Portfolio'}
+        title={lang === 'en' ? 'Portfolio' : 'Proyectos de desarrollo web'}
         description={lang === 'en'
           ? 'Web design, development, and systems projects. See what we built for real clients.'
-          : 'Proyectos de diseño web, desarrollo y sistemas. Mirá lo que construimos para clientes reales.'}
+          : 'Casos de estudio con el problema, la solución y las decisiones técnicas detrás de cada proyecto. Trabajo real, en producción, para clientes reales.'}
         url="/portfolio"
       />
 

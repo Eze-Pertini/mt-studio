@@ -53,7 +53,7 @@ export const services = [
     },
 
     seo: {
-      title:       'Diseño Web Premium | MT Studio',
+      title:       'Diseño Web Premium',
       description: 'Diseñamos sitios web modernos, rápidos y orientados a resultados. UI/UX personalizado, responsive y con foco en conversión.',
     },
 
@@ -96,7 +96,7 @@ export const services = [
       },
 
       seo: {
-        title:       'Premium Web Design | MT Studio',
+        title:       'Premium Web Design',
         description: 'We design modern, fast, results-driven websites. Custom UI/UX, responsive, and built to convert.',
       },
     },
@@ -151,7 +151,7 @@ export const services = [
     },
 
     seo: {
-      title:       'Desarrollo Ecommerce | MT Studio',
+      title:       'Desarrollo Ecommerce',
       description: 'Tiendas online con diseño premium, checkout optimizado e integración de medios de pago. Ecommerce que convierte visitas en ventas.',
     },
 
@@ -195,7 +195,7 @@ export const services = [
       },
 
       seo: {
-        title:       'Ecommerce Development | MT Studio',
+        title:       'Ecommerce Development',
         description: 'Online stores with premium design, optimized checkout, and payment integrations. Ecommerce that turns visits into sales.',
       },
     },
@@ -250,7 +250,7 @@ export const services = [
     },
 
     seo: {
-      title:       'Sistemas Web a Medida | MT Studio',
+      title:       'Sistemas Web a Medida',
       description: 'Desarrollamos sistemas web personalizados: CRMs, ERPs, paneles de gestión y herramientas internas. Software que se adapta a tu operación.',
     },
 
@@ -294,7 +294,7 @@ export const services = [
       },
 
       seo: {
-        title:       'Custom Web Systems | MT Studio',
+        title:       'Custom Web Systems',
         description: 'We build custom web systems: CRMs, ERPs, management dashboards, and internal tools. Software that adapts to your operation.',
       },
     },
@@ -348,7 +348,7 @@ export const services = [
     },
 
     seo: {
-      title:       'Automatización de Procesos | MT Studio',
+      title:       'Automatización de Procesos',
       description: 'Automatizamos workflows, integraciones y tareas repetitivas. Más tiempo para tu equipo, menos errores, procesos que funcionan solos.',
     },
 
@@ -391,7 +391,7 @@ export const services = [
       },
 
       seo: {
-        title:       'Process Automation | MT Studio',
+        title:       'Process Automation',
         description: 'We automate workflows, integrations, and repetitive tasks. More time for your team, fewer errors, processes that run on their own.',
       },
     },
@@ -446,7 +446,7 @@ export const services = [
     },
 
     seo: {
-      title:       'Mantenimiento Web Profesional | MT Studio',
+      title:       'Mantenimiento Web Profesional',
       description: 'Mantenimiento, monitoreo y soporte técnico para sitios y sistemas web. Tu presencia digital siempre segura y actualizada.',
     },
 
@@ -490,7 +490,7 @@ export const services = [
       },
 
       seo: {
-        title:       'Professional Web Maintenance | MT Studio',
+        title:       'Professional Web Maintenance',
         description: 'Maintenance, monitoring, and technical support for websites and systems. Your digital presence, always secure and up to date.',
       },
     },

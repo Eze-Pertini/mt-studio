@@ -1,5 +1,5 @@
 import React from 'react'
-import { Helmet } from 'react-helmet-async'
+import { Head } from 'vite-react-ssg'
 import { SITE_URL } from '@data/config'
 
 const SITE_NAME = 'MT Studio'
@@ -27,7 +27,7 @@ export default function SEOHead({
   const ogImage    = absoluteUrl(image) ?? OG_IMAGE
 
   return (
-    <Helmet>
+    <Head>
       {/* Primary */}
       <title>{fullTitle}</title>
       <meta name="description" content={description} />
@@ -48,6 +48,6 @@ export default function SEOHead({
       <meta name="twitter:title"       content={fullTitle} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image"       content={ogImage} />
-    </Helmet>
+    </Head>
   )
 }

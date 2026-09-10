@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import SEOHead from '@components/ui/SEOHead'
 import { pageSchema } from '@data/schema'
+import { responsiveImage, SIZES } from '@data/responsive-image'
 import { PageTransition, FadeUp, StaggerContainer, StaggerItem } from '@components/animations'
 import { localizeProjects } from '@data/projects'
 import { useLanguage } from '@i18n/LanguageContext'
@@ -117,7 +118,7 @@ function PortfolioCard({ project, lang, pf }) {
       <div className="relative aspect-video overflow-hidden bg-bg-elevated">
         {project.image ? (
           <img
-            src={project.image}
+            {...responsiveImage(project.image, SIZES.card)}
             width="1600" height="900"
             alt={`Captura de ${project.title}`}
             className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"

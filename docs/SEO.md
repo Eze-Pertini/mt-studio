@@ -42,6 +42,20 @@ El sufijo ` — MT Studio` se agrega solo si el título entra en los 600px que m
 
 [`scripts/generate-seo-files.mjs`](../scripts/generate-seo-files.mjs) los escribe en `dist/` leyendo los mismos módulos de datos que consume la app. El `lastmod` sale del campo `updatedAt` de cada ficha.
 
+### Imágenes responsive
+
+[`scripts/generate-image-variants.py`](../scripts/generate-image-variants.py) genera versiones de 480, 768 y 1200px de cada imagen de `public/` y escribe `src/data/image-manifest.json`. `responsiveImage()` arma el `srcSet` a partir de ese mapa.
+
+Es una herramienta local: **no corre en el build**. Después de agregar o reemplazar una imagen, hay que ejecutarla y commitear lo que genera:
+
+```
+python scripts/generate-image-variants.py
+```
+
+Si una imagen no está en el manifiesto, se sirve la original y listo. No rompe nada, solo pierde el beneficio.
+
+Cada variante lleva un hash del contenido en el nombre, así que se cachean con `immutable` por un año: si la imagen cambia, cambia el nombre del archivo.
+
 ### Verificación
 
 [`scripts/verify-prerender.mjs`](../scripts/verify-prerender.mjs) corre al final del build y **lo hace fallar** si alguna página quedó sin contenido renderizado, sin canonical o sin title, si dos páginas repiten título o descripción, o si una relación declarada apunta a una página que no existe.
@@ -91,15 +105,16 @@ Un servicio con `draft: true` **no** aparece en el listado, ni en el sitemap, ni
 
 ### Tareas manuales
 
-**Ahora, apenas se despliegue:**
+**Hechas** (10/09/2026):
 
-1. **Google Search Console.** Crear la propiedad de **tipo Dominio** (verificación por DNS), no la de prefijo de URL: cubre apex y www a la vez y evita mantener dos propiedades.
-2. **Enviar el sitemap** desde Sitemaps: `https://mtstudio.dev/sitemap.xml`.
-3. **Pedir reindexación** con la Inspección de URLs, una por una para las principales: home, `/servicios`, `/portfolio`, los dos proyectos y los tres artículos. Sin esto, Google puede tardar semanas en volver a rastrear y seguir mostrando los títulos viejos.
+1. ~~Google Search Console, propiedad de tipo Dominio verificada por DNS.~~ El registro TXT vive en DonWeb, que es quien maneja la zona de `mtstudio.dev`. **No borrarlo nunca**: Google revalida cada tanto y sin él se pierde la propiedad y el historial.
+2. ~~Sitemap enviado.~~
+3. ~~Reindexación pedida con la Inspección de URLs.~~
+4. ~~Bing Webmaster Tools.~~ Ojo con el importador de Search Console: puede dar de alta el sitio como `www` o como `http`, y después el envío de URLs falla porque no coincide el prefijo. El sitio verificado tiene que ser `https://mtstudio.dev`.
+5. ~~Medición con PageSpeed Insights.~~ Punto de partida: móvil 81/75/74, escritorio 99/98/98.
 
-**Después:**
+**Pendientes:**
 
-4. Bing Webmaster Tools, que además importa la configuración de Search Console.
-5. Validar con la [Prueba de resultados enriquecidos](https://search.google.com/test/rich-results) la home, una ficha de proyecto y un artículo.
-6. Medir con PageSpeed Insights la home y una ficha de proyecto.
-7. Enlazar el portfolio desde GitHub, LinkedIn e Instagram. Son los tres `sameAs` declarados, y el enlace de vuelta es lo que los convierte en señal de identidad.
+6. Validar con la [Prueba de resultados enriquecidos](https://search.google.com/test/rich-results) la home, una ficha de proyecto y un artículo.
+7. Volver a medir con PageSpeed Insights después de los cambios de rendimiento, para comparar contra la línea de base de arriba.
+8. Enlazar el portfolio desde GitHub, LinkedIn e Instagram. Son los tres `sameAs` declarados, y el enlace de vuelta es lo que los convierte en señal de identidad.

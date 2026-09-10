@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { responsiveImage, SIZES } from '@data/responsive-image'
 import { StaggerContainer, StaggerItem, FadeUp } from '@components/animations'
 import { SectionHeading } from '@components/ui/Button'
 import { getFeaturedProjects } from '@data/projects'
@@ -62,7 +63,7 @@ function ProjectCard({ project, lang }) {
       <div className="relative aspect-video overflow-hidden bg-bg-elevated">
         {project.image ? (
           <img
-            src={project.image}
+            {...responsiveImage(project.image, SIZES.card)}
             width="1600" height="900"
             alt={`Captura de pantalla de ${project.title}`}
             className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"

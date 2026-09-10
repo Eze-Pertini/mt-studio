@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import SEOHead from '@components/ui/SEOHead'
 import { aboutSchema } from '@data/schema'
+import { responsiveImage } from '@data/responsive-image'
 import { PageTransition, FadeUp, SlideIn, StaggerContainer, StaggerItem } from '@components/animations'
 import { CTASection } from '@components/sections/HomeExtras'
 import { useLanguage } from '@i18n/LanguageContext'
@@ -65,7 +66,7 @@ export default function About() {
                   }}
                 >
                   <img
-                    src="/img/founder.webp"
+                    {...responsiveImage('/img/founder.webp', '(max-width: 768px) 224px, 256px')}
                     alt="Ezequiel Pertini — Fundador de MT Studio"
                     width="1254" height="1254"
                     className="w-full h-full object-cover"

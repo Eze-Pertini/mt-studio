@@ -52,6 +52,8 @@ Si alguna respuesta es no, ahí está el problema.
     author: { name: 'Ezequiel Pertini — MT Studio', avatar: '/team/ezequiel.png' },
     publishedAt: '2026-04-10',
     readTime: 5,
+    // TODO(SEO): poner la fecha real del ultimo cambio de contenido de esta ficha.
+    updatedAt: '2026-09-10',
     featured: true,
     image: null,
   },
@@ -110,6 +112,8 @@ La herramienta correcta para el problema correcto.
     author: { name: 'Ezequiel Pertini — MT Studio', avatar: '/team/ezequiel.png' },
     publishedAt: '2026-03-18',
     readTime: 6,
+    // TODO(SEO): poner la fecha real del ultimo cambio de contenido de esta ficha.
+    updatedAt: '2026-09-10',
     featured: false,
     image: null,
   },
@@ -162,6 +166,8 @@ Si manejás un volumen importante de facturas o querés dejar de depender del po
     author: { name: 'Ezequiel Pertini — MT Studio', avatar: '/team/ezequiel.png' },
     publishedAt: '2026-02-25',
     readTime: 7,
+    // TODO(SEO): poner la fecha real del ultimo cambio de contenido de esta ficha.
+    updatedAt: '2026-09-10',
     featured: false,
     image: null,
   },

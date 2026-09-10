@@ -23,6 +23,8 @@ Desarrollamos el sitio sobre WordPress + WooCommerce con el tema Astra y customi
     category: 'Ecommerce',
     tags: ['WordPress', 'WooCommerce', 'Mercado Pago', 'Astra', 'PHP'],
     year: 2024,
+    // TODO(SEO): poner la fecha real del ultimo cambio de contenido de esta ficha.
+    updatedAt: '2026-09-10',
     status: 'live',
     featured: true,
     image: '/projects/cargadirecta/cover.webp',
@@ -81,6 +83,7 @@ Lo construimos sobre Laravel 12 y PHP 8.4, con PostgreSQL, Redis e Inertia + Rea
     category: 'Sistema Web',
     tags: ['Laravel 12', 'React 19', 'ARCA WSFEv1', 'Mercado Pago OAuth', 'PHP 8.4', 'PostgreSQL', 'Redis', 'TypeScript', 'Inertia', 'Tailwind 4'],
     year: 2026,
+    updatedAt: '2026-09-10',
     status: 'live',
     featured: true,
     image: '/projects/factu/cover.webp',

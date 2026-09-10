@@ -9,6 +9,8 @@ export const services = [
   {
     id: 'diseno-web',
     slug: 'diseno-web',
+    // TODO(SEO): poner la fecha real del ultimo cambio de contenido de esta ficha.
+    updatedAt: '2026-09-10',
     icon: '✦',
     color: 'violet',
     accentHex: '#8B5CF6',
@@ -104,6 +106,8 @@ export const services = [
   {
     id: 'ecommerce',
     slug: 'ecommerce',
+    // TODO(SEO): poner la fecha real del ultimo cambio de contenido de esta ficha.
+    updatedAt: '2026-09-10',
     icon: '◈',
     color: 'cyan',
     accentHex: '#06B6D4',
@@ -201,6 +205,8 @@ export const services = [
   {
     id: 'sistemas-web',
     slug: 'sistemas-web',
+    // TODO(SEO): poner la fecha real del ultimo cambio de contenido de esta ficha.
+    updatedAt: '2026-09-10',
     icon: '⬡',
     color: 'violet',
     accentHex: '#8B5CF6',
@@ -298,6 +304,8 @@ export const services = [
   {
     id: 'automatizacion',
     slug: 'automatizacion',
+    // TODO(SEO): poner la fecha real del ultimo cambio de contenido de esta ficha.
+    updatedAt: '2026-09-10',
     icon: '⚡',
     color: 'cyan',
     accentHex: '#06B6D4',
@@ -393,6 +401,8 @@ export const services = [
   {
     id: 'mantenimiento-web',
     slug: 'mantenimiento-web',
+    // TODO(SEO): poner la fecha real del ultimo cambio de contenido de esta ficha.
+    updatedAt: '2026-09-10',
     icon: '◎',
     color: 'violet',
     accentHex: '#8B5CF6',

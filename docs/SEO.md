@@ -100,7 +100,6 @@ Un servicio con `draft: true` **no** aparece en el listado, ni en el sitemap, ni
 
 - **Fechas.** Los `updatedAt` de proyectos, artículos y servicios, y los `date` de los tres artículos, están puestos en `2026-09-10` como marcador. Mientras no se completen, el sitemap declara todo el contenido como modificado ese día.
 - **`/servicios/integracion-arca`.** Está el esqueleto en `services.js` con `draft: true` y todos los textos sin redactar. Es la página que falta para "integración facturación electrónica ARCA", que hoy solo aparece de costado en el caso de Factu. Ya quedó enlazada con Factu y con la guía del blog.
-- **La ciudad en `/nosotros`.** El título dice "Argentina" porque la página no menciona Buenos Aires en su texto visible. Agregando esa línea, el título puede pasar a "Estudio de desarrollo web en Buenos Aires" (539px, entra con la marca) y captura la búsqueda local.
 - **La voz en plural.** Varios textos visibles de servicios están en primera persona del plural ("Desarrollamos", "Nos ocupamos"). Las meta descriptions ya se pasaron a voz impersonal; el contenido de las páginas no.
 
 ### Tareas manuales

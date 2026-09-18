@@ -164,7 +164,7 @@ export const ui = {
       storyParagraphs: [
         'Empezamos como muchos estudios: con proyectos pequeños, muchas ganas y la certeza de que podíamos hacer algo distinto. Lo que nos diferenciaba no era la tecnología que usábamos ni el precio que cobrábamos, sino la forma en que encarábamos cada proyecto.',
         'Con el tiempo aprendimos que los mejores proyectos no nacen de briefings perfectos ni de clientes con todo claro. Nacen de conversaciones honestas, de entender el negocio detrás del pedido, y de tener el coraje de decir cuándo algo no va a funcionar.',
-        'Hoy MT Studio es un estudio pequeño por elección. Trabajamos con pocos proyectos a la vez para garantizar que cada cliente reciba la atención que merece. No somos para todos. Somos para los que entienden que la calidad digital importa.',
+        'Hoy MT Studio es un estudio pequeño por elección, con base en Buenos Aires y trabajo remoto con clientes de cualquier punto del país. Trabajamos con pocos proyectos a la vez para garantizar que cada cliente reciba la atención que merece. No somos para todos. Somos para los que entienden que la calidad digital importa.',
       ],
       valuesHeading: 'Lo que nos guía',
       values: [
@@ -348,7 +348,7 @@ export const ui = {
       storyParagraphs: [
         "We started like many studios do: with small projects, a lot of drive, and the certainty that we could do something different. What set us apart wasn't the technology we used or the price we charged, but how we approached every project.",
         "Over time we learned that the best projects don't come from perfect briefs or clients with everything figured out. They come from honest conversations, from understanding the business behind the request, and from having the courage to say when something won't work.",
-        "Today MT Studio is a small studio by choice. We work with a few projects at a time to make sure every client gets the attention they deserve. We're not for everyone. We're for the ones who understand that digital quality matters.",
+        "Today MT Studio is a small studio by choice, based in Buenos Aires and working remotely with clients anywhere in the country. We work with a few projects at a time to make sure every client gets the attention they deserve. We're not for everyone. We're for the ones who understand that digital quality matters.",
       ],
       valuesHeading: 'What guides us',
       values: [

@@ -187,6 +187,7 @@ Si manejás un volumen importante de facturas o querés dejar de depender del po
     category: 'Automatización',
     tags: ['AFIP', 'Facturación Electrónica', 'Freelancers', 'Monotributo', 'Argentina'],
     // Relaciones declaradas: ver src/data/related.js
+    relatedServices: ['integracion-arca'],
     relatedProjects: ['factu'],
     author: { name: 'Ezequiel Pertini — MT Studio', avatar: '/team/ezequiel.png' },
     publishedAt: '2026-02-25',

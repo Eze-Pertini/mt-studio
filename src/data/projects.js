@@ -117,7 +117,7 @@ Lo construimos sobre Laravel 12 y PHP 8.4, con PostgreSQL, Redis e Inertia + Rea
     services: ['Producto y diseño UI/UX', 'Desarrollo Full Stack', 'Integración ARCA (WSFEv1)', 'Integración Mercado Pago (OAuth)', 'Infraestructura y deploy'],
 
     // Relaciones declaradas: ver src/data/related.js
-    relatedServices: ['sistemas-web'],
+    relatedServices: ['sistemas-web', 'integracion-arca'],
     relatedPosts: ['facturacion-electronica-afip-para-independientes'],
 
     en: {

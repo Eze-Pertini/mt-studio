@@ -504,66 +504,60 @@ export const services = [
     },
   },
   // ── Integración con ARCA (ex AFIP) ──────────────────────────────────
-  // Esqueleto sin redactar. Existe para capturar "integración facturación
-  // electrónica ARCA", que hoy no tiene página propia y solo aparece de
-  // costado en el caso de Factu.
-  //
-  // draft: true lo mantiene fuera del listado publico, del sitemap y del
-  // prerender, y hace que la ficha responda noindex si alguien entra
-  // directo. Sacar la bandera recien cuando el contenido este escrito:
-  // publicar una pagina con placeholders es peor que no tenerla.
+  // Captura "integración facturación electrónica ARCA", que antes solo
+  // aparecia de costado en el caso de Factu. El contenido sale de ahi y de
+  // la guia del blog: no se afirma nada que esas dos paginas no sostengan.
   {
     id: 'integracion-arca',
     slug: 'integracion-arca',
-    // TODO(SEO): poner la fecha real cuando se publique.
-    updatedAt: '2026-09-10',
-    draft: true,
+    updatedAt: '2026-09-17',
 
     icon: '⬡',
     color: 'cyan',
     accentHex: '#06B6D4',
 
     title:       'Integración con ARCA (ex AFIP)',
-    // TODO(SEO): redactar. Una linea: que resuelve para el cliente.
-    tagline:     'TODO(SEO): tagline',
-    // TODO(SEO): redactar, 2 o 3 oraciones. Es lo que se ve en la tarjeta
-    // del listado de servicios.
-    description: 'TODO(SEO): descripción del servicio.',
+    tagline:     'Que el sistema emita la factura, no vos',
+    description: 'Conexión entre tu sistema, tu tienda o tu pasarela de cobro y el web service de ARCA, para que cada venta se facture sola. El comprobante sale con su CAE, el PDF se genera con el QR reglamentario y le llega al cliente por mail.',
 
-    // TODO(SEO): redactar hero.
-    heroTitle:    'TODO(SEO): título del hero',
-    heroSubtitle: 'TODO(SEO): subtítulo del hero.',
+    heroTitle:    'Facturación electrónica\nque corre sola',
+    heroSubtitle: 'Cargar cada venta a mano en el portal de ARCA lleva entre 5 y 15 minutos y no escala. La integración directa contra el web service convierte ese trabajo diario en cero clics.',
 
-    // TODO(SEO): el problema concreto del cliente. Materia prima disponible:
-    // el caso de Factu y el post de facturación electrónica ya explican por
-    // qué cargar cada venta a mano en el sitio de ARCA no escala.
     problem: {
-      title: 'TODO(SEO): el problema',
-      body:  'TODO(SEO): desarrollar el problema.',
+      title: 'El portal de ARCA no fue pensado para tu operación',
+      body:  'Emitir un comprobante desde la web de ARCA son entre 8 y 15 campos por factura, con validaciones que no son obvias y un tratamiento distinto según a quién le vendas. Con tres ventas por mes es tolerable; con treinta se vuelve un trabajo diario. Y cada carga a mano es una oportunidad de equivocarse en un documento fiscal que después solo se corrige con una nota de crédito.',
     },
 
-    // TODO(SEO): completar, mínimo tres.
     benefits: [
-      { icon: '⬡', title: 'TODO(SEO)', desc: 'TODO(SEO)' },
+      { icon: '⚡', title: 'Cero clics por comprobante',     desc: 'Cada cobro dispara la emisión sin que nadie entre a ningún portal. El comprobante sale con su CAE y el PDF le llega al receptor por mail.' },
+      { icon: '◎', title: 'Contra el web service oficial',   desc: 'La integración va por WSFEv1, el mismo servicio con el que ARCA autoriza comprobantes. Nada de automatizar clics sobre una pantalla que puede cambiar mañana.' },
+      { icon: '⬡', title: 'Diseñado para no emitir de más',  desc: 'Una factura emitida no se deshace: se anula con una nota de crédito. Ante la duda el sistema no emite, porque una venta sin facturar se resuelve en segundos y una factura de más no.' },
+      { icon: '✦', title: 'Multi punto de venta',            desc: 'Varios puntos de venta y varias cuentas de cobro conviviendo en el mismo sistema, cada uno con su numeración y sin pisarse entre sí.' },
     ],
 
-    // TODO(SEO): completar.
     features: [
-      { icon: '⬡', title: 'TODO(SEO)', desc: 'TODO(SEO)' },
+      'Integración con el web service WSFEv1 de ARCA (SOAP)',
+      'Gestión del certificado fiscal y del punto de venta habilitado',
+      'Emisión de Factura A, B o C según el receptor',
+      'Obtención del CAE y control de su fecha de vencimiento',
+      'PDF del comprobante con el QR de la RG 4892',
+      'Envío del comprobante al receptor por mail',
+      'Conexión con Mercado Pago u otra fuente de cobros',
+      'Notas de crédito para anular lo que haya que anular',
+      'Importes en enteros, sin errores de redondeo',
     ],
 
     technologies: ['ARCA WSFEv1', 'SOAP', 'Laravel', 'PHP', 'Mercado Pago'],
 
-    // TODO(SEO): redactar.
     cta: {
-      title:    'TODO(SEO): título del CTA',
-      subtitle: 'TODO(SEO): subtítulo del CTA',
+      title:    '¿Cuántas horas por mes te lleva facturar?',
+      subtitle: 'Contanos cómo cobrás hoy y con qué sistema trabajás. Te decimos qué hace falta para que la facturación deje de ser una tarea manual.',
+      label:    'Consultar por la integración',
     },
 
     seo: {
-      title:       'Integración con ARCA (ex AFIP)',
-      // TODO(SEO): redactar, entre 140 y 155 caracteres.
-      description: 'TODO(SEO): meta description del servicio.',
+      title:       'Integración de facturación electrónica con ARCA',
+      description: 'Integración del web service de ARCA (ex AFIP) en tu sistema: cada venta se factura sola, con CAE, PDF con QR reglamentario y envío al cliente por mail.',
     },
 
     relatedCategories: ['Sistema Web'],
@@ -573,8 +567,49 @@ export const services = [
     relatedProjects: ['factu'],
     relatedPosts: ['facturacion-electronica-afip-para-independientes'],
 
-    // TODO(SEO): traducir cuando se publique el inglés. Por ahora no se indexa.
-    en: null,
+    en: {
+      title:       'ARCA (ex AFIP) Integration',
+      tagline:     'Let the system issue the invoice, not you',
+      description: 'A connection between your system, store, or payment gateway and the ARCA web service, so every sale gets invoiced on its own. The document is issued with its CAE code, the PDF is rendered with the regulatory QR, and it reaches the customer by email.',
+
+      heroTitle:    'Electronic invoicing\nthat runs itself',
+      heroSubtitle: 'Entering every sale by hand in the ARCA portal takes 5 to 15 minutes and does not scale. A direct integration against the web service turns that daily work into zero clicks.',
+
+      problem: {
+        title: 'The ARCA portal was not built for your operation',
+        body:  'Issuing a document from the ARCA website means 8 to 15 fields per invoice, with validations that are not obvious and different handling depending on who you are selling to. At three sales a month it is bearable; at thirty it becomes a daily job. And every manual entry is a chance to get a fiscal document wrong, which can then only be corrected with a credit note.',
+      },
+
+      benefits: [
+        { icon: '⚡', title: 'Zero clicks per document',        desc: 'Every payment triggers the issuance without anyone opening a portal. The document comes back with its CAE code and the PDF reaches the recipient by email.' },
+        { icon: '◎', title: 'Against the official web service', desc: 'The integration runs on WSFEv1, the same service ARCA uses to authorize documents. No automating clicks on a screen that can change tomorrow.' },
+        { icon: '⬡', title: 'Built not to over-issue',          desc: 'An issued invoice cannot be undone: it is voided with a credit note. When in doubt the system does not issue, because an uninvoiced sale is fixed in seconds and an extra invoice is not.' },
+        { icon: '✦', title: 'Multiple points of sale',          desc: 'Several points of sale and several payment accounts living in the same system, each with its own numbering and none stepping on another.' },
+      ],
+
+      features: [
+        'Integration with the ARCA WSFEv1 web service (SOAP)',
+        'Fiscal certificate and authorized point-of-sale management',
+        'Type A, B, or C invoices depending on the recipient',
+        'CAE authorization code retrieval and expiry tracking',
+        'Document PDF with the RG 4892 QR code',
+        'Automatic delivery of the document by email',
+        'Connection to Mercado Pago or any other payment source',
+        'Credit notes to void whatever needs voiding',
+        'Amounts as integers, with no rounding errors',
+      ],
+
+      cta: {
+        title:    'How many hours a month does invoicing cost you?',
+        subtitle: 'Tell us how you get paid today and what system you work with. We will tell you what it takes to stop invoicing by hand.',
+        label:    'Ask about the integration',
+      },
+
+      seo: {
+        title:       'ARCA Electronic Invoicing Integration',
+        description: 'Integration with the ARCA (ex AFIP) web service so every sale is invoiced on its own: CAE code, PDF with the regulatory QR, and delivery by email.',
+      },
+    },
   },
 ]
 

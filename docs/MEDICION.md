@@ -47,9 +47,28 @@ Cualquier enlace a `https://wa.me/…` cuenta solo. Para saber cuál fue, poné 
 
 ## GA4 (pasos manuales, una sola vez)
 
-- Marcar `whatsapp_click` y `generate_lead` como **eventos clave**.
-- **No marcar `form_submit`.** Lo manda la medición mejorada al tocar el botón, haya salido bien el envío o no.
-- Crear las **dimensiones personalizadas** de evento `cta` y `form_service`, para verlas en los informes.
+Todo se hace en **Administrador** (el engranaje de abajo a la izquierda), en la sección **Configuración de la propiedad**:
+
+1. **Eventos clave.** Entrá en *Visualización de datos → Eventos*. En la lista de eventos, tocá la estrella (**Marcar como evento clave**) en la fila de `whatsapp_click` y en la de `generate_lead`.
+   - Un evento nuevo puede tardar hasta 24 horas en aparecer en esta lista, aunque ya se vea en Tiempo real.
+   - Para no esperar: entrá en **Eventos clave → Nuevo evento clave** y escribí el nombre exacto (`whatsapp_click`, `generate_lead`).
+   - **No uses "Crear evento"**: arma un evento derivado de otro y duplica los conteos.
+2. **No marcar `form_submit`.** Lo manda la medición mejorada al tocar el botón, haya salido bien el envío o no. Su estrella tiene que quedar apagada.
+3. **Dimensiones personalizadas.** Entrá en *Visualización de datos → Definiciones personalizadas → Crear dimensiones personalizadas*. Creá una por parámetro, con **Ámbito: Evento**:
+
+   | Nombre de la dimensión | Parámetro de evento |
+   |---|---|
+   | CTA de WhatsApp | `cta` |
+   | Servicio del formulario | `form_service` |
+
+   Si el parámetro no aparece en el desplegable, escribilo a mano. La dimensión junta datos desde que se crea, no hacia atrás.
+4. **Conservación de datos (recomendado).** Entrá en *Recogida y modificación de datos → Conservación de datos* y elegí **14 meses**. Con los 2 meses que trae por defecto, las exploraciones no ven más atrás.
+5. **Excluir tus propias visitas (opcional).**
+   - Entrá en *Recogida y modificación de datos → Flujos de datos*, abrí el flujo web y andá a *Configurar los ajustes de la etiqueta → Mostrar más → Definir el tráfico interno → Crear*. Ahí cargás una regla con tu IP.
+   - Después, en *Filtros de datos*, pasá el filtro **Internal Traffic** de *Prueba* a *Activo*.
+   - Si tu IP cambia hay que actualizar la regla, y el teléfono con datos móviles no queda excluido.
+
+Cuando exista Google Ads, **no importes estos eventos clave como conversiones de Ads**. Las conversiones de Ads ya llegan por `send_to`, y con las dos fuentes se contarían dos veces.
 
 ## Campo trampa
 

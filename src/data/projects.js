@@ -109,6 +109,8 @@ Lo construimos sobre Laravel 13 y PHP 8.4, con PostgreSQL, Redis e Inertia + Rea
     // de créditos se sacó porque decía "No vencen" sin la condición de 12
     // meses (ver docs/AFIRMACIONES.md).
     image: '/projects/factu/cover.webp',
+    // Versión de teléfono de la misma home, para el marco del hero.
+    mobileImage: '/projects/factu/mobile.webp',
     images: [
       '/projects/factu/screen-1.webp',
       '/projects/factu/screen-2.webp',

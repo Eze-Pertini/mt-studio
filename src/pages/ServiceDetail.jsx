@@ -6,6 +6,7 @@ import { PageTransition, FadeUp, SlideIn, StaggerContainer, StaggerItem } from '
 import { getServiceBySlug, getRelatedProjects, services, localizeService, localizeServices } from '@data/services'
 import { resolveRelated } from '@data/related'
 import { serviceSchema } from '@data/schema'
+import { preciosDe } from '@data/precios'
 import RelatedLinks from '@components/ui/RelatedLinks'
 import { projects } from '@data/projects'
 import { useLanguage } from '@i18n/LanguageContext'
@@ -27,6 +28,7 @@ export default function ServiceDetail() {
   const accentBorder= isViolet ? 'rgba(139,92,246,0.20)' : 'rgba(6,182,212,0.18)'
 
   const relatedProjects = getRelatedProjects(service, projects)
+  const precios = preciosDe(service.slug, lang)
 
   // Servicios relacionados (los otros, para el footer de navegación) — ya localizados
   const otherServices = localizeServices(lang).filter((s) => s.slug !== slug).slice(0, 3)
@@ -114,6 +116,23 @@ export default function ServiceDetail() {
                   </Link>
                 </div>
               </FadeUp>
+
+              {/* Los montos se editan en src/data/precios.js; sin precio cargado no se muestra nada. */}
+              {precios && (
+                <FadeUp immediate delay={0.3}>
+                  <div className="mt-5 text-sm text-text-secondary">
+                    <ul className="flex flex-col gap-1" role="list">
+                      {precios.paquetes.map((p) => (
+                        <li key={p.nombre}>
+                          <span className="text-text-primary">{p.nombre}</span> {sd('priceFrom')}{' '}
+                          <span className="font-semibold text-text-primary">{p.monto}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    {precios.incluye && <p className="mt-1 text-text-muted">{precios.incluye}</p>}
+                  </div>
+                </FadeUp>
+              )}
             </div>
 
             {/* Hero visual — tech stack pills */}

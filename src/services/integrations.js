@@ -35,21 +35,4 @@ export const email = {
   },
 }
 
-/**
- * MT Studio — Analytics Service Stub
- * TODO: Añadir el ID de Google Analytics en index.html y activar esta integración.
- */
-export const analytics = {
-  track(event, props = {}) {
-    // gtag('event', event, props)
-    if (import.meta.env.DEV) {
-      console.log('[Analytics stub]', event, props)
-    }
-  },
-  pageView(path) {
-    // gtag('config', GA_ID, { page_path: path })
-    if (import.meta.env.DEV) {
-      console.log('[Analytics stub] pageView:', path)
-    }
-  },
-}
+// La medición vive en services/analytics.js (ver docs/MEDICION.md).

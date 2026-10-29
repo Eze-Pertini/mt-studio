@@ -26,24 +26,9 @@
           href="/fonts/inter-latin-variable.woff2" />
 
     <!-- ─── Analytics ───────────────────────────────────
-         Se carga despues de load. Analytics no aporta nada a lo que el
-         visitante ve, asi que no tiene por que competir por ancho de banda
-         con lo que si: en movil eran ~90 KB de tercero peleando con el
-         primer render. La cola de gtag se arma antes, asi que ningun
-         evento disparado en el arranque se pierde. -->
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-WYJ9WZM84Z');
-
-      addEventListener('load', function () {
-        var s = document.createElement('script');
-        s.async = true;
-        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-WYJ9WZM84Z';
-        document.head.appendChild(s);
-      });
-    </script>
+         La etiqueta de Google la agrega vite.config.js en el build, y solo
+         si existe VITE_GA_ID: sin el ID no se escribe nada. Ver
+         docs/MEDICION.md. -->
   </head>
   <body>
     <div id="root"></div>

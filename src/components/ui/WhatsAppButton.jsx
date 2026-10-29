@@ -42,6 +42,7 @@ export default function WhatsAppButton() {
         href={WHATSAPP_URL}
         target="_blank"
         rel="noopener noreferrer"
+        data-cta="flotante"
         aria-label="Contactar por WhatsApp — Hablemos de tu proyecto"
         aria-describedby="whatsapp-tooltip"
         title="Hablemos de tu proyecto"

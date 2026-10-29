@@ -1,13 +1,18 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Outlet, useLocation } from 'react-router-dom'
 import { AnimatePresence } from 'framer-motion'
 import Navbar from './Navbar'
 import Footer from './Footer'
 import WhatsAppButton from '@components/ui/WhatsAppButton'
 import ScrollRestoration from '@components/ui/ScrollRestoration'
+import { escucharClicsWhatsApp } from '@services/analytics'
 
 export default function MainLayout() {
   const location = useLocation()
+
+  // Un solo escucha para todo el sitio: cuenta cualquier enlace a wa.me,
+  // incluidos los botones que se agreguen después.
+  useEffect(() => escucharClicsWhatsApp(), [])
 
   return (
     <div className="flex flex-col min-h-screen bg-bg-primary">

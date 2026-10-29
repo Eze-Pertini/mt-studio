@@ -4,6 +4,7 @@ import SEOHead from '@components/ui/SEOHead'
 import { pageSchema } from '@data/schema'
 import { PageTransition, FadeUp, SlideIn } from '@components/animations'
 import { WHATSAPP_NUMBER, EMAIL, SOCIAL, EMAILJS } from '@data/config'
+import { registrarFormulario } from '@services/analytics'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useLanguage } from '@i18n/LanguageContext'
 import { t } from '@i18n/uiText'
@@ -49,7 +50,8 @@ export default function Contact() {
   const { lang } = useLanguage()
   const c = (key) => t(lang, `contact.${key}`)
 
-  const [form, setForm]     = useState({ name: '', email: '', company: '', service: '', message: '' })
+  // sitio_web es el campo trampa: las personas no lo ven.
+  const [form, setForm]     = useState({ name: '', email: '', company: '', service: '', message: '', sitio_web: '' })
   const [status, setStatus] = useState('idle') // idle | sending | sent | error
   const [touched, setTouched] = useState({})
 
@@ -74,6 +76,15 @@ export default function Contact() {
     setTouched({ name: true, email: true, message: true })
     if (!isValid) return
 
+    // Un bot que completa todos los campos llena también el que no se ve. Ese
+    // envío no sale ni cuenta como conversión: si contara, "maximizar
+    // conversiones" aprendería de bots. Se muestra el aviso de error, que
+    // ofrece WhatsApp y el mail, por si alguna vez lo llena una persona.
+    if (form.sitio_web) {
+      setStatus('error')
+      return
+    }
+
     setStatus('sending')
     try {
       await sendEmail({
@@ -84,6 +95,7 @@ export default function Contact() {
         message:    form.message,
         to_email:   EMAIL,
       })
+      registrarFormulario(form.service)
       setStatus('sent')
     } catch {
       setStatus('error')
@@ -164,6 +176,7 @@ export default function Contact() {
                           href={whatsappUrl}
                           target="_blank"
                           rel="noopener noreferrer"
+                          data-cta="contacto_despues_del_envio"
                           className="inline-flex items-center gap-2 px-6 py-2.5 rounded-pill text-sm font-semibold text-white
                                      transition-all duration-200 hover:opacity-90 active:scale-95"
                           style={{ background: '#25D366' }}
@@ -241,6 +254,13 @@ export default function Contact() {
                           )}
                         </div>
 
+                        {/* Campo trampa: fuera de la vista, del teclado y de los lectores de pantalla. */}
+                        <div className="sr-only" aria-hidden="true">
+                          <label htmlFor="sitio_web">No completar este campo</label>
+                          <input id="sitio_web" name="sitio_web" type="text" tabIndex={-1} autoComplete="off"
+                                 value={form.sitio_web} onChange={handleChange} />
+                        </div>
+
                         {/* Error de envío */}
                         {status === 'error' && (
                           <div className="mb-4 px-4 py-3 rounded-lg text-sm text-red-400"
@@ -272,6 +292,7 @@ export default function Contact() {
                             href={whatsappUrl}
                             target="_blank"
                             rel="noopener noreferrer"
+                            data-cta="contacto_formulario"
                             className="flex items-center justify-center gap-2 px-5 py-3.5 rounded-pill font-semibold text-sm
                                        text-text-primary bg-white/8 border border-default
                                        hover:bg-white/12 hover:border-strong active:scale-[0.98]
@@ -299,7 +320,7 @@ export default function Contact() {
 
               <SlideIn direction="right" delay={0.1}>
                 {/* WhatsApp */}
-                <a href={whatsappUrl} target="_blank" rel="noopener noreferrer"
+                <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" data-cta="contacto_tarjeta"
                    className="flex items-center gap-4 glass-card p-5 hover:border-default transition-all duration-200 group"
                    aria-label="Contactar por WhatsApp">
                   <div className="w-11 h-11 rounded-card flex items-center justify-center shrink-0"

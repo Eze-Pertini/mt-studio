@@ -71,7 +71,9 @@ export default function BlogDetail() {
               </FadeUp>
 
               <FadeUp immediate delay={0.15}>
-                <h1 className="text-display-lg font-black text-text-primary mb-4 text-balance">
+                {/* 48px fijos ensanchaban la página a 400px en el teléfono: una
+                    palabra larga como "monotributistas" no entraba en el renglón. */}
+                <h1 className="text-3xl sm:text-5xl lg:text-display-lg font-black text-text-primary mb-4 text-balance">
                   {post.title}
                 </h1>
               </FadeUp>

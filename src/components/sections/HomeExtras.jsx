@@ -164,7 +164,7 @@ export function CTASection() {
       <div className="container-custom">
         <FadeUp>
           <div
-            className="relative rounded-panel overflow-hidden p-12 md:p-16 text-center"
+            className="relative rounded-panel overflow-hidden px-6 py-12 sm:p-12 md:p-16 text-center"
             style={{
               background: 'linear-gradient(135deg, rgba(139,92,246,0.12) 0%, rgba(6,182,212,0.08) 100%)',
               border: '1px solid rgba(139,92,246,0.20)',
@@ -182,7 +182,8 @@ export function CTASection() {
                 {h('ctaFinalBadge')}
               </div>
 
-              <h2 className="text-display-lg font-black text-text-primary mb-4 text-balance" id="cta-heading">
+              {/* Con 48px y el padding de escritorio, a 320px "valga la pena" se recortaba. */}
+              <h2 className="text-3xl sm:text-display-md lg:text-display-lg font-black text-text-primary mb-4 text-balance" id="cta-heading">
                 {h('ctaFinalTitleA')} <span className="gradient-text">{h('ctaFinalTitleB')}</span>
               </h2>
               <p className="text-text-secondary text-lg mb-8 max-w-xl mx-auto text-left md:text-center">

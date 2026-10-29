@@ -104,12 +104,16 @@ export default function ProjectDetail() {
 
             <FadeUp immediate delay={0.2}>
               <div className="space-y-4">
+                {/* Tres columnas recién desde 480px: más angostas, cada tarjeta
+                    quedaba con ~50px útiles y valores como "Multi-local" o
+                    palabras como "automatizados" se salían de la caja. Debajo
+                    van como filas, con el valor a la izquierda. */}
                 {project.metrics?.length > 0 && (
-                  <div className="grid grid-cols-3 gap-3">
+                  <div className="grid grid-cols-1 xs:grid-cols-3 gap-3">
                     {project.metrics.map((m) => (
-                      <div key={m.label} className="glass-card p-4 text-center">
-                        <div className="text-2xl font-black gradient-text">{m.value}</div>
-                        <div className="text-xs text-text-muted mt-1">{m.label}</div>
+                      <div key={m.label} className="glass-card p-4 flex items-center gap-4 xs:block xs:text-center">
+                        <div className="text-2xl font-black gradient-text shrink-0 min-w-[6.5rem] xs:min-w-0">{m.value}</div>
+                        <div className="text-xs text-text-muted xs:mt-1">{m.label}</div>
                       </div>
                     ))}
                   </div>

@@ -89,7 +89,9 @@ export default function Navbar() {
           </Link>
 
           {/* ── Desktop nav ───────────────────────────────────────── */}
-          <ul className="hidden md:flex items-center gap-1" role="list">
+          {/* Desde lg y no desde md: el menú completo mide ~930px y entre 768 y
+              1024 quedaban afuera "Hablemos" y el selector de idioma. */}
+          <ul className="hidden lg:flex items-center gap-1" role="list">
 
             {/* Inicio */}
             <li>
@@ -190,7 +192,7 @@ export default function Navbar() {
           </ul>
 
           {/* Desktop CTA + language switcher */}
-          <div className="hidden md:flex items-center gap-3">
+          <div className="hidden lg:flex items-center gap-3">
             <LanguageSwitcher lang={lang} onToggle={toggleLanguage} />
             <Link to="/contacto"
                   className="px-5 py-2 text-sm font-semibold rounded-pill bg-gradient-violet-cyan text-white
@@ -201,7 +203,7 @@ export default function Navbar() {
           </div>
 
           {/* Botón mobile */}
-          <div className="md:hidden flex items-center gap-2">
+          <div className="lg:hidden flex items-center gap-2">
             <LanguageSwitcher lang={lang} onToggle={toggleLanguage} compact />
             <button
               className="w-10 h-10 flex items-center justify-center rounded-xl
@@ -227,7 +229,7 @@ export default function Navbar() {
               key="backdrop"
               initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
               transition={{ duration: 0.25 }}
-              className="fixed inset-0 z-40 md:hidden"
+              className="fixed inset-0 z-40 lg:hidden"
               style={{ background: 'rgba(4, 6, 10, 0.75)', backdropFilter: 'blur(6px)' }}
               onClick={() => setMobileOpen(false)}
               aria-hidden="true"
@@ -240,7 +242,7 @@ export default function Navbar() {
               animate={{ x: 0, opacity: 1 }}
               exit={{ x: '100%', opacity: 0 }}
               transition={{ type: 'spring', damping: 30, stiffness: 320, mass: 0.8 }}
-              className="fixed top-0 right-0 bottom-0 z-50 md:hidden flex flex-col"
+              className="fixed top-0 right-0 bottom-0 z-50 lg:hidden flex flex-col"
               style={{
                 width: 'min(300px, 85vw)',
                 background: 'rgba(10, 14, 20, 0.97)',

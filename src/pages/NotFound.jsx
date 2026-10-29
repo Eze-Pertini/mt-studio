@@ -15,7 +15,7 @@ export default function NotFound() {
           {/* Animated 404 */}
           <div className="relative mb-8" aria-hidden="true">
             <motion.div
-              className="text-[10rem] font-black leading-none select-none"
+              className="text-[7rem] sm:text-[10rem] font-black leading-none select-none"
               style={{
                 background: 'linear-gradient(135deg, rgba(139,92,246,0.15) 0%, rgba(6,182,212,0.10) 100%)',
                 WebkitBackgroundClip: 'text',

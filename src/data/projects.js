@@ -119,11 +119,9 @@ Lo construimos sobre Laravel 13 y PHP 8.4, con PostgreSQL, Redis e Inertia + Rea
     accentColor: '#06B6D4',
     url: 'https://tufactu.app/?utm_source=mtstudio&utm_medium=portfolio',
     metrics: [
-      // Las tarjetas de métricas miden ~50px de ancho útil a 320px: valores y
-      // palabras largas se salen de la caja. Por eso "+1 mil" y "modo auto".
-      { label: 'Clics por factura en modo auto', value: '0' },
+      { label: 'Clics por factura en modo automático', value: '0' },
       { label: 'Puntos de venta', value: 'Multi-local' },
-      { label: 'Tests automatizados', value: '+1 mil' },
+      { label: 'Tests automatizados', value: '+1.000' },
     ],
     services: ['Producto y diseño UI/UX', 'Desarrollo Full Stack', 'Integración ARCA (WSFEv1)', 'Integración Mercado Pago (OAuth)', 'Infraestructura y deploy'],
 
@@ -149,7 +147,7 @@ We built it on Laravel 13 and PHP 8.4, with PostgreSQL, Redis, and Inertia + Rea
       metrics: [
         { label: 'Clicks per invoice in auto mode', value: '0' },
         { label: 'Points of sale', value: 'Multi-store' },
-        { label: 'Automated tests', value: '1k+' },
+        { label: 'Automated tests', value: '1,000+' },
       ],
       services: ['Product & UI/UX design', 'Full Stack development', 'ARCA integration (WSFEv1)', 'Mercado Pago integration (OAuth)', 'Infrastructure & deployment'],
     },

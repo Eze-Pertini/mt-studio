@@ -4,7 +4,7 @@
 
 **mt-studio es el sitio de MT Studio: Vite 5 + React 18 + React Router 6 + Tailwind 3, desplegado como estático en Vercel.**
 
-No es Laravel, no usa Inertia y no tiene backend. La confusión es fácil porque uno de los proyectos del portfolio, Factu, sí es Laravel 12 + Inertia + React 19 + PostgreSQL, pero eso vive en otro repositorio. Cualquier indicación sobre SSR de Inertia, `config/inertia.php`, `HandleInertiaRequests` o `php artisan test` no aplica acá.
+No es Laravel, no usa Inertia y no tiene backend. La confusión es fácil porque uno de los proyectos del portfolio, Factu, sí es Laravel 13 + Inertia + React 19 + PostgreSQL, pero eso vive en otro repositorio. Cualquier indicación sobre SSR de Inertia, `config/inertia.php`, `HandleInertiaRequests` o `php artisan test` no aplica acá.
 
 - Producción: **https://mtstudio.dev** (apex). `www` redirige con 308.
 - Deploy: Vercel, proyecto `mt-studio` en el equipo `ezequiels-projects`, desde `main`.
@@ -98,8 +98,9 @@ Un servicio con `draft: true` **no** aparece en el listado, ni en el sitemap, ni
 
 ### En el código — buscá `TODO(SEO)`
 
-- **Fechas.** Los `updatedAt` de proyectos, artículos y los cinco servicios originales, y los `date` de los tres artículos, están puestos en `2026-09-10` como marcador. Mientras no se completen, el sitemap declara ese contenido como modificado ese día. `/servicios/integracion-arca` sí lleva su fecha real.
-- **La voz en plural.** Varios textos visibles de servicios están en primera persona del plural ("Desarrollamos", "Nos ocupamos"). Las meta descriptions ya se pasaron a voz impersonal; el contenido de las páginas no.
+- **Fechas.** El `updatedAt` de Carga Directa y los `date` de los tres artículos siguen en `2026-09-10` como marcador; mientras no se completen, el sitemap declara ese contenido como modificado ese día. Los seis servicios, Factu y los `updatedAt` de los tres artículos llevan fecha real desde la revisión de afirmaciones del 29/10/2026.
+
+La voz del sitio ya no está pendiente: es la primera persona del plural, decidida el 29/10/2026. Las reglas de redacción están en [AFIRMACIONES.md](AFIRMACIONES.md).
 
 ### Tareas manuales
 

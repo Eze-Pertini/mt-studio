@@ -1,13 +1,20 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { FadeUp, Float } from '@components/animations'
+import { FadeUp } from '@components/animations'
+import { getProjectBySlug, localizeProject } from '@data/projects'
 import { useLanguage } from '@i18n/LanguageContext'
 import { t } from '@i18n/uiText'
+
+// Los proyectos que el hero muestra como prueba, en este orden. El texto sale
+// de heroProof en projects.js, que solo lleva datos confirmados: ver
+// docs/AFIRMACIONES.md antes de cambiarlo.
+const HERO_PROOFS = ['cargadirecta', 'factu']
 
 export default function HeroSection() {
   const { lang } = useLanguage()
   const h = (key) => t(lang, `home.${key}`)
+  const proofs = HERO_PROOFS.map((slug) => localizeProject(getProjectBySlug(slug), lang))
 
   return (
     <section
@@ -85,65 +92,20 @@ export default function HeroSection() {
               </div>
             </FadeUp>
 
-            {/* Social proof */}
+            {/* Pruebas: proyectos en producción, con enlace al caso */}
             <FadeUp immediate delay={0.5} className="w-full">
-              <div className="flex items-center justify-center md:justify-start gap-5 md:gap-6 pt-4 border-t border-subtle mt-1">
-                {[
-                  { value: '20+',  label: h('statProjects') },
-                  { value: '100%', label: h('statSatisfaction') },
-                  { value: '5★',   label: h('statRating') },
-                ].map((stat) => (
-                  <div key={stat.label} className="text-center md:text-left">
-                    <div className="text-lg md:text-xl font-bold text-text-primary">{stat.value}</div>
-                    <div className="text-xs text-text-muted">{stat.label}</div>
-                  </div>
+              <ul className="flex flex-col items-center md:items-start gap-2 pt-4 border-t border-subtle mt-1" role="list">
+                {proofs.map((p) => (
+                  <li key={p.slug} className="text-sm text-text-secondary text-center md:text-left">
+                    <span className="text-violet-400 mr-1.5" aria-hidden="true">✓</span>
+                    <Link to={`/portfolio/${p.slug}`}
+                          className="font-semibold text-text-primary hover:text-violet-300 transition-colors">
+                      {p.title}
+                    </Link>
+                    {': '}{p.heroProof}
+                  </li>
                 ))}
-              </div>
-            </FadeUp>
-          </div>
-
-          {/* Right column — mockup, solo visible en lg+ */}
-          <div className="hidden lg:block">
-            <FadeUp immediate delay={0.3}>
-              {/* Wrapper contenedor: el overflow hidden evita que los badges negativos salgan */}
-              <div className="relative px-10 py-6">
-                <Float amplitude={12} duration={6}>
-                  <DashboardMockup />
-                </Float>
-
-                {/* Floating badges — posicionados dentro del padding, no negativos */}
-                <motion.div
-                  className="absolute left-0 top-1/4 glass-card px-3 py-2.5 flex items-center gap-2.5 shadow-card"
-                  initial={{ opacity: 0, x: -16 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.8, duration: 0.5 }}
-                >
-                  <div className="w-7 h-7 rounded-lg flex items-center justify-center text-sm shrink-0"
-                       style={{ background: 'rgba(139,92,246,0.15)', border: '1px solid rgba(139,92,246,0.25)' }}>
-                    ✦
-                  </div>
-                  <div>
-                    <div className="text-xs font-semibold text-text-primary whitespace-nowrap">{h('heroBadge1Title')}</div>
-                    <div className="text-[10px] text-text-muted">{h('heroBadge1Sub')}</div>
-                  </div>
-                </motion.div>
-
-                <motion.div
-                  className="absolute right-0 bottom-1/4 glass-card px-3 py-2.5 flex items-center gap-2.5 shadow-card"
-                  initial={{ opacity: 0, x: 16 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 1.0, duration: 0.5 }}
-                >
-                  <div className="w-7 h-7 rounded-lg flex items-center justify-center text-sm shrink-0"
-                       style={{ background: 'rgba(6,182,212,0.12)', border: '1px solid rgba(6,182,212,0.25)' }}>
-                    ⚡
-                  </div>
-                  <div>
-                    <div className="text-xs font-semibold text-text-primary whitespace-nowrap">{h('heroBadge2Title')}</div>
-                    <div className="text-[10px] text-text-muted">{h('heroBadge2Sub')}</div>
-                  </div>
-                </motion.div>
-              </div>
+              </ul>
             </FadeUp>
           </div>
 
@@ -174,86 +136,5 @@ function ArrowIcon() {
     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
       <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
     </svg>
-  )
-}
-
-function DashboardMockup() {
-  return (
-    <div
-      className="relative w-full max-w-lg mx-auto rounded-panel overflow-hidden shadow-card-hover"
-      style={{
-        background: 'rgba(13, 17, 23, 0.90)',
-        border: '1px solid rgba(255,255,255,0.10)',
-        backdropFilter: 'blur(20px)',
-      }}
-      role="img"
-      aria-label="Mockup de dashboard premium"
-    >
-      {/* Window bar */}
-      <div className="flex items-center gap-2 px-4 py-3 border-b border-subtle">
-        <div className="flex gap-1.5">
-          {['#FF5F57','#FEBC2E','#28C840'].map((c) => (
-            <div key={c} className="w-3 h-3 rounded-full" style={{ background: c }} />
-          ))}
-        </div>
-        <div className="flex-1 mx-4 h-5 rounded-full bg-white/5 flex items-center px-3">
-          <span className="text-[10px] text-text-muted">mtstudio.dev/dashboard</span>
-        </div>
-      </div>
-
-      {/* Dashboard content */}
-      <div className="p-5 space-y-4">
-        <div className="grid grid-cols-3 gap-3">
-          {[
-            { label: 'Proyectos', value: '24', color: '#8B5CF6' },
-            { label: 'Clientes',  value: '18', color: '#06B6D4' },
-            { label: 'Revenue',   value: '$42k', color: '#10B981' },
-          ].map((stat) => (
-            <div key={stat.label}
-                 className="rounded-card p-3"
-                 style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.06)' }}>
-              <div className="text-lg font-bold" style={{ color: stat.color }}>{stat.value}</div>
-              <div className="text-[10px] text-text-muted mt-0.5">{stat.label}</div>
-            </div>
-          ))}
-        </div>
-
-        <div className="rounded-card p-4"
-             style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)' }}>
-          <div className="flex justify-between items-center mb-3">
-            <span className="text-xs font-medium text-text-secondary">Actividad mensual</span>
-            <span className="text-xs text-text-muted">Últimos 6 meses</span>
-          </div>
-          <div className="flex items-end gap-2 h-16">
-            {[40, 65, 45, 80, 60, 90].map((h, i) => (
-              <div key={i} className="flex-1 rounded-sm"
-                   style={{
-                     height: `${h}%`,
-                     background: i === 5
-                       ? 'linear-gradient(180deg, #8B5CF6, #06B6D4)'
-                       : 'rgba(139,92,246,0.25)',
-                   }} />
-            ))}
-          </div>
-        </div>
-
-        <div className="space-y-2">
-          {[
-            { name: 'CargaDirecta',    status: 'En vivo',       color: '#10B981' },
-            { name: 'Factu',           status: 'En vivo',       color: '#10B981' },
-          ].map((p) => (
-            <div key={p.name}
-                 className="flex items-center justify-between px-3 py-2 rounded-lg"
-                 style={{ background: 'rgba(255,255,255,0.03)' }}>
-              <span className="text-xs font-medium text-text-secondary">{p.name}</span>
-              <span className="text-[10px] px-2 py-0.5 rounded-pill"
-                    style={{ background: `${p.color}18`, color: p.color, border: `1px solid ${p.color}30` }}>
-                {p.status}
-              </span>
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
   )
 }

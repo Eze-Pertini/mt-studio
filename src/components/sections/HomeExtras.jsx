@@ -6,19 +6,21 @@ import { useLanguage } from '@i18n/LanguageContext'
 import { t } from '@i18n/uiText'
 
 // ─── Technologies ─────────────────────────────────────────────────
+// Solo tecnologías usadas en proyectos reales; qué proyecto respalda cada una
+// está en docs/AFIRMACIONES.md.
 const techs = [
   { name: 'React',        icon: '⚛' },
-  { name: 'Next.js',      icon: '▲' },
   { name: 'TypeScript',   icon: 'TS' },
-  { name: 'Node.js',      icon: '⬡' },
+  { name: 'Laravel',      icon: '◆' },
+  { name: 'PHP',          icon: '⬡' },
   { name: 'Tailwind',     icon: '◈' },
   { name: 'PostgreSQL',   icon: '🐘' },
-  { name: 'MongoDB',      icon: '🍃' },
-  { name: 'Framer',       icon: '◎' },
+  { name: 'Redis',        icon: '◇' },
+  { name: 'WordPress',    icon: '◎' },
+  { name: 'WooCommerce',  icon: '▣' },
+  { name: 'Mercado Pago', icon: '✦' },
   { name: 'Vite',         icon: '⚡' },
-  { name: 'Figma',        icon: '✦' },
   { name: 'Vercel',       icon: '▽' },
-  { name: 'Docker',       icon: '🐳' },
 ]
 
 export function TechSection() {

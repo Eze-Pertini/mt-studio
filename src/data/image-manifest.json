@@ -72,15 +72,15 @@
     "variants": [
       {
         "width": 480,
-        "src": "/media/projects/factu/cover-480.2859445a.webp"
+        "src": "/media/projects/factu/cover-480.0ff7a03f.webp"
       },
       {
         "width": 768,
-        "src": "/media/projects/factu/cover-768.35d21975.webp"
+        "src": "/media/projects/factu/cover-768.400f4fd2.webp"
       },
       {
         "width": 1200,
-        "src": "/media/projects/factu/cover-1200.7cda1060.webp"
+        "src": "/media/projects/factu/cover-1200.6d2e24b5.webp"
       }
     ]
   },
@@ -115,23 +115,6 @@
       {
         "width": 1200,
         "src": "/media/projects/factu/screen-2-1200.2cfe1ee2.webp"
-      }
-    ]
-  },
-  "/projects/factu/screen-3.webp": {
-    "width": 1345,
-    "variants": [
-      {
-        "width": 480,
-        "src": "/media/projects/factu/screen-3-480.5b77b255.webp"
-      },
-      {
-        "width": 768,
-        "src": "/media/projects/factu/screen-3-768.59320187.webp"
-      },
-      {
-        "width": 1200,
-        "src": "/media/projects/factu/screen-3-1200.faa99619.webp"
       }
     ]
   },

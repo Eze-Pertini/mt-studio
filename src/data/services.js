@@ -9,8 +9,7 @@ export const services = [
   {
     id: 'diseno-web',
     slug: 'diseno-web',
-    // TODO(SEO): poner la fecha real del ultimo cambio de contenido de esta ficha.
-    updatedAt: '2026-09-10',
+    updatedAt: '2026-10-29',
     icon: '✦',
     color: 'violet',
     accentHex: '#8B5CF6',
@@ -20,7 +19,7 @@ export const services = [
     description: 'Diseñamos sitios web que combinan estética premium con usabilidad real. Cada proyecto parte de entender tu negocio, tu audiencia y lo que necesitás comunicar.',
 
     heroTitle:    'Sitios web que trabajan\npor tu negocio',
-    heroSubtitle: 'Un sitio bien diseñado no es solo una cuestión estética. Es la diferencia entre alguien que se queda y alguien que se va en tres segundos.',
+    heroSubtitle: 'Un sitio bien diseñado no es solo una cuestión estética. Es la diferencia entre alguien que se queda y alguien que se va a los pocos segundos.',
 
     problem: {
       title: 'La mayoría de los sitios no convierten',
@@ -44,7 +43,9 @@ export const services = [
       'Entrega con documentación básica',
     ],
 
-    technologies: ['React', 'Next.js', 'Tailwind CSS', 'Framer Motion', 'Figma', 'Vite'],
+    // Solo tecnologías usadas en proyectos reales; qué proyecto respalda cada
+    // una está en docs/AFIRMACIONES.md.
+    technologies: ['React', 'Tailwind CSS', 'Vite', 'Framer Motion', 'Laravel', 'WordPress'],
 
     cta: {
       title:    '¿Tenés un proyecto en mente?',
@@ -67,7 +68,7 @@ export const services = [
       description: 'We design websites that combine premium aesthetics with real usability. Every project starts with understanding your business, your audience, and what you need to communicate.',
 
       heroTitle:    'Websites that work\nfor your business',
-      heroSubtitle: 'A well-designed site isn\u2019t just about looks. It\u2019s the difference between someone staying and someone leaving in three seconds.',
+      heroSubtitle: 'A well-designed site isn\u2019t just about looks. It\u2019s the difference between someone staying and someone leaving within seconds.',
 
       problem: {
         title: 'Most websites don\u2019t convert',
@@ -108,8 +109,7 @@ export const services = [
   {
     id: 'ecommerce',
     slug: 'ecommerce',
-    // TODO(SEO): poner la fecha real del ultimo cambio de contenido de esta ficha.
-    updatedAt: '2026-09-10',
+    updatedAt: '2026-10-29',
     icon: '◈',
     color: 'cyan',
     accentHex: '#06B6D4',
@@ -144,7 +144,7 @@ export const services = [
       'SEO técnico para productos',
     ],
 
-    technologies: ['React', 'Next.js', 'WooCommerce', 'Mercado Pago API', 'Node.js', 'PostgreSQL'],
+    technologies: ['WordPress', 'WooCommerce', 'Mercado Pago', 'PHP', 'Laravel', 'React'],
 
     cta: {
       title:    '¿Querés empezar a vender online?',
@@ -210,15 +210,14 @@ export const services = [
   {
     id: 'sistemas-web',
     slug: 'sistemas-web',
-    // TODO(SEO): poner la fecha real del ultimo cambio de contenido de esta ficha.
-    updatedAt: '2026-09-10',
+    updatedAt: '2026-10-29',
     icon: '⬡',
     color: 'violet',
     accentHex: '#8B5CF6',
 
     title:       'Sistemas Web',
     tagline:     'Software a medida para tu operación',
-    description: 'Desarrollamos sistemas web a medida para digitalizar y optimizar procesos internos. Desde CRMs y ERPs hasta herramientas específicas para tu industria.',
+    description: 'Desarrollamos sistemas web a medida para digitalizar y optimizar procesos internos: paneles de gestión, herramientas específicas para tu operación e integraciones con lo que ya usás.',
 
     heroTitle:    'Tu operación en un\nsistema que la entiende',
     heroSubtitle: 'Las planillas y los procesos manuales tienen un límite. Cuando tu negocio crece, necesita herramientas que crezcan con él. No adaptaciones de software genérico: algo construido para lo que vos hacés.',
@@ -238,7 +237,7 @@ export const services = [
     features: [
       'Relevamiento y análisis funcional detallado',
       'Arquitectura backend escalable',
-      'API REST o GraphQL según necesidad',
+      'API REST para conectarlo con otros sistemas',
       'Panel de administración a medida',
       'Roles y permisos de usuarios',
       'Integración con sistemas y APIs externas',
@@ -246,7 +245,7 @@ export const services = [
       'Documentación técnica incluida',
     ],
 
-    technologies: ['React', 'Node.js', 'PostgreSQL', 'MongoDB', 'REST API', 'Docker'],
+    technologies: ['Laravel', 'PHP', 'React', 'TypeScript', 'PostgreSQL', 'Redis'],
 
     cta: {
       title:    '¿Necesitás un sistema a medida?',
@@ -256,7 +255,7 @@ export const services = [
 
     seo: {
       title:       'Sistemas web a medida para empresas',
-      description: 'Software a medida para un proceso concreto de tu negocio: CRMs, paneles de gestión, herramientas internas e integraciones con las APIs que ya usás.',
+      description: 'Software a medida para un proceso concreto de tu negocio: paneles de gestión, herramientas internas e integraciones con las APIs que ya usás.',
     },
 
     // Relaciones declaradas: ver src/data/related.js
@@ -267,7 +266,7 @@ export const services = [
     en: {
       title:       'Web Systems',
       tagline:     'Custom software for your operation',
-      description: 'We build custom web systems to digitize and streamline internal processes. From CRMs and ERPs to tools built specifically for your industry.',
+      description: 'We build custom web systems to digitize and streamline internal processes: management dashboards, tools built for your operation, and integrations with what you already use.',
 
       heroTitle:    'Your operation, in a\nsystem that gets it',
       heroSubtitle: 'Spreadsheets and manual processes have a ceiling. As your business grows, it needs tools that grow with it \u2014 not generic software bent into shape, but something built for what you actually do.',
@@ -287,7 +286,7 @@ export const services = [
       features: [
         'Detailed functional discovery and analysis',
         'Scalable backend architecture',
-        'REST API or GraphQL as needed',
+        'REST API to connect it with other systems',
         'Custom admin panel',
         'User roles and permissions',
         'Integration with external systems and APIs',
@@ -303,7 +302,7 @@ export const services = [
 
       seo: {
         title:       'Custom Web Systems',
-        description: 'We build custom web systems: CRMs, ERPs, management dashboards, and internal tools. Software that adapts to your operation.',
+        description: 'We build custom web systems: management dashboards and internal tools. Software that adapts to your operation.',
       },
     },
   },
@@ -312,8 +311,7 @@ export const services = [
   {
     id: 'automatizacion',
     slug: 'automatizacion',
-    // TODO(SEO): poner la fecha real del ultimo cambio de contenido de esta ficha.
-    updatedAt: '2026-09-10',
+    updatedAt: '2026-10-29',
     icon: '⚡',
     color: 'cyan',
     accentHex: '#06B6D4',
@@ -347,7 +345,7 @@ export const services = [
       'Scripts y tareas programadas',
     ],
 
-    technologies: ['Node.js', 'Make (Integromat)', 'Zapier', 'WhatsApp API', 'Google Sheets API', 'OpenAI API'],
+    technologies: ['Laravel', 'PHP', 'Redis', 'Mercado Pago', 'ARCA WSFEv1'],
 
     cta: {
       title:    '¿Qué proceso te consume más tiempo?',
@@ -409,43 +407,42 @@ export const services = [
   {
     id: 'mantenimiento-web',
     slug: 'mantenimiento-web',
-    // TODO(SEO): poner la fecha real del ultimo cambio de contenido de esta ficha.
-    updatedAt: '2026-09-10',
+    updatedAt: '2026-10-29',
     icon: '◎',
     color: 'violet',
     accentHex: '#8B5CF6',
 
     title:       'Mantenimiento Web',
-    tagline:     'Tu sitio siempre al día, siempre seguro',
-    description: 'Nos ocupamos de mantener tu sitio o sistema funcionando al 100%. Actualizaciones, backups, monitoreo y soporte técnico para que vos te concentres en tu negocio.',
+    tagline:     'Tu sitio al día, monitoreado y con backups',
+    description: 'Nos ocupamos de que tu sitio o sistema siga funcionando bien: actualizaciones, backups, monitoreo y soporte técnico, para que vos te concentres en tu negocio.',
 
     heroTitle:    'Tu sitio no debería\nser tu problema',
     heroSubtitle: 'Un sitio que nadie mantiene acumula deuda técnica, se vuelve lento, queda expuesto a vulnerabilidades y eventualmente falla en el peor momento. El mantenimiento no es un costo extra: es lo que protege la inversión que ya hiciste.',
 
     problem: {
       title: 'Los sitios sin mantenimiento tienen fecha de vencimiento',
-      body:  'Plugins desactualizados, certificados SSL vencidos, backups que nunca se hicieron, errores que nadie detectó hasta que un cliente los reportó. El mantenimiento preventivo es siempre más barato que el mantenimiento de emergencia.',
+      body:  'Plugins desactualizados, certificados SSL vencidos, backups que nunca se hicieron, errores que nadie detectó hasta que un cliente los reportó. El mantenimiento preventivo suele salir más barato que el de emergencia.',
     },
 
     benefits: [
-      { icon: '◎', title: 'Monitoreo continuo',              desc: 'Sabemos si algo falla antes de que lo note un cliente. Alertas automáticas, respuesta rápida.' },
-      { icon: '⬡', title: 'Backups que funcionan',           desc: 'Copias de seguridad automáticas y verificadas. Si algo sale mal, restauramos sin pérdida de información.' },
-      { icon: '✦', title: 'Actualizaciones sin sorpresas',   desc: 'Las actualizaciones se hacen en entornos de prueba antes de aplicarlas. Nada que rompa sin aviso.' },
-      { icon: '⚡', title: 'Soporte directo',                desc: 'Comunicación directa, sin tickets que nadie lee. Cuando necesitás algo, respondemos.' },
+      { icon: '◎', title: 'Monitoreo continuo',              desc: 'Alertas automáticas si el sitio deja de responder, para enterarnos apenas pasa y actuar.' },
+      { icon: '⬡', title: 'Backups que funcionan',           desc: 'Copias de seguridad automáticas y verificadas. Si algo sale mal, restauramos la última copia.' },
+      { icon: '✦', title: 'Actualizaciones probadas',        desc: 'Las actualizaciones se prueban en un entorno de prueba antes de aplicarlas en el sitio real.' },
+      { icon: '⚡', title: 'Soporte directo',                desc: 'Comunicación directa, sin tickets que nadie lee. Cuando necesitás algo, te respondemos dentro de las 24 horas.' },
     ],
 
     features: [
-      'Monitoreo de uptime 24/7',
+      'Monitoreo de disponibilidad con alertas automáticas',
       'Backups automáticos con verificación',
       'Actualizaciones de seguridad y dependencias',
       'Revisión mensual de performance',
       'Corrección de errores y bugs',
-      'Soporte técnico prioritario',
+      'Soporte técnico con respuesta dentro de las 24 horas',
       'Reporte mensual de estado',
       'Pequeñas mejoras y ajustes incluidos',
     ],
 
-    technologies: ['WordPress', 'React', 'Node.js', 'Nginx', 'Cloudflare', 'GitHub Actions'],
+    technologies: ['WordPress', 'Laravel', 'Laravel Forge', 'Vultr', 'Vercel'],
 
     cta: {
       title:    '¿Tu sitio está en buenas manos?',
@@ -455,38 +452,38 @@ export const services = [
 
     seo: {
       title:       'Mantenimiento web y soporte técnico',
-      description: 'Actualizaciones, backups, monitoreo continuo y soporte directo para que tu sitio no se caiga, no quede desactualizado ni expuesto a vulnerabilidades.',
+      description: 'Actualizaciones, backups, monitoreo continuo y soporte directo para que tu sitio esté al día y los problemas se detecten temprano.',
     },
 
     relatedCategories: ['Diseño Web', 'Ecommerce', 'Sistema Web'],
 
     en: {
       title:       'Web Maintenance',
-      tagline:     'Your site, always current, always secure',
-      description: 'We keep your site or system running at 100%. Updates, backups, monitoring, and technical support so you can focus on your business.',
+      tagline:     'Your site kept current, monitored, and backed up',
+      description: 'We keep your site or system running smoothly: updates, backups, monitoring, and technical support, so you can focus on your business.',
 
       heroTitle:    'Your website shouldn\u2019t\nbe your problem',
       heroSubtitle: 'A site nobody maintains builds up technical debt, gets slower, becomes exposed to vulnerabilities, and eventually fails at the worst moment. Maintenance isn\u2019t an extra cost \u2014 it\u2019s what protects the investment you already made.',
 
       problem: {
         title: 'Unmaintained sites have an expiration date',
-        body:  'Outdated plugins, expired SSL certificates, backups that were never made, bugs nobody caught until a client reported them. Preventive maintenance is always cheaper than emergency maintenance.',
+        body:  'Outdated plugins, expired SSL certificates, backups that were never made, bugs nobody caught until a client reported them. Preventive maintenance usually costs less than emergency fixes.',
       },
 
       benefits: [
-        { icon: '◎', title: 'Continuous monitoring',           desc: 'We know if something breaks before a customer notices. Automatic alerts, fast response.' },
-        { icon: '⬡', title: 'Backups that actually work',      desc: 'Automatic, verified backups. If something goes wrong, we restore with zero data loss.' },
-        { icon: '✦', title: 'Updates without surprises',       desc: 'Updates are tested in a staging environment before going live. Nothing breaks without warning.' },
-        { icon: '⚡', title: 'Direct support',                 desc: 'Direct communication, no tickets nobody reads. When you need something, we respond.' },
+        { icon: '◎', title: 'Continuous monitoring',           desc: 'Automatic alerts if the site stops responding, so we find out right away and act.' },
+        { icon: '⬡', title: 'Backups that actually work',      desc: 'Automatic, verified backups. If something goes wrong, we restore the latest copy.' },
+        { icon: '✦', title: 'Tested updates',                  desc: 'Updates are tested in a staging environment before they reach the live site.' },
+        { icon: '⚡', title: 'Direct support',                 desc: 'Direct communication, no tickets nobody reads. When you need something, we reply within 24 hours.' },
       ],
 
       features: [
-        '24/7 uptime monitoring',
+        'Uptime monitoring with automatic alerts',
         'Automatic, verified backups',
         'Security and dependency updates',
         'Monthly performance review',
         'Bug fixes and error corrections',
-        'Priority technical support',
+        'Technical support with replies within 24 hours',
         'Monthly status report',
         'Minor improvements and tweaks included',
       ],
@@ -499,7 +496,7 @@ export const services = [
 
       seo: {
         title:       'Professional Web Maintenance',
-        description: 'Maintenance, monitoring, and technical support for websites and systems. Your digital presence, always secure and up to date.',
+        description: 'Maintenance, monitoring, and technical support for websites and systems, so they stay current and problems get caught early.',
       },
     },
   },
@@ -510,7 +507,7 @@ export const services = [
   {
     id: 'integracion-arca',
     slug: 'integracion-arca',
-    updatedAt: '2026-09-17',
+    updatedAt: '2026-10-29',
 
     icon: '⬡',
     color: 'cyan',
@@ -521,29 +518,31 @@ export const services = [
     description: 'Conexión entre tu sistema, tu tienda o tu pasarela de cobro y el web service de ARCA, para que cada venta se facture sola. El comprobante sale con su CAE, el PDF se genera con el QR reglamentario y le llega al cliente por mail.',
 
     heroTitle:    'Facturación electrónica\nque corre sola',
-    heroSubtitle: 'Cargar cada venta a mano en el portal de ARCA lleva entre 5 y 15 minutos y no escala. La integración directa contra el web service convierte ese trabajo diario en cero clics.',
+    heroSubtitle: 'Cargar cada venta a mano en el portal de ARCA no escala. La integración directa contra el web service emite cada comprobante sin que nadie tenga que entrar al portal.',
 
     problem: {
       title: 'El portal de ARCA no fue pensado para tu operación',
-      body:  'Emitir un comprobante desde la web de ARCA son entre 8 y 15 campos por factura, con validaciones que no son obvias y un tratamiento distinto según a quién le vendas. Con tres ventas por mes es tolerable; con treinta se vuelve un trabajo diario. Y cada carga a mano es una oportunidad de equivocarse en un documento fiscal que después solo se corrige con una nota de crédito.',
+      body:  'Emitir un comprobante desde la web de ARCA implica completar varios campos por factura, con validaciones que no son obvias y un tratamiento distinto según a quién le vendas. Con tres ventas por mes es tolerable; con treinta se vuelve un trabajo diario. Y cada carga a mano es una oportunidad de equivocarse en un documento fiscal que después solo se corrige con una nota de crédito.',
     },
 
     benefits: [
-      { icon: '⚡', title: 'Cero clics por comprobante',     desc: 'Cada cobro dispara la emisión sin que nadie entre a ningún portal. El comprobante sale con su CAE y el PDF le llega al receptor por mail.' },
+      { icon: '⚡', title: 'Sin carga manual',               desc: 'Cada cobro dispara la emisión sin que nadie entre al portal, y lo dudoso queda para revisar. El comprobante sale con su CAE y el PDF le llega al receptor por mail.' },
       { icon: '◎', title: 'Contra el web service oficial',   desc: 'La integración va por WSFEv1, el mismo servicio con el que ARCA autoriza comprobantes. Nada de automatizar clics sobre una pantalla que puede cambiar mañana.' },
       { icon: '⬡', title: 'Diseñado para no emitir de más',  desc: 'Una factura emitida no se deshace: se anula con una nota de crédito. Ante la duda el sistema no emite, porque una venta sin facturar se resuelve en segundos y una factura de más no.' },
       { icon: '✦', title: 'Multi punto de venta',            desc: 'Varios puntos de venta y varias cuentas de cobro conviviendo en el mismo sistema, cada uno con su numeración y sin pisarse entre sí.' },
     ],
 
+    // Solo lo que está en producción en Factu. Factura A y B no están probadas:
+    // ofrecerlas es una decisión de negocio, ver docs/AFIRMACIONES.md.
     features: [
       'Integración con el web service WSFEv1 de ARCA (SOAP)',
-      'Gestión del certificado fiscal y del punto de venta habilitado',
-      'Emisión de Factura A, B o C según el receptor',
+      'Certificado fiscal, delegación por el Administrador de Relaciones y punto de venta habilitado',
+      'Emisión de Factura C y Nota de Crédito C',
+      'Pruebas en homologación antes de pasar a producción',
       'Obtención del CAE y control de su fecha de vencimiento',
       'PDF del comprobante con el QR de la RG 4892',
       'Envío del comprobante al receptor por mail',
       'Conexión con Mercado Pago u otra fuente de cobros',
-      'Notas de crédito para anular lo que haya que anular',
       'Importes en enteros, sin errores de redondeo',
     ],
 
@@ -573,15 +572,15 @@ export const services = [
       description: 'A connection between your system, store, or payment gateway and the ARCA web service, so every sale gets invoiced on its own. The document is issued with its CAE code, the PDF is rendered with the regulatory QR, and it reaches the customer by email.',
 
       heroTitle:    'Electronic invoicing\nthat runs itself',
-      heroSubtitle: 'Entering every sale by hand in the ARCA portal takes 5 to 15 minutes and does not scale. A direct integration against the web service turns that daily work into zero clicks.',
+      heroSubtitle: 'Entering every sale by hand in the ARCA portal does not scale. A direct integration against the web service issues every document without anyone having to open the portal.',
 
       problem: {
         title: 'The ARCA portal was not built for your operation',
-        body:  'Issuing a document from the ARCA website means 8 to 15 fields per invoice, with validations that are not obvious and different handling depending on who you are selling to. At three sales a month it is bearable; at thirty it becomes a daily job. And every manual entry is a chance to get a fiscal document wrong, which can then only be corrected with a credit note.',
+        body:  'Issuing a document from the ARCA website means filling in several fields per invoice, with validations that are not obvious and different handling depending on who you are selling to. At three sales a month it is bearable; at thirty it becomes a daily job. And every manual entry is a chance to get a fiscal document wrong, which can then only be corrected with a credit note.',
       },
 
       benefits: [
-        { icon: '⚡', title: 'Zero clicks per document',        desc: 'Every payment triggers the issuance without anyone opening a portal. The document comes back with its CAE code and the PDF reaches the recipient by email.' },
+        { icon: '⚡', title: 'No manual entry',                 desc: 'Every payment triggers the issuance without anyone opening the portal, and anything uncertain is held for review. The document comes back with its CAE code and the PDF reaches the recipient by email.' },
         { icon: '◎', title: 'Against the official web service', desc: 'The integration runs on WSFEv1, the same service ARCA uses to authorize documents. No automating clicks on a screen that can change tomorrow.' },
         { icon: '⬡', title: 'Built not to over-issue',          desc: 'An issued invoice cannot be undone: it is voided with a credit note. When in doubt the system does not issue, because an uninvoiced sale is fixed in seconds and an extra invoice is not.' },
         { icon: '✦', title: 'Multiple points of sale',          desc: 'Several points of sale and several payment accounts living in the same system, each with its own numbering and none stepping on another.' },
@@ -589,13 +588,13 @@ export const services = [
 
       features: [
         'Integration with the ARCA WSFEv1 web service (SOAP)',
-        'Fiscal certificate and authorized point-of-sale management',
-        'Type A, B, or C invoices depending on the recipient',
+        'Fiscal certificate, delegation through the ARCA Relationship Administrator, and authorized point of sale',
+        'Type C invoices and Type C credit notes',
+        'Testing in the homologation environment before going live',
         'CAE authorization code retrieval and expiry tracking',
         'Document PDF with the RG 4892 QR code',
         'Automatic delivery of the document by email',
         'Connection to Mercado Pago or any other payment source',
-        'Credit notes to void whatever needs voiding',
         'Amounts as integers, with no rounding errors',
       ],
 

@@ -29,8 +29,8 @@ export default function Portfolio() {
       <SEOHead
         title={lang === 'en' ? 'Portfolio' : 'Proyectos de desarrollo web'}
         description={lang === 'en'
-          ? 'Web design, development, and systems projects. See what we built for real clients.'
-          : 'Casos de estudio con el problema, la solución y las decisiones técnicas detrás de cada proyecto. Trabajo real, en producción, para clientes reales.'}
+          ? 'Web design, development, and systems projects, all live in production.'
+          : 'Casos de estudio con el problema, la solución y las decisiones técnicas detrás de cada proyecto. Proyectos reales, en producción.'}
         url="/portfolio"
         jsonLd={pageSchema([{ name: 'Inicio', path: '/' }, { name: 'Portfolio', path: '/portfolio' }])}
       />

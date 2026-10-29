@@ -25,9 +25,9 @@ El problema raro vez es la cantidad de visitas. El problema es lo que pasa despu
 
 ## Los tres motivos reales
 
-### 1. La propuesta de valor no es clara en tres segundos
+### 1. La propuesta de valor no es clara de entrada
 
-Un usuario decide si se queda o se va en menos de tres segundos. Si en ese tiempo no entiende qué hacés, para quién lo hacés y por qué debería importarle, se va. Y no vuelve.
+Un usuario decide muy rápido si se queda o se va. Si en ese momento no entiende qué hacés, para quién lo hacés y por qué debería importarle, se va. Y probablemente no vuelva.
 
 El error más común es empezar con el nombre de la empresa en lugar de con el problema que resolvés. A nadie le importa cómo te llamás antes de entender si podés ayudarlos.
 
@@ -62,8 +62,7 @@ Si alguna respuesta es no, ahí está el problema.
     // datePublished del schema BlogPosting.
     date: '2026-09-10',
     readTime: 5,
-    // TODO(SEO): poner la fecha real del ultimo cambio de contenido de esta ficha.
-    updatedAt: '2026-09-10',
+    updatedAt: '2026-10-29',
     featured: true,
     image: null,
   },
@@ -95,7 +94,7 @@ El cliente necesita poder actualizar el contenido sin depender de nadie. WordPre
 
 El presupuesto es ajustado y el tiempo de entrega es corto. Un sitio WordPress bien hecho puede salir en semanas, no meses.
 
-El ecommerce es relativamente estándar. WooCommerce resuelve el 80% de los casos de ecommerce sin necesidad de código personalizado.
+El ecommerce es relativamente estándar. WooCommerce resuelve la mayoría de los casos de ecommerce estándar sin necesidad de código personalizado.
 
 ## Cuándo el desarrollo a medida es la respuesta
 
@@ -132,8 +131,7 @@ La herramienta correcta para el problema correcto.
     // datePublished del schema BlogPosting.
     date: '2026-09-10',
     readTime: 6,
-    // TODO(SEO): poner la fecha real del ultimo cambio de contenido de esta ficha.
-    updatedAt: '2026-09-10',
+    updatedAt: '2026-10-29',
     featured: false,
     image: null,
   },
@@ -152,7 +150,7 @@ La herramienta correcta para el problema correcto.
 
 La facturación electrónica ante AFIP es obligatoria para la mayoría de los contribuyentes argentinos, pero el sistema fue diseñado pensando en contadores, no en el profesional independiente que quiere cobrar su trabajo y seguir con lo suyo.
 
-El resultado es un proceso que puede llevar entre 30 minutos y 2 horas la primera vez, y entre 5 y 15 minutos cada vez que necesitás facturar, incluso cuando ya sabés cómo.
+El resultado es un proceso que la primera vez lleva su tiempo, y que después sigue siendo una carga manual cada vez que necesitás facturar, incluso cuando ya sabés cómo.
 
 ## Los requisitos básicos
 
@@ -168,7 +166,7 @@ Un punto de venta habilitado. AFIP te asigna un número de punto de venta que va
 
 El proceso estándar desde la web de AFIP implica: ingresar con CUIT y clave fiscal, ir a "Mis servicios", buscar "Comprobantes en línea", seleccionar el punto de venta y tipo de comprobante, cargar los datos del cliente, los productos o servicios, y finalmente generar el comprobante.
 
-Cada factura requiere completar entre 8 y 15 campos, algunos con validaciones que no son obvias. Si el cliente es una empresa, necesitás su CUIT. Si es una persona física sin CUIT, hay un tratamiento diferente.
+Cada factura requiere completar varios campos, algunos con validaciones que no son obvias. Si el cliente es una empresa, necesitás su CUIT. Si es una persona física sin CUIT, hay un tratamiento diferente.
 
 ## Las categorías de facturas más comunes
 
@@ -195,8 +193,7 @@ Si manejás un volumen importante de facturas o querés dejar de depender del po
     // datePublished del schema BlogPosting.
     date: '2026-09-10',
     readTime: 7,
-    // TODO(SEO): poner la fecha real del ultimo cambio de contenido de esta ficha.
-    updatedAt: '2026-09-10',
+    updatedAt: '2026-10-29',
     featured: false,
     image: null,
   },

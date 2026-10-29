@@ -76,6 +76,11 @@ export const routes = [
         entry: 'src/pages/Contact.jsx',
       },
       {
+        path: 'privacidad',
+        lazy: page(() => import('@pages/Privacy')),
+        entry: 'src/pages/Privacy.jsx',
+      },
+      {
         // Se prerenderiza a /404.html y Vercel lo sirve con status 404 real.
         path: '*',
         lazy: page(() => import('@pages/NotFound')),

@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 import emailjs from '@emailjs/browser'
 import SEOHead from '@components/ui/SEOHead'
 import { pageSchema } from '@data/schema'
@@ -306,6 +307,12 @@ export default function Contact() {
 
                         <p className="text-xs text-text-muted mt-4 text-center">
                           {c('whatsappHint')}
+                        </p>
+                        <p className="text-xs text-text-muted mt-2 text-center">
+                          {c('privacyNote')}{' '}
+                          <Link to="/privacidad" className="underline underline-offset-2 hover:text-text-secondary">
+                            {c('privacyLink')}
+                          </Link>.
                         </p>
                       </form>
                     </motion.div>

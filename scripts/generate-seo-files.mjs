@@ -43,6 +43,7 @@ add('/portfolio', { changefreq: 'weekly',  priority: '0.9' })
 add('/nosotros',  { changefreq: 'yearly',  priority: '0.6' })
 add('/blog',      { changefreq: 'weekly',  priority: '0.7' })
 add('/contacto',  { changefreq: 'yearly',  priority: '0.6' })
+add('/privacidad', { changefreq: 'yearly', priority: '0.2' })
 
 // ─── Contenido ────────────────────────────────────────────────────
 for (const s of publishedServices) add(`/servicios/${s.slug}`, { lastmod: s.updatedAt, priority: '0.8' })

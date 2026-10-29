@@ -23,6 +23,7 @@ export const ui = {
       servicesHeading: 'Servicios',
       studioHeading: 'Studio',
       rights: 'Todos los derechos reservados.',
+      privacy: 'Política de privacidad',
       madeIn: 'Diseñado y desarrollado en Argentina 🇦🇷',
     },
     contact: {
@@ -46,6 +47,8 @@ export const ui = {
       sending: 'Enviando...',
       whatsappBtn: 'WhatsApp',
       whatsappHint: 'El botón de WhatsApp abre un chat con tus datos precargados.',
+      privacyNote: 'Usamos tus datos solo para responder tu consulta. Más detalle en la',
+      privacyLink: 'política de privacidad',
       errorBanner: 'No pudimos enviar el mensaje. Intentá por WhatsApp o escribinos directo al email.',
       successTitle: '¡Mensaje recibido!',
       successBody: 'Te respondemos dentro de las 24 horas.',
@@ -203,6 +206,7 @@ export const ui = {
       servicesHeading: 'Services',
       studioHeading: 'Studio',
       rights: 'All rights reserved.',
+      privacy: 'Privacy policy',
       madeIn: 'Designed and built in Argentina 🇦🇷',
     },
     contact: {
@@ -226,6 +230,8 @@ export const ui = {
       sending: 'Sending...',
       whatsappBtn: 'WhatsApp',
       whatsappHint: 'The WhatsApp button opens a chat pre-filled with your details.',
+      privacyNote: 'We only use your details to reply to you. More in our',
+      privacyLink: 'privacy policy',
       errorBanner: "We couldn't send your message. Try WhatsApp or email us directly.",
       successTitle: 'Message received!',
       successBody: "We'll get back to you within 24 hours.",

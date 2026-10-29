@@ -147,6 +147,10 @@ export default function Footer() {
           <p className="text-xs text-text-muted">
             © {year} MT Studio. {t(lang, 'footer.rights')}
           </p>
+          <Link to="/privacidad"
+                className="text-xs text-text-muted hover:text-text-primary transition-colors duration-200">
+            {t(lang, 'footer.privacy')}
+          </Link>
           <p className="text-xs text-text-muted">
             {t(lang, 'footer.madeIn')}
           </p>

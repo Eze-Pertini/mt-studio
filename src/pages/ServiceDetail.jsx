@@ -7,7 +7,10 @@ import { getServiceBySlug, getRelatedProjects, services, localizeService, locali
 import { resolveRelated } from '@data/related'
 import { serviceSchema } from '@data/schema'
 import { preciosDe } from '@data/precios'
+import { WHATSAPP_NUMBER } from '@data/config'
 import RelatedLinks from '@components/ui/RelatedLinks'
+import ContactForm from '@components/ui/ContactForm'
+import WhatsAppIcon from '@components/ui/WhatsAppIcon'
 import { projects } from '@data/projects'
 import { useLanguage } from '@i18n/LanguageContext'
 import { t } from '@i18n/uiText'
@@ -29,6 +32,8 @@ export default function ServiceDetail() {
 
   const relatedProjects = getRelatedProjects(service, projects)
   const precios = preciosDe(service.slug, lang)
+  // El mensaje precargado nombra el servicio: así se sabe de qué página vino la consulta.
+  const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(sd('whatsappMsg')(service.title))}`
 
   // Servicios relacionados (los otros, para el footer de navegación) — ya localizados
   const otherServices = localizeServices(lang).filter((s) => s.slug !== slug).slice(0, 3)
@@ -49,15 +54,20 @@ export default function ServiceDetail() {
       />
 
       {/* ── Hero ──────────────────────────────────────────────── */}
+      {/* Es la primera pantalla de las páginas de destino de los anuncios. En el
+          teléfono tienen que entrar el H1 (lo que la persona buscó), para quién
+          es, una prueba, WhatsApp y el formulario y el tiempo de respuesta; por
+          eso no lleva el ícono del servicio, las migas se compactan y el título
+          se achica. */}
       <section
-        className="pt-32 pb-20"
+        className="pt-24 md:pt-32 pb-16 md:pb-20"
         style={{ background: `linear-gradient(180deg, ${service.accentHex}0D 0%, transparent 100%)` }}
         aria-labelledby="service-title"
       >
         <div className="container-custom">
           {/* Breadcrumb */}
           <FadeUp immediate>
-            <nav className="flex items-center gap-2 text-xs text-text-muted mb-10" aria-label="Navegación breadcrumb">
+            <nav className="flex items-center gap-2 text-xs text-text-muted mb-5 md:mb-10" aria-label="Navegación breadcrumb">
               <Link to="/" className="hover:text-text-secondary transition-colors">{sd('breadcrumbHome')}</Link>
               <span aria-hidden="true">/</span>
               <Link to="/servicios" className="hover:text-text-secondary transition-colors">{sd('breadcrumbServices')}</Link>
@@ -68,23 +78,15 @@ export default function ServiceDetail() {
 
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div>
-              <FadeUp immediate delay={0.05}>
-                <div className="w-14 h-14 rounded-card flex items-center justify-center text-2xl mb-6"
-                     style={{ background: accentBg, border: `1px solid ${accentBorder}`, color: accentColor }}
-                     aria-hidden="true">
-                  {service.icon}
-                </div>
-              </FadeUp>
-
               <FadeUp immediate delay={0.1}>
-                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-pill text-xs font-medium mb-4"
+                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-pill text-xs font-medium mb-3 md:mb-4"
                      style={{ background: accentBg, border: `1px solid ${accentBorder}`, color: accentColor }}>
                   {service.title}
                 </div>
               </FadeUp>
 
               <FadeUp immediate delay={0.15}>
-                <h1 className="text-display-lg font-black text-text-primary mb-4 text-balance"
+                <h1 className="text-3xl sm:text-5xl lg:text-display-lg font-black text-text-primary mb-3 md:mb-4 text-balance"
                     id="service-title"
                     style={{ whiteSpace: 'pre-line' }}>
                   {service.heroTitle}
@@ -92,35 +94,28 @@ export default function ServiceDetail() {
               </FadeUp>
 
               <FadeUp immediate delay={0.2}>
-                <p className="text-text-secondary text-lg leading-relaxed mb-8">
+                <p className="text-text-secondary text-base md:text-lg leading-relaxed mb-4 md:mb-6">
                   {service.heroSubtitle}
                 </p>
               </FadeUp>
 
-              <FadeUp immediate delay={0.25}>
-                <div className="flex flex-wrap gap-3">
-                  <Link to="/contacto"
-                        className="inline-flex items-center gap-2 px-7 py-3.5 rounded-pill font-semibold text-white text-sm
-                                   bg-gradient-violet-cyan hover:opacity-90 active:scale-95
-                                   transition-all duration-200 shadow-glow-violet
-                                   focus-visible:ring-2 focus-visible:ring-violet-400">
-                    {service.cta.label}
-                    <span aria-hidden="true">→</span>
-                  </Link>
-                  <Link to="/servicios"
-                        className="inline-flex items-center gap-2 px-7 py-3.5 rounded-pill font-semibold text-sm
-                                   text-text-primary bg-white/8 border border-default
-                                   hover:bg-white/12 hover:border-strong active:scale-95 transition-all duration-200
-                                   focus-visible:ring-2 focus-visible:ring-violet-400">
-                    {sd('seeAllServices')}
-                  </Link>
-                </div>
-              </FadeUp>
+              {/* La prueba es un proyecto en producción; el texto sale de services.js. */}
+              {service.prueba && (
+                <FadeUp immediate delay={0.22}>
+                  <p className="mb-4 text-sm text-text-secondary text-pretty">
+                    <span className="text-violet-400 mr-1.5" aria-hidden="true">✓</span>
+                    <Link to={`/portfolio/${service.prueba.slug}`}
+                          className="text-text-primary underline decoration-white/25 underline-offset-4 hover:decoration-violet-400 transition-colors">
+                      {service.prueba.texto}
+                    </Link>
+                  </p>
+                </FadeUp>
+              )}
 
               {/* Los montos se editan en src/data/precios.js; sin precio cargado no se muestra nada. */}
               {precios && (
-                <FadeUp immediate delay={0.3}>
-                  <div className="mt-5 text-sm text-text-secondary">
+                <FadeUp immediate delay={0.25}>
+                  <div className="mb-5 text-sm text-text-secondary">
                     <ul className="flex flex-col gap-1" role="list">
                       {precios.paquetes.map((p) => (
                         <li key={p.nombre}>
@@ -133,6 +128,27 @@ export default function ServiceDetail() {
                   </div>
                 </FadeUp>
               )}
+
+              <FadeUp immediate delay={0.3}>
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" data-cta="servicio_primera_pantalla"
+                     className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-pill font-semibold text-white text-sm
+                                bg-gradient-violet-cyan hover:opacity-90 active:scale-95
+                                transition-all duration-200 shadow-glow-violet
+                                focus-visible:ring-2 focus-visible:ring-violet-400">
+                    <WhatsAppIcon />
+                    {sd('ctaWhatsapp')}
+                  </a>
+                  <a href="#consulta"
+                     className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-pill font-semibold text-sm
+                                text-text-primary bg-white/8 border border-default
+                                hover:bg-white/12 hover:border-strong active:scale-95 transition-all duration-200
+                                focus-visible:ring-2 focus-visible:ring-violet-400">
+                    {sd('ctaFormulario')}
+                  </a>
+                </div>
+                <p className="mt-3 text-xs text-text-muted">{sd('respuesta')}</p>
+              </FadeUp>
             </div>
 
             {/* Hero visual — tech stack pills */}
@@ -314,38 +330,23 @@ export default function ServiceDetail() {
         </section>
       )}
 
-      {/* ── CTA ───────────────────────────────────────────────── */}
-      <section className="py-20 border-t border-subtle" aria-labelledby="cta-heading">
+      {/* ── Consulta ──────────────────────────────────────────── */}
+      {/* El formulario va en la misma página, sin pasar por /contacto: una
+          carga menos entre el anuncio y la consulta. "Dejá tu consulta", en
+          la primera pantalla, baja hasta acá. Sin animación de entrada, así
+          está visible apenas se llega con el ancla. */}
+      <section id="consulta" className="py-20 border-t border-subtle scroll-mt-16" aria-labelledby="cta-heading">
         <div className="container-custom">
-          <FadeUp>
-            <div className="relative rounded-panel overflow-hidden p-10 md:p-16 text-center"
-                 style={{
-                   background: `linear-gradient(135deg, ${service.accentHex}12 0%, rgba(6,182,212,0.06) 100%)`,
-                   border: `1px solid ${service.accentHex}25`,
-                 }}>
-              <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-80 h-40 -translate-y-1/2 rounded-full opacity-20"
-                     style={{ background: `radial-gradient(circle, ${service.accentHex}60 0%, transparent 70%)`, filter: 'blur(40px)' }} />
-              </div>
-
-              <div className="relative z-10">
-                <h2 className="text-display-md font-black text-text-primary mb-3 text-balance" id="cta-heading">
-                  {service.cta.title}
-                </h2>
-                <p className="text-text-secondary text-lg mb-8 max-w-xl mx-auto">
-                  {service.cta.subtitle}
-                </p>
-                <Link to="/contacto"
-                      className="inline-flex items-center gap-2 px-8 py-4 rounded-pill font-semibold text-white
-                                 bg-gradient-violet-cyan hover:opacity-90 active:scale-95
-                                 transition-all duration-200 shadow-glow-violet
-                                 focus-visible:ring-2 focus-visible:ring-violet-400">
-                  {service.cta.label}
-                  <span aria-hidden="true">→</span>
-                </Link>
-              </div>
+          <div className="max-w-2xl mx-auto">
+            <div className="text-center mb-8">
+              <h2 className="text-2xl sm:text-display-md font-black text-text-primary mb-3 text-balance" id="cta-heading">
+                {service.cta.title}
+              </h2>
+              <p className="text-text-secondary text-lg">{service.cta.subtitle}</p>
+              <p className="mt-2 text-sm text-text-muted">{sd('respuesta')}</p>
             </div>
-          </FadeUp>
+            <ContactForm servicioInicial={service.formulario ?? ''} origen="servicio" />
+          </div>
         </div>
       </section>
 

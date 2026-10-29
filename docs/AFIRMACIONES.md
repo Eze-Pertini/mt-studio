@@ -21,11 +21,12 @@
 | Factu: más de 1.000 tests automatizados, análisis estático en nivel 6, Vultr + Laravel Forge | `projects.js`: `longDescription`, `metrics` | Ezequiel | 29/10/2026 |
 | Factu: Laravel 13, PHP 8.4, PostgreSQL, Redis, Inertia + React 19 + TypeScript, Tailwind 4 | `projects.js`: `tags`, `longDescription` | Ezequiel | 29/10/2026 |
 | Factu: packs de créditos sin suscripción y plan mensual | `projects.js`: `longDescription` | tufactu.app/planes | 29/10/2026 |
-| Factu: 0 clics por factura, **en modo automático** ("en modo auto" en la tarjeta, que a 320px no admite palabras largas) | `projects.js`: `metrics` | La facturación automática es opcional | 29/10/2026 |
+| Factu: 0 clics por factura, **en modo automático** | `projects.js`: `metrics` | La facturación automática es opcional | 29/10/2026 |
 | ARCA: Factura C y Nota de Crédito C en producción; delegación por el Administrador de Relaciones, homologación, CAE y su vencimiento, QR de la RG 4892, envío por mail, varios puntos de venta, otras fuentes de cobro además de Mercado Pago | `services.js`: integracion-arca | Ezequiel, hecho en Factu | 29/10/2026 |
-| Respuesta dentro de las 24 horas | `uiText.js`: `contact.*`, `home.benefitsItems`; `services.js`: mantenimiento-web | Ezequiel | 29/10/2026 |
+| Respuesta dentro de las 24 horas | `uiText.js`: `contact.*`, `serviceDetail.respuesta`, `home.benefitsItems`; `services.js`: mantenimiento-web | Ezequiel | 29/10/2026 |
 | Tecnologías (ver tabla abajo) | `HomeExtras.jsx`: `techs`; `services.js`: `technologies` | El proyecto que respalda cada una | 29/10/2026 |
 | Precios desde: landing page $ 150.000 y sitio web de hasta 5 páginas $ 250.000, con dominio y alojamiento por 1 año | `precios.js` (ver [PRECIOS.md](PRECIOS.md)) | Ezequiel | 29/10/2026 |
+| Prueba de la primera pantalla de cada servicio: tufactu.app (sitio, landing y sistema, hechos íntegramente por el estudio), Carga Directa (~300 ventas por mes), Factu (factura con ARCA; Factura C y Nota de Crédito C con CAE) | `services.js`: `prueba` | Ezequiel | 29/10/2026 |
 | Guía de facturación: **todavía dice** que al monotributista se le emite Factura B. Según la RG 5003/2021, vigente desde el 1/7/2021, el responsable inscripto le emite A | `blog.js`: facturacion-electronica-afip-para-independientes | RG 5003/2021 | **Pendiente: corregir cuando lo confirme el contador** |
 
 ### Cuidado con los créditos de Factu

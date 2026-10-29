@@ -9,11 +9,11 @@ La política está en https://mtstudio.dev/privacidad. Se enlaza desde la barra 
 | Lo que dice la política | Fuente | Fecha |
 |---|---|---|
 | Responsable: Ezequiel Pertini, domicilio en CABA | Ezequiel | 29/10/2026 |
-| Datos del formulario, obligatorios y opcionales | [`Contact.jsx`](../src/pages/Contact.jsx) | 29/10/2026 |
-| El formulario pasa por EmailJS y llega a Gmail | `Contact.jsx` y `config.js` | 29/10/2026 |
+| Datos del formulario, obligatorios y opcionales | [`ContactForm.jsx`](../src/components/ui/ContactForm.jsx), el mismo en /contacto y en cada servicio | 29/10/2026 |
+| El formulario pasa por EmailJS y llega a Gmail | `ContactForm.jsx` y `config.js` | 29/10/2026 |
 | Mails de consultas que no avanzan: se borran dentro de los 30 días | Ezequiel | 29/10/2026 |
 | Clientes: los datos se conservan mientras dure la relación de trabajo | Ezequiel, al aprobar el texto | 29/10/2026 |
-| WhatsApp: el mensaje se precarga con lo que se escribió en el formulario | `Contact.jsx` | 29/10/2026 |
+| WhatsApp: el botón junto a cada formulario precarga lo que se escribió en él | `ContactForm.jsx` | 29/10/2026 |
 | GA4 conserva el detalle de cada visita 14 meses | Configurado en GA4 (Conservación de datos) | 29/10/2026 |
 | Las únicas cookies son `_ga` y `_ga_WYJ9WZM84Z`, hasta 2 años (Chrome las limita a 13 meses) | Medido en producción con un navegador real | 29/10/2026 |
 | El idioma se guarda en localStorage (`mt-studio-lang`), no en una cookie | [`LanguageContext.jsx`](../src/i18n/LanguageContext.jsx) | 29/10/2026 |

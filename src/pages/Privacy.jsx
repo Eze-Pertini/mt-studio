@@ -72,8 +72,8 @@ export default function Privacy() {
               <h3 className="text-base font-semibold text-text-primary">WhatsApp</h3>
               <p>
                 Si tocás un botón de WhatsApp, se abre una conversación en WhatsApp, un servicio de Meta. Lo que nos
-                escribas ahí también se rige por las condiciones y la política de privacidad de WhatsApp. En la página
-                de contacto, si completaste el formulario antes de tocar el botón, el mensaje se precarga con esos
+                escribas ahí también se rige por las condiciones y la política de privacidad de WhatsApp. Si completaste
+                un formulario antes de tocar el botón de WhatsApp que está junto a él, el mensaje se precarga con esos
                 datos, y vos decidís si lo enviás.
               </p>
 

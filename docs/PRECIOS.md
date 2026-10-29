@@ -1,6 +1,6 @@
 # Precios "desde"
 
-Los precios viven en un solo archivo: [`src/data/precios.js`](../src/data/precios.js). Hoy tiene dos paquetes de diseño web, que se muestran en la primera pantalla de https://mtstudio.dev/servicios/diseno-web, debajo de los botones:
+Los precios viven en un solo archivo: [`src/data/precios.js`](../src/data/precios.js). Hoy tiene dos paquetes de diseño web, que se muestran en la primera pantalla de https://mtstudio.dev/servicios/diseno-web, entre la prueba y los botones:
 
 - Landing page desde $ 150.000
 - Sitio web de hasta 5 páginas desde $ 250.000

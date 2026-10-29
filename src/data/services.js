@@ -18,8 +18,10 @@ export const services = [
     tagline:     'Interfaces que no pasan desapercibidas',
     description: 'Diseñamos sitios web que combinan estética premium con usabilidad real. Cada proyecto parte de entender tu negocio, tu audiencia y lo que necesitás comunicar.',
 
-    heroTitle:    'Sitios web que trabajan\npor tu negocio',
-    heroSubtitle: 'Un sitio bien diseñado no es solo una cuestión estética. Es la diferencia entre alguien que se queda y alguien que se va a los pocos segundos.',
+    // H1 de la página de destino: nombra lo que se busca ("diseño de páginas
+    // web", "landing page"), sin ciudad porque los anuncios van a todo el país.
+    heroTitle:    'Diseño de páginas web y landing pages para tu negocio',
+    heroSubtitle: 'Para negocios y profesionales que necesitan un sitio institucional o una landing page para sus campañas, pensados para que la gente te consulte.',
 
     problem: {
       title: 'La mayoría de los sitios no convierten',
@@ -50,8 +52,12 @@ export const services = [
     cta: {
       title:    '¿Tenés un proyecto en mente?',
       subtitle: 'Contanos qué necesitás. Sin formularios kilométricos ni esperas eternas.',
-      label:    'Hablar sobre mi sitio',
     },
+
+    // Prueba de la primera pantalla (un proyecto en producción, ver
+    // docs/AFIRMACIONES.md) y opción que viene elegida en el formulario.
+    prueba:     { slug: 'factu', texto: 'Hicimos tufactu.app: sitio, landing y sistema, en producción desde septiembre de 2026' },
+    formulario: 'pagina-web',
 
     seo: {
       title:       'Diseño web profesional para negocios',
@@ -67,8 +73,8 @@ export const services = [
       tagline:     'Interfaces that don\u2019t go unnoticed',
       description: 'We design websites that combine premium aesthetics with real usability. Every project starts with understanding your business, your audience, and what you need to communicate.',
 
-      heroTitle:    'Websites that work\nfor your business',
-      heroSubtitle: 'A well-designed site isn\u2019t just about looks. It\u2019s the difference between someone staying and someone leaving within seconds.',
+      heroTitle:    'Website and landing page design for your business',
+      heroSubtitle: 'For businesses and professionals who need a company website or a landing page for their campaigns, built to get people to reach out.',
 
       problem: {
         title: 'Most websites don\u2019t convert',
@@ -95,8 +101,9 @@ export const services = [
       cta: {
         title:    'Have a project in mind?',
         subtitle: 'Tell us what you need. No endless forms, no long waits.',
-        label:    'Talk about my site',
       },
+
+      prueba: { slug: 'factu', texto: 'We built tufactu.app: website, landing page, and system, live since September 2026' },
 
       seo: {
         title:       'Premium Web Design',
@@ -118,8 +125,9 @@ export const services = [
     tagline:     'Tiendas online que venden de verdad',
     description: 'Desarrollamos tiendas online completas con foco en experiencia de compra, performance y conversión. Desde catálogo hasta checkout, sin fricciones.',
 
-    heroTitle:    'Una tienda que no\npone obstáculos',
-    heroSubtitle: 'El ecommerce que no convierte no es un problema de tráfico. Es un problema de experiencia. Cada paso del proceso de compra tiene que ser obvio, rápido y confiable.',
+    // Sin "a medida": la prueba, Carga Directa, es WooCommerce.
+    heroTitle:    'Tiendas online con Mercado Pago para tu negocio',
+    heroSubtitle: 'Para negocios que quieren vender por internet con Mercado Pago, transferencia o tarjeta, y manejar productos, stock y pedidos desde su propio panel.',
 
     problem: {
       title: 'Perder ventas en el checkout es evitable',
@@ -149,8 +157,10 @@ export const services = [
     cta: {
       title:    '¿Querés empezar a vender online?',
       subtitle: 'Contanos tu negocio. Te decimos cómo lo encaramos y qué necesitás para arrancar.',
-      label:    'Hablar sobre mi tienda',
     },
+
+    prueba:     { slug: 'cargadirecta', texto: 'Carga Directa: tienda online con ~300 ventas por mes' },
+    formulario: 'tienda-online',
 
     seo: {
       title:       'Desarrollo de tiendas online',
@@ -167,8 +177,8 @@ export const services = [
       tagline:     'Online stores that actually sell',
       description: 'We build complete online stores focused on shopping experience, performance, and conversion. From catalog to checkout, with no friction.',
 
-      heroTitle:    'A store that doesn\u2019t\nget in the way',
-      heroSubtitle: 'An ecommerce that doesn\u2019t convert isn\u2019t a traffic problem. It\u2019s an experience problem. Every step of the buying process has to be obvious, fast, and trustworthy.',
+      heroTitle:    'Online stores with Mercado Pago for your business',
+      heroSubtitle: 'For businesses that want to sell online with Mercado Pago, bank transfer, or cards, and manage products, stock, and orders from their own dashboard.',
 
       problem: {
         title: 'Losing sales at checkout is avoidable',
@@ -196,8 +206,9 @@ export const services = [
       cta: {
         title:    'Ready to start selling online?',
         subtitle: 'Tell us about your business. We\u2019ll walk you through the approach and what you need to get started.',
-        label:    'Talk about my store',
       },
+
+      prueba: { slug: 'cargadirecta', texto: 'Carga Directa: online store with ~300 sales a month' },
 
       seo: {
         title:       'Ecommerce Development',
@@ -250,8 +261,10 @@ export const services = [
     cta: {
       title:    '¿Necesitás un sistema a medida?',
       subtitle: 'Contanos qué proceso querés digitalizar. Arrancamos con un relevamiento sin compromiso.',
-      label:    'Hablar sobre mi sistema',
     },
+
+    prueba:     { slug: 'factu', texto: 'Factu: sistema en producción desde septiembre de 2026 que factura con ARCA' },
+    formulario: 'sistema-a-medida',
 
     seo: {
       title:       'Sistemas web a medida para empresas',
@@ -297,8 +310,9 @@ export const services = [
       cta: {
         title:    'Need a custom system?',
         subtitle: 'Tell us which process you want to digitize. We start with a no-commitment discovery call.',
-        label:    'Talk about my system',
       },
+
+      prueba: { slug: 'factu', texto: 'Factu: a system live since September 2026 that issues invoices through ARCA' },
 
       seo: {
         title:       'Custom Web Systems',
@@ -350,7 +364,6 @@ export const services = [
     cta: {
       title:    '¿Qué proceso te consume más tiempo?',
       subtitle: 'Contanos cuál es la tarea que más se repite en tu equipo. Probablemente tenga solución.',
-      label:    'Hablar sobre automatización',
     },
 
     seo: {
@@ -393,7 +406,6 @@ export const services = [
       cta: {
         title:    'Which process eats up most of your time?',
         subtitle: 'Tell us about the task that repeats the most on your team. It probably has a solution.',
-        label:    'Talk about automation',
       },
 
       seo: {
@@ -447,8 +459,9 @@ export const services = [
     cta: {
       title:    '¿Tu sitio está en buenas manos?',
       subtitle: 'Si no estás seguro, probablemente no lo esté. Hablemos antes de que sea un problema.',
-      label:    'Hablar sobre mantenimiento',
     },
+
+    formulario: 'mantenimiento',
 
     seo: {
       title:       'Mantenimiento web y soporte técnico',
@@ -491,7 +504,6 @@ export const services = [
       cta: {
         title:    'Is your site in good hands?',
         subtitle: 'If you\u2019re not sure, it probably isn\u2019t. Let\u2019s talk before it becomes a problem.',
-        label:    'Talk about maintenance',
       },
 
       seo: {
@@ -551,8 +563,10 @@ export const services = [
     cta: {
       title:    '¿Cuántas horas por mes te lleva facturar?',
       subtitle: 'Contanos cómo cobrás hoy y con qué sistema trabajás. Te decimos qué hace falta para que la facturación deje de ser una tarea manual.',
-      label:    'Consultar por la integración',
     },
+
+    prueba:     { slug: 'factu', texto: 'En producción en Factu desde septiembre de 2026: Factura C y Nota de Crédito C con CAE' },
+    formulario: 'integracion-arca',
 
     seo: {
       title:       'Integración de facturación electrónica con ARCA',
@@ -601,8 +615,9 @@ export const services = [
       cta: {
         title:    'How many hours a month does invoicing cost you?',
         subtitle: 'Tell us how you get paid today and what system you work with. We will tell you what it takes to stop invoicing by hand.',
-        label:    'Ask about the integration',
       },
+
+      prueba: { slug: 'factu', texto: 'Live in Factu since September 2026: Type C invoices and credit notes with CAE' },
 
       seo: {
         title:       'ARCA Electronic Invoicing Integration',

@@ -5,14 +5,14 @@ Dos conversiones, para GA4 y, cuando exista la cuenta, para Google Ads:
 | Conversión | Evento de GA4 | Cuándo se dispara |
 |---|---|---|
 | Clic en WhatsApp | `whatsapp_click`, con el parámetro `cta` | Cualquier clic en un enlace a `wa.me`, sin importar el texto del botón |
-| Formulario enviado | `generate_lead`, con el parámetro `form_service` | Cuando EmailJS respondió bien. Tocar el botón no cuenta |
+| Formulario enviado | `generate_lead`, con el parámetro `form_service` (el id de la opción elegida: `pagina-web`, `landing-page`, `tienda-online`, `sistema-a-medida`, `integracion-arca`, `mantenimiento`, `otro` o `sin_elegir`) | Cuando EmailJS respondió bien. Tocar el botón no cuenta |
 
 ## Dónde está cada cosa
 
 - **La etiqueta** la escribe [`vite.config.js`](../vite.config.js) en el HTML del build, y **solo si existe `VITE_GA_ID`**. Sin el ID no queda nada de la etiqueta: el desarrollo, las pruebas y las vistas previas no ensucian las estadísticas.
 - **Los eventos** salen de [`src/services/analytics.js`](../src/services/analytics.js):
   - `escucharClicsWhatsApp()` se activa una sola vez en `MainLayout` y cuenta los clics por el destino del enlace (`wa.me`).
-  - `registrarFormulario()` se llama en [`Contact.jsx`](../src/pages/Contact.jsx) después de que EmailJS respondió bien.
+  - `registrarFormulario()` se llama en [`ContactForm.jsx`](../src/components/ui/ContactForm.jsx) después de que EmailJS respondió bien. Es el mismo formulario en /contacto y al final de cada página de servicio.
 - **Ningún envío frena la navegación.** No hay `preventDefault` ni `event_callback`: con un bloqueador de anuncios el botón quedaría trabado.
 
 ## Variables de entorno (Vercel → Settings → Environment Variables, **solo Production**)
@@ -35,9 +35,12 @@ Cualquier enlace a `https://wa.me/…` cuenta solo. Para saber cuál fue, poné 
 |---|---|
 | `flotante` | Botón flotante, en todas las páginas |
 | `pie` | Ícono del pie |
-| `contacto_formulario` | Botón al lado de "Enviar mensaje" |
+| `servicio_primera_pantalla` | "Escribinos por WhatsApp", en la primera pantalla de cada servicio |
+| `servicio_formulario` / `contacto_formulario` | Botón al lado de "Enviar mensaje", en un servicio o en /contacto |
+| `servicio_despues_del_envio` / `contacto_despues_del_envio` | "Seguir por WhatsApp", después de enviar el formulario |
 | `contacto_tarjeta` | Tarjeta de WhatsApp en /contacto |
-| `contacto_despues_del_envio` | "Seguir por WhatsApp", después de enviar el formulario |
+
+De qué página vino el clic lo dice la página del evento en GA4. Además, el mensaje precargado de cada servicio nombra el servicio, así que en WhatsApp también se ve.
 
 ## Google Ads
 

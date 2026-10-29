@@ -21,7 +21,7 @@ export const SOCIAL = {
 }
 
 // ─── WhatsApp ─────────────────────────────────────────────────────
-export const WHATSAPP_MSG = 'Hola! Vi tu web y me gustaría consultar sobre un proyecto.'
+export const WHATSAPP_MSG = '¡Hola! Vi tu web y me gustaría consultar sobre un proyecto.'
 export const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MSG)}`
 
 // ─── EmailJS ──────────────────────────────────────────────────────

@@ -1,6 +1,6 @@
 # Campaña de Google Ads
 
-**Estado (5/11/2026): creada y PAUSADA, con el OK de Ezequiel. No gasta nada hasta que se prenda.**
+**Estado (5/11/2026): creada y PAUSADA, con el OK de Ezequiel. No gasta nada hasta que se prenda.** Ese mismo día quedó publicada y comprobada en producción la medición de las dos conversiones (ver [Conversiones](#conversiones)).
 
 | Qué | ID en Google Ads |
 |---|---|
@@ -156,6 +156,9 @@ Ruta visible: mtstudio.dev/tienda-online
 
 - **Vínculos a sitios:** "Páginas web y landings" → /servicios/diseno-web · "Tiendas online" → /servicios/ecommerce · "Caso: tufactu.app" → /portfolio/factu · "Caso: Carga Directa" → /portfolio/cargadirecta · "Contacto" → /contacto
 - **Textos destacados:** Respondemos en 24 horas · Dominio y hosting 1 año · Atención por WhatsApp · Precios desde $150.000
+  - **El grupo Tiendas online tiene los suyos:** "Respondemos en 24 horas" y "Atención por WhatsApp". Se agregaron el 5/11/2026 con el OK de Ezequiel, porque /servicios/ecommerce no muestra precios ni dice que incluya dominio y hosting.
+  - Según la [ayuda de Google Ads](https://support.google.com/google-ads/answer/6079510?hl=es-419), si un grupo tiene textos destacados propios, sus anuncios usan esos "en lugar de" los de la campaña. La versión en inglés agrega que con uno solo en el grupo ya no sale ninguno de la campaña. La versión en castellano tiene además una frase que dice lo contrario, así que conviene mirar los primeros anuncios de tiendas que se publiquen.
+  - Si se suma a la campaña un texto destacado que también valga para tiendas, hay que agregarlo al grupo.
 - **Fragmento estructurado** (Servicios): Páginas web, Landing pages, Tiendas online
 
 ## Conversiones
@@ -172,7 +175,9 @@ Antes de prender la campaña:
 1. **Crear dos acciones de conversión** en la cuenta, del tipo sitio web, contando **una** por clic:
    - "WhatsApp", categoría Contacto;
    - "Formulario enviado", categoría Enviar formulario de clientes potenciales.
+   - **Hecho el 5/11/2026**, con la API.
 2. **Cargar sus destinos** (`AW-…/etiqueta`) en Vercel, en Production: `VITE_ADS_WHATSAPP` y `VITE_ADS_FORMULARIO`. Después hay que volver a desplegar. Ver [MEDICION.md](MEDICION.md).
+   - **Hecho el 5/11/2026**, como variables de tipo **Config**. No son secretas, porque igual quedan en el JS público del sitio, y así se pueden releer en Vercel si hay un error de tipeo.
 3. **Agregar `AW-18558070627` como destino** de la etiqueta de Google `GT-5R3WSDGT`, para que el `send_to` llegue sin un segundo `gtag('config', 'AW-…')`. Según la [ayuda de Google](https://support.google.com/google-ads/answer/12329709?hl=es):
    - **Cómo llegar a la etiqueta desde GA4:** Administrador → Recogida (o Recopilación) y modificación de datos → Flujos de datos → mtstudio.dev → Configurar ajustes de etiquetas.
    - **Ahí:** pestaña **Administrador** → **Gestionar la etiqueta de Google** (en la versión latinoamericana, "Administrar la etiqueta de Google") → sección Destinos → **+ Destino** → **Elegir un destino** → la cuenta de MT Studio, `AW-18558070627` → **Guardar**.
@@ -180,7 +185,23 @@ Antes de prender la campaña:
    - **Para comprobarlo:** `https://www.googletagmanager.com/gtag/js?id=G-WYJ9WZM84Z` tiene que traer `AW-18558070627` adentro. La ayuda no dice cuánto tarda en verse.
    - **Hecho el 5/11/2026.** Minutos después, el `gtag.js` ya traía `AW-18558070627`, y en la cuenta no apareció ninguna conversión nueva.
 4. **Vincular GA4 con la cuenta.** **No importar** los eventos clave de GA4 como conversiones de Ads: se contarían dos veces.
+   - Todo indica que el vínculo ya existe: las tres conversiones de GA4 de la cuenta son de tipos que solo crea ese vínculo (`GOOGLE_ANALYTICS_4_*`). No está comprobado desde GA4.
 5. **Probar** con Google interceptado, como dice MEDICION.md, y comprobar en producción.
+   - **Hecho el 5/11/2026**, con `ab462ed` publicado y un navegador real a 390 px:
+     - el botón flotante y el de la primera pantalla de /servicios/diseno-web mandan la conversión "WhatsApp";
+     - el formulario manda "Formulario enviado";
+     - cargar una página no manda ninguna de las dos;
+     - el HTML sigue con un solo `gtag('config')`.
+
+## Sin publicidad personalizada
+
+Lo decidió Ezequiel el 5/11/2026. La etiqueta lleva `gtag('set', 'allow_ad_personalization_signals', false)`:
+
+- ningún envío de GA4 ni de Ads se usa para publicidad personalizada;
+- Ads deja de recibir los envíos de remarketing (`viewthroughconversion` y `rmkt/collect`);
+- las conversiones se siguen midiendo. La [ayuda de Google Ads](https://support.google.com/google-ads/answer/9606827?hl=es-419) dice: "este parámetro no inhabilita el seguimiento de conversiones".
+
+Si algún día se quiere remarketing, hay que sacar esa línea de `vite.config.js` y cambiar la política de privacidad.
 
 ## Cómo leer los resultados
 

@@ -12,6 +12,12 @@ import path from 'path'
 // que sí: en el teléfono eran ~90 KB de tercero peleando con el primer
 // render. La cola de gtag se arma antes, así que ningún evento disparado en
 // el arranque se pierde.
+//
+// Sin publicidad personalizada (decisión del 5/11/2026): la campaña es de
+// búsqueda y no usa listas de visitantes, y la política de privacidad promete
+// que las visitas no se usan para personalizar anuncios. Según la ayuda de
+// Google Ads, esto no apaga el seguimiento de conversiones. Va antes de 'js',
+// como en el ejemplo de Google. Ver docs/PRIVACIDAD.md.
 function etiquetaGoogle(id) {
   return {
     name: 'mt-etiqueta-google',
@@ -21,6 +27,7 @@ function etiquetaGoogle(id) {
       const etiqueta = `<script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
+      gtag('set', 'allow_ad_personalization_signals', false);
       gtag('js', new Date());
       gtag('config', '${id}');
 

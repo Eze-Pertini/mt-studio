@@ -20,7 +20,7 @@ import { useLanguage } from '@i18n/LanguageContext'
  * el HTML aunque el JavaScript tarde.
  */
 
-const ACTUALIZADA = '29 de octubre de 2026'
+const ACTUALIZADA = '5 de noviembre de 2026'
 
 export default function Privacy() {
   const { lang } = useLanguage()
@@ -88,9 +88,11 @@ export default function Privacy() {
 
               <h3 className="text-base font-semibold text-text-primary">Publicidad en Google</h3>
               <p>
-                Si llegaste por un anuncio de Google, la dirección de la página puede traer un identificador del clic,
-                y Google Ads usa cookies para registrar si esa visita terminó en un contacto. Nos sirve para saber qué
-                anuncios funcionan, y no recibimos datos que te identifiquen.
+                Usamos Google Ads para saber qué anuncios terminan en una consulta. Por eso Google Ads está en todas
+                las páginas: guarda una cookie, registra cada visita y anota si tocaste un botón de WhatsApp o enviaste
+                el formulario, sin el contenido del mensaje. Si llegaste por un anuncio, la dirección de la página puede
+                traer además un identificador de ese clic. Configuramos el sitio para que Google no use tus visitas
+                para mostrarte publicidad personalizada, y no recibimos datos que te identifiquen.
               </p>
 
               <h3 className="text-base font-semibold text-text-primary">Preferencia de idioma</h3>
@@ -110,8 +112,11 @@ export default function Privacy() {
               <p>
                 El sitio usa las cookies de Google Analytics, <code className={CODIGO}>_ga</code> y{' '}
                 <code className={CODIGO}>_ga_WYJ9WZM84Z</code>, que duran hasta dos años (algunos navegadores, como
-                Chrome, las limitan a 13 meses). Si llegaste por un anuncio, se suman las de Google Ads. Podés
-                bloquearlas o borrarlas desde la configuración de tu navegador: el sitio funciona igual.
+                Chrome, las limitan a 13 meses), y la de Google Ads, <code className={CODIGO}>_gcl_au</code>, que
+                dura 90 días. Si llegaste por un anuncio, Google Ads suma otra con el identificador del clic
+                (<code className={CODIGO}>_gcl_aw</code>, <code className={CODIGO}>_gcl_ag</code> o{' '}
+                <code className={CODIGO}>_gcl_gb</code>, según el caso), también por 90 días. Podés bloquearlas o
+                borrarlas desde la configuración de tu navegador: el sitio funciona igual.
               </p>
             </Seccion>
 

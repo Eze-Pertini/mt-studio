@@ -15,7 +15,10 @@ La política está en https://mtstudio.dev/privacidad. Se enlaza desde la barra 
 | Clientes: los datos se conservan mientras dure la relación de trabajo | Ezequiel, al aprobar el texto | 29/10/2026 |
 | WhatsApp: el botón junto a cada formulario precarga lo que se escribió en él | `ContactForm.jsx` | 29/10/2026 |
 | GA4 conserva el detalle de cada visita 14 meses | Configurado en GA4 (Conservación de datos) | 29/10/2026 |
-| Las únicas cookies son `_ga` y `_ga_WYJ9WZM84Z`, hasta 2 años (Chrome las limita a 13 meses) | Medido en producción con un navegador real | 29/10/2026 |
+| Cookies de GA4: `_ga` y `_ga_WYJ9WZM84Z`, hasta 2 años (Chrome las limita a 13 meses) | Medido en producción con un navegador real | 29/10/2026 |
+| Cookie de Google Ads en toda visita: `_gcl_au`, 90 días. Con un clic en un anuncio se suma `_gcl_aw` (gclid), `_gcl_ag` (gbraid) o `_gcl_gb` (wbraid), también 90 días | Medido en producción con un navegador real, desde que la cuenta de Ads es destino de la etiqueta | 5/11/2026 |
+| Google Ads registra cada visita y si se tocó WhatsApp o se envió el formulario, sin el contenido | La etiqueta con el destino `AW-18558070627` y [`analytics.js`](../src/services/analytics.js) (ver [MEDICION.md](MEDICION.md)) | 5/11/2026 |
+| Google no usa las visitas para publicidad personalizada | `gtag('set', 'allow_ad_personalization_signals', false)` en [`vite.config.js`](../vite.config.js). Según la [ayuda de Google Ads](https://support.google.com/google-ads/answer/9606827?hl=es-419), eso desactiva el uso de los datos para anuncios personalizados y no el seguimiento de conversiones. Medido: todos los envíos llevan `npa=1` y no sale ninguno de remarketing | 5/11/2026 |
 | El idioma se guarda en localStorage (`mt-studio-lang`), no en una cookie | [`LanguageContext.jsx`](../src/i18n/LanguageContext.jsx) | 29/10/2026 |
 | Plazos: acceso en 10 días corridos, corrección o supresión en 5 días hábiles, acceso gratis cada 6 meses | Ley 25.326, arts. 14 y 16 (texto verificado en InfoLEG) | 29/10/2026 |
 | Leyenda de la AAIP como órgano de control | Res. AAIP 14/2018, art. 3 (texto verificado en el Boletín Oficial) | 29/10/2026 |
@@ -40,7 +43,9 @@ Cada vez que se sume algo que recoja datos y cada vez que cambie un proveedor o 
 
 - el píxel de Meta, Hotjar o un chat;
 - un newsletter;
-- guardar el gclid en el formulario (paso 7 de la Fase 1).
+- guardar el gclid en el formulario (paso 7 de la Fase 1);
+- sumar o sacar un destino en la etiqueta de Google. Pasó el 5/11/2026: con la cuenta de Ads aparecieron `_gcl_au` y los envíos a Google Ads en cada visita;
+- volver a permitir la publicidad personalizada, por ejemplo para hacer remarketing.
 
 Al cambiarla, actualizar la fecha `ACTUALIZADA` de `Privacy.jsx` y esta tabla.
 

@@ -9,7 +9,7 @@ Dos conversiones, para GA4 y, cuando exista la cuenta, para Google Ads:
 
 ## Dónde está cada cosa
 
-- **La etiqueta** la escribe [`vite.config.js`](../vite.config.js) en el HTML del build, y **solo si existe `VITE_GA_ID`**. Sin el ID no queda nada de la etiqueta: el desarrollo, las pruebas y las vistas previas no ensucian las estadísticas.
+- **La etiqueta** la escribe [`vite.config.js`](../vite.config.js) en el HTML del build, y **solo si existe `VITE_GA_ID`**. Sin el ID no queda nada de la etiqueta: el desarrollo, las pruebas y las vistas previas no ensucian las estadísticas. Lleva `gtag('set', 'allow_ad_personalization_signals', false)`, así que ningún envío se usa para publicidad personalizada (ver [PRIVACIDAD.md](PRIVACIDAD.md)).
 - **Los eventos** salen de [`src/services/analytics.js`](../src/services/analytics.js):
   - `escucharClicsWhatsApp()` se activa una sola vez en `MainLayout` y cuenta los clics por el destino del enlace (`wa.me`).
   - `registrarFormulario()` se llama en [`ContactForm.jsx`](../src/components/ui/ContactForm.jsx) después de que EmailJS respondió bien. Es el mismo formulario en /contacto y al final de cada página de servicio.
@@ -48,6 +48,11 @@ De qué página vino el clic lo dice la página del evento en GA4. Además, el m
 
 - **Nunca un segundo `gtag('config', 'AW-…')`**: deja el sitio con dos etiquetas. La conversión se manda con `send_to`, y para eso el destino de Ads tiene que venir **dentro** de la etiqueta de GA4.
 - **Cómo verificarlo:** bajá `https://www.googletagmanager.com/gtag/js?id=G-WYJ9WZM84Z` y buscá `AW-` adentro. El 29/10/2026 traía un solo destino, `G-WYJ9WZM84Z`. Desde el 5/11/2026 trae también `AW-18558070627`. Si el `AW-` no aparece, se resuelve en la consola de la etiqueta de Google, no en el código.
+- **Cómo se ve una conversión de Ads en una prueba:** sale a `www.googleadservices.com/pagead/conversion/18558070627/` y a `www.google.com/pagead/1p-conversion/18558070627/`, con la etiqueta de la acción en la URL: `pkVmCIKn2LIdEOPelpFF` para WhatsApp, `K_60CIWn2LIdEOPelpFF` para el formulario. Todos los envíos llevan `npa=1`. No tiene que haber ninguno a `viewthroughconversion` ni a `rmkt/collect`: son los de remarketing, que la etiqueta tiene apagados.
+- **Qué deja en cada visita desde que está el destino de Ads** (medido el 5/11/2026, entrando sin venir de un anuncio):
+  - Las cookies `_ga` y `_ga_WYJ9WZM84Z`, de GA4.
+  - **`_gcl_au`, de Google Ads, por 90 días.** Si la persona llegó por un anuncio, se suma `_gcl_aw` (gclid), `_gcl_ag` (gbraid) o `_gcl_gb` (wbraid), también por 90 días.
+  - La cuenta de Ads tiene dos listas compartidas, "All Users of MT Studio" y "Purchasers of MT Studio", de 540 días. Por el nombre y la descripción, vienen de GA4. Con la publicidad personalizada apagada en la etiqueta, según Google, las visitas no se usan para personalizar anuncios.
 - **En cada acción de conversión, contar "Una" por clic.** Igual, quien manda el formulario y después toca "Seguir por WhatsApp" suma en las dos acciones: el total de conversiones sobrecuenta personas.
 
 ## GA4 (pasos manuales, una sola vez)

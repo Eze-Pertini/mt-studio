@@ -20,8 +20,10 @@ Dos conversiones, para GA4 y, cuando exista la cuenta, para Google Ads:
 | Variable | Valor | Para qué |
 |---|---|---|
 | `VITE_GA_ID` | `G-WYJ9WZM84Z` | Escribe la etiqueta. **Sin ella, producción se queda sin GA4.** |
-| `VITE_ADS_WHATSAPP` | `AW-XXXXXXXXX/etiqueta` | Destino de la conversión de WhatsApp en Ads |
-| `VITE_ADS_FORMULARIO` | `AW-XXXXXXXXX/etiqueta` | Destino de la conversión del formulario en Ads |
+| `VITE_ADS_WHATSAPP` | `AW-18558070627/pkVmCIKn2LIdEOPelpFF` | Destino de la conversión "WhatsApp" en Ads |
+| `VITE_ADS_FORMULARIO` | `AW-18558070627/K_60CIWn2LIdEOPelpFF` | Destino de la conversión "Formulario enviado" en Ads |
+
+Las dos acciones de conversión se crearon el 5/11/2026 en la cuenta 305-123-2135 (ver [GOOGLE-ADS.md](GOOGLE-ADS.md)).
 
 Después de cambiar una variable hay que volver a desplegar, porque se leen en el build. No las cargues en `.env.local`: el desarrollo mandaría visitas a la propiedad real.
 
@@ -45,7 +47,7 @@ De qué página vino el clic lo dice la página del evento en GA4. Además, el m
 ## Google Ads
 
 - **Nunca un segundo `gtag('config', 'AW-…')`**: deja el sitio con dos etiquetas. La conversión se manda con `send_to`, y para eso el destino de Ads tiene que venir **dentro** de la etiqueta de GA4.
-- **Cómo verificarlo:** bajá `https://www.googletagmanager.com/gtag/js?id=G-WYJ9WZM84Z` y buscá `AW-` adentro. Hasta el 29/10/2026 trae un solo destino, `G-WYJ9WZM84Z`. Si el `AW-` no aparece, se resuelve en la consola de la etiqueta de Google, no en el código.
+- **Cómo verificarlo:** bajá `https://www.googletagmanager.com/gtag/js?id=G-WYJ9WZM84Z` y buscá `AW-` adentro. El 29/10/2026 traía un solo destino, `G-WYJ9WZM84Z`. Desde el 5/11/2026 trae también `AW-18558070627`. Si el `AW-` no aparece, se resuelve en la consola de la etiqueta de Google, no en el código.
 - **En cada acción de conversión, contar "Una" por clic.** Igual, quien manda el formulario y después toca "Seguir por WhatsApp" suma en las dos acciones: el total de conversiones sobrecuenta personas.
 
 ## GA4 (pasos manuales, una sola vez)

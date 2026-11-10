@@ -23,8 +23,8 @@ export const MONEDA = 'ARS'
 export const precios = {
   'diseno-web': {
     paquetes: [
-      { nombre: { es: 'Landing page', en: 'Landing page' }, desde: 150000 },
-      { nombre: { es: 'Sitio web de hasta 5 páginas', en: 'Website with up to 5 pages' }, desde: 250000 },
+      { nombre: { es: 'Landing page', en: 'Landing page' }, desde: 200000 },
+      { nombre: { es: 'Sitio web de hasta 5 páginas', en: 'Website with up to 5 pages' }, desde: 350000 },
     ],
     incluye: { es: 'dominio y alojamiento por 1 año', en: 'domain and hosting for 1 year' },
   },

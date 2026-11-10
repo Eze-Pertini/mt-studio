@@ -2,9 +2,11 @@
 
 Los precios viven en un solo archivo: [`src/data/precios.js`](../src/data/precios.js). Hoy tiene dos paquetes de diseño web, que se muestran en la primera pantalla de https://mtstudio.dev/servicios/diseno-web, entre la prueba y los botones:
 
-- Landing page desde $ 150.000
-- Sitio web de hasta 5 páginas desde $ 250.000
+- Landing page desde $ 200.000
+- Sitio web de hasta 5 páginas desde $ 350.000
 - Incluyen dominio y alojamiento por 1 año
+
+Vigentes desde el 10/11/2026. Del 29/10/2026 al 10/11/2026 fueron $ 150.000 y $ 250.000.
 
 ## Cómo cambiarlos desde el navegador o el teléfono
 
@@ -18,8 +20,8 @@ Si el número está mal escrito, el build falla a propósito y Vercel deja publi
 
 ## Qué hay que cuidar
 
-- **El anuncio tiene que decir lo mismo que la página.** Si cambiás un precio, actualizá el anuncio en Google Ads ese mismo día, y también el recurso de precio si lo usás.
+- **El anuncio tiene que decir lo mismo que la página.** Si cambiás un precio, actualizá el anuncio en Google Ads ese mismo día: dos títulos, dos descripciones y el texto destacado "Precios desde…" (ver [GOOGLE-ADS.md](GOOGLE-ADS.md)). También las publicaciones de Instagram que muestran precios.
 - **El precio es una promesa.** El "desde" tiene que existir de verdad, y lo que dice `incluye` se entrega con cualquiera de los paquetes.
 - **`incluye` va sin el verbo** (`'dominio y alojamiento por 1 año'`). La página arma "Incluye" o "Incluyen" según cuántos paquetes se vean.
-- **La moneda es una sola para todos los precios.** Con `MONEDA = 'ARS'` se ve "$ 150.000"; con `'USD'`, "US$ 300". Si está en pesos, conviene revisarlo seguido.
+- **La moneda es una sola para todos los precios.** Con `MONEDA = 'ARS'` se ve "$ 200.000"; con `'USD'`, "US$ 300". Si está en pesos, conviene revisarlo seguido.
 - **Precios para otro servicio:** se agrega su slug en `precios` con la misma forma.

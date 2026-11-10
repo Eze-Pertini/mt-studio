@@ -2,6 +2,13 @@
 
 **Estado (5/11/2026): creada y PAUSADA, con el OK de Ezequiel. No gasta nada hasta que se prenda.** Ese mismo día quedó publicada y comprobada en producción la medición de las dos conversiones (ver [Conversiones](#conversiones)).
 
+**Prendida el 9/11/2026 a las 13:00** desde la interfaz de Google Ads, según el historial de cambios de la cuenta.
+
+**Precios nuevos (10/11/2026):** landing desde $ 200.000 y sitio desde $ 350.000. Ese día, con el OK de Ezequiel, se cambiaron en la cuenta con la API y se leyeron de vuelta:
+
+- dos títulos y dos descripciones, en los grupos Diseño web y Landing page (ver [Anuncios](#anuncios));
+- el texto destacado de la campaña. El nuevo, `assets/438300926823`, reemplaza al de $ 150.000, `assets/436380673835`, que quedó desvinculado.
+
 | Qué | ID en Google Ads |
 |---|---|
 | Campaña "MT Studio · Búsqueda · Prueba" | 24440068465 |
@@ -84,8 +91,8 @@ Ruta visible: mtstudio.dev/diseno-web/precios
 |---|---|
 | Diseño de Páginas Web | 21 |
 | Páginas Web para tu Negocio | 27 |
-| Landing Page desde $150.000 | 27 |
-| Sitio Web desde $250.000 | 24 |
+| Landing Page desde $200.000 | 27 |
+| Sitio Web desde $350.000 | 24 |
 | Dominio y Hosting por 1 Año | 27 |
 | Respuesta Dentro de 24 Horas | 28 |
 | Escribinos por WhatsApp | 23 |
@@ -97,7 +104,7 @@ Ruta visible: mtstudio.dev/diseno-web/precios
 | Descripción | Caracteres |
 |---|---|
 | Páginas web y landing pages para negocios y profesionales, pensadas para que te consulten. | 90 |
-| Landing page desde $150.000 y sitio de hasta 5 páginas desde $250.000, con dominio. | 83 |
+| Landing page desde $200.000 y sitio de hasta 5 páginas desde $350.000, con dominio. | 83 |
 | Hicimos tufactu.app: sitio, landing y sistema, en producción desde septiembre de 2026. | 86 |
 | Escribinos por WhatsApp o dejá tu consulta en la página. Respondemos dentro de 24 horas. | 88 |
 
@@ -109,7 +116,7 @@ Ruta visible: mtstudio.dev/landing-page/precios
 |---|---|
 | Landing Page para tu Negocio | 28 |
 | Diseño de Landing Pages | 23 |
-| Landing Page desde $150.000 | 27 |
+| Landing Page desde $200.000 | 27 |
 | Landing Pages para Campañas | 27 |
 | Dominio y Hosting por 1 Año | 27 |
 | Respuesta Dentro de 24 Horas | 28 |
@@ -121,7 +128,7 @@ Ruta visible: mtstudio.dev/landing-page/precios
 | Descripción | Caracteres |
 |---|---|
 | Landing pages para tus campañas, pensadas para que la gente te consulte. | 72 |
-| Landing page desde $150.000, con dominio y alojamiento por 1 año incluidos. | 75 |
+| Landing page desde $200.000, con dominio y alojamiento por 1 año incluidos. | 75 |
 | Hicimos tufactu.app: sitio, landing y sistema, en producción desde septiembre de 2026. | 86 |
 | Escribinos por WhatsApp o dejá tu consulta en la página. Respondemos dentro de 24 horas. | 88 |
 
@@ -155,7 +162,7 @@ Ruta visible: mtstudio.dev/tienda-online
 ## Recursos
 
 - **Vínculos a sitios:** "Páginas web y landings" → /servicios/diseno-web · "Tiendas online" → /servicios/ecommerce · "Caso: tufactu.app" → /portfolio/factu · "Caso: Carga Directa" → /portfolio/cargadirecta · "Contacto" → /contacto
-- **Textos destacados:** Respondemos en 24 horas · Dominio y hosting 1 año · Atención por WhatsApp · Precios desde $150.000
+- **Textos destacados:** Respondemos en 24 horas · Dominio y hosting 1 año · Atención por WhatsApp · Precios desde $200.000
   - **El grupo Tiendas online tiene los suyos:** "Respondemos en 24 horas" y "Atención por WhatsApp". Se agregaron el 5/11/2026 con el OK de Ezequiel, porque /servicios/ecommerce no muestra precios ni dice que incluya dominio y hosting.
   - Según la [ayuda de Google Ads](https://support.google.com/google-ads/answer/6079510?hl=es-419), si un grupo tiene textos destacados propios, sus anuncios usan esos "en lugar de" los de la campaña. La versión en inglés agrega que con uno solo en el grupo ya no sale ninguno de la campaña. La versión en castellano tiene además una frase que dice lo contrario, así que conviene mirar los primeros anuncios de tiendas que se publiquen.
   - Si se suma a la campaña un texto destacado que también valga para tiendas, hay que agregarlo al grupo.

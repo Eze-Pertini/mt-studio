@@ -5,8 +5,10 @@ import { titleWidth, TITLE_MAX_WIDTH } from '@data/seo-width'
 
 const SITE_NAME = 'MT Studio'
 const OG_IMAGE  = `${SITE_URL}/og-image.jpg`
-const DEFAULT_TITLE = 'MT Studio — Diseño y desarrollo web a medida'
-const DEFAULT_DESCRIPTION = 'Estudio de diseño y desarrollo web en Argentina. Sitios, tiendas online y sistemas a medida para negocios que necesitan resultados concretos.'
+// Título y descripción de la home (y de lo que no trae los suyos). Dicen lo mismo
+// que el H1 y que el foco del estudio: páginas web, landing pages y tiendas online.
+const DEFAULT_TITLE = 'MT Studio — Páginas web, landing pages y tiendas online'
+const DEFAULT_DESCRIPTION = 'MT Studio hace páginas web, landing pages y tiendas online para negocios y profesionales de Argentina, con diseño propio y pensadas para el celular.'
 
 /** Los crawlers sociales exigen URL absoluta en og:image; las rutas de los datos son relativas. */
 function absoluteUrl(path) {

@@ -267,6 +267,7 @@ export const services = [
       'Entrega por videollamada, con un repaso del panel',
       'Transferencia de la tienda a tu nombre',
       '30 días de soporte después de la entrega, para dudas y ajustes chicos',
+      'Entrega en 5 días hábiles desde que tenemos tu logo, las fotos y los datos de tus productos',
     ],
     // Va debajo de la lista como "No incluye: …". Sin el verbo ni el punto.
     excluye: 'el plan de Tiendanube, el dominio propio (es opcional: la tienda funciona con la dirección de Tiendanube), las comisiones de pagos y envíos ni la producción de fotos',
@@ -323,6 +324,7 @@ export const services = [
         'Handover on a video call, with a walkthrough of the dashboard',
         'Store transferred to your name',
         '30 days of support after handover, for questions and small adjustments',
+        'Delivery within 5 business days once we have your logo, photos, and product details',
       ],
       excluye: 'the Tiendanube plan, your own domain (optional: the store works on its Tiendanube address), payment and shipping fees, or product photography',
 

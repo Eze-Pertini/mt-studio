@@ -27,6 +27,10 @@
 | Tecnologías (ver tabla abajo) | `HomeExtras.jsx`: `techs`; `services.js`: `technologies` | El proyecto que respalda cada una | 29/10/2026 |
 | Precios desde: landing page $ 200.000 y sitio web de hasta 5 páginas $ 350.000, con dominio y alojamiento por 1 año | `precios.js` (ver [PRECIOS.md](PRECIOS.md)) | Ezequiel | 10/11/2026 (antes: $ 150.000 y $ 250.000, desde el 29/10/2026) |
 | Prueba de la primera pantalla de cada servicio: tufactu.app (sitio, landing y sistema, hechos íntegramente por el estudio), Carga Directa (~300 ventas por mes), Factu (factura con ARCA; Factura C y Nota de Crédito C con CAE) | `services.js`: `prueba` | Ezequiel | 29/10/2026 |
+| Tiendas en Tiendanube: tienda de hasta 30 productos desde $ 130.000, precio de diciembre para tiendas contratadas hasta el 31/12/2026; precio final, con Factura C; cada 20 productos más, $ 20.000. Desde el 1/1/2027, $ 150.000 | `precios.js`: tiendanube (`paquetes`, `nota`, `adicional`; ver [PRECIOS.md](PRECIOS.md)) | Ezequiel | 23/11/2026 |
+| "Partners certificados de Tiendanube": Ezequiel completó la Certificación Base del Programa de Partners de Tiendanube y la cuenta de socio está aprobada | `services.js`: tiendanube (`etiqueta`) | Certificado del 23/11/2026, en PDF; aprobación confirmada por Ezequiel | 23/11/2026 |
+| Tiendas en Tiendanube, qué incluye: diseño con la marca sobre una plantilla de Tiendanube, carrusel y banners para celular y computadora, carga de hasta 30 productos con las fotos del cliente, páginas de información, menús y pie, envíos y medios de pago con las cuentas del cliente, revisión en celular, tablet y computadora, entrega por videollamada, transferencia de la tienda y 30 días de soporte. No incluye el plan de Tiendanube, el dominio, las comisiones de pagos y envíos ni la producción de fotos | `services.js`: tiendanube (`features`, `benefits`, `excluye`) | Ezequiel | 23/11/2026 |
+| Lento: tienda de ejemplo de una marca imaginaria, con los productos que no están a la venta; 15 productos en 5 categorías; 7 tamaños de pantalla revisados, de 320 a 1920 px | `projects.js`: lento; `services.js`: tiendanube (`prueba`) | Contado en la tienda publicada y medido con Playwright | 23/11/2026 |
 | Guía de facturación: **todavía dice** que al monotributista se le emite Factura B. Según la RG 5003/2021, vigente desde el 1/7/2021, el responsable inscripto le emite A | `blog.js`: facturacion-electronica-afip-para-independientes | RG 5003/2021 | **Pendiente: corregir cuando lo confirme el contador** |
 
 ### Cuidado con los créditos de Factu
@@ -34,6 +38,18 @@
 En tufactu.app los packs dicen "No vencen*", con la nota "*Créditos válidos por 12 meses. Si comprás antes de que venzan, se corre el plazo". Por eso el portfolio **no** dice "créditos que no vencen": sin la aclaración sería la misma frase que hubo que corregir en Factu. Si el portfolio vuelve a mencionar el vencimiento, tiene que copiar la condición tal cual figura en tufactu.app/planes.
 
 **Las capturas también afirman.** La portada vieja de Factu mostraba "Tus créditos no vencen" y la captura de créditos decía "No vencen." sin la condición. El 29/10/2026 la portada se reemplazó por la home actual de tufactu.app (y su versión de teléfono, que usa el hero de la home), y la captura de créditos se sacó de la galería. Cuando Factu cambie su home, hay que volver a capturarla.
+
+### Lento es una tienda de ejemplo
+
+La prueba de la primera pantalla tiene que ser un proyecto en producción. La única excepción es la página de Tiendas en Tiendanube: su prueba es Lento, una tienda de ejemplo que no es de un cliente. Por eso cada texto que la nombra dice "de ejemplo", la ficha del portfolio lleva la etiqueta "Tienda de ejemplo" en lugar de "En vivo", y no enlaza a la tienda, que está protegida con contraseña. Cuando haya una tienda de un cliente publicada, pasa a ser la prueba.
+
+### Partners de Tiendanube
+
+Desde el 23/11/2026 la página de Tiendas en Tiendanube dice "Partners certificados de Tiendanube": Ezequiel completó la Certificación Base del Programa de Partners y su cuenta de socio está aprobada. Tres límites, decididos por Ezequiel:
+
+- **Sin el logo de Tiendanube**, ni un sello que el portal no haya dado con sus reglas de uso.
+- **Sin nombrar un nivel del programa.** El estudio sigue en "Member" hasta su primera tienda paga creada desde el portal de socios; "Silver" o cualquier otro nivel solo se dice cuando figure en el portal.
+- **Sin prometer beneficios para los clientes.** Las páginas de niveles de Tiendanube solo describen beneficios para el socio (comisiones y bonos). Si el portal ofrece alguno para clientes, se agrega con sus palabras exactas y la fuente.
 
 ### Factura A y B: no se ofrecen
 
@@ -50,6 +66,7 @@ Una tecnología entra en el sitio solo si un proyecto real la usó.
 | React, Vite, Tailwind CSS, Framer Motion, Vercel | Este sitio |
 | Vultr, Laravel Forge | Infraestructura de Factu |
 | ARCA WSFEv1, SOAP | Factu |
+| Tiendanube | Lento (tienda de ejemplo) |
 
 ## Lo que se sacó y por qué (29/10/2026)
 

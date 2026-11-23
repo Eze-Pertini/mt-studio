@@ -217,6 +217,129 @@ export const services = [
     },
   },
 
+  // ── Tiendas en Tiendanube ───────────────────────────────────────────
+  // Armado de tiendas sobre Tiendanube, aparte de ecommerce, que son tiendas
+  // a medida. La prueba es Lento, una tienda de ejemplo: todos los textos lo
+  // dicen. Precio en src/data/precios.js; qué incluye y de dónde sale cada
+  // promesa, en docs/AFIRMACIONES.md.
+  {
+    id: 'tiendanube',
+    slug: 'tiendanube',
+    updatedAt: '2026-11-23',
+    icon: '◇',
+    color: 'violet',
+    accentHex: '#8B5CF6',
+
+    title:       'Tiendas en Tiendanube',
+    // La etiqueta de arriba del H1, en lugar del nombre del servicio. Respaldo:
+    // la Certificación Base del Programa de Partners de Tiendanube (23/11/2026)
+    // y la cuenta de socio aprobada. Sin logo ni nivel (ver docs/AFIRMACIONES.md).
+    etiqueta:    'Partners certificados de Tiendanube',
+    tagline:     'Tu tienda armada, con tu marca y lista para vender',
+    description: 'Armamos tu tienda en Tiendanube con tu marca: diseño, carga de productos, envíos y medios de pago. Te la entregamos funcionando y te mostramos cómo usarla.',
+
+    heroTitle:    'Armado y diseño de tu tienda en Tiendanube',
+    heroSubtitle: 'Para negocios que quieren vender por internet sin armar la tienda solos: la diseñamos con tu marca, cargamos tus productos y te la entregamos con envíos y pagos funcionando.',
+
+    // En escritorio, la primera pantalla muestra las capturas de este
+    // proyecto en marcos de notebook y teléfono, en lugar de las tecnologías.
+    heroProyecto: 'lento',
+
+    problem: {
+      title: 'Tener la cuenta no es tener la tienda',
+      body:  'Tiendanube te da la plataforma, pero armar la tienda lleva trabajo: adaptar el diseño a tu marca, cargar cada producto con sus fotos y variantes, configurar envíos y medios de pago, y escribir las páginas que dan confianza. Si queda a medias, con textos de ejemplo de la plantilla o una portada que no se ve bien en el celular, al que entra le cuesta confiar y comprar.',
+    },
+
+    benefits: [
+      { icon: '◇', title: 'Con tu marca, no con la de la plantilla', desc: 'Adaptamos la plantilla a tus colores, tu letra y tu logo, y preparamos las imágenes de la portada por separado para celular y computadora.' },
+      { icon: '◈', title: 'Lista para vender',                       desc: 'Te la entregamos con los productos cargados, los envíos con sus costos y los medios de pago conectados a tus cuentas.' },
+      { icon: '⬡', title: 'Revisada en cada pantalla',               desc: 'Antes de entregarla la revisamos en celular, tablet y computadora, y corregimos lo que se corta o queda tapado.' },
+      { icon: '✦', title: 'Queda a tu nombre',                       desc: 'Al terminar te la transferimos: la tienda es tuya y el plan lo pagás directo a Tiendanube. En una videollamada te mostramos cómo usar el panel.' },
+    ],
+
+    features: [
+      'Diseño con tu marca sobre una plantilla de Tiendanube: colores, letra y logo',
+      'Carrusel de portada y banners, en versión celular y computadora',
+      'Carga de hasta 30 productos con las fotos que nos pases, descripciones, precios, variantes y stock',
+      'Páginas de información, menús y pie de página',
+      'Envíos y medios de pago configurados con tus cuentas',
+      'Revisión en celular, tablet y computadora antes de entregarla',
+      'Entrega por videollamada, con un repaso del panel',
+      'Transferencia de la tienda a tu nombre',
+      '30 días de soporte después de la entrega, para dudas y ajustes chicos',
+    ],
+    // Va debajo de la lista como "No incluye: …". Sin el verbo ni el punto.
+    excluye: 'el plan de Tiendanube, el dominio, las comisiones de pagos y envíos ni la producción de fotos',
+
+    // Lo que se usó en Lento (ver docs/AFIRMACIONES.md).
+    technologies: ['Tiendanube'],
+
+    cta: {
+      title:    '¿Querés vender con tu propia tienda?',
+      subtitle: 'Contanos qué vendés y cuántos productos tenés. Te decimos qué necesitamos para arrancar.',
+    },
+
+    // Lento no es de un cliente: es una tienda de ejemplo, y el texto lo dice.
+    prueba:     { slug: 'lento', texto: 'Mirá Lento, una tienda de ejemplo que armamos en Tiendanube' },
+    formulario: 'tiendanube',
+
+    seo: {
+      title:       'Armado de tiendas en Tiendanube',
+      description: 'Armamos tu tienda en Tiendanube con tu marca: diseño, carga de productos, envíos y medios de pago, revisada en celular y computadora.',
+    },
+
+    // Relaciones declaradas: ver src/data/related.js
+    relatedProjects: ['lento'],
+    relatedCategories: ['Tiendanube'],
+
+    en: {
+      title:       'Tiendanube Stores',
+      etiqueta:    'Certified Tiendanube Partners',
+      tagline:     'Your store set up, on-brand and ready to sell',
+      description: 'We set up your Tiendanube store with your brand: design, product upload, shipping, and payment methods. We hand it over working and show you how to use it.',
+
+      heroTitle:    'Setup and design of your Tiendanube store',
+      heroSubtitle: 'For businesses that want to sell online without building the store on their own: we design it with your brand, upload your products, and hand it over with shipping and payments working.',
+
+      problem: {
+        title: 'Having the account is not having the store',
+        body:  'Tiendanube gives you the platform, but building the store takes work: adapting the design to your brand, uploading every product with its photos and variants, setting up shipping and payment methods, and writing the pages that build trust. If it is left half-done, with the template’s placeholder text or a home page that does not look right on a phone, visitors find it hard to trust it and buy.',
+      },
+
+      benefits: [
+        { icon: '◇', title: 'On-brand, not on-template',  desc: 'We adapt the template to your colors, your typeface, and your logo, and prepare separate home page images for phones and computers.' },
+        { icon: '◈', title: 'Ready to sell',              desc: 'We hand it over with the products uploaded, shipping set up with its costs, and payment methods connected to your accounts.' },
+        { icon: '⬡', title: 'Checked on every screen',    desc: 'Before handing it over we review it on a phone, a tablet, and a computer, and fix anything that gets cut off or covered.' },
+        { icon: '✦', title: 'It is yours',                desc: 'When we finish, we transfer it to you: the store is in your name and you pay the plan directly to Tiendanube. On a video call we show you how to use the dashboard.' },
+      ],
+
+      features: [
+        'On-brand design on a Tiendanube template: colors, typeface, and logo',
+        'Home page slideshow and banners, in mobile and desktop versions',
+        'Upload of up to 30 products with the photos you send us, descriptions, prices, variants, and stock',
+        'Information pages, menus, and footer',
+        'Shipping and payment methods set up with your accounts',
+        'Review on a phone, a tablet, and a computer before handover',
+        'Handover on a video call, with a walkthrough of the dashboard',
+        'Store transferred to your name',
+        '30 days of support after handover, for questions and small adjustments',
+      ],
+      excluye: 'the Tiendanube plan, the domain, payment and shipping fees, or product photography',
+
+      cta: {
+        title:    'Want to sell from your own store?',
+        subtitle: 'Tell us what you sell and how many products you have. We will tell you what we need to get started.',
+      },
+
+      prueba: { slug: 'lento', texto: 'See Lento, an example store we built on Tiendanube' },
+
+      seo: {
+        title:       'Tiendanube Store Setup',
+        description: 'We set up your Tiendanube store with your brand: design, product upload, shipping, and payment methods, checked on mobile and desktop.',
+      },
+    },
+  },
+
   // ─────────────────────────────────────────────────────────────────
   {
     id: 'sistemas-web',

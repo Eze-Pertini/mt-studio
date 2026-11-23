@@ -11,7 +11,8 @@ import { WHATSAPP_NUMBER } from '@data/config'
 import RelatedLinks from '@components/ui/RelatedLinks'
 import ContactForm from '@components/ui/ContactForm'
 import WhatsAppIcon from '@components/ui/WhatsAppIcon'
-import { projects } from '@data/projects'
+import DeviceShowcase from '@components/ui/DeviceShowcase'
+import { projects, getProjectBySlug, localizeProject } from '@data/projects'
 import { useLanguage } from '@i18n/LanguageContext'
 import { t } from '@i18n/uiText'
 
@@ -32,6 +33,8 @@ export default function ServiceDetail() {
 
   const relatedProjects = getRelatedProjects(service, projects)
   const precios = preciosDe(service.slug, lang)
+  // Con heroProyecto, la columna derecha muestra sus capturas en vez de las tecnologías.
+  const heroProyecto = service.heroProyecto ? localizeProject(getProjectBySlug(service.heroProyecto), lang) : null
   // El mensaje precargado nombra el servicio: así se sabe de qué página vino la consulta.
   const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(sd('whatsappMsg')(service.title))}`
 
@@ -79,9 +82,10 @@ export default function ServiceDetail() {
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div>
               <FadeUp immediate delay={0.1}>
+                {/* Con `etiqueta`, la página muestra ese texto en lugar del nombre del servicio. */}
                 <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-pill text-xs font-medium mb-3 md:mb-4"
                      style={{ background: accentBg, border: `1px solid ${accentBorder}`, color: accentColor }}>
-                  {service.title}
+                  {service.etiqueta ?? service.title}
                 </div>
               </FadeUp>
 
@@ -119,12 +123,17 @@ export default function ServiceDetail() {
                     <ul className="flex flex-col gap-1" role="list">
                       {precios.paquetes.map((p) => (
                         <li key={p.nombre}>
-                          <span className="text-text-primary">{p.nombre}</span> {sd('priceFrom')}{' '}
-                          <span className="font-semibold text-text-primary">{p.monto}</span>
+                          {/* "desde $ 130.000" va junto: si no, en 360 px el "$" quedaba solo al final de la línea. */}
+                          <span className="text-text-primary">{p.nombre}</span>{' '}
+                          <span className="whitespace-nowrap">
+                            {sd('priceFrom')}{' '}
+                            <span className="font-semibold text-text-primary">{p.monto}</span>
+                          </span>
                         </li>
                       ))}
                     </ul>
                     {precios.incluye && <p className="mt-1 text-text-muted">{precios.incluye}</p>}
+                    {precios.nota && <p className="mt-1 text-text-muted text-pretty">{precios.nota}</p>}
                   </div>
                 </FadeUp>
               )}
@@ -151,25 +160,34 @@ export default function ServiceDetail() {
               </FadeUp>
             </div>
 
-            {/* Hero visual — tech stack pills */}
+            {/* Hero visual: las capturas de heroProyecto o, si no tiene, las tecnologías */}
             <SlideIn immediate direction="right" delay={0.2}>
-              <div className="hidden lg:flex flex-wrap gap-3 justify-center">
-                {service.technologies.map((tech, i) => (
-                  <motion.div
-                    key={tech}
-                    initial={{ opacity: 0, scale: 0.85 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: 0.3 + i * 0.07 }}
-                    className="px-4 py-2 rounded-pill text-sm font-medium text-text-secondary"
-                    style={{
-                      background: 'rgba(255,255,255,0.04)',
-                      border: '1px solid rgba(255,255,255,0.10)',
-                    }}
-                  >
-                    {tech}
-                  </motion.div>
-                ))}
-              </div>
+              {heroProyecto ? (
+                <div className="hidden lg:block">
+                  <DeviceShowcase laptop={heroProyecto} phone={heroProyecto}
+                                  laptopAlt={sd('heroLaptopAlt')(heroProyecto.title)}
+                                  phoneAlt={sd('heroPhoneAlt')(heroProyecto.title)}
+                                  laptopWidth="1600" laptopHeight="900" />
+                </div>
+              ) : (
+                <div className="hidden lg:flex flex-wrap gap-3 justify-center">
+                  {service.technologies.map((tech, i) => (
+                    <motion.div
+                      key={tech}
+                      initial={{ opacity: 0, scale: 0.85 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ delay: 0.3 + i * 0.07 }}
+                      className="px-4 py-2 rounded-pill text-sm font-medium text-text-secondary"
+                      style={{
+                        background: 'rgba(255,255,255,0.04)',
+                        border: '1px solid rgba(255,255,255,0.10)',
+                      }}
+                    >
+                      {tech}
+                    </motion.div>
+                  ))}
+                </div>
+              )}
             </SlideIn>
           </div>
         </div>
@@ -256,6 +274,13 @@ export default function ServiceDetail() {
                   </motion.li>
                 ))}
               </ul>
+              {/* Lo que cuesta de más y lo que no entra en el precio, para que no haya sorpresas después. */}
+              {(precios?.adicional || service.excluye) && (
+                <div className="mt-4 flex flex-col gap-2 text-sm text-text-muted leading-relaxed">
+                  {precios?.adicional && <p>{precios.adicional}</p>}
+                  {service.excluye && <p>{sd('excluye')}: {service.excluye}.</p>}
+                </div>
+              )}
             </FadeUp>
           </div>
         </div>

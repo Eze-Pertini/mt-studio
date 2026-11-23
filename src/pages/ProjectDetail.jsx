@@ -287,11 +287,13 @@ function StatusBadge({ status, lang }) {
     live:        t(lang, 'home.statusLive'),
     development: t(lang, 'home.statusDevelopment'),
     concept:     t(lang, 'home.statusConcept'),
+    ejemplo:     t(lang, 'home.statusExample'),
   }
   const config = {
     live:        { color: '#10B981', bg: 'rgba(16,185,129,0.12)', border: 'rgba(16,185,129,0.25)' },
     development: { color: '#F59E0B', bg: 'rgba(245,158,11,0.12)', border: 'rgba(245,158,11,0.25)' },
     concept:     { color: '#94A3B8', bg: 'rgba(148,163,184,0.12)', border: 'rgba(148,163,184,0.25)' },
+    ejemplo:     { color: '#A78BFA', bg: 'rgba(139,92,246,0.12)', border: 'rgba(139,92,246,0.25)' },
   }
   const c = config[status] ?? config.concept
   const label = labels[status] ?? labels.concept

@@ -5,7 +5,7 @@ Dos conversiones, para GA4 y, cuando exista la cuenta, para Google Ads:
 | Conversión | Evento de GA4 | Cuándo se dispara |
 |---|---|---|
 | Clic en WhatsApp | `whatsapp_click`, con el parámetro `cta` | Cualquier clic en un enlace a `wa.me`, sin importar el texto del botón |
-| Formulario enviado | `generate_lead`, con el parámetro `form_service` (el id de la opción elegida: `pagina-web`, `landing-page`, `tienda-online`, `sistema-a-medida`, `integracion-arca`, `mantenimiento`, `otro` o `sin_elegir`) | Cuando EmailJS respondió bien. Tocar el botón no cuenta |
+| Formulario enviado | `generate_lead`, con el parámetro `form_service` (el id de la opción elegida: `pagina-web`, `landing-page`, `tienda-online`, `tiendanube` (desde el 23/11/2026), `sistema-a-medida`, `integracion-arca`, `mantenimiento`, `otro` o `sin_elegir`) | Cuando EmailJS respondió bien. Tocar el botón no cuenta |
 
 ## Dónde está cada cosa
 

@@ -12,6 +12,10 @@
  *   incluye   lo que va con cualquiera de los paquetes, sin el verbo: la página
  *             arma "Incluye" o "Incluyen" según cuántos paquetes se vean.
  *             Es una promesa: tiene que ser cierta (docs/AFIRMACIONES.md).
+ *   nota      opcional: una frase que va debajo del precio, tal cual, en
+ *             { es, en }. Sirve para una promoción con fecha o si el precio es final.
+ *   adicional opcional: lo que cuesta de más, en { es, en }. No va en la primera
+ *             pantalla sino debajo de "Qué incluye", para que no la alargue.
  *
  * Si cambiás un precio, cambiá también el del anuncio en Google Ads: el
  * anuncio y la página tienen que decir lo mismo.
@@ -28,6 +32,23 @@ export const precios = {
     ],
     incluye: { es: 'dominio y alojamiento por 1 año', en: 'domain and hosting for 1 year' },
   },
+  // Precio de diciembre de 2026. El 1/1/2027 pasa a 150000 y la nota pierde
+  // la promoción: paso a paso en docs/PRECIOS.md.
+  'tiendanube': {
+    paquetes: [
+      { nombre: { es: 'Tienda de hasta 30 productos', en: 'Store with up to 30 products' }, desde: 130000 },
+    ],
+    //   es un espacio que no corta la línea: así "Factura C" y "$ 20.000"
+    // no quedan partidos en dos renglones.
+    nota: {
+      es: 'Precio de diciembre, para tiendas contratadas hasta el 31/12. Precio final, con Factura C.',
+      en: 'December price, for stores booked by December 31. Final price (Type C invoice).',
+    },
+    adicional: {
+      es: 'Cada 20 productos más, $ 20.000.',
+      en: 'Every 20 extra products, ARS 20,000.',
+    },
+  },
 }
 
 const SIMBOLO = {
@@ -42,6 +63,12 @@ for (const [slug, s] of Object.entries(precios)) {
   for (const p of s.paquetes) {
     if (p.desde !== null && !(Number.isInteger(p.desde) && p.desde > 0)) {
       throw new Error(`precios.js: el precio de "${p.nombre.es}" (${slug}) tiene que ser un número entero, sin puntos ni signos (ej. 250000)`)
+    }
+  }
+  for (const campo of ['nota', 'adicional']) {
+    const v = s[campo]
+    if (v && !(typeof v.es === 'string' && v.es && typeof v.en === 'string' && v.en)) {
+      throw new Error(`precios.js: "${campo}" de "${slug}" tiene que tener el texto en castellano (es) y en inglés (en)`)
     }
   }
 }
@@ -66,5 +93,7 @@ export function preciosDe(slug, lang) {
       ? `${texto.charAt(0).toUpperCase()}${texto.slice(1)} included.`
       : `${paquetes.length === 1 ? 'Incluye' : 'Incluyen'} ${texto}.`
   }
-  return { paquetes, incluye }
+  const nota = s.nota ? (en ? s.nota.en : s.nota.es) : null
+  const adicional = s.adicional ? (en ? s.adicional.en : s.adicional.es) : null
+  return { paquetes, incluye, nota, adicional }
 }

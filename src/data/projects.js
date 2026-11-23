@@ -152,6 +152,63 @@ We built it on Laravel 13 and PHP 8.4, with PostgreSQL, Redis, and Inertia + Rea
       services: ['Product & UI/UX design', 'Full Stack development', 'ARCA integration (WSFEv1)', 'Mercado Pago integration (OAuth)', 'Infrastructure & deployment'],
     },
   },
+
+  {
+    id: 3,
+    slug: 'lento',
+    title: 'Lento',
+    // Tienda de ejemplo, no de un cliente: lo dicen la etiqueta (status
+    // 'ejemplo') y los textos. Sin url ni texto largo: la tienda está protegida
+    // con contraseña y las capturas muestran el trabajo. Ver docs/AFIRMACIONES.md.
+    schemaType: 'CreativeWork',
+    seoTitle: 'Lento: tienda de ejemplo en Tiendanube',
+    seoDescription:
+      'Tienda de ejemplo que armamos en Tiendanube para una marca imaginaria de velas: diseño con la marca, 15 productos en 5 categorías y envíos configurados.',
+    tagline: 'Tienda de ejemplo en Tiendanube para una marca de velas',
+    description:
+      'Una tienda de ejemplo que armamos en Tiendanube para una marca imaginaria de velas y aromas: diseño con la marca, 15 productos en 5 categorías, páginas de información y envíos configurados. Los productos no están a la venta.',
+    category: 'Tiendanube',
+    tags: ['Tiendanube'],
+    year: 2026,
+    updatedAt: '2026-11-23',
+    status: 'ejemplo',
+    featured: false,
+    // Capturas del 23/11/2026, con la tienda publicada: portada a 1280 px de
+    // ancho, celular a 390 px, y la galería en 16:9. Son cuatro a propósito:
+    // con un número impar, la última queda sola en su fila.
+    image: '/projects/lento/cover.webp',
+    mobileImage: '/projects/lento/mobile.webp',
+    images: [
+      '/projects/lento/screen-1.webp',
+      '/projects/lento/screen-2.webp',
+      '/projects/lento/screen-3.webp',
+      '/projects/lento/screen-4.webp',
+    ],
+    color: '#B5653B',
+    accentColor: '#8B5CF6',
+    metrics: [
+      { label: 'Productos', value: '15' },
+      { label: 'Categorías', value: '5' },
+      { label: 'Tamaños de pantalla revisados', value: '7' },
+    ],
+    services: ['Diseño con la marca', 'Carga de productos', 'Envíos y páginas de información', 'Revisión en celular y computadora'],
+
+    // Relaciones declaradas: ver src/data/related.js
+    relatedServices: ['tiendanube'],
+
+    en: {
+      tagline: 'Example Tiendanube store for a candle brand',
+      description:
+        'An example store we built on Tiendanube for a made-up candle and home fragrance brand: brand design, 15 products in 5 categories, information pages, and shipping set up. The products are not for sale.',
+      category: 'Tiendanube',
+      metrics: [
+        { label: 'Products', value: '15' },
+        { label: 'Categories', value: '5' },
+        { label: 'Screen sizes checked', value: '7' },
+      ],
+      services: ['Brand design', 'Product upload', 'Shipping and information pages', 'Mobile and desktop review'],
+    },
+  },
 ]
 
 export const featuredProjects = projects.filter((p) => p.featured)

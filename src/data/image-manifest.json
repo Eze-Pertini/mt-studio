@@ -118,6 +118,91 @@
       }
     ]
   },
+  "/projects/lento/cover.webp": {
+    "width": 1600,
+    "variants": [
+      {
+        "width": 480,
+        "src": "/media/projects/lento/cover-480.5a108116.webp"
+      },
+      {
+        "width": 768,
+        "src": "/media/projects/lento/cover-768.472e2c32.webp"
+      },
+      {
+        "width": 1200,
+        "src": "/media/projects/lento/cover-1200.f7d3de35.webp"
+      }
+    ]
+  },
+  "/projects/lento/screen-1.webp": {
+    "width": 1600,
+    "variants": [
+      {
+        "width": 480,
+        "src": "/media/projects/lento/screen-1-480.4682558b.webp"
+      },
+      {
+        "width": 768,
+        "src": "/media/projects/lento/screen-1-768.73ba0e96.webp"
+      },
+      {
+        "width": 1200,
+        "src": "/media/projects/lento/screen-1-1200.49c9282b.webp"
+      }
+    ]
+  },
+  "/projects/lento/screen-2.webp": {
+    "width": 1600,
+    "variants": [
+      {
+        "width": 480,
+        "src": "/media/projects/lento/screen-2-480.0315a06d.webp"
+      },
+      {
+        "width": 768,
+        "src": "/media/projects/lento/screen-2-768.da26a54b.webp"
+      },
+      {
+        "width": 1200,
+        "src": "/media/projects/lento/screen-2-1200.226ad374.webp"
+      }
+    ]
+  },
+  "/projects/lento/screen-3.webp": {
+    "width": 1600,
+    "variants": [
+      {
+        "width": 480,
+        "src": "/media/projects/lento/screen-3-480.d6f3d6f0.webp"
+      },
+      {
+        "width": 768,
+        "src": "/media/projects/lento/screen-3-768.fd139ed3.webp"
+      },
+      {
+        "width": 1200,
+        "src": "/media/projects/lento/screen-3-1200.ca287093.webp"
+      }
+    ]
+  },
+  "/projects/lento/screen-4.webp": {
+    "width": 1600,
+    "variants": [
+      {
+        "width": 480,
+        "src": "/media/projects/lento/screen-4-480.b8528682.webp"
+      },
+      {
+        "width": 768,
+        "src": "/media/projects/lento/screen-4-768.ab61864d.webp"
+      },
+      {
+        "width": 1200,
+        "src": "/media/projects/lento/screen-4-1200.6defe902.webp"
+      }
+    ]
+  },
   "/img/founder.webp": {
     "width": 1254,
     "variants": [

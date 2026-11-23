@@ -269,7 +269,7 @@ export const services = [
       '30 días de soporte después de la entrega, para dudas y ajustes chicos',
     ],
     // Va debajo de la lista como "No incluye: …". Sin el verbo ni el punto.
-    excluye: 'el plan de Tiendanube, el dominio, las comisiones de pagos y envíos ni la producción de fotos',
+    excluye: 'el plan de Tiendanube, el dominio propio (es opcional: la tienda funciona con la dirección de Tiendanube), las comisiones de pagos y envíos ni la producción de fotos',
 
     // Lo que se usó en Lento (ver docs/AFIRMACIONES.md).
     technologies: ['Tiendanube'],
@@ -324,7 +324,7 @@ export const services = [
         'Store transferred to your name',
         '30 days of support after handover, for questions and small adjustments',
       ],
-      excluye: 'the Tiendanube plan, the domain, payment and shipping fees, or product photography',
+      excluye: 'the Tiendanube plan, your own domain (optional: the store works on its Tiendanube address), payment and shipping fees, or product photography',
 
       cta: {
         title:    'Want to sell from your own store?',

@@ -7,9 +7,9 @@ Cada grupo de anuncios va a la página de su servicio, nunca a la home.
 | Diseño web | https://mtstudio.dev/servicios/diseno-web | Diseño de páginas web y landing pages para tu negocio |
 | Landing page | La misma de diseño web | El mismo |
 | Tiendas online | https://mtstudio.dev/servicios/ecommerce | Tiendas online con Mercado Pago para tu negocio |
-| Sin grupo todavía | https://mtstudio.dev/servicios/tiendanube | Armado y diseño de tu tienda en Tiendanube |
+| Tiendanube | https://mtstudio.dev/servicios/tiendanube | Armado y diseño de tu tienda en Tiendanube |
 
-- **Tiendanube tiene página propia desde el 23/11/2026, pero no grupo de anuncios.** El grupo Tiendas online excluye "tiendanube" y "tienda nube" (ver [GOOGLE-ADS.md](GOOGLE-ADS.md)). Si se arma un grupo para Tiendanube, va a esta página, y esas negativas se sacan de la campaña o se dejan solo en el grupo de Tiendas online.
+- **Tiendanube tiene página propia desde el 23/11/2026 y grupo de anuncios desde el 24/11/2026**, creado en pausa (ver [GOOGLE-ADS.md](GOOGLE-ADS.md)). El grupo Tiendas online sigue excluyendo "tiendanube" y "tienda nube", para que esas búsquedas vayan al grupo Tiendanube.
 
 - **Landing page no tiene página propia** (decisión del 29/10/2026). Va como grupo aparte, con anuncios propios, a la página de diseño web: así se mide por separado sin mantener otra página. Si ese grupo convierte, se evalúa hacerle una.
 - **La integración con ARCA es solo orgánica:** no lleva grupo de anuncios.

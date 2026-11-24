@@ -4,6 +4,18 @@
 
 **Prendida el 9/11/2026 a las 13:00** desde la interfaz de Google Ads, según el historial de cambios de la cuenta.
 
+**Lectura del 24/11/2026**, con la API (v26), sin cambiar nada:
+- **Desde el 9/11:** 2.746 impresiones, 73 clics, $ 39.579 y **0 conversiones**.
+- **De dónde vinieron los clics:** 40 de los 73 vinieron de búsquedas de otras plataformas o de gente que se arma la página sola.
+  - "tienda negocio", una plataforma competidora, sumó 23 clics.
+  - El resto: "straw page", "adobe portfolio", "mitiendanube ingresar", "woocommerce", "emprende tienda" y "stan store".
+  - La concordancia de frase las tomó como "parecidas" a nuestras palabras clave.
+
+**Ese mismo día, con el OK de Ezequiel:**
+- 24 negativas nuevas en toda la campaña (ver [Negativas de toda la campaña](#negativas-de-toda-la-campaña)).
+- El presupuesto pasó de $ 2.500 a **$ 3.000 por día**.
+- Se creó el grupo **Tiendanube, en pausa** (ver más abajo). Lo prende Ezequiel cuando Google apruebe el anuncio.
+
 **Precios nuevos (10/11/2026):** landing desde $ 200.000 y sitio desde $ 350.000. Ese día, con el OK de Ezequiel, se cambiaron en la cuenta con la API y se leyeron de vuelta:
 
 - dos títulos y dos descripciones, en los grupos Diseño web y Landing page (ver [Anuncios](#anuncios));
@@ -12,7 +24,9 @@
 | Qué | ID en Google Ads |
 |---|---|
 | Campaña "MT Studio · Búsqueda · Prueba" | 24440068465 |
-| Presupuesto ($ 2.500 por día) | 16002570443 |
+| Presupuesto ($ 3.000 por día desde el 24/11/2026; antes, $ 2.500) | 16002570443 |
+| Grupo Tiendanube, creado en pausa el 24/11/2026 | 208068814451 |
+| Anuncio del grupo Tiendanube | 832512802716 |
 | Conversión "WhatsApp" | 7890932610 → `AW-18558070627/pkVmCIKn2LIdEOPelpFF` |
 | Conversión "Formulario enviado" | 7890932613 → `AW-18558070627/K_60CIWn2LIdEOPelpFF` |
 | "Vista de una página" | 7890770048, borrada |
@@ -20,7 +34,7 @@
 Se creó con la API y se comprobó leyéndola de vuelta. Coinciden la búsqueda sola, Argentina por presencia, el español, todos los días de 9 a 23, maximizar clics sin límite, las 34 negativas de la campaña, los 3 grupos con sus palabras clave y negativas, los 3 anuncios (en revisión de Google al crearse) y los 10 recursos.
 
 - Cuenta: **MTStudio.dev, 305-123-2135**, separada de la de Factu. Leída con la API el 5/11/2026: en pesos (ARS), zona horaria de Buenos Aires, etiquetado automático activado, habilitada y sin campañas.
-- API autorizada con el Gmail de Ezequiel, con el proyecto de Cloud `vocal-facet-338115` en nivel Explorer. La credencial y el permiso están en `C:\Users\epert\.google-ads\`, fuera del repo. Ese permiso vence a los 7 días mientras la app de Cloud siga en estado "Prueba": cuando venza, se autoriza de nuevo.
+- API autorizada con el Gmail de Ezequiel, con el proyecto de Cloud `vocal-facet-338115` en nivel Explorer. La credencial y el permiso están en `C:\Users\epert\.google-ads\`, fuera del repo. Ese permiso vence a los 7 días mientras la app de Cloud siga en estado "Prueba": cuando venza, se autoriza de nuevo. La última vez fue el 24/11/2026: hay que abrir una ventana de Google en la misma compu, que vuelve a una dirección local, y en el aviso "Google no verificó esta app" tocar Continuar.
 
 Qué página recibe cada grupo y por qué: [PAGINAS-DE-DESTINO.md](PAGINAS-DE-DESTINO.md). Qué se puede afirmar: [AFIRMACIONES.md](AFIRMACIONES.md).
 
@@ -43,7 +57,7 @@ Con el nivel Explorer la API no tiene el Planificador de palabras clave: los vol
 | Ubicación | Argentina, para los tres grupos, por **presencia**: personas que están o suelen estar ahí, no las que solo muestran interés |
 | Idioma | Español |
 | Horario | Todos los días, de 9 a 23 (hora de Buenos Aires, la de la cuenta) |
-| Presupuesto | **$ 2.500 por día**. Google puede gastar hasta el doble en un día, pero en el mes no más de 30,4 veces el diario: unos $ 76.000 |
+| Presupuesto | **$ 3.000 por día** desde el 24/11/2026 (antes, $ 2.500). Google puede gastar hasta el doble en un día, pero en el mes no más de 30,4 veces el diario: unos $ 91.000 |
 | Puja | Maximizar clics, **sin CPC máximo**, solo con el presupuesto diario, como en la cuenta de Factu (decisión del 5/11/2026). A los 3–5 días se revisa el CPC promedio: si pocos clics se llevan el presupuesto, se pone un límite. Maximizar conversiones, recién cuando haya conversiones acumuladas |
 | Etiquetado automático | Activado (lo necesitan GA4 y el gclid) |
 | Duración de la prueba | 4 semanas desde que se prende |
@@ -69,13 +83,24 @@ Grupo propio con la misma página: se mide aparte sin mantener otra página (dec
 
 - Frase: "tienda online con mercado pago", "tienda online para mi negocio", "diseño de tienda online", "desarrollo de tienda online", "crear tienda online para mi negocio", "armar tienda online", "página web con carrito de compras", "tienda online woocommerce", "ecommerce para pymes"
 - Exacta: [tienda online con mercado pago], [diseño de tienda online], [desarrollo de tienda online]
-- Negativas del grupo: tiendanube, "tienda nube", shopify, empretienda, "mercado libre", "mercado shops", mercadoshops. Quien busca una plataforma quiere armarla solo.
+- Negativas del grupo: tiendanube, "tienda nube", shopify, empretienda, "mercado libre", "mercado shops", mercadoshops. Quien busca una plataforma quiere armarla solo. Desde el 24/11/2026, "tiendanube" y "tienda nube" siguen acá para que esas búsquedas vayan al grupo Tiendanube y no compitan con este.
+
+### 4. Tiendanube → https://mtstudio.dev/servicios/tiendanube
+
+Creado **en pausa** el 24/11/2026, con el OK de Ezequiel. Lo prende él cuando Google apruebe el anuncio. La página existe desde el 23/11/2026; antes, estas búsquedas se excluían porque llevaban a tiendas a medida.
+
+- Frase: "diseñador tiendanube", "diseñador tienda nube", "diseño tiendanube", "diseño tienda nube", "diseño de tiendanube", "agencia tiendanube", "agencia tienda nube", "experto tiendanube", "experto en tiendanube", "partner tiendanube", "armado de tienda tiendanube", "armado tiendanube", "armado tienda nube"
+- Exacta: [diseñador tiendanube], [agencia tiendanube], [diseño tiendanube], [armado tiendanube]
+- Negativas del grupo, para quien busca su cuenta, la ayuda, los planes o los temas de la plataforma y no un servicio: login, ingresar, app, ayuda, soporte, plan, planes, comisión, comision, tema, temas, mitiendanube, "iniciar sesión", "iniciar sesion", "mi cuenta", "atención al cliente", "pago nube", "envío nube", "envio nube"
+- **La marca en el anuncio:** según la [política de marcas de Google Ads](https://support.google.com/adspolicy/answer/6118?hl=es-419), las marcas como palabras clave no se restringen. En el texto del anuncio se restringen solo si el titular presenta un reclamo o si el uso es engañoso. La página deja claro que el estudio arma tiendas en Tiendanube. Si Google rechaza el anuncio por la marca, se reemplaza "Tiendanube" en los títulos por "tienda online".
 
 ### Negativas de toda la campaña
 
 - **Aprender o hacerlo solo:** gratis, gratuita, gratuito, curso, cursos, aprender, tutorial, tutoriales, plantilla, plantillas, ejemplo, ejemplos, pdf, descargar, "qué es", "que es", cómo, como, html, css, canva, wix
 - **Buscar trabajo o estudiar:** empleo, empleos, trabajo, trabajos, sueldo, universidad, carrera
 - **No competir con Factu,** que tiene su propia cuenta: monotributo, monotributista, "factura c", facturador, "facturar mercado pago"
+- **Otras plataformas y armado propio** (24/11/2026, del informe de términos de búsqueda): "tienda negocio", tiendanegocio, mitiendanube, "nube tienda", "emprende tienda", pistacho, "stan store", emidica, "straw page", strawpage, carrd, cardd, readymag, portfolio, awwwards, siteinspire, motionsites, supahero, "google site", templates, themes, inspiration, examples y [woocommerce]. Esta última va en exacta para tapar la búsqueda "woocommerce" sola sin tapar la palabra clave "tienda online woocommerce". Antes de cargarlas se comprobó que ninguna tapa una de las 54 palabras clave de la campaña. Quedaron 58 negativas.
+- **Ojo con "factura c":** está en esta lista y el anuncio de Tiendanube dice "Precio Final con Factura C". La negativa tapa búsquedas, no textos de anuncios, así que no se pisan.
 
 Después de los primeros días se revisa el informe de **términos de búsqueda** y se agregan las negativas que hagan falta, con el OK de Ezequiel.
 
@@ -157,7 +182,35 @@ Ruta visible: mtstudio.dev/tienda-online
 | Manejá productos, stock y pedidos desde tu panel. Respondemos dentro de 24 horas. | 81 |
 | Escribinos por WhatsApp o dejá tu consulta en la página. Respondemos dentro de 24 horas. | 88 |
 
-**No verificado:** si Google acepta "Mercado Pago" en el texto del anuncio. Es una marca de terceros y puede tener restricciones. Si lo rechaza, se reemplaza por "pagos online".
+**No verificado:** si Google acepta "Mercado Pago" en el texto del anuncio. Es una marca de terceros y puede tener restricciones. Si lo rechaza, se reemplaza por "pagos online". El anuncio de Tiendas online quedó aprobado (leído el 24/11/2026).
+
+#### Tiendanube
+
+Ruta visible: mtstudio.dev/tiendanube/precios
+
+| Título | Caracteres |
+|---|---|
+| Armado y Diseño Tiendanube | 26 |
+| Tu Tienda en Tiendanube | 23 |
+| Diseño de Tiendas Tiendanube | 28 |
+| Desde $130.000 en Diciembre | 27 |
+| Entrega en 5 Días Hábiles | 25 |
+| Precio Final con Factura C | 26 |
+| Partners Certificados | 21 |
+| Hasta 30 Productos Cargados | 27 |
+| 30 Días de Soporte | 18 |
+| Lista para Vender | 17 |
+| Escribinos por WhatsApp | 23 |
+| Pedí tu Presupuesto | 19 |
+
+| Descripción | Caracteres |
+|---|---|
+| Armamos tu tienda en Tiendanube con tu marca: diseño, productos, envíos y medios de pago. | 89 |
+| Precio de diciembre: $130.000 hasta 30 productos, para tiendas contratadas hasta el 31/12. | 90 |
+| Entrega en 5 días hábiles desde que tenemos tu material. Precio final, con Factura C. | 85 |
+| Escribinos por WhatsApp o dejá tu consulta en la página. Respondemos dentro de 24 horas. | 88 |
+
+**El 1/1/2027 termina el precio de diciembre**, el mismo día que cambia la página (ver [PRECIOS.md](PRECIOS.md)). En el anuncio cambian el título "Desde $130.000 en Diciembre" y la descripción "Precio de diciembre: …".
 
 ## Recursos
 
@@ -166,6 +219,7 @@ Ruta visible: mtstudio.dev/tienda-online
   - **El grupo Tiendas online tiene los suyos:** "Respondemos en 24 horas" y "Atención por WhatsApp". Se agregaron el 5/11/2026 con el OK de Ezequiel, porque /servicios/ecommerce no muestra precios ni dice que incluya dominio y hosting.
   - Según la [ayuda de Google Ads](https://support.google.com/google-ads/answer/6079510?hl=es-419), si un grupo tiene textos destacados propios, sus anuncios usan esos "en lugar de" los de la campaña. La versión en inglés agrega que con uno solo en el grupo ya no sale ninguno de la campaña. La versión en castellano tiene además una frase que dice lo contrario, así que conviene mirar los primeros anuncios de tiendas que se publiquen.
   - Si se suma a la campaña un texto destacado que también valga para tiendas, hay que agregarlo al grupo.
+  - **El grupo Tiendanube tiene cinco propios** (24/11/2026), para que no salgan "Precios desde $200.000" ni "Dominio y hosting 1 año", que en Tiendanube no corresponden: "Entrega en 5 Días Hábiles", "Precio Final, Factura C", "30 Días de Soporte", "Respondemos en 24 horas" y "Atención por WhatsApp". Los dos últimos reusan los recursos que ya existían en la cuenta.
 - **Fragmento estructurado** (Servicios): Páginas web, Landing pages, Tiendas online
 
 ## Conversiones

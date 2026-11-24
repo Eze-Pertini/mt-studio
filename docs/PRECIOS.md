@@ -20,7 +20,7 @@ En `precios.js`, en `tiendanube`:
 
 1. `desde: 130000` pasa a `desde: 150000`.
 2. La `nota` pierde la promoción: `es: 'Precio final, con Factura C.'` y `en: 'Final price (Type C invoice).'`
-3. El mismo día: las publicaciones de Instagram y los anuncios que muestren el precio de diciembre.
+3. El mismo día: las publicaciones de Instagram y los anuncios que muestren el precio de diciembre. En Google Ads, el grupo Tiendanube tiene el título "Desde $130.000 en Diciembre" y la descripción "Precio de diciembre: …" (ver [GOOGLE-ADS.md](GOOGLE-ADS.md)). También la imagen del presupuesto, en `Downloads\mtstudio-tiendanube\presupuesto\`.
 
 El ` ` es un espacio que no corta la línea, para que "Factura C" no quede partido en dos renglones.
 

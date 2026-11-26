@@ -203,6 +203,143 @@
       }
     ]
   },
+  "/projects/toom/antes-ficha.webp": {
+    "width": 780,
+    "variants": [
+      {
+        "width": 480,
+        "src": "/media/projects/toom/antes-ficha-480.e428b248.webp"
+      },
+      {
+        "width": 768,
+        "src": "/media/projects/toom/antes-ficha-768.f093cec9.webp"
+      }
+    ]
+  },
+  "/projects/toom/antes-grilla.webp": {
+    "width": 780,
+    "variants": [
+      {
+        "width": 480,
+        "src": "/media/projects/toom/antes-grilla-480.e8e719ab.webp"
+      },
+      {
+        "width": 768,
+        "src": "/media/projects/toom/antes-grilla-768.749cc05a.webp"
+      }
+    ]
+  },
+  "/projects/toom/cover.webp": {
+    "width": 1600,
+    "variants": [
+      {
+        "width": 480,
+        "src": "/media/projects/toom/cover-480.809c9f3e.webp"
+      },
+      {
+        "width": 768,
+        "src": "/media/projects/toom/cover-768.289f959e.webp"
+      },
+      {
+        "width": 1200,
+        "src": "/media/projects/toom/cover-1200.ff0ebf0c.webp"
+      }
+    ]
+  },
+  "/projects/toom/despues-ficha.webp": {
+    "width": 780,
+    "variants": [
+      {
+        "width": 480,
+        "src": "/media/projects/toom/despues-ficha-480.1398f2c5.webp"
+      },
+      {
+        "width": 768,
+        "src": "/media/projects/toom/despues-ficha-768.a2c1726f.webp"
+      }
+    ]
+  },
+  "/projects/toom/despues-grilla.webp": {
+    "width": 780,
+    "variants": [
+      {
+        "width": 480,
+        "src": "/media/projects/toom/despues-grilla-480.0cdfcc7f.webp"
+      },
+      {
+        "width": 768,
+        "src": "/media/projects/toom/despues-grilla-768.1f780710.webp"
+      }
+    ]
+  },
+  "/projects/toom/screen-1.webp": {
+    "width": 1600,
+    "variants": [
+      {
+        "width": 480,
+        "src": "/media/projects/toom/screen-1-480.189c7221.webp"
+      },
+      {
+        "width": 768,
+        "src": "/media/projects/toom/screen-1-768.b240a703.webp"
+      },
+      {
+        "width": 1200,
+        "src": "/media/projects/toom/screen-1-1200.600bc62a.webp"
+      }
+    ]
+  },
+  "/projects/toom/screen-2.webp": {
+    "width": 1600,
+    "variants": [
+      {
+        "width": 480,
+        "src": "/media/projects/toom/screen-2-480.b051485b.webp"
+      },
+      {
+        "width": 768,
+        "src": "/media/projects/toom/screen-2-768.4529b490.webp"
+      },
+      {
+        "width": 1200,
+        "src": "/media/projects/toom/screen-2-1200.e25b1b08.webp"
+      }
+    ]
+  },
+  "/projects/toom/screen-3.webp": {
+    "width": 1600,
+    "variants": [
+      {
+        "width": 480,
+        "src": "/media/projects/toom/screen-3-480.0d80766e.webp"
+      },
+      {
+        "width": 768,
+        "src": "/media/projects/toom/screen-3-768.e00c4e90.webp"
+      },
+      {
+        "width": 1200,
+        "src": "/media/projects/toom/screen-3-1200.bb3ccaa2.webp"
+      }
+    ]
+  },
+  "/projects/toom/screen-4.webp": {
+    "width": 1600,
+    "variants": [
+      {
+        "width": 480,
+        "src": "/media/projects/toom/screen-4-480.4ea52b98.webp"
+      },
+      {
+        "width": 768,
+        "src": "/media/projects/toom/screen-4-768.f03f3391.webp"
+      },
+      {
+        "width": 1200,
+        "src": "/media/projects/toom/screen-4-1200.a1eca94a.webp"
+      }
+    ]
+  },
   "/img/founder.webp": {
     "width": 1254,
     "variants": [

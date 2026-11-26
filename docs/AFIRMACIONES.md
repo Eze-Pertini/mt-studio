@@ -32,6 +32,7 @@
 | "Partners certificados de Tiendanube": Ezequiel completó la Certificación Base del Programa de Partners de Tiendanube y la cuenta de socio está aprobada | `services.js`: tiendanube (`etiqueta`) | Certificado del 23/11/2026, en PDF; aprobación confirmada por Ezequiel | 23/11/2026 |
 | Tiendas en Tiendanube, qué incluye: diseño con la marca sobre una plantilla de Tiendanube, carrusel y banners para celular y computadora, carga de hasta 30 productos con las fotos del cliente, páginas de información, menús y pie, envíos y medios de pago con las cuentas del cliente, revisión en celular, tablet y computadora, entrega por videollamada, transferencia de la tienda y 30 días de soporte. No incluye el plan de Tiendanube, el dominio propio (opcional: la tienda funciona con la dirección gratis de Tiendanube, como `lentovelas.mitiendanube.com`), las comisiones de pagos y envíos ni la producción de fotos | `services.js`: tiendanube (`features`, `benefits`, `excluye`) | Ezequiel | 23/11/2026 |
 | Lento: tienda de ejemplo de una marca imaginaria, con los productos que no están a la venta; 15 productos en 5 categorías; 7 tamaños de pantalla revisados, de 320 a 1920 px | `projects.js`: lento; `services.js`: tiendanube (`prueba`) | Contado en la tienda publicada y medido con Playwright | 23/11/2026 |
+| TooM: tienda de ejemplo de una marca imaginaria de ropa, con los productos que no están a la venta y opiniones de ejemplo; 4 productos, 76 combinaciones de color y talle, 40 fotos de producto; estampas y fotos hechas por el estudio (las estampas, aplicadas sobre fotos de banco); revisada en celular (390 px) y computadora (1280 y 1366 px) | `projects.js`: toom (`description`, `metrics`, `services`, `beforeAfter`) | Contado en la tienda con el conector de Tiendanube (productos, variantes y fotos) y medido con Playwright | 26/11/2026 |
 | Guía de facturación: **todavía dice** que al monotributista se le emite Factura B. Según la RG 5003/2021, vigente desde el 1/7/2021, el responsable inscripto le emite A | `blog.js`: facturacion-electronica-afip-para-independientes | RG 5003/2021 | **Pendiente: corregir cuando lo confirme el contador** |
 
 ### Cuidado con los créditos de Factu
@@ -43,6 +44,15 @@ En tufactu.app los packs dicen "No vencen*", con la nota "*Créditos válidos po
 ### Lento es una tienda de ejemplo
 
 La prueba de la primera pantalla tiene que ser un proyecto en producción. La única excepción es la página de Tiendas en Tiendanube: su prueba es Lento, una tienda de ejemplo que no es de un cliente. Por eso cada texto que la nombra dice "de ejemplo", la ficha del portfolio lleva la etiqueta "Tienda de ejemplo" en lugar de "En vivo", y no enlaza a la tienda, que está protegida con contraseña. Cuando haya una tienda de un cliente publicada, pasa a ser la prueba.
+
+### TooM también es una tienda de ejemplo
+
+TooM es la segunda tienda de ejemplo, con la etiqueta "Tienda de ejemplo" igual que Lento. A diferencia de Lento, la tienda no lleva avisos de ejemplo (Ezequiel la muestra así a los clientes) y tiene opiniones y estrellas inventadas. Por eso:
+
+- La ficha del portfolio **no enlaza a la tienda**: quien entre desde el sitio no tendría cómo saber que las opiniones son de ejemplo.
+- Cada texto que menciona las opiniones dice "de ejemplo", también el del antes y después, porque **las capturas también afirman** (muestran "4,9 (64)" y similares).
+- El antes es del 25/11/2026, con la plantilla Baires como viene y los productos ya cargados; el después, del 26/11/2026. En el medio se creó la promoción por cantidad: por eso el buzo dice "-10% OFF" en el antes y "Hasta 15% OFF" en el después. Si se vuelven a sacar, hay que mantener esa aclaración o sacar las dos en el mismo estado.
+- Las fotos de producto se armaron con las estampas del estudio aplicadas sobre fotos de banco: el sitio dice "armamos las fotos de producto", no que hicimos una sesión de fotos.
 
 ### Partners de Tiendanube
 

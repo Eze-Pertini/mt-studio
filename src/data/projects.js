@@ -209,6 +209,97 @@ We built it on Laravel 13 and PHP 8.4, with PostgreSQL, Redis, and Inertia + Rea
       services: ['Brand design', 'Product upload', 'Shipping and information pages', 'Mobile and desktop review'],
     },
   },
+
+  {
+    id: 4,
+    slug: 'toom',
+    title: 'TooM',
+    // Tienda de ejemplo, como Lento: etiqueta 'ejemplo' y textos que lo dicen.
+    // Sin url: la tienda no lleva avisos de ejemplo (se muestra así a los
+    // clientes) y tiene opiniones de ejemplo, así que no se enlaza desde acá.
+    // Ver docs/AFIRMACIONES.md.
+    schemaType: 'CreativeWork',
+    seoTitle: 'TooM: tienda de ejemplo en Tiendanube con fichas trabajadas',
+    seoDescription:
+      'Tienda de ejemplo de ropa urbana en Tiendanube: fotos con estampas propias, 76 combinaciones de color y talle, y fichas con promos y opiniones de ejemplo.',
+    tagline: 'Tienda de ejemplo en Tiendanube para una marca de ropa urbana',
+    description:
+      'Una tienda de ejemplo que armamos en Tiendanube para una marca imaginaria de ropa urbana: diseñamos las estampas y armamos las fotos de producto, cargamos 4 prendas en 76 combinaciones de color y talle, y trabajamos las fichas con promo por cantidad, fecha de entrega estimada y opiniones de ejemplo. Los productos no están a la venta.',
+    category: 'Tiendanube',
+    tags: ['Tiendanube', 'Google Tag Manager'],
+    year: 2026,
+    updatedAt: '2026-11-26',
+    status: 'ejemplo',
+    featured: false,
+    // Capturas del 26/11/2026 con la tienda publicada: portada y galería a
+    // 1280 px de ancho (1600x900), celular a 390 px. El antes y después son
+    // recortes de un celular de 390 px: el antes, del 25/11, con la plantilla
+    // como viene y los productos ya cargados.
+    image: '/projects/toom/cover.webp',
+    mobileImage: '/projects/toom/mobile.webp',
+    images: [
+      '/projects/toom/screen-1.webp',
+      '/projects/toom/screen-2.webp',
+      '/projects/toom/screen-3.webp',
+      '/projects/toom/screen-4.webp',
+    ],
+    beforeAfter: {
+      intro:
+        'La misma tienda en un celular: a la izquierda, la plantilla Baires como viene con los productos cargados; a la derecha, con nuestro trabajo. Las estrellas y las opiniones son de ejemplo.',
+      antes: 'Baires estándar',
+      despues: 'Con MT Studio',
+      pares: [
+        { titulo: 'La grilla de productos', antes: '/projects/toom/antes-grilla.webp', despues: '/projects/toom/despues-grilla.webp' },
+        { titulo: 'La ficha de producto', antes: '/projects/toom/antes-ficha.webp', despues: '/projects/toom/despues-ficha.webp' },
+      ],
+    },
+    color: '#FF5A1F',
+    accentColor: '#8B5CF6',
+    metrics: [
+      { label: 'Productos', value: '4' },
+      { label: 'Combinaciones de color y talle', value: '76' },
+      { label: 'Fotos de producto', value: '40' },
+    ],
+    services: [
+      'Estampas y fotos de producto',
+      'Diseño con la marca',
+      'Carga de productos y guía de talles',
+      'Fichas con promos, entrega estimada y opiniones de ejemplo',
+      'Revisión en celular y computadora',
+    ],
+
+    // Relaciones declaradas: ver src/data/related.js
+    relatedServices: ['tiendanube'],
+
+    en: {
+      tagline: 'Example Tiendanube store for a streetwear brand',
+      description:
+        'An example store we built on Tiendanube for a made-up streetwear brand: we designed the prints and put together the product photos, loaded 4 garments in 76 color and size combinations, and worked on the product pages with a quantity discount, an estimated delivery date, and example reviews. The products are not for sale.',
+      category: 'Tiendanube',
+      beforeAfter: {
+        intro:
+          'The same store on a phone: on the left, the stock Baires theme with the products loaded; on the right, with our work. The stars and reviews are examples.',
+        antes: 'Stock Baires',
+        despues: 'With MT Studio',
+        pares: [
+          { titulo: 'The product grid', antes: '/projects/toom/antes-grilla.webp', despues: '/projects/toom/despues-grilla.webp' },
+          { titulo: 'The product page', antes: '/projects/toom/antes-ficha.webp', despues: '/projects/toom/despues-ficha.webp' },
+        ],
+      },
+      metrics: [
+        { label: 'Products', value: '4' },
+        { label: 'Color and size combinations', value: '76' },
+        { label: 'Product photos', value: '40' },
+      ],
+      services: [
+        'Prints and product photos',
+        'Brand design',
+        'Product upload and size guide',
+        'Product pages with promos, delivery estimate and example reviews',
+        'Mobile and desktop review',
+      ],
+    },
+  },
 ]
 
 export const featuredProjects = projects.filter((p) => p.featured)

@@ -31,6 +31,11 @@ export default function ProjectDetail() {
     ...(project.image  ? [project.image]  : []),
     ...(project.images ? project.images   : []),
   ]
+  // El antes y después también se amplía: van al final del visor, en orden
+  // (antes, después) por cada par.
+  const beforeAfter = project.beforeAfter?.pares?.length > 0 ? project.beforeAfter : null
+  const beforeAfterStart = allImages.length
+  if (beforeAfter) beforeAfter.pares.forEach((par) => allImages.push(par.antes, par.despues))
 
   const openLightbox  = useCallback((index) => setLightboxIndex(index), [])
   const closeLightbox = useCallback(() => setLightboxIndex(null), [])
@@ -168,6 +173,49 @@ export default function ProjectDetail() {
         </section>
       )}
 
+      {/* Antes y después: capturas de celular lado a lado, la plantilla como
+          viene contra nuestro trabajo. Siempre en dos columnas: son angostas
+          y compararlas una debajo de la otra no se entiende. */}
+      {beforeAfter && (
+        <section className="py-16" aria-labelledby="antes-despues">
+          <div className="container-custom">
+            <FadeUp>
+              <div className="max-w-2xl mx-auto text-center mb-10">
+                <h2 id="antes-despues" className="text-display-sm font-bold text-text-primary mb-3">{pd('beforeAfterHeading')}</h2>
+                <p className="text-text-secondary leading-relaxed">{beforeAfter.intro}</p>
+              </div>
+            </FadeUp>
+            <div className="grid gap-12 lg:grid-cols-2 lg:gap-10">
+              {beforeAfter.pares.map((par, i) => (
+                <FadeUp key={par.titulo} delay={i * 0.08}>
+                  <figure className="max-w-xl mx-auto">
+                    <figcaption className="text-base font-semibold text-text-primary text-center mb-4">{par.titulo}</figcaption>
+                    <div className="grid grid-cols-2 gap-3 sm:gap-5">
+                      <PhoneShot
+                        src={par.antes}
+                        etapa={pd('beforeLabel')}
+                        detalle={beforeAfter.antes}
+                        alt={`${par.titulo}, ${pd('beforeLabel').toLowerCase()}: ${beforeAfter.antes}`}
+                        onClick={() => openLightbox(beforeAfterStart + i * 2)}
+                      />
+                      <PhoneShot
+                        src={par.despues}
+                        etapa={pd('afterLabel')}
+                        detalle={beforeAfter.despues}
+                        alt={`${par.titulo}, ${pd('afterLabel').toLowerCase()}: ${beforeAfter.despues}`}
+                        onClick={() => openLightbox(beforeAfterStart + i * 2 + 1)}
+                        destacado
+                        color={project.color}
+                      />
+                    </div>
+                  </figure>
+                </FadeUp>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Long description */}
       {project.longDescription && (
         <section className="py-16">
@@ -279,6 +327,41 @@ function GalleryImage({ src, alt, onClick, wide = false, priority = false }) {
         </div>
       </div>
     </button>
+  )
+}
+
+// Captura de celular (390x844) con su etiqueta arriba. La de "después" lleva
+// el color del proyecto para que se distinga sin leer.
+function PhoneShot({ src, etapa, detalle, alt, onClick, destacado = false, color }) {
+  // Dos por fila dentro de una columna de hasta 576px: cada una ocupa casi
+  // la mitad del ancho en teléfono y unos 280px en pantallas grandes.
+  const img = responsiveImage(src, '(max-width: 640px) 46vw, 280px')
+  return (
+    <div className="flex flex-col items-center gap-2.5 min-w-0">
+      {/* En teléfono la columna mide unos 130px: la etiqueta va en dos
+          renglones; desde sm, en uno con el punto en el medio. */}
+      <span
+        className={`max-w-full text-center leading-tight text-[11px] sm:text-xs font-semibold px-2.5 py-1
+                    rounded-xl sm:rounded-pill ${destacado ? '' : 'text-text-muted'}`}
+        style={destacado
+          ? { background: `${color}1F`, border: `1px solid ${color}55`, color }
+          : { background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.12)' }}
+      >
+        <span className="block sm:inline">{etapa}</span>
+        <span className="hidden sm:inline" aria-hidden="true"> · </span>
+        <span className="block sm:inline font-medium">{detalle}</span>
+      </span>
+      <button
+        onClick={onClick}
+        className="block w-full overflow-hidden rounded-[1.1rem] sm:rounded-[1.4rem] border border-white/10 bg-white p-0
+                   hover:border-violet-500/30 transition-all duration-300 cursor-pointer
+                   focus-visible:ring-2 focus-visible:ring-violet-400"
+        aria-label={`Ampliar: ${alt}`}
+      >
+        <img src={img.src} srcSet={img.srcSet} sizes={img.sizes} alt={alt} width="390" height="844" loading="lazy"
+             className="block w-full h-auto aspect-[390/844] object-cover object-top" />
+      </button>
+    </div>
   )
 }
 

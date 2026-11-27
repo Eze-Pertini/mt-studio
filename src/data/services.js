@@ -261,6 +261,11 @@ export const services = [
       'Diseño con tu marca sobre una plantilla de Tiendanube: colores, letra y logo',
       'Carrusel de portada y banners, en versión celular y computadora',
       'Carga de hasta 30 productos con las fotos que nos pases, descripciones, precios, variantes y stock',
+      // Lo que se ve en TooM y Lento. Necesita un plan pago: el script de las
+      // fichas va por Google Tag Manager, que el plan Inicial no tiene. Sin
+      // estrellas: en una tienda real salen de opiniones de compradores reales.
+      // Ver docs/AFIRMACIONES.md.
+      'Tarjetas y fichas de producto trabajadas: etiquetas en color, precio sin centavos, cuánto ahorrás, promo destacada y fecha estimada de entrega (con un plan pago de Tiendanube)',
       'Páginas de información, menús y pie de página',
       'Envíos y medios de pago configurados con tus cuentas',
       'Revisión en celular, tablet y computadora antes de entregarla',
@@ -318,6 +323,7 @@ export const services = [
         'On-brand design on a Tiendanube template: colors, typeface, and logo',
         'Home page slideshow and banners, in mobile and desktop versions',
         'Upload of up to 30 products with the photos you send us, descriptions, prices, variants, and stock',
+        'Worked-on product cards and pages: color labels, prices without cents, how much shoppers save, highlighted promos, and an estimated delivery date (on a paid Tiendanube plan)',
         'Information pages, menus, and footer',
         'Shipping and payment methods set up with your accounts',
         'Review on a phone, a tablet, and a computer before handover',

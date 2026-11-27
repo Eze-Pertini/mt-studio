@@ -118,20 +118,72 @@
       }
     ]
   },
+  "/projects/lento/antes-ficha.webp": {
+    "width": 780,
+    "variants": [
+      {
+        "width": 480,
+        "src": "/media/projects/lento/antes-ficha-480.872361ad.webp"
+      },
+      {
+        "width": 768,
+        "src": "/media/projects/lento/antes-ficha-768.2fdb7049.webp"
+      }
+    ]
+  },
+  "/projects/lento/antes-grilla.webp": {
+    "width": 780,
+    "variants": [
+      {
+        "width": 480,
+        "src": "/media/projects/lento/antes-grilla-480.c9fa4bac.webp"
+      },
+      {
+        "width": 768,
+        "src": "/media/projects/lento/antes-grilla-768.2e45f28d.webp"
+      }
+    ]
+  },
   "/projects/lento/cover.webp": {
     "width": 1600,
     "variants": [
       {
         "width": 480,
-        "src": "/media/projects/lento/cover-480.5a108116.webp"
+        "src": "/media/projects/lento/cover-480.0aacacd5.webp"
       },
       {
         "width": 768,
-        "src": "/media/projects/lento/cover-768.472e2c32.webp"
+        "src": "/media/projects/lento/cover-768.138b2167.webp"
       },
       {
         "width": 1200,
-        "src": "/media/projects/lento/cover-1200.f7d3de35.webp"
+        "src": "/media/projects/lento/cover-1200.df74e5b7.webp"
+      }
+    ]
+  },
+  "/projects/lento/despues-ficha.webp": {
+    "width": 780,
+    "variants": [
+      {
+        "width": 480,
+        "src": "/media/projects/lento/despues-ficha-480.609155ef.webp"
+      },
+      {
+        "width": 768,
+        "src": "/media/projects/lento/despues-ficha-768.bd99ddd1.webp"
+      }
+    ]
+  },
+  "/projects/lento/despues-grilla.webp": {
+    "width": 780,
+    "variants": [
+      {
+        "width": 480,
+        "src": "/media/projects/lento/despues-grilla-480.a0b9995c.webp"
+      },
+      {
+        "width": 768,
+        "src": "/media/projects/lento/despues-grilla-768.1e02ce23.webp"
       }
     ]
   },
@@ -140,15 +192,15 @@
     "variants": [
       {
         "width": 480,
-        "src": "/media/projects/lento/screen-1-480.4682558b.webp"
+        "src": "/media/projects/lento/screen-1-480.9c181ae7.webp"
       },
       {
         "width": 768,
-        "src": "/media/projects/lento/screen-1-768.73ba0e96.webp"
+        "src": "/media/projects/lento/screen-1-768.7f207ca7.webp"
       },
       {
         "width": 1200,
-        "src": "/media/projects/lento/screen-1-1200.49c9282b.webp"
+        "src": "/media/projects/lento/screen-1-1200.2c3452b7.webp"
       }
     ]
   },
@@ -157,15 +209,15 @@
     "variants": [
       {
         "width": 480,
-        "src": "/media/projects/lento/screen-2-480.0315a06d.webp"
+        "src": "/media/projects/lento/screen-2-480.dbbaf72d.webp"
       },
       {
         "width": 768,
-        "src": "/media/projects/lento/screen-2-768.da26a54b.webp"
+        "src": "/media/projects/lento/screen-2-768.a0cff4ed.webp"
       },
       {
         "width": 1200,
-        "src": "/media/projects/lento/screen-2-1200.226ad374.webp"
+        "src": "/media/projects/lento/screen-2-1200.610474f1.webp"
       }
     ]
   },
@@ -174,15 +226,15 @@
     "variants": [
       {
         "width": 480,
-        "src": "/media/projects/lento/screen-3-480.d6f3d6f0.webp"
+        "src": "/media/projects/lento/screen-3-480.0395d538.webp"
       },
       {
         "width": 768,
-        "src": "/media/projects/lento/screen-3-768.fd139ed3.webp"
+        "src": "/media/projects/lento/screen-3-768.266063be.webp"
       },
       {
         "width": 1200,
-        "src": "/media/projects/lento/screen-3-1200.ca287093.webp"
+        "src": "/media/projects/lento/screen-3-1200.ac345ec2.webp"
       }
     ]
   },
@@ -191,15 +243,15 @@
     "variants": [
       {
         "width": 480,
-        "src": "/media/projects/lento/screen-4-480.b8528682.webp"
+        "src": "/media/projects/lento/screen-4-480.db6c166c.webp"
       },
       {
         "width": 768,
-        "src": "/media/projects/lento/screen-4-768.ab61864d.webp"
+        "src": "/media/projects/lento/screen-4-768.0e674568.webp"
       },
       {
         "width": 1200,
-        "src": "/media/projects/lento/screen-4-1200.6defe902.webp"
+        "src": "/media/projects/lento/screen-4-1200.dcf59d76.webp"
       }
     ]
   },

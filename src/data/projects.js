@@ -158,24 +158,27 @@ We built it on Laravel 13 and PHP 8.4, with PostgreSQL, Redis, and Inertia + Rea
     slug: 'lento',
     title: 'Lento',
     // Tienda de ejemplo, no de un cliente: lo dicen la etiqueta (status
-    // 'ejemplo') y los textos. Sin url ni texto largo: la tienda está protegida
-    // con contraseña y las capturas muestran el trabajo. Ver docs/AFIRMACIONES.md.
+    // 'ejemplo') y los textos. Sin url: desde el 26/11/2026 la tienda no lleva
+    // avisos de ejemplo y tiene opiniones de ejemplo, igual que TooM, así que no
+    // se enlaza desde acá. Ver docs/AFIRMACIONES.md.
     schemaType: 'CreativeWork',
     seoTitle: 'Lento: tienda de ejemplo en Tiendanube',
     seoDescription:
-      'Tienda de ejemplo que armamos en Tiendanube para una marca imaginaria de velas: diseño con la marca, 15 productos en 5 categorías y envíos configurados.',
+      'Tienda de ejemplo que armamos en Tiendanube para una marca imaginaria de velas: diseño con la marca, 15 productos en 5 categorías y fichas con promos y opiniones de ejemplo.',
     tagline: 'Tienda de ejemplo en Tiendanube para una marca de velas',
     description:
-      'Una tienda de ejemplo que armamos en Tiendanube para una marca imaginaria de velas y aromas: diseño con la marca, 15 productos en 5 categorías, páginas de información y envíos configurados. Los productos no están a la venta.',
+      'Una tienda de ejemplo que armamos en Tiendanube para una marca imaginaria de velas y aromas: diseño con la marca, 15 productos en 5 categorías, páginas de información y envíos configurados, y fichas trabajadas con promo 3x2, fecha de entrega estimada y opiniones de ejemplo. Los productos no están a la venta.',
     category: 'Tiendanube',
     tags: ['Tiendanube'],
     year: 2026,
-    updatedAt: '2026-11-23',
+    updatedAt: '2026-11-27',
     status: 'ejemplo',
     featured: false,
-    // Capturas del 23/11/2026, con la tienda publicada: portada a 1280 px de
-    // ancho, celular a 390 px, y la galería en 16:9. Son cuatro a propósito:
-    // con un número impar, la última queda sola en su fila.
+    // Capturas del 27/11/2026, con la tienda publicada: portada a 1280 px de
+    // ancho, celular a 390 px, y la galería en 16:9 (la primera, tres celulares).
+    // Son cuatro a propósito: con un número impar, la última queda sola en su
+    // fila. El antes es la plantilla Ipanema de fábrica con los mismos productos
+    // y la misma promo, capturada en un borrador el 26/11/2026.
     image: '/projects/lento/cover.webp',
     mobileImage: '/projects/lento/mobile.webp',
     images: [
@@ -184,6 +187,16 @@ We built it on Laravel 13 and PHP 8.4, with PostgreSQL, Redis, and Inertia + Rea
       '/projects/lento/screen-3.webp',
       '/projects/lento/screen-4.webp',
     ],
+    beforeAfter: {
+      intro:
+        'La misma tienda en un celular: a la izquierda, la plantilla Ipanema como viene con los productos cargados; a la derecha, con nuestro trabajo. Las estrellas y las opiniones son de ejemplo.',
+      antes: 'Ipanema estándar',
+      despues: 'Con MT Studio',
+      pares: [
+        { titulo: 'La grilla de productos', antes: '/projects/lento/antes-grilla.webp', despues: '/projects/lento/despues-grilla.webp' },
+        { titulo: 'La ficha de producto', antes: '/projects/lento/antes-ficha.webp', despues: '/projects/lento/despues-ficha.webp' },
+      ],
+    },
     color: '#B5653B',
     accentColor: '#8B5CF6',
     metrics: [
@@ -191,7 +204,13 @@ We built it on Laravel 13 and PHP 8.4, with PostgreSQL, Redis, and Inertia + Rea
       { label: 'Categorías', value: '5' },
       { label: 'Tamaños de pantalla revisados', value: '7' },
     ],
-    services: ['Diseño con la marca', 'Carga de productos', 'Envíos y páginas de información', 'Revisión en celular y computadora'],
+    services: [
+      'Diseño con la marca',
+      'Carga de productos',
+      'Envíos y páginas de información',
+      'Fichas con promos, entrega estimada y opiniones de ejemplo',
+      'Revisión en celular y computadora',
+    ],
 
     // Relaciones declaradas: ver src/data/related.js
     relatedServices: ['tiendanube'],
@@ -199,14 +218,30 @@ We built it on Laravel 13 and PHP 8.4, with PostgreSQL, Redis, and Inertia + Rea
     en: {
       tagline: 'Example Tiendanube store for a candle brand',
       description:
-        'An example store we built on Tiendanube for a made-up candle and home fragrance brand: brand design, 15 products in 5 categories, information pages, and shipping set up. The products are not for sale.',
+        'An example store we built on Tiendanube for a made-up candle and home fragrance brand: brand design, 15 products in 5 categories, information pages and shipping set up, and product pages worked on with a buy-3-pay-2 offer, an estimated delivery date, and example reviews. The products are not for sale.',
       category: 'Tiendanube',
+      beforeAfter: {
+        intro:
+          'The same store on a phone: on the left, the stock Ipanema theme with the products loaded; on the right, with our work. The stars and reviews are examples.',
+        antes: 'Stock Ipanema',
+        despues: 'With MT Studio',
+        pares: [
+          { titulo: 'The product grid', antes: '/projects/lento/antes-grilla.webp', despues: '/projects/lento/despues-grilla.webp' },
+          { titulo: 'The product page', antes: '/projects/lento/antes-ficha.webp', despues: '/projects/lento/despues-ficha.webp' },
+        ],
+      },
       metrics: [
         { label: 'Products', value: '15' },
         { label: 'Categories', value: '5' },
         { label: 'Screen sizes checked', value: '7' },
       ],
-      services: ['Brand design', 'Product upload', 'Shipping and information pages', 'Mobile and desktop review'],
+      services: [
+        'Brand design',
+        'Product upload',
+        'Shipping and information pages',
+        'Product pages with promos, delivery estimate and example reviews',
+        'Mobile and desktop review',
+      ],
     },
   },
 
